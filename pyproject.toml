@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "pyCheckpoint"
+version = "0.1.0"
+description = "A python SDK for the Checkpoint firewalls"
+authors = ["LmR <letmer00t@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+documentation = ""
+homepage = ""
+repository = ""
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules", ]
+include = [
+    "LICENSE",
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = ""
+
+[tool.poetry.dependencies]
+python = "^3.9"
+restfly = "^1.4.6"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+requests = "^2.28.0"
+pre-commit = "^2.19.0"
+responses = "^0.21.0"
+toml = "^0.10.2"
+furo = "^2022.6.21"
+Sphinx = "^5.0.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pylint.'MESSAGES CONTROL']
+disable=[
+    "format",
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "too-many-public-methods",
+    "anomalous-backslash-in-string",
+    "import-error",
+    "redefined-outer-name",
+]
+
+[tool.pylint.'FORMAT']
+max-line-length = 127
+
+[tool.isort]
+profile = "black"
