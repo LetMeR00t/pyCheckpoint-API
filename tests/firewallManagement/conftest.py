@@ -33,7 +33,7 @@ def firewallManagement(session):
         username="test@example.com",
         password="false_strong_password",
         hostname="127.0.0.1",
-        port="443",
+        port=443,
         version="1.5",
     )
 

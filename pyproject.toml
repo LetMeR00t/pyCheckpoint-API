@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyCheckpoint"
-version = "0.1.0"
+version = "0.2.0"
 description = "A python SDK for the Checkpoint firewalls"
 authors = ["LmR <letmer00t@gmail.com>"]
 license = "MIT"
@@ -39,6 +39,8 @@ toml = "^0.10.2"
 furo = "^2022.6.21"
 Sphinx = "^5.0.2"
 pytest = "^7.1.2"
+flake8 = "^4.0.1"
+black = {version = "^22.6.0", allow-prereleases = true}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

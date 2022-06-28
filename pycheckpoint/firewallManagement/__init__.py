@@ -1,12 +1,11 @@
-import os
-
 from box import Box
 from restfly.session import APISession
 
 from pycheckpoint import __version__
 
 from .session import SessionAPI
-from .exception import MandatoryFieldMissing
+
+from pycheckpoint.utils import sanitize_value
 
 
 class FirewallManagementAPI(APISession):
@@ -30,13 +29,22 @@ class FirewallManagementAPI(APISession):
     _env_base = "CHECKPOINT_FIREWALL"
 
     def __init__(self, **kw):
-        self._username = kw.get("username", os.getenv(f"{self._env_base}_USERNAME"))
-        if self._username is None:
-            raise MandatoryFieldMissing("username")
-        self._password = kw.get("password", os.getenv(f"{self._env_base}_PASSWORD"))
-        self._hostname = kw.get("hostname", os.getenv(f"{self._env_base}_HOSTNAME"))
-        self._port = kw.get("port", os.getenv(f"{self._env_base}_PORT"))
-        self._version = kw.get("version", os.getenv(f"{self._env_base}_VERSION"))
+        self._username = sanitize_value(
+            field="username", type=str, is_mandatory=False, **kw
+        )
+        self._password = sanitize_value(
+            field="password", type=str, is_mandatory=False, **kw
+        )
+        self._api_key = sanitize_value(
+            field="api-key", type=str, is_mandatory=False, **kw
+        )
+        self._hostname = sanitize_value(
+            field="hostname", type=str, is_mandatory=True, **kw
+        )
+        self._port = sanitize_value(field="port", type=int, is_mandatory=True, **kw)
+        self._version = sanitize_value(
+            field="version", type=str, is_mandatory=True, **kw
+        )
         self._url = f"https://{self._hostname}:{self._port}/web_api/v{self._version}"
         self.conv_box = True
         super(FirewallManagementAPI, self).__init__(**kw)
@@ -44,14 +52,14 @@ class FirewallManagementAPI(APISession):
     def _build_session(self, **kwargs) -> Box:
         """Creates a Firewall Management API session."""
         super(FirewallManagementAPI, self)._build_session(**kwargs)
-        resp = self.session.create(**kwargs)
+        resp = self.session.login(**kwargs)
         self._session.headers.update({"X-chkp-sid": resp["sid"]})
         return resp
 
     def _deauthenticate(self):
         """Ends the authentication session."""
         self._session.headers.update({"X-chkp-sid": None})
-        return self.session.delete()
+        return self.session.logout()
 
     @property
     def session(self):
