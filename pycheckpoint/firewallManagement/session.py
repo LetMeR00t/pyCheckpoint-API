@@ -70,9 +70,9 @@ class SessionAPI(APIEndpoint):
             "session-timeout": int,
         }
         for field, type in secondary_parameters.items():
-            payload[field] = sanitize_value(
-                field=field, type=type, is_mandatory=False, **kw
-            )
+            value = sanitize_value(field=field, type=type, is_mandatory=False, **kw)
+            if value is not None:
+                payload[field] = value
 
         return self._post("login", json=payload)
 
@@ -261,8 +261,8 @@ class SessionAPI(APIEndpoint):
             "ignore-errors": bool,
         }
         for field, type in secondary_parameters.items():
-            payload[field] = sanitize_value(
-                field=field, type=type, is_mandatory=False, **kw
-            )
+            value = sanitize_value(field=field, type=type, is_mandatory=False, **kw)
+            if value is not None:
+                payload[field] = value
 
         return self._post("set-session", json=payload)
