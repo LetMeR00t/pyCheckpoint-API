@@ -1,5 +1,5 @@
 from box import Box
-from requests import Response
+from typing import Union
 from restfly.endpoint import APIEndpoint
 
 from .exception import MandatoryFieldMissing
@@ -71,22 +71,22 @@ class SessionAPI(APIEndpoint):
             "session-timeout": int,
         }
         for field, type in secondary_parameters.items():
-            value = sanitize_value(field=field, type=type, is_mandatory=False, **kw)
+            value = sanitize_value(field=field, t=type, is_mandatory=False, **kw)
             if value is not None:
                 payload[field] = value
 
         return self._post("login", json=payload)
 
-    def logout(self) -> Response:
+    def logout(self) -> Box:
         """
         Ends an authentication session.
 
         Returns:
-            :obj:`Response`: The response from the server
+            :obj:`Box`: The response from the server
         Examples:
             >>> firewallManagementApi.session.delete()
         """
-        return self._post("logout", box=False)
+        return self._post("logout")
 
     def publish(self, uid: str = None) -> Box:
         """
@@ -124,16 +124,16 @@ class SessionAPI(APIEndpoint):
 
         return self._post("discard", json=payload)
 
-    def disconnect(self) -> Response:
+    def disconnect(self) -> Box:
         """
         Disconnect a private session.
 
         Returns:
-            :obj:`Response`: The response from the server
+            :obj:`Box`: The response from the server
         Examples:
             >>> firewallManagementApi.session.disconnect()
         """
-        return self._post("disconnect", box=False)
+        return self._post("disconnect")
 
     def keepalive(self) -> Box:
         """
@@ -223,7 +223,7 @@ class SessionAPI(APIEndpoint):
         self,
         description: str = None,
         new_name: str = None,
-        tags: list[str] = None,
+        tags: Union[dict, str, list[str]] = None,
         **kw
     ) -> Box:
         """
@@ -255,13 +255,11 @@ class SessionAPI(APIEndpoint):
         payload = {}
         # Main request parameters
         if description is not None:
-            payload["description"] = sanitize_value(
-                kw.get("description", None), type=str
-            )
+            payload["description"] = sanitize_value(kw.get("description", None), t=str)
         if new_name is not None:
-            payload["new-name"] = sanitize_value(kw.get("new_name", None), type=str)
+            payload["new-name"] = sanitize_value(kw.get("new_name", None), t=str)
         if tags is not None:
-            payload["tags"] = sanitize_value(kw.get("tags", None), type=list[str])
+            payload["tags"] = sanitize_value(kw.get("tags", None), t=list[str])
 
         # Secondary parameters
         secondary_parameters = {
@@ -272,7 +270,7 @@ class SessionAPI(APIEndpoint):
             "ignore-errors": bool,
         }
         for field, type in secondary_parameters.items():
-            value = sanitize_value(field=field, type=type, is_mandatory=False, **kw)
+            value = sanitize_value(field=field, t=type, is_mandatory=False, **kw)
             if value is not None:
                 payload[field] = value
 
@@ -362,7 +360,7 @@ class SessionAPI(APIEndpoint):
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
-        order: list[str] = None,
+        order: list[dict] = None,
         view_published_sessions: bool = False,
         **kw
     ) -> Box:
@@ -376,7 +374,7 @@ class SessionAPI(APIEndpoint):
             he search involves both a IP search and a textual search in name, comment, tags etc.
             limit (int): The maximal number of returned results. Default to 50 (between 1 and 500)
             offset (int): Number of the results to initially skip. Default to 0
-            order (list[str]): Sorts results by the given field. By default the results are sorted in the
+            order (list[dict]): Sorts results by the given field. By default the results are sorted in the
             descending order by the session publish time.
             view_published_sessions (bool): Show a list of published sessions. Default to False
         Returns:
@@ -401,7 +399,7 @@ class SessionAPI(APIEndpoint):
         # Secondary parameters
         secondary_parameters = {"details-level": str}
         for field, type in secondary_parameters.items():
-            value = sanitize_value(field=field, type=type, is_mandatory=False, **kw)
+            value = sanitize_value(field=field, t=type, is_mandatory=False, **kw)
             if value is not None:
                 payload[field] = value
 
@@ -456,7 +454,7 @@ class SessionAPI(APIEndpoint):
         # Secondary parameters
         secondary_parameters = {"details-level": str}
         for field, type in secondary_parameters.items():
-            value = sanitize_value(field=field, type=type, is_mandatory=False, **kw)
+            value = sanitize_value(field=field, t=type, is_mandatory=False, **kw)
             if value is not None:
                 payload[field] = value
 
@@ -497,7 +495,7 @@ class SessionAPI(APIEndpoint):
         # Secondary parameters
         secondary_parameters = {"details-level": str}
         for field, type in secondary_parameters.items():
-            value = sanitize_value(field=field, type=type, is_mandatory=False, **kw)
+            value = sanitize_value(field=field, t=type, is_mandatory=False, **kw)
             if value is not None:
                 payload[field] = value
 

@@ -1,5 +1,4 @@
 from box import Box
-import requests
 import responses
 import pytest
 
@@ -63,9 +62,7 @@ def test_logout(firewallManagement):
 
     resp = firewallManagement.session.logout()
 
-    assert isinstance(resp, requests.Response)
-    assert resp.status_code == 200
-    assert resp.json()["message"] == "OK"
+    assert resp.message == "OK"
 
 
 @responses.activate
@@ -110,7 +107,7 @@ def test_disconnect(firewallManagement):
 
     resp = firewallManagement.session.disconnect()
 
-    assert resp.json()["message"] == "OK"
+    assert resp.message == "OK"
 
 
 @responses.activate

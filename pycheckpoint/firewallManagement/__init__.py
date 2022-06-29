@@ -4,6 +4,7 @@ from restfly.session import APISession
 from pycheckpoint import __version__
 
 from .session import SessionAPI
+from .network import NetworkAPI
 
 from pycheckpoint.utils import sanitize_value
 
@@ -30,22 +31,20 @@ class FirewallManagementAPI(APISession):
 
     def __init__(self, **kw):
         self._username = sanitize_value(
-            field="username", type=str, is_mandatory=False, **kw
+            field="username", t=str, is_mandatory=False, **kw
         )
         self._password = sanitize_value(
-            field="password", type=str, is_mandatory=False, **kw
+            field="password", t=str, is_mandatory=False, **kw
         )
-        self._api_key = sanitize_value(
-            field="api-key", type=str, is_mandatory=False, **kw
-        )
+        self._api_key = sanitize_value(field="api-key", t=str, is_mandatory=False, **kw)
         self._hostname = sanitize_value(
-            field="hostname", type=str, is_mandatory=True, **kw
+            field="hostname", t=str, is_mandatory=True, **kw
         )
-        self._port = sanitize_value(field="port", type=int, is_mandatory=True, **kw)
-        self._version = sanitize_value(
-            field="version", type=str, is_mandatory=True, **kw
-        )
-        self._url = f"https://{self._hostname}:{self._port}/web_api/v{self._version}"
+        self._port = sanitize_value(field="port", t=int, is_mandatory=True, **kw)
+        self._version = sanitize_value(field="version", t=str, is_mandatory=True, **kw)
+        self._url = f"https://{self._hostname}:{self._port}/web_api"
+        if self._version not in ["1.6", "1.6.1", "1.7", "1.7.1", "1.8", "1.9"]:
+            self._url += f"/v{self._version}"
         self.conv_box = True
         super(FirewallManagementAPI, self).__init__(**kw)
 
@@ -63,5 +62,10 @@ class FirewallManagementAPI(APISession):
 
     @property
     def session(self):
-        """The interface object for the :ref:`ZIA Authenticated Session interface <zia-session>`."""
+        """The interface object for the Session Management."""
         return SessionAPI(self)
+
+    @property
+    def network(self):
+        """The interface object for the Network Management."""
+        return NetworkAPI(self)
