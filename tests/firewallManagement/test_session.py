@@ -214,3 +214,226 @@ def test_set_session(firewallManagement):
     )
 
     assert resp.uid == "7a13a360-9b24-40d7-acd3-5b50247be33e"
+
+
+@responses.activate
+def test_purge_published_sessions(firewallManagement):
+    resp_purge_published_sessions = {"task-id": "01234567-89ab-cdef-a930-8c37a59972b3"}
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/purge-published-sessions",
+        json=resp_purge_published_sessions,
+        status=200,
+    )
+
+    resp = firewallManagement.session.purge_published_sessions(
+        number_of_sessions_to_preserve=5
+    )
+
+    assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"
+
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.session.purge_published_sessions()
+
+
+@responses.activate
+def test_switch_session(firewallManagement):
+    # Not all parameters from the response are tested here
+    resp_switch_session = {
+        "name": "CustomName",
+        "uid": "7a13a360-9b24-40d7-acd3-5b50247be33e",
+    }
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/switch-session",
+        json=resp_switch_session,
+        status=200,
+    )
+
+    resp = firewallManagement.session.switch_session(
+        uid="7a13a360-9b24-40d7-acd3-5b50247be33e"
+    )
+
+    assert resp.uid == "7a13a360-9b24-40d7-acd3-5b50247be33e"
+
+
+@responses.activate
+def test_take_over_session(firewallManagement):
+    # Not all parameters from the response are tested here
+    resp_take_over_session = {
+        "name": "CustomName",
+        "uid": "7a13a360-9b24-40d7-acd3-5b50247be33e",
+    }
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/take-over-session",
+        json=resp_take_over_session,
+        status=200,
+    )
+
+    resp = firewallManagement.session.take_over_session(
+        uid="7a13a360-9b24-40d7-acd3-5b50247be33e"
+    )
+
+    assert resp.uid == "7a13a360-9b24-40d7-acd3-5b50247be33e"
+
+
+@responses.activate
+def test_show_sessions(firewallManagement):
+    # Not all parameters from the response are tested here
+    resp_show_sessions = {
+        "from": 1,
+        "to": 3,
+        "total": 3,
+        "objects": [
+            "01f83a11-179a-405a-971a-50c58368f415",
+            "27aabb7e-263a-4161-b822-0e0078c72e06",
+            "2b486864-1356-4b66-ae6b-6eda09821955",
+        ],
+    }
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/show-sessions",
+        json=resp_show_sessions,
+        status=200,
+    )
+
+    resp = firewallManagement.session.show_sessions()
+
+    assert isinstance(resp.total, int)
+
+
+@responses.activate
+def test_continue_session_in_smartconsole(firewallManagement):
+    resp_continue_session_in_smartconsole = {"message": "OK"}
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/continue-session-in-smartconsole",
+        json=resp_continue_session_in_smartconsole,
+        status=200,
+    )
+
+    resp = firewallManagement.session.continue_session_in_smartconsole()
+
+    assert resp.message == "OK"
+
+
+@responses.activate
+def test_show_last_published_session(firewallManagement):
+    # Not all parameters from the response are tested here
+    resp_show_last_published_session = {
+        "name": "CustomName",
+        "uid": "7a13a360-9b24-40d7-acd3-5b50247be33e",
+    }
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/show-last-published-session",
+        json=resp_show_last_published_session,
+        status=200,
+    )
+
+    resp = firewallManagement.session.show_last_published_session()
+
+    assert resp.uid == "7a13a360-9b24-40d7-acd3-5b50247be33e"
+
+
+@responses.activate
+def test_show_login_message(firewallManagement):
+    resp_show_login_message = {
+        "type": "A",
+        "header": "B",
+        "message": "C",
+        "show-message": True,
+        "warning": True,
+    }
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/show-login-message",
+        json=resp_show_login_message,
+        status=200,
+    )
+
+    resp = firewallManagement.session.show_login_message()
+
+    assert resp.message == "C"
+
+
+@responses.activate
+def test_set_login_message(firewallManagement):
+    resp_set_login_message = {
+        "type": "A",
+        "header": "D",
+        "message": "C",
+        "show-message": True,
+        "warning": True,
+    }
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/set-login-message",
+        json=resp_set_login_message,
+        status=200,
+    )
+
+    resp = firewallManagement.session.set_login_message(header="D")
+
+    assert resp.header == "D"
+
+
+@responses.activate
+def test_set_automatic_purge(firewallManagement):
+    resp_set_automatic_purge = {
+        "enabled": True,
+        "keep-sessions-by-count": True,
+        "number-of-sessions-to-keep": "10",
+        "keep-sessions-by-days": False,
+        "number-of-days-to-keep": "0",
+        "scheduling": {
+            "check-interval": 21,
+            "time-units": "days",
+            "start-date": "2020-04-24T12:00:00",
+            "last-check": "",
+            "next-check": "2020-04-24T12:00:00",
+        },
+    }
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/set-automatic-purge",
+        json=resp_set_automatic_purge,
+        status=200,
+    )
+
+    resp = firewallManagement.session.set_automatic_purge(
+        enabled=True, number_of_sessions_to_keep=10
+    )
+
+    assert resp.enabled is True
+    assert resp.number_of_sessions_to_keep == "10"
+
+
+@responses.activate
+def test_show_automatic_purge(firewallManagement):
+    resp_show_automatic_purge = {
+        "enabled": True,
+        "keep-sessions-by-count": True,
+        "number-of-sessions-to-keep": "10",
+        "keep-sessions-by-days": False,
+        "number-of-days-to-keep": "0",
+        "scheduling": {
+            "check-interval": 21,
+            "time-units": "days",
+            "start-date": "2020-04-24T12:00:00",
+            "last-check": "",
+            "next-check": "2020-04-24T12:00:00",
+        },
+    }
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/show-automatic-purge",
+        json=resp_show_automatic_purge,
+        status=200,
+    )
+
+    resp = firewallManagement.session.show_automatic_purge()
+
+    assert resp.enabled is True
+    assert resp.number_of_sessions_to_keep == "10"

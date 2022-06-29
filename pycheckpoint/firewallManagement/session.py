@@ -14,6 +14,7 @@ class SessionAPI(APIEndpoint):
         """
         Creates a Firewall Management authentication session. You should authenticate using either a
         username/password or by using an API key.
+
         Args:
             username (str): Username of admin user for the authentication session. You must specify "password" too.
             password (str): Password of the admin user for the authentication session. You must specify "username" too.
@@ -79,6 +80,7 @@ class SessionAPI(APIEndpoint):
     def logout(self) -> Response:
         """
         Ends an authentication session.
+
         Returns:
             :obj:`Response`: The response from the server
         Examples:
@@ -89,6 +91,7 @@ class SessionAPI(APIEndpoint):
     def publish(self, uid: str = None) -> Box:
         """
         All the changes done by this user will be seen by all users only after publish is called.
+
         Args:
             uid (str): Session unique identifier. Specify it to publish a different session than the one you currently use.
         Returns:
@@ -106,6 +109,7 @@ class SessionAPI(APIEndpoint):
     def discard(self, uid: str = None) -> Box:
         """
         All changes done by user are discarded and removed from database.
+
         Args:
             uid (str): Session unique identifier. Specify it to publish a different session than the one you currently use.
         Returns:
@@ -123,6 +127,7 @@ class SessionAPI(APIEndpoint):
     def disconnect(self) -> Response:
         """
         Disconnect a private session.
+
         Returns:
             :obj:`Response`: The response from the server
         Examples:
@@ -133,6 +138,7 @@ class SessionAPI(APIEndpoint):
     def keepalive(self) -> Box:
         """
         Keep the session valid/alive.
+
         Returns:
             :obj:`Response`: The response from the server
         Examples:
@@ -143,6 +149,7 @@ class SessionAPI(APIEndpoint):
     def revert_to_revision(self, to_session: str = None) -> Box:
         """
         Revert the Management Database to the selected revision.
+
         Args:
             to_session (str): Session unique identifier. Specify the session id you would like to revert your database to.
         Returns:
@@ -160,6 +167,7 @@ class SessionAPI(APIEndpoint):
     def verify_revert(self, to_session: str) -> Box:
         """
         Verify the Management Database can revert to the selected revision.
+
         Args:
             to_session (str): Session unique identifier. Specify the session id you would like to revert your database to.
         Returns:
@@ -178,6 +186,7 @@ class SessionAPI(APIEndpoint):
         """
         Login from MDS to other domain.
         This command is available only after logging in to the System Data domain.
+
         Args:
             domain (str): Domain identified by the name or UID.
         Returns:
@@ -195,6 +204,7 @@ class SessionAPI(APIEndpoint):
     def show_session(self, uid: str = None) -> Box:
         """
         Show session.
+
         Args:
             uid (str): Session unique identifier.
         Returns:
@@ -218,6 +228,7 @@ class SessionAPI(APIEndpoint):
     ) -> Box:
         """
         Edit user's current session.
+
         Args:
             description (str): Session description.
             new_name (str): New name of the object.
@@ -266,3 +277,289 @@ class SessionAPI(APIEndpoint):
                 payload[field] = value
 
         return self._post("set-session", json=payload)
+
+    def purge_published_sessions(
+        self, number_of_sessions_to_preserve: int = None, preserve_to_date: str = None
+    ) -> Box:
+        """
+        Permanently deletes all data which belongs to the published sessions not selected for preservation.
+        This operation is irreversible.
+
+        Args:
+            number_of_sessions_to_preserve (int): The number of newest sessions to preserve, by the sessions's publish date.
+            Required if "preserve_to_date" is not set.
+            preserve_to_date (str): The date until which sessions are preserved, by the sessions's publish date. ISO 8601.
+            If timezone isn't specified in the input, the Management server's timezone is used. Required if
+            "number_of_sessions_to_preserve" is not set.
+        Returns:
+            :obj:`Box`: The response from the server
+        Examples:
+            >>> firewallManagementApi.session.purge_published_sessions(number_of_sessions_to_preserve=1)
+        """
+
+        payload = {}
+        if number_of_sessions_to_preserve is not None:
+            payload["number-of-sessions-to-preserve"] = number_of_sessions_to_preserve
+        elif preserve_to_date is not None:
+            payload["preserve-to-date"] = preserve_to_date
+        else:
+            raise MandatoryFieldMissing(
+                "number_of_sessions_to_preserve or preserve_to_date"
+            )
+
+        return self._post("purge-published-sessions", json=payload)
+
+    def switch_session(self, uid: str) -> Box:
+        """
+        Switch to a disconnected Management API session of the same administrator.
+        To switch to an open session or to a session of a different administrator use the take-over session API.
+
+        Args:
+            uid (str): Session unique identifier. It should belong to the current administrator.
+            Switching to the sessions opened in SmartConsole is not supported.
+        Returns:
+            :obj:`Box`: The response from the server
+        Examples:
+            >>> firewallManagementApi.session.switch_session(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
+        """
+
+        payload = {}
+        if uid is not None:
+            payload["uid"] = uid
+        else:
+            raise MandatoryFieldMissing("uid")
+
+        return self._post("switch-session", json=payload)
+
+    def take_over_session(
+        self, uid: str, disconnect_active_session: bool = False
+    ) -> Box:
+        """
+        Take ownership of another session and start working on it.
+
+        Args:
+            uid (str): Session unique identifier.
+            disconnect-active-session (bool): Allows taking over of an active session,
+            currently executed by another administrator. Default is False
+        Returns:
+            :obj:`Box`: The response from the server
+        Examples:
+            >>> firewallManagementApi.session.take_over_session(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
+        """
+
+        payload = {}
+        if uid is not None:
+            payload["uid"] = uid
+        else:
+            raise MandatoryFieldMissing("uid")
+        if disconnect_active_session is not False:
+            payload["disconnect-active-session"] = True
+
+        return self._post("take-over-session", json=payload)
+
+    def show_sessions(
+        self,
+        filter: str = None,
+        limit: int = 50,
+        offset: int = 0,
+        order: list[str] = None,
+        view_published_sessions: bool = False,
+        **kw
+    ) -> Box:
+        """
+        Retrieve all objects.
+
+        Args:
+            filter (str): Search expression to filter objects by.
+            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.
+            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.
+            he search involves both a IP search and a textual search in name, comment, tags etc.
+            limit (int): The maximal number of returned results. Default to 50 (between 1 and 500)
+            offset (int): Number of the results to initially skip. Default to 0
+            order (list[str]): Sorts results by the given field. By default the results are sorted in the
+            descending order by the session publish time.
+            view_published_sessions (bool): Show a list of published sessions. Default to False
+        Returns:
+            :obj:`Box`: The response from the server
+        Examples:
+            >>> firewallManagementApi.session.switch_session(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
+        """
+
+        # Main request parameters
+        payload = {}
+        if filter is not None:
+            payload["filter"] = filter
+        if limit is not None:
+            payload["limit"] = limit
+        if offset is not None:
+            payload["offset"] = offset
+        if order is not None:
+            payload["order"] = order
+        if view_published_sessions is not False:
+            payload["view-published-sessions"] = True
+
+        # Secondary parameters
+        secondary_parameters = {"details-level": str}
+        for field, type in secondary_parameters.items():
+            value = sanitize_value(field=field, type=type, is_mandatory=False, **kw)
+            if value is not None:
+                payload[field] = value
+
+        return self._post("show-sessions", json=payload)
+
+    def continue_session_in_smartconsole(self, uid: str = None) -> Box:
+        """
+        Logout from existing session. The session will be continued next time your open SmartConsole.
+        In case 'uid' is not provided, use current session. In order for the session to pass successfully to SmartConsole,
+        make sure you don't have any other active GUI sessions.
+
+        Args:
+            uid (str): Session unique identifier.
+        Returns:
+            :obj:`Box`: The response from the server
+        Examples:
+            >>> firewallManagementApi.session.continue_session_in_smartconsole(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
+        """
+
+        payload = {}
+        if uid is not None:
+            payload["uid"] = uid
+
+        return self._post("continue-session-in-smartconsole", json=payload)
+
+    def show_last_published_session(self) -> Box:
+        """
+        Shows the last published session.
+
+        Args:
+        Returns:
+            :obj:`Box`: The response from the server
+        Examples:
+            >>> firewallManagementApi.session.show_last_published_session()
+        """
+
+        return self._post("show-last-published-session", json={})
+
+    def show_login_message(self, **kw) -> Box:
+        """
+        Retrieve existing object using object name or uid.
+
+        Args:
+        Returns:
+            :obj:`Box`: The response from the server
+        Examples:
+            >>> firewallManagementApi.session.show_login_message()
+        """
+
+        payload = {}
+
+        # Secondary parameters
+        secondary_parameters = {"details-level": str}
+        for field, type in secondary_parameters.items():
+            value = sanitize_value(field=field, type=type, is_mandatory=False, **kw)
+            if value is not None:
+                payload[field] = value
+
+        return self._post("show-login-message", json=payload)
+
+    def set_login_message(
+        self,
+        header: str = None,
+        message: str = None,
+        show_message: bool = None,
+        warning: bool = None,
+        **kw
+    ) -> Box:
+        """
+        Edit existing object using object name or uid.
+
+        Args:
+            header (str): Login message header.
+            message (str): Login message body.
+            show_message (bool): Whether to show login message.
+            warning (bool): Add warning sign.
+        Returns:
+            :obj:`Box`: The response from the server
+        Examples:
+            >>> firewallManagementApi.session.set_login_message(message="Hello World!")
+        """
+
+        payload = {}
+        if header is not None:
+            payload["header"] = header
+        if message is not None:
+            payload["message"] = message
+        if show_message is not None:
+            payload["offset"] = show_message
+        if warning is not None:
+            payload["order"] = warning
+
+        # Secondary parameters
+        secondary_parameters = {"details-level": str}
+        for field, type in secondary_parameters.items():
+            value = sanitize_value(field=field, type=type, is_mandatory=False, **kw)
+            if value is not None:
+                payload[field] = value
+
+        return self._post("set-login-message", json=payload)
+
+    def set_automatic_purge(
+        self,
+        enabled: bool,
+        keep_sessions_by_count: bool = True,
+        number_of_sessions_to_keep: int = 999,
+        keep_sessions_by_days: bool = True,
+        number_of_days_to_keep: int = 365,
+        scheduling: dict = None,
+    ) -> Box:
+        """
+        Set Automatic Purge. NOTE! this command will permanently delete all of the data which
+        belongs to the published sessions not selected for preservation.
+
+        Args:
+            enabled (bool): Turn on/off the automatic-purge feature.
+            keep_sessions_by_count (bool): Whether or not to keep the latest N sessions.
+            Note: when the automatic purge feature is enabled,
+            this field and/or the "keep-sessions-by-date" field must be set to 'true'.
+            number_of_sessions_to_keep (int): When "keep-sessions-by-count = true"
+            this sets the number of newest sessions to preserve, by the sessions's publish date.
+            Default is 999.
+            keep_sessions_by_days (bool): Whether or not to keep the sessions for D days.
+            Note: when the automatic purge feature is enabled,
+            this field and/or the "keep-sessions-by-count" field must be set to 'true'.
+            number_of_days_to_keep (int): When "keep-sessions-by-days = true" this sets
+            the number of days to keep the sessions.
+            scheduling (dict): When to purge sessions that do not meet the "keep" criteria.
+            Note: when the automatic purge feature is enabled, this field must be set.
+        Returns:
+            :obj:`Box`: The response from the server
+        Examples:
+            >>> firewallManagementApi.session.set_automatic_purge(enabled=True)
+        """
+
+        payload = {"enabled": enabled}
+        if keep_sessions_by_count is not None:
+            payload["keep-sessions-by-count"] = keep_sessions_by_count
+        if number_of_sessions_to_keep is not None:
+            payload["number-of-sessions-to-keep"] = number_of_sessions_to_keep
+        if keep_sessions_by_days is not None:
+            payload["keep-sessions-by-days"] = keep_sessions_by_days
+        if number_of_days_to_keep is not None:
+            payload["number-of-days-to-keep"] = number_of_days_to_keep
+        if scheduling is not None:
+            payload["scheduling"] = scheduling
+
+        return self._post("set-automatic-purge", json=payload)
+
+    def show_automatic_purge(self) -> Box:
+        """
+        Show Automatic Purge.
+
+        Args:
+        Returns:
+            :obj:`Box`: The response from the server
+        Examples:
+            >>> firewallManagementApi.session.show_automatic_purge()
+        """
+
+        return self._post("show-automatic-purge", json={})
