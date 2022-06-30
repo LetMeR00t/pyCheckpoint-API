@@ -106,3 +106,43 @@ def test_add_network(firewallManagement, resp_network):
     assert resp.name == "New Host 4"
     assert resp.subnet == "192.0.2.0"
     assert resp.subnet_mask == "255.255.255.0"
+
+
+@responses.activate
+def test_show_network(firewallManagement, resp_network):
+
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/show-network",
+        json=resp_network,
+        status=200,
+    )
+
+    resp = firewallManagement.network.show_network(
+        uid="9423d36f-2d66-4754-b9e2-e7f4493756d4"
+    )
+
+    assert resp.name == "New Host 4"
+    assert resp.subnet == "192.0.2.0"
+    assert resp.subnet_mask == "255.255.255.0"
+
+
+@responses.activate
+def test_set_network(firewallManagement, resp_network):
+
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/set-network",
+        json=resp_network,
+        status=200,
+    )
+
+    resp = firewallManagement.network.set_network(
+        uid="9423d36f-2d66-4754-b9e2-e7f4493756d4",
+        subnet="192.0.2.0",
+        subnet_mask="255.255.255.0",
+    )
+
+    assert resp.name == "New Host 4"
+    assert resp.subnet == "192.0.2.0"
+    assert resp.subnet_mask == "255.255.255.0"
