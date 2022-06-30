@@ -18,6 +18,154 @@ def fixture_session():
     }
 
 
+@pytest.fixture(name="resp_message_ok")
+def fixture_resp_message_ok():
+    return {"message": "OK"}
+
+
+@pytest.fixture(name="resp_message_ok_with_number_of_discarded_changes")
+def fixture_resp_message_ok_with_number_of_discarded_changes():
+    return {"message": "OK", "number-of-discarded-changes": 0}
+
+
+@pytest.fixture(name="resp_automatic_purge")
+def fixture_resp_automatic_purge():
+    return {
+        "enabled": True,
+        "keep-sessions-by-count": True,
+        "number-of-sessions-to-keep": "10",
+        "keep-sessions-by-days": False,
+        "number-of-days-to-keep": "0",
+        "scheduling": {
+            "check-interval": 21,
+            "time-units": "days",
+            "start-date": "2020-04-24T12:00:00",
+            "last-check": "",
+            "next-check": "2020-04-24T12:00:00",
+        },
+    }
+
+
+@pytest.fixture(name="resp_task")
+def fixture_resp_task():
+    return {"task-id": "01234567-89ab-cdef-a930-8c37a59972b3"}
+
+
+@pytest.fixture(name="resp_session")
+def fixture_resp_session():
+    # Not all parameters from the response are tested here
+    return {
+        "name": "CustomName",
+        "uid": "7a13a360-9b24-40d7-acd3-5b50247be33e",
+    }
+
+
+@pytest.fixture(name="resp_from_to_objects")
+def fixture_resp_from_to_objects():
+    # Not all parameters from the response are tested here
+    return {
+        "from": 1,
+        "to": 3,
+        "total": 3,
+        "objects": [
+            "01f83a11-179a-405a-971a-50c58368f415",
+            "27aabb7e-263a-4161-b822-0e0078c72e06",
+            "2b486864-1356-4b66-ae6b-6eda09821955",
+        ],
+    }
+
+
+@pytest.fixture(name="resp_login_message")
+def fixture_resp_login_message():
+    return {
+        "type": "A",
+        "header": "D",
+        "message": "C",
+        "show-message": True,
+        "warning": True,
+    }
+
+
+@pytest.fixture(name="resp_host")
+def fixture_resp_host():
+    return {
+        "uid": "9423d36f-2d66-4754-b9e2-e7f4493756d4",
+        "folder": {
+            "uid": "feb54da1-c5e2-4e83-a3ed-d0601ba5ccb9",
+            "name": "/Global Objects",
+        },
+        "domain": {
+            "domain-type": "local domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1429440561055,
+                "iso-8601": "2015-04-19T13:49+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1429440561055,
+                "iso-8601": "2015-04-19T13:49+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "name": "New Host 4",
+        "comments": "",
+        "color": "black",
+        "icon": "Objects/host",
+        "groups": [],
+        "nat-settings": {"auto-rule": False},
+        "ipv4-address": "192.0.2.1",
+        "ipv6-address": "",
+    }
+
+
+@pytest.fixture(name="resp_network")
+def fixture_resp_network():
+    return {
+        "uid": "9423d36f-2d66-4754-b9e2-e7f4493756d4",
+        "folder": {
+            "uid": "feb54da1-c5e2-4e83-a3ed-d0601ba5ccb9",
+            "name": "/Global Objects",
+        },
+        "domain": {
+            "domain-type": "local domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1429440561055,
+                "iso-8601": "2015-04-19T13:49+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1429440561055,
+                "iso-8601": "2015-04-19T13:49+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "name": "New Host 4",
+        "comments": "",
+        "color": "black",
+        "icon": "Objects/host",
+        "groups": [],
+        "nat-settings": {"auto-rule": False},
+        "subnet": "192.0.2.0",
+        "subnet-mask": "255.255.255.0",
+    }
+
+
 @pytest.fixture(name="firewallManagement")
 @responses.activate
 def firewallManagement(session):

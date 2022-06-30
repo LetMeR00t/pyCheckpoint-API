@@ -3,7 +3,7 @@ from typing import Union
 from restfly.endpoint import APIEndpoint
 
 from .exception import MandatoryFieldMissing
-from pycheckpoint.utils import sanitize_value
+from pycheckpoint.utils import sanitize_value, sanitize_secondary_parameters
 from pycheckpoint.models import Color
 
 
@@ -70,10 +70,7 @@ class SessionAPI(APIEndpoint):
             "session-name": str,
             "session-timeout": int,
         }
-        for field, type in secondary_parameters.items():
-            value = sanitize_value(field=field, t=type, is_mandatory=False, **kw)
-            if value is not None:
-                payload[field] = value
+        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
         return self._post("login", json=payload)
 
@@ -269,10 +266,7 @@ class SessionAPI(APIEndpoint):
             "ignore-warnings": bool,
             "ignore-errors": bool,
         }
-        for field, type in secondary_parameters.items():
-            value = sanitize_value(field=field, t=type, is_mandatory=False, **kw)
-            if value is not None:
-                payload[field] = value
+        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
         return self._post("set-session", json=payload)
 
@@ -398,10 +392,7 @@ class SessionAPI(APIEndpoint):
 
         # Secondary parameters
         secondary_parameters = {"details-level": str}
-        for field, type in secondary_parameters.items():
-            value = sanitize_value(field=field, t=type, is_mandatory=False, **kw)
-            if value is not None:
-                payload[field] = value
+        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
         return self._post("show-sessions", json=payload)
 
@@ -453,10 +444,7 @@ class SessionAPI(APIEndpoint):
 
         # Secondary parameters
         secondary_parameters = {"details-level": str}
-        for field, type in secondary_parameters.items():
-            value = sanitize_value(field=field, t=type, is_mandatory=False, **kw)
-            if value is not None:
-                payload[field] = value
+        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
         return self._post("show-login-message", json=payload)
 
@@ -494,10 +482,7 @@ class SessionAPI(APIEndpoint):
 
         # Secondary parameters
         secondary_parameters = {"details-level": str}
-        for field, type in secondary_parameters.items():
-            value = sanitize_value(field=field, t=type, is_mandatory=False, **kw)
-            if value is not None:
-                payload[field] = value
+        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
         return self._post("set-login-message", json=payload)
 

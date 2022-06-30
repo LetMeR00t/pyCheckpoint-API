@@ -51,12 +51,11 @@ def test_login_missing_mandatory_parameters(firewallManagement, session):
 
 
 @responses.activate
-def test_logout(firewallManagement):
-    delete_status = {"message": "OK"}
+def test_logout(firewallManagement, resp_message_ok):
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/logout",
-        json=delete_status,
+        json=resp_message_ok,
         status=200,
     )
 
@@ -66,12 +65,11 @@ def test_logout(firewallManagement):
 
 
 @responses.activate
-def test_publish(firewallManagement):
-    resp_publish = {"task-id": "01234567-89ab-cdef-a930-8c37a59972b3"}
+def test_publish(firewallManagement, resp_task):
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/publish",
-        json=resp_publish,
+        json=resp_task,
         status=200,
     )
 
@@ -81,12 +79,11 @@ def test_publish(firewallManagement):
 
 
 @responses.activate
-def test_discard(firewallManagement):
-    resp_discard = {"message": "OK", "number-of-discarded-changes": 0}
+def test_discard(firewallManagement, resp_message_ok_with_number_of_discarded_changes):
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/discard",
-        json=resp_discard,
+        json=resp_message_ok_with_number_of_discarded_changes,
         status=200,
     )
 
@@ -96,12 +93,11 @@ def test_discard(firewallManagement):
 
 
 @responses.activate
-def test_disconnect(firewallManagement):
-    resp_disconnect = {"message": "OK"}
+def test_disconnect(firewallManagement, resp_message_ok):
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/disconnect",
-        json=resp_disconnect,
+        json=resp_message_ok,
         status=200,
     )
 
@@ -111,12 +107,11 @@ def test_disconnect(firewallManagement):
 
 
 @responses.activate
-def test_keepalive(firewallManagement):
-    resp_keepalive = {"message": "OK"}
+def test_keepalive(firewallManagement, resp_message_ok):
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/keepalive",
-        json=resp_keepalive,
+        json=resp_message_ok,
         status=200,
     )
 
@@ -126,12 +121,11 @@ def test_keepalive(firewallManagement):
 
 
 @responses.activate
-def test_revert_to_revision(firewallManagement):
-    resp_revert_to_revision = {"task-id": "01234567-89ab-cdef-a930-8c37a59972b3"}
+def test_revert_to_revision(firewallManagement, resp_task):
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/revert-to-revision",
-        json=resp_revert_to_revision,
+        json=resp_task,
         status=200,
     )
 
@@ -141,12 +135,11 @@ def test_revert_to_revision(firewallManagement):
 
 
 @responses.activate
-def test_verify_revert(firewallManagement):
-    resp_verify_revert = {"task-id": "01234567-89ab-cdef-a930-8c37a59972b3"}
+def test_verify_revert(firewallManagement, resp_task):
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/verify-revert",
-        json=resp_verify_revert,
+        json=resp_task,
         status=200,
     )
 
@@ -159,7 +152,6 @@ def test_verify_revert(firewallManagement):
 
 @responses.activate
 def test_login_to_domain(firewallManagement, session):
-
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/login-to-domain",
@@ -174,16 +166,11 @@ def test_login_to_domain(firewallManagement, session):
 
 
 @responses.activate
-def test_show_session(firewallManagement):
-    # Not all parameters from the response are tested here
-    resp_show_session = {
-        "name": "CustomName",
-        "uid": "7a13a360-9b24-40d7-acd3-5b50247be33e",
-    }
+def test_show_session(firewallManagement, resp_session):
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/show-session",
-        json=resp_show_session,
+        json=resp_session,
         status=200,
     )
 
@@ -193,16 +180,11 @@ def test_show_session(firewallManagement):
 
 
 @responses.activate
-def test_set_session(firewallManagement):
-    # Not all parameters from the response are tested here
-    resp_set_session = {
-        "name": "CustomName",
-        "uid": "7a13a360-9b24-40d7-acd3-5b50247be33e",
-    }
+def test_set_session(firewallManagement, resp_session):
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/set-session",
-        json=resp_set_session,
+        json=resp_session,
         status=200,
     )
 
@@ -214,12 +196,11 @@ def test_set_session(firewallManagement):
 
 
 @responses.activate
-def test_purge_published_sessions(firewallManagement):
-    resp_purge_published_sessions = {"task-id": "01234567-89ab-cdef-a930-8c37a59972b3"}
+def test_purge_published_sessions(firewallManagement, resp_task):
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/purge-published-sessions",
-        json=resp_purge_published_sessions,
+        json=resp_task,
         status=200,
     )
 
@@ -234,16 +215,11 @@ def test_purge_published_sessions(firewallManagement):
 
 
 @responses.activate
-def test_switch_session(firewallManagement):
-    # Not all parameters from the response are tested here
-    resp_switch_session = {
-        "name": "CustomName",
-        "uid": "7a13a360-9b24-40d7-acd3-5b50247be33e",
-    }
+def test_switch_session(firewallManagement, resp_session):
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/switch-session",
-        json=resp_switch_session,
+        json=resp_session,
         status=200,
     )
 
@@ -255,16 +231,11 @@ def test_switch_session(firewallManagement):
 
 
 @responses.activate
-def test_take_over_session(firewallManagement):
-    # Not all parameters from the response are tested here
-    resp_take_over_session = {
-        "name": "CustomName",
-        "uid": "7a13a360-9b24-40d7-acd3-5b50247be33e",
-    }
+def test_take_over_session(firewallManagement, resp_session):
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/take-over-session",
-        json=resp_take_over_session,
+        json=resp_session,
         status=200,
     )
 
@@ -276,22 +247,11 @@ def test_take_over_session(firewallManagement):
 
 
 @responses.activate
-def test_show_sessions(firewallManagement):
-    # Not all parameters from the response are tested here
-    resp_show_sessions = {
-        "from": 1,
-        "to": 3,
-        "total": 3,
-        "objects": [
-            "01f83a11-179a-405a-971a-50c58368f415",
-            "27aabb7e-263a-4161-b822-0e0078c72e06",
-            "2b486864-1356-4b66-ae6b-6eda09821955",
-        ],
-    }
+def test_show_sessions(firewallManagement, resp_from_to_objects):
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/show-sessions",
-        json=resp_show_sessions,
+        json=resp_from_to_objects,
         status=200,
     )
 
@@ -301,12 +261,11 @@ def test_show_sessions(firewallManagement):
 
 
 @responses.activate
-def test_continue_session_in_smartconsole(firewallManagement):
-    resp_continue_session_in_smartconsole = {"message": "OK"}
+def test_continue_session_in_smartconsole(firewallManagement, resp_message_ok):
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/continue-session-in-smartconsole",
-        json=resp_continue_session_in_smartconsole,
+        json=resp_message_ok,
         status=200,
     )
 
@@ -316,16 +275,12 @@ def test_continue_session_in_smartconsole(firewallManagement):
 
 
 @responses.activate
-def test_show_last_published_session(firewallManagement):
-    # Not all parameters from the response are tested here
-    resp_show_last_published_session = {
-        "name": "CustomName",
-        "uid": "7a13a360-9b24-40d7-acd3-5b50247be33e",
-    }
+def test_show_last_published_session(firewallManagement, resp_session):
+
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/show-last-published-session",
-        json=resp_show_last_published_session,
+        json=resp_session,
         status=200,
     )
 
@@ -335,18 +290,12 @@ def test_show_last_published_session(firewallManagement):
 
 
 @responses.activate
-def test_show_login_message(firewallManagement):
-    resp_show_login_message = {
-        "type": "A",
-        "header": "B",
-        "message": "C",
-        "show-message": True,
-        "warning": True,
-    }
+def test_show_login_message(firewallManagement, resp_login_message):
+
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/show-login-message",
-        json=resp_show_login_message,
+        json=resp_login_message,
         status=200,
     )
 
@@ -356,18 +305,12 @@ def test_show_login_message(firewallManagement):
 
 
 @responses.activate
-def test_set_login_message(firewallManagement):
-    resp_set_login_message = {
-        "type": "A",
-        "header": "D",
-        "message": "C",
-        "show-message": True,
-        "warning": True,
-    }
+def test_set_login_message(firewallManagement, resp_login_message):
+
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/set-login-message",
-        json=resp_set_login_message,
+        json=resp_login_message,
         status=200,
     )
 
@@ -377,25 +320,12 @@ def test_set_login_message(firewallManagement):
 
 
 @responses.activate
-def test_set_automatic_purge(firewallManagement):
-    resp_set_automatic_purge = {
-        "enabled": True,
-        "keep-sessions-by-count": True,
-        "number-of-sessions-to-keep": "10",
-        "keep-sessions-by-days": False,
-        "number-of-days-to-keep": "0",
-        "scheduling": {
-            "check-interval": 21,
-            "time-units": "days",
-            "start-date": "2020-04-24T12:00:00",
-            "last-check": "",
-            "next-check": "2020-04-24T12:00:00",
-        },
-    }
+def test_set_automatic_purge(firewallManagement, resp_automatic_purge):
+
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/set-automatic-purge",
-        json=resp_set_automatic_purge,
+        json=resp_automatic_purge,
         status=200,
     )
 
@@ -408,25 +338,12 @@ def test_set_automatic_purge(firewallManagement):
 
 
 @responses.activate
-def test_show_automatic_purge(firewallManagement):
-    resp_show_automatic_purge = {
-        "enabled": True,
-        "keep-sessions-by-count": True,
-        "number-of-sessions-to-keep": "10",
-        "keep-sessions-by-days": False,
-        "number-of-days-to-keep": "0",
-        "scheduling": {
-            "check-interval": 21,
-            "time-units": "days",
-            "start-date": "2020-04-24T12:00:00",
-            "last-check": "",
-            "next-check": "2020-04-24T12:00:00",
-        },
-    }
+def test_show_automatic_purge(firewallManagement, resp_automatic_purge):
+
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/show-automatic-purge",
-        json=resp_show_automatic_purge,
+        json=resp_automatic_purge,
         status=200,
     )
 
