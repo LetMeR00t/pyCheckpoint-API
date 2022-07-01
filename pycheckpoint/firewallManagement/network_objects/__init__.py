@@ -4,6 +4,7 @@ from .host import HostAPI
 from .network import NetworkAPI
 from .wildcard import WildcardAPI
 from .group import GroupAPI
+from .gsn_handover_group import GSNHandoverGroupAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -26,3 +27,8 @@ class NetworkObjects(APIEndpoint):
     def group(self):
         """The interface object for the network objects type "Group" Management."""
         return GroupAPI(self)
+
+    @property
+    def gsn_handover_group(self):
+        """The interface object for the network objects type "GSN Handover Group" Management."""
+        return GSNHandoverGroupAPI(self)

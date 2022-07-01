@@ -289,6 +289,42 @@ def fixture_resp_group():
     }
 
 
+@pytest.fixture(name="resp_gsn_handover_group")
+def fixture_resp_gsn_handover_group():
+    return {
+        "uid": "f140a9d1-4167-456a-931d-abdaa4c8aa7e",
+        "name": "gsnhandovergroup",
+        "type": "gsn-handover-group",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "tags": [],
+        "read-only": True,
+        "comments": "",
+        "color": "black",
+        "icon": "General/group",
+        "groups": [],
+        "members": [
+            {
+                "uid": "29438958-5569-49b7-a270-dfff5be51c3a",
+                "name": "All_Internet",
+                "type": "address-range",
+                "domain": {
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                    "domain-type": "domain",
+                },
+                "ipv4-address-first": "0.0.0.0",
+                "ipv4-address-last": "255.255.255.255",
+            }
+        ],
+        "enforce-gtp": True,
+        "gtp-rate": 2048,
+    }
+
+
 @pytest.fixture(name="firewallManagement")
 @responses.activate
 def firewallManagement(session):

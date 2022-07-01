@@ -46,7 +46,7 @@ def test_set_group(firewallManagement, resp_group):
     )
 
     resp = firewallManagement.network_objects.group.set(
-        uid="ed997ff8-6709-4d71-a713-99bf01711cd5", name="New Group 3"
+        uid="ed997ff8-6709-4d71-a713-99bf01711cd5", new_name="New Group 3"
     )
 
     assert resp.uid == "ed997ff8-6709-4d71-a713-99bf01711cd5"
