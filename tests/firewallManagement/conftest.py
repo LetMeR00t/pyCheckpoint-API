@@ -129,7 +129,7 @@ def fixture_resp_host():
 @pytest.fixture(name="resp_network")
 def fixture_resp_network():
     return {
-        "uid": "d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",
+        "uid": "d5e8d56f-2d77-4824-a5d2-c4a7885dd4a7",
         "folder": {
             "uid": "feb54da1-c5e2-4e83-a3ed-d0601ba5ccb9",
             "name": "/Global Objects",
@@ -155,14 +155,55 @@ def fixture_resp_network():
             "creator": "aa",
         },
         "tags": [],
-        "name": "New Host 4",
+        "name": "New Network 4",
         "comments": "",
         "color": "black",
-        "icon": "Objects/host",
+        "icon": "Objects/network",
         "groups": [],
         "nat-settings": {"auto-rule": False},
         "subnet": "192.0.2.0",
         "subnet-mask": "255.255.255.0",
+    }
+
+
+@pytest.fixture(name="resp_wildcard")
+def fixture_resp_wildcard():
+    return {
+        "uid": "d8a5e4dd-2a93-4847-aaa8-d5d33a695da5",
+        "folder": {
+            "uid": "feb54da1-c5e2-4e83-a3ed-d0601ba5ccb9",
+            "name": "/Global Objects",
+        },
+        "domain": {
+            "domain-type": "local domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1429440561055,
+                "iso-8601": "2015-04-19T13:49+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1429440561055,
+                "iso-8601": "2015-04-19T13:49+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "name": "New Wildcard 4",
+        "comments": "",
+        "color": "black",
+        "icon": "Objects/wildcard",
+        "groups": [],
+        "ipv4-address": "192.168.2.1",
+        "ipv4-mask-wildcard": "0.0.0.128",
+        "ipv6-address": "",
+        "ipv6-mask-wildcard": "",
     }
 
 

@@ -66,7 +66,7 @@ class NetworkAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network.add_network(name="My object")
+            >>> firewallManagementApi.network_objects.network.add(name="My object")
         """
 
         # Main request parameters
@@ -125,7 +125,7 @@ class NetworkAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network.show_network(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> firewallManagementApi.network_objects.network.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
 
         # Main request parameters
@@ -199,7 +199,8 @@ class NetworkAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network.set_network(name="My object")
+            >>> firewallManagement.network_objects.network.set(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",subnet="192.0.2.0",
+                subnet_mask="255.255.255.0")
         """
 
         # Main request parameters
@@ -268,7 +269,7 @@ class NetworkAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network.delete_network(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> firewallManagementApi.network_objects.network.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
 
         # Main request parameters
@@ -313,7 +314,7 @@ class NetworkAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network.shows_networks()
+            >>> firewallManagementApi.network_objects.network.shows_networks()
         """
 
         # Main request parameters

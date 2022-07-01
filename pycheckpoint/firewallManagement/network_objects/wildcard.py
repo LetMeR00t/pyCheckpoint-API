@@ -8,18 +8,16 @@ from pycheckpoint.utils import sanitize_secondary_parameters
 from pycheckpoint.models import Color
 
 
-class HostAPI(APIEndpoint):
+class WildcardAPI(APIEndpoint):
     def add(
         self,
         name: str,
-        ip_address: str = None,
         ipv4_address: str = None,
+        ipv4_mask_wildcard: str = None,
         ipv6_address: str = None,
-        interfaces: Union[dict, list[dict]] = None,
-        nat_settings: dict = None,
+        ipv6_mask_wildcard: str = None,
         tags: Union[str, list[str]] = None,
-        host_servers: dict = None,
-        **kw
+        **kw,
     ) -> Box:
         """
         Create new object.
@@ -27,18 +25,13 @@ class HostAPI(APIEndpoint):
         Args:
             name (str): Object name. Must be unique in the domain.
             ip_address (str): 	IPv4 or IPv6 address. If both addresses are required use ipv4-address
-            and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
-            ipv4_address (str): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
-            ipv6_address (str): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
-            interfaces (Union[dict,list[dict]]): Host interfaces.
-            nat_settings (dict): NAT settings.
+            and ipv6-address fields explicitly.
+            ipv4_address (str): IPv4 address.
+            ipv4_mask_wildcard (str): IPv4 mask wildcard.
+            ipv6_address (str): IPv6 address.
+            ipv6_mask_wildcard (str): IPv6 mask wildcard.
             tags (Union(str,list[str])): Collection of tag identifiers.
-            host_servers (dict): Servers Configuration.
         Keyword Args:
-            **set-if-exists (bool, optional):
-                If another object with the same identifier already exists, it will be updated.
-                The command behaviour will be the same as if originally a set command was called.
-                Pay attention that original object's fields will be overwritten by the fields provided in the request payload!
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
             **comments (str, optional):
@@ -56,32 +49,25 @@ class HostAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.host.add(name="My object")
+            >>> firewallManagementApi.network_objects.wildcard.add(name="My object")
         """
 
         # Main request parameters
         payload = {"name": name}
-        if ip_address is not None:
-            payload["ip-address"] = ip_address
-        elif ipv4_address is not None:
+        if ipv4_address is not None:
             payload["ipv4-address"] = ipv4_address
-        elif ipv6_address is not None:
+        if ipv4_mask_wildcard is not None:
+            payload["ipv4-mask-wildcard"] = ipv4_mask_wildcard
+        if ipv6_address is not None:
             payload["ipv6-address"] = ipv6_address
-        else:
-            raise MandatoryFieldMissing("ip_address or ipv4_address or ipv6_address")
+        if ipv6_mask_wildcard is not None:
+            payload["ipv6-mask-wildcard"] = ipv6_mask_wildcard
 
-        if interfaces is not None:
-            payload["interfaces"] = interfaces
-        if nat_settings is not None:
-            payload["nat-settings"] = nat_settings
         if tags is not None:
             payload["tags"] = tags
-        if host_servers is not None:
-            payload["host-servers"] = host_servers
 
         # Secondary parameters
         secondary_parameters = {
-            "set-if-exists": bool,
             "color": Color,
             "comments": str,
             "details-level": str,
@@ -91,7 +77,7 @@ class HostAPI(APIEndpoint):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("add-host", json=payload)
+        return self._post("add-wildcard", json=payload)
 
     def show(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -107,7 +93,7 @@ class HostAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.host.show(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> firewallManagementApi.network_objects.wildcard.show(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
 
         # Main request parameters
@@ -123,21 +109,19 @@ class HostAPI(APIEndpoint):
         secondary_parameters = {"details-level": str}
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("show-host", json=payload)
+        return self._post("show-wildcard", json=payload)
 
     def set(
         self,
         uid: str = None,
         name: str = None,
-        ip_address: str = None,
         ipv4_address: str = None,
+        ipv4_mask_wildcard: str = None,
         ipv6_address: str = None,
-        interfaces: Union[dict, list[dict]] = None,
-        nat_settings: dict = None,
+        ipv6_mask_wildcard: str = None,
         new_name: str = None,
         tags: Union[str, list[str]] = None,
-        host_servers: dict = None,
-        **kw
+        **kw,
     ) -> Box:
         """
         Edit existing object using object name or uid.
@@ -172,7 +156,7 @@ class HostAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.host.set(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4", ip_address="192.0.2.1")
+            >>> firewallManagementApi.network_objects.wildcard.set(name="My object")
         """
 
         # Main request parameters
@@ -184,23 +168,19 @@ class HostAPI(APIEndpoint):
         else:
             raise MandatoryFieldMissing("uid or name")
 
-        if ip_address is not None:
-            payload["ip-address"] = ip_address
-        elif ipv4_address is not None:
+        if ipv4_address is not None:
             payload["ipv4-address"] = ipv4_address
-        elif ipv6_address is not None:
+        if ipv4_mask_wildcard is not None:
+            payload["ipv4-mask-wildcard"] = ipv4_mask_wildcard
+        if ipv6_address is not None:
             payload["ipv6-address"] = ipv6_address
+        if ipv6_mask_wildcard is not None:
+            payload["ipv6-mask-wildcard"] = ipv6_mask_wildcard
 
-        if interfaces is not None:
-            payload["interfaces"] = interfaces
-        if nat_settings is not None:
-            payload["nat-settings"] = nat_settings
         if new_name is not None:
             payload["new-name"] = new_name
         if tags is not None:
             payload["tags"] = tags
-        if host_servers is not None:
-            payload["host-servers"] = host_servers
 
         # Secondary parameters
         secondary_parameters = {
@@ -213,7 +193,7 @@ class HostAPI(APIEndpoint):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("set-host", json=payload)
+        return self._post("set-wildcard", json=payload)
 
     def delete(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -234,7 +214,7 @@ class HostAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.host.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> firewallManagementApi.network_objects.wildcard.delete(uid="d8a5e4dd-2a93-4847-aaa8-d5d33a695da5")
         """
 
         # Main request parameters
@@ -254,15 +234,15 @@ class HostAPI(APIEndpoint):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("delete-host", json=payload)
+        return self._post("delete-wildcard", json=payload)
 
-    def show_hosts(
+    def show_wildcards(
         self,
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
         order: list[dict] = None,
-        **kw
+        **kw,
     ) -> Box:
         """
         Retrieve all objects.
@@ -279,7 +259,7 @@ class HostAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.host.shows_hosts()
+            >>> firewallManagementApi.network_objects.wildcard.shows_wildcards()
         """
 
         # Main request parameters
@@ -295,10 +275,9 @@ class HostAPI(APIEndpoint):
 
         # Secondary parameters
         secondary_parameters = {
-            "show-membership": bool,
             "details-level": str,
             "domains-to-process": list[str],
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("show-hosts", json=payload)
+        return self._post("show-wildcards", json=payload)
