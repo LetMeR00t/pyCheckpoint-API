@@ -291,7 +291,7 @@ class NetworkAPI(NetworkObjectAPI):
 
         return self._post("delete-network", json=payload)
 
-    def show_objects(
+    def show_networks(
         self,
         filter: str = None,
         limit: int = 50,
@@ -316,24 +316,12 @@ class NetworkAPI(NetworkObjectAPI):
         Examples:
             >>> firewallManagementApi.network_objects.network.shows_networks()
         """
-
-        # Main request parameters
-        payload = {}
-        if filter is not None:
-            payload["filter"] = filter
-        if limit is not None:
-            payload["limit"] = limit
-        if offset is not None:
-            payload["offset"] = offset
-        if order is not None:
-            payload["order"] = order
-
-        # Secondary parameters
-        secondary_parameters = {
-            "show-membership": bool,
-            "details-level": str,
-            "domains-to-process": list[str],
-        }
-        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
-
-        return self._post("show-networks", json=payload)
+        return self.show_objects(
+            endpoint="show-networks",
+            filter=filter,
+            limit=limit,
+            offset=offset,
+            order=order,
+            extra_secondary_parameters={"show-membership": bool},
+            **kw
+        )

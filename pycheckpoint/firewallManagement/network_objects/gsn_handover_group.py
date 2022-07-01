@@ -227,7 +227,7 @@ class GSNHandoverGroupAPI(NetworkObjectAPI):
 
         return self._post("delete-gsn-handover-group", json=payload)
 
-    def show_objects(
+    def show_gsn_handover_groups(
         self,
         filter: str = None,
         limit: int = 50,
@@ -252,25 +252,15 @@ class GSNHandoverGroupAPI(NetworkObjectAPI):
         Examples:
             >>> firewallManagementApi.network_objects.group.shows_groups()
         """
-
-        # Main request parameters
-        payload = {}
-        if filter is not None:
-            payload["filter"] = filter
-        if limit is not None:
-            payload["limit"] = limit
-        if offset is not None:
-            payload["offset"] = offset
-        if order is not None:
-            payload["order"] = order
-
-        # Secondary parameters
-        secondary_parameters = {
-            "dereference-group-members": bool,
-            "show-membership": bool,
-            "details-level": str,
-            "domains-to-process": list[str],
-        }
-        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
-
-        return self._post("show-gsn-handover-groups", json=payload)
+        return self.show_objects(
+            endpoint="show-gsn-handover-groups",
+            filter=filter,
+            limit=limit,
+            offset=offset,
+            order=order,
+            extra_secondary_parameters={
+                "dereference-group-members": bool,
+                "show-membership": bool,
+            },
+            **kw,
+        )

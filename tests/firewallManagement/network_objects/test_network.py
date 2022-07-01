@@ -89,6 +89,6 @@ def test_show_networks(firewallManagement, resp_from_to_objects):
         status=200,
     )
 
-    resp = firewallManagement.network_objects.network.show_objects()
+    resp = firewallManagement.network_objects.network.show_networks()
 
     assert isinstance(resp.total, int)

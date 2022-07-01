@@ -81,6 +81,8 @@ def test_show_gsn_handover_groups(firewallManagement, resp_from_to_objects):
         status=200,
     )
 
-    resp = firewallManagement.network_objects.gsn_handover_group.show_objects()
+    resp = (
+        firewallManagement.network_objects.gsn_handover_group.show_gsn_handover_groups()
+    )
 
     assert isinstance(resp.total, int)

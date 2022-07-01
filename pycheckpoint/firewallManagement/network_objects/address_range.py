@@ -287,7 +287,7 @@ class AddressRangeAPI(NetworkObjectAPI):
 
         return self._post("delete-address-range", json=payload)
 
-    def show_objects(
+    def show_address_ranges(
         self,
         filter: str = None,
         limit: int = 50,
@@ -312,24 +312,12 @@ class AddressRangeAPI(NetworkObjectAPI):
         Examples:
             >>> firewallManagementApi.network_objects.network.shows_address_ranges()
         """
-
-        # Main request parameters
-        payload = {}
-        if filter is not None:
-            payload["filter"] = filter
-        if limit is not None:
-            payload["limit"] = limit
-        if offset is not None:
-            payload["offset"] = offset
-        if order is not None:
-            payload["order"] = order
-
-        # Secondary parameters
-        secondary_parameters = {
-            "show-membership": bool,
-            "details-level": str,
-            "domains-to-process": list[str],
-        }
-        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
-
-        return self._post("show-address-ranges", json=payload)
+        return self.show_objects(
+            endpoint="show-address-ranges",
+            filter=filter,
+            limit=limit,
+            offset=offset,
+            order=order,
+            extra_secondary_parameters={"show-membership": bool},
+            **kw
+        )
