@@ -4,7 +4,7 @@ from restfly.session import APISession
 from pycheckpoint import __version__
 
 from .session import SessionAPI
-from .network import NetworkAPI
+from .network_objects import NetworkObjects
 
 from pycheckpoint.utils import sanitize_value
 
@@ -66,6 +66,6 @@ class FirewallManagementAPI(APISession):
         return SessionAPI(self)
 
     @property
-    def network(self):
+    def network_objects(self):
         """The interface object for the Network Management."""
-        return NetworkAPI(self)
+        return NetworkObjects(self)

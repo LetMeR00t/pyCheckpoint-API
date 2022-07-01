@@ -129,7 +129,7 @@ def fixture_resp_host():
 @pytest.fixture(name="resp_network")
 def fixture_resp_network():
     return {
-        "uid": "9423d36f-2d66-4754-b9e2-e7f4493756d4",
+        "uid": "d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",
         "folder": {
             "uid": "feb54da1-c5e2-4e83-a3ed-d0601ba5ccb9",
             "name": "/Global Objects",
