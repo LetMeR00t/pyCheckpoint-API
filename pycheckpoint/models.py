@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class Color(Enum):
+class Color(str, Enum):
     """
     Enumeration representing a color that can be used within the Management Firewall
     """
@@ -40,3 +40,4 @@ class Color(Enum):
     RED = "red"
     SIENNA = "sienna"
     YELLOW = "yellow"
+    GREEN = "green"

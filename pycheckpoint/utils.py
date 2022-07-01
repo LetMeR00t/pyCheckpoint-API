@@ -13,7 +13,7 @@ def sanitize_value(field: str, t: type, is_mandatory: bool = False, default=None
     # Otherwise, it means that the parameter is not mandatory or the value is set
     # Check also if the type is Union.
     if get_origin(t) is Union:
-        if value is None or type(value) == t:
+        if value is None or type(value) in t.__args__:
             return value
         else:
             raise WrongType(value=value, expected_type=t)
