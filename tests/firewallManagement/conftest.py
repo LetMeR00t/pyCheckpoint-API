@@ -207,6 +207,88 @@ def fixture_resp_wildcard():
     }
 
 
+@pytest.fixture(name="resp_group")
+def fixture_resp_group():
+    return {
+        "uid": "ed997ff8-6709-4d71-a713-99bf01711cd5",
+        "folder": {
+            "uid": "5568324a-68ed-4c6c-9aa6-553978c7e746",
+            "name": "/Global Objects",
+        },
+        "domain": {
+            "domain-type": "local domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1435470206821,
+                "iso-8601": "2015-06-28T08:43+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1435470206821,
+                "iso-8601": "2015-06-28T08:43+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "name": "New Group 3",
+        "comments": "",
+        "color": "black",
+        "icon": "General/group",
+        "groups": [
+            {
+                "folder": {
+                    "uid": "5568324a-68ed-4c6c-9aa6-553978c7e746",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "group",
+                "name": "New Group 1",
+                "uid": "d20710f1-831c-49dd-a009-aa9e569f643a",
+            },
+            {
+                "folder": {
+                    "uid": "5568324a-68ed-4c6c-9aa6-553978c7e746",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "group",
+                "name": "New Group 2",
+                "uid": "6e3e3f33-fc23-433d-ac90-d72196f9ffcf",
+            },
+        ],
+        "members": [
+            {
+                "folder": {
+                    "uid": "5568324a-68ed-4c6c-9aa6-553978c7e746",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "host",
+                "name": "New Host 1",
+                "uid": "280ff2f7-2ce2-42ac-a29f-cad26a4d6de5",
+            }
+        ],
+    }
+
+
 @pytest.fixture(name="firewallManagement")
 @responses.activate
 def firewallManagement(session):

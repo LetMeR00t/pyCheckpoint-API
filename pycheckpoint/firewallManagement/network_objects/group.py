@@ -8,17 +8,12 @@ from pycheckpoint.utils import sanitize_secondary_parameters
 from pycheckpoint.models import Color
 
 
-class HostAPI(APIEndpoint):
+class GroupAPI(APIEndpoint):
     def add(
         self,
         name: str,
-        ip_address: str = None,
-        ipv4_address: str = None,
-        ipv6_address: str = None,
-        interfaces: Union[dict, list[dict]] = None,
-        nat_settings: dict = None,
+        members: Union[str, list[str]] = None,
         tags: Union[str, list[str]] = None,
-        host_servers: dict = None,
         **kw
     ) -> Box:
         """
@@ -26,19 +21,9 @@ class HostAPI(APIEndpoint):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            ip_address (str): 	IPv4 or IPv6 address. If both addresses are required use ipv4-address
-            and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
-            ipv4_address (str): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
-            ipv6_address (str): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
-            interfaces (Union[dict,list[dict]]): Host interfaces.
-            nat_settings (dict): NAT settings.
+            members (Union[str, list[str]]): Collection of Network objects identified by the name or UID.
             tags (Union(str,list[str])): Collection of tag identifiers.
-            host_servers (dict): Servers Configuration.
         Keyword Args:
-            **set-if-exists (bool, optional):
-                If another object with the same identifier already exists, it will be updated.
-                The command behaviour will be the same as if originally a set command was called.
-                Pay attention that original object's fields will be overwritten by the fields provided in the request payload!
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
             **comments (str, optional):
@@ -56,32 +41,18 @@ class HostAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.host.add(name="My object")
+            >>> firewallManagementApi.network_objects.group.add(name="My object")
         """
 
         # Main request parameters
         payload = {"name": name}
-        if ip_address is not None:
-            payload["ip-address"] = ip_address
-        elif ipv4_address is not None:
-            payload["ipv4-address"] = ipv4_address
-        elif ipv6_address is not None:
-            payload["ipv6-address"] = ipv6_address
-        else:
-            raise MandatoryFieldMissing("ip_address or ipv4_address or ipv6_address")
-
-        if interfaces is not None:
-            payload["interfaces"] = interfaces
-        if nat_settings is not None:
-            payload["nat-settings"] = nat_settings
+        if members is not None:
+            payload["members"] = members
         if tags is not None:
             payload["tags"] = tags
-        if host_servers is not None:
-            payload["host-servers"] = host_servers
 
         # Secondary parameters
         secondary_parameters = {
-            "set-if-exists": bool,
             "color": Color,
             "comments": str,
             "details-level": str,
@@ -91,15 +62,21 @@ class HostAPI(APIEndpoint):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("add-host", json=payload)
+        return self._post("add-group", json=payload)
 
-    def show(self, uid: str = None, name: str = None, **kw) -> Box:
+    def show(
+        self, uid: str = None, name: str = None, show_as_ranges: bool = False, **kw
+    ) -> Box:
         """
         Retrieve existing object using object name or uid.
 
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
+            show_as_ranges (bool): When true, the group's matched content is displayed as ranges of IP addresses rather
+            than network objects. Objects that are not represented using IP addresses are presented as objects.
+            The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.
+            Default is False.
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
@@ -107,7 +84,7 @@ class HostAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.host.show(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> firewallManagementApi.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
 
         # Main request parameters
@@ -119,24 +96,22 @@ class HostAPI(APIEndpoint):
         else:
             raise MandatoryFieldMissing("uid or name")
 
+        if show_as_ranges is not None:
+            payload["show-as-ranges"] = show_as_ranges
+
         # Secondary parameters
         secondary_parameters = {"details-level": str}
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("show-host", json=payload)
+        return self._post("show-group", json=payload)
 
     def set(
         self,
         uid: str = None,
         name: str = None,
-        ip_address: str = None,
-        ipv4_address: str = None,
-        ipv6_address: str = None,
-        interfaces: Union[dict, list[dict]] = None,
-        nat_settings: dict = None,
+        members: Union[dict, str, list[str]] = None,
         new_name: str = None,
         tags: Union[str, list[str]] = None,
-        host_servers: dict = None,
         **kw
     ) -> Box:
         """
@@ -145,15 +120,9 @@ class HostAPI(APIEndpoint):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
-            ip_address (str): IPv4 or IPv6 address. If both addresses are required use ipv4-address
-            and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
-            ipv4_address (str): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
-            ipv6_address (str): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
-            interfaces (Union[dict,list[dict]]): Host interfaces.
-            nat_settings (dict): NAT settings.
+            members (Union[dict, str, list[str]]): Collection of Network objects identified by the name or UID.
             new_name (str): New name of the object.
             tags (Union(str,list[str])): Collection of tag identifiers.
-            host_servers (dict): Servers Configuration.
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -172,7 +141,7 @@ class HostAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.host.set(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4", ip_address="192.0.2.1")
+            >>> firewallManagement.network_objects.group.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5", name="New Group 3")
         """
 
         # Main request parameters
@@ -184,23 +153,12 @@ class HostAPI(APIEndpoint):
         else:
             raise MandatoryFieldMissing("uid or name")
 
-        if ip_address is not None:
-            payload["ip-address"] = ip_address
-        elif ipv4_address is not None:
-            payload["ipv4-address"] = ipv4_address
-        elif ipv6_address is not None:
-            payload["ipv6-address"] = ipv6_address
-
-        if interfaces is not None:
-            payload["interfaces"] = interfaces
-        if nat_settings is not None:
-            payload["nat-settings"] = nat_settings
+        if members is not None:
+            payload["members"] = members
         if new_name is not None:
             payload["new-name"] = new_name
         if tags is not None:
             payload["tags"] = tags
-        if host_servers is not None:
-            payload["host-servers"] = host_servers
 
         # Secondary parameters
         secondary_parameters = {
@@ -213,7 +171,7 @@ class HostAPI(APIEndpoint):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("set-host", json=payload)
+        return self._post("set-group", json=payload)
 
     def delete(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -234,7 +192,7 @@ class HostAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.host.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> firewallManagementApi.network_objects.group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
 
         # Main request parameters
@@ -254,14 +212,15 @@ class HostAPI(APIEndpoint):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("delete-host", json=payload)
+        return self._post("delete-group", json=payload)
 
-    def show_hosts(
+    def show_groups(
         self,
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
         order: list[dict] = None,
+        show_as_ranges: bool = False,
         **kw
     ) -> Box:
         """
@@ -276,10 +235,14 @@ class HostAPI(APIEndpoint):
             offset (int): Number of the results to initially skip. Default to 0
             order (list[dict]): Sorts results by the given field. By default the results are sorted in the
             descending order by the session publish time.
+            show_as_ranges (bool): When true, the group's matched content is displayed as ranges of IP addresses rather
+            than network objects. Objects that are not represented using IP addresses are presented as objects.
+            The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.
+            Default is False.
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.host.shows_hosts()
+            >>> firewallManagementApi.network_objects.group.shows_groups()
         """
 
         # Main request parameters
@@ -292,13 +255,16 @@ class HostAPI(APIEndpoint):
             payload["offset"] = offset
         if order is not None:
             payload["order"] = order
+        if show_as_ranges is not None:
+            payload["show-as-ranges"] = show_as_ranges
 
         # Secondary parameters
         secondary_parameters = {
+            "dereference-group-members": bool,
             "show-membership": bool,
             "details-level": str,
             "domains-to-process": list[str],
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("show-hosts", json=payload)
+        return self._post("show-groups", json=payload)

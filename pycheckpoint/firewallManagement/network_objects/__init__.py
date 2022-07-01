@@ -3,6 +3,7 @@ from restfly.endpoint import APIEndpoint
 from .host import HostAPI
 from .network import NetworkAPI
 from .wildcard import WildcardAPI
+from .group import GroupAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -20,3 +21,8 @@ class NetworkObjects(APIEndpoint):
     def wildcard(self):
         """The interface object for the network objects type "Wildcard" Management."""
         return WildcardAPI(self)
+
+    @property
+    def group(self):
+        """The interface object for the network objects type "Group" Management."""
+        return GroupAPI(self)
