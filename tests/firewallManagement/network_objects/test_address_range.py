@@ -95,6 +95,6 @@ def test_show_address_ranges(firewallManagement, resp_from_to_objects):
         status=200,
     )
 
-    resp = firewallManagement.network_objects.address_range.show_address_ranges()
+    resp = firewallManagement.network_objects.address_range.show_objects()
 
     assert isinstance(resp.total, int)

@@ -1,14 +1,14 @@
 from typing import Union
 
 from box import Box
-from restfly.endpoint import APIEndpoint
 
+from ..abstract.network_object import NetworkObjectAPI
 from ..exception import MandatoryFieldMissing
 from pycheckpoint.utils import sanitize_secondary_parameters
 from pycheckpoint.models import Color
 
 
-class AddressRangeAPI(APIEndpoint):
+class AddressRangeAPI(NetworkObjectAPI):
     def add(
         self,
         name: str,
@@ -287,7 +287,7 @@ class AddressRangeAPI(APIEndpoint):
 
         return self._post("delete-address-range", json=payload)
 
-    def show_address_ranges(
+    def show_objects(
         self,
         filter: str = None,
         limit: int = 50,

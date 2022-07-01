@@ -1,14 +1,14 @@
 from typing import Union
 
 from box import Box
-from restfly.endpoint import APIEndpoint
 
+from ..abstract.network_object import NetworkObjectAPI
 from ..exception import MandatoryFieldMissing
 from pycheckpoint.utils import sanitize_secondary_parameters
 from pycheckpoint.models import Color
 
 
-class WildcardAPI(APIEndpoint):
+class WildcardAPI(NetworkObjectAPI):
     def add(
         self,
         name: str,
@@ -236,7 +236,7 @@ class WildcardAPI(APIEndpoint):
 
         return self._post("delete-wildcard", json=payload)
 
-    def show_wildcards(
+    def show_objects(
         self,
         filter: str = None,
         limit: int = 50,

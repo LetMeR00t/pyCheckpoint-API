@@ -89,6 +89,6 @@ def test_show_wildcards(firewallManagement, resp_from_to_objects):
         status=200,
     )
 
-    resp = firewallManagement.network_objects.wildcard.show_wildcards()
+    resp = firewallManagement.network_objects.wildcard.show_objects()
 
     assert isinstance(resp.total, int)

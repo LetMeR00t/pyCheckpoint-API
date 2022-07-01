@@ -84,6 +84,6 @@ def test_show_hosts(firewallManagement, resp_from_to_objects):
         status=200,
     )
 
-    resp = firewallManagement.network_objects.host.show_hosts()
+    resp = firewallManagement.network_objects.host.show_objects()
 
     assert isinstance(resp.total, int)

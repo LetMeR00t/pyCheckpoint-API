@@ -1,14 +1,14 @@
 from typing import Union
 
 from box import Box
-from restfly.endpoint import APIEndpoint
 
+from ..abstract.network_object import NetworkObjectAPI
 from ..exception import MandatoryFieldMissing
 from pycheckpoint.utils import sanitize_secondary_parameters
 from pycheckpoint.models import Color
 
 
-class GSNHandoverGroupAPI(APIEndpoint):
+class GSNHandoverGroupAPI(NetworkObjectAPI):
     def add(
         self,
         name: str,
@@ -227,7 +227,7 @@ class GSNHandoverGroupAPI(APIEndpoint):
 
         return self._post("delete-gsn-handover-group", json=payload)
 
-    def show_gsn_handover_groups(
+    def show_objects(
         self,
         filter: str = None,
         limit: int = 50,
