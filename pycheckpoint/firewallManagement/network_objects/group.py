@@ -124,7 +124,7 @@ class GroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.group.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5", name="New Group 3")
+            >>> firewallManagement.network_objects.group.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",new_name="New Group 3")
         """
 
         # Main request parameters

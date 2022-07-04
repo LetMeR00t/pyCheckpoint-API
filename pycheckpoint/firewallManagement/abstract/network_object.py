@@ -11,7 +11,14 @@ class NetworkObjectAPI(ABC, APIEndpoint):
     def add(self):
         pass
 
-    def show_object(self, endpoint: str, uid: str = None, name: str = None, **kw):
+    def show_object(
+        self,
+        endpoint: str,
+        uid: str = None,
+        name: str = None,
+        extra_secondary_parameters: dict = None,
+        **kw
+    ):
         """
         Retrieve existing object using object name or uid.
 
@@ -19,6 +26,7 @@ class NetworkObjectAPI(ABC, APIEndpoint):
             endpoint (str): Endpoint to reach to show the objects
             uid (str): Object unique identifier.
             name (str): Object name.
+            extra_secondary_parameters (dict): Any additional secondary parameter need to be add in the request
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
@@ -40,6 +48,10 @@ class NetworkObjectAPI(ABC, APIEndpoint):
 
         # Secondary parameters
         secondary_parameters = {"details-level": str}
+
+        if extra_secondary_parameters is not None:
+            secondary_parameters.update(extra_secondary_parameters)
+
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
         return self._post(endpoint, json=payload)

@@ -8,6 +8,7 @@ from .gsn_handover_group import GSNHandoverGroupAPI
 from .address_range import AddressRangeAPI
 from .multicast_address_range import MulticastAddressRangeAPI
 from .group_with_exclusion import GroupWithExclusionAPI
+from .simple_gateway import SimpleGatewayAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -50,3 +51,8 @@ class NetworkObjects(APIEndpoint):
     def group_with_exclusion(self):
         """The interface object for the network objects type "Group With Exclusion" Management."""
         return GroupWithExclusionAPI(self)
+
+    @property
+    def simple_gateway(self):
+        """The interface object for the network objects type "Group With Exclusion" Management."""
+        return SimpleGatewayAPI(self)
