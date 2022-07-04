@@ -396,6 +396,84 @@ def fixture_resp_address_range():
     }
 
 
+@pytest.fixture(name="resp_multicast_address_range")
+def fixture_resp_multicast_address_range():
+    return {
+        "uid": "faff3fdf-01b9-4c58-97dc-176c409b5bc1",
+        "name": "New Multicast Address Range",
+        "type": "multicast-address-range",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "last-modify-time": {
+                "posix": 1483966213026,
+                "iso-8601": "2017-01-09T14:50+0200",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1483966213026,
+                "iso-8601": "2017-01-09T14:50+0200",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "read-only": True,
+        "comments": "",
+        "color": "black",
+        "icon": "Objects/ip",
+        "groups": [],
+        "ipv4-address-first": "224.0.0.1",
+        "ipv4-address-last": "224.0.0.4",
+    }
+
+
+@pytest.fixture(name="resp_group_with_exclusion")
+def fixture_resp_group_with_exclusion():
+    return {
+        "uid": "dce451da-c9c7-46a9-bdb5-8fc953a6f172",
+        "name": "DemoGroupWithExclusion",
+        "type": "group-with-exclusion",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "meta-info": {
+            "lock": "locked by current session",
+            "validation-state": "ok",
+            "last-modify-time": {
+                "posix": 1528268215283,
+                "iso-8601": "2018-06-06T09:56+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1528268215283,
+                "iso-8601": "2018-06-06T09:56+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "read-only": False,
+        "comments": "",
+        "color": "black",
+        "icon": "General/group",
+        "ranges": {
+            "ipv4": [
+                {"start": "10.10.10.0", "end": "10.10.10.127"},
+                {"start": "10.10.14.1", "end": "10.10.14.1"},
+            ],
+            "ipv6": [],
+            "others": [],
+            "excluded-others": [],
+        },
+    }
+
+
 @pytest.fixture(name="firewallManagement")
 @responses.activate
 def firewallManagement(session):
