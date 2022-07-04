@@ -109,21 +109,7 @@ class HostAPI(NetworkObjectAPI):
         Examples:
             >>> firewallManagementApi.network_objects.host.show(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
-
-        # Main request parameters
-        payload = {}
-        if uid is not None:
-            payload["uid"] = uid
-        elif name is not None:
-            payload["name"] = name
-        else:
-            raise MandatoryFieldMissing("uid or name")
-
-        # Secondary parameters
-        secondary_parameters = {"details-level": str}
-        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
-
-        return self._post("show-host", json=payload)
+        return self.show_object(endpoint="show-host", uid=uid, name=name, **kw)
 
     def set(
         self,

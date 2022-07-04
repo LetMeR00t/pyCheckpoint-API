@@ -108,6 +108,7 @@ class GSNHandoverGroupAPI(NetworkObjectAPI):
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
         return self._post("show-gsn-handover-group", json=payload)
+        return self.show_object(endpoint="show-group", uid=uid, name=name, **kw)
 
     def set(
         self,

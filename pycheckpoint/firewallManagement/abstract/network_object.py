@@ -11,9 +11,38 @@ class NetworkObjectAPI(ABC, APIEndpoint):
     def add(self):
         pass
 
-    @abstractclassmethod
-    def show(self):
-        pass
+    def show_object(self, endpoint: str, uid: str = None, name: str = None, **kw):
+        """
+        Retrieve existing object using object name or uid.
+
+        Args:
+            endpoint (str): Endpoint to reach to show the objects
+            uid (str): Object unique identifier.
+            name (str): Object name.
+        Keyword Args:
+            **details-level (str, optional):
+                The level of detail for some of the fields in the response can vary from showing only the UID value
+                of the object to a fully detailed representation of the object.
+        Returns:
+            :obj:`Box`: The response from the server
+        Examples:
+            >>> firewallManagementApi.network_objects.<OBJECT_TYPE>.show(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
+        """
+
+        # Main request parameters
+        payload = {}
+        if uid is not None:
+            payload["uid"] = uid
+        elif name is not None:
+            payload["name"] = name
+        else:
+            raise MandatoryFieldMissing("uid or name")
+
+        # Secondary parameters
+        secondary_parameters = {"details-level": str}
+        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
+
+        return self._post(endpoint, json=payload)
 
     @abstractclassmethod
     def set(self):

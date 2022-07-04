@@ -86,24 +86,7 @@ class GroupAPI(NetworkObjectAPI):
         Examples:
             >>> firewallManagementApi.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-
-        # Main request parameters
-        payload = {}
-        if uid is not None:
-            payload["uid"] = uid
-        elif name is not None:
-            payload["name"] = name
-        else:
-            raise MandatoryFieldMissing("uid or name")
-
-        if show_as_ranges is not None:
-            payload["show-as-ranges"] = show_as_ranges
-
-        # Secondary parameters
-        secondary_parameters = {"details-level": str}
-        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
-
-        return self._post("show-group", json=payload)
+        return self.show_object(endpoint="show-group", uid=uid, name=name, **kw)
 
     def set(
         self,
