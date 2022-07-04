@@ -216,25 +216,7 @@ class WildcardAPI(NetworkObjectAPI):
         Examples:
             >>> firewallManagementApi.network_objects.wildcard.delete(uid="d8a5e4dd-2a93-4847-aaa8-d5d33a695da5")
         """
-
-        # Main request parameters
-        payload = {}
-        if uid is not None:
-            payload["uid"] = uid
-        elif name is not None:
-            payload["name"] = name
-        else:
-            raise MandatoryFieldMissing("uid or name")
-
-        # Secondary parameters
-        secondary_parameters = {
-            "details-level": str,
-            "ignore-warnings": bool,
-            "ignore-errors": bool,
-        }
-        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
-
-        return self._post("delete-wildcard", json=payload)
+        return self.delete_object(endpoint="delete-wildcard", uid=uid, name=name, **kw)
 
     def show_wildcards(
         self,

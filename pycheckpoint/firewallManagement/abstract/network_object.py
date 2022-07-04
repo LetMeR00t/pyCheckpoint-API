@@ -1,6 +1,8 @@
 from restfly.endpoint import APIEndpoint
 from abc import ABC, abstractclassmethod
 from box import Box
+
+from ..exception import MandatoryFieldMissing
 from pycheckpoint.utils import sanitize_secondary_parameters
 
 
@@ -17,9 +19,47 @@ class NetworkObjectAPI(ABC, APIEndpoint):
     def set(self):
         pass
 
-    @abstractclassmethod
-    def delete(self):
-        pass
+    def delete_object(self, endpoint: str, uid: str = None, name: str = None, **kw):
+        """
+        Delete existing object using object name or uid.
+
+        Args:
+            endpoint (str): Endpoint to reach to show the objects
+            uid (str): Object unique identifier.
+            name (str): Object name.
+        Keyword Args:
+            **details-level (str, optional):
+                The level of detail for some of the fields in the response can vary from showing only the UID value
+                of the object to a fully detailed representation of the object.
+            **ignore-warnings (bool, optional):
+                Apply changes ignoring warnings. Default is False
+            **ignore-errors (bool, optional):
+                Apply changes ignoring errors. You won't be able to publish such a changes.
+                If ignore-warnings flag was omitted - warnings will also be ignored. Default is False
+        Returns:
+            :obj:`Box`: The response from the server
+        Examples:
+            >>> firewallManagementApi.network_objects.<OBJECT_TYPE>.delete(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
+        """
+
+        # Main request parameters
+        payload = {}
+        if uid is not None:
+            payload["uid"] = uid
+        elif name is not None:
+            payload["name"] = name
+        else:
+            raise MandatoryFieldMissing("uid or name")
+
+        # Secondary parameters
+        secondary_parameters = {
+            "details-level": str,
+            "ignore-warnings": bool,
+            "ignore-errors": bool,
+        }
+        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
+
+        return self._post(endpoint, json=payload)
 
     def show_objects(
         self,

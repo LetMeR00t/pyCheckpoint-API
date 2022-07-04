@@ -267,25 +267,9 @@ class AddressRangeAPI(NetworkObjectAPI):
         Examples:
             >>> firewallManagementApi.network_objects.address_range.delete(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
         """
-
-        # Main request parameters
-        payload = {}
-        if uid is not None:
-            payload["uid"] = uid
-        elif name is not None:
-            payload["name"] = name
-        else:
-            raise MandatoryFieldMissing("uid or name")
-
-        # Secondary parameters
-        secondary_parameters = {
-            "details-level": str,
-            "ignore-warnings": bool,
-            "ignore-errors": bool,
-        }
-        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
-
-        return self._post("delete-address-range", json=payload)
+        return self.delete_object(
+            endpoint="delete-address-range", uid=uid, name=name, **kw
+        )
 
     def show_address_ranges(
         self,

@@ -194,25 +194,7 @@ class GroupAPI(NetworkObjectAPI):
         Examples:
             >>> firewallManagementApi.network_objects.group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-
-        # Main request parameters
-        payload = {}
-        if uid is not None:
-            payload["uid"] = uid
-        elif name is not None:
-            payload["name"] = name
-        else:
-            raise MandatoryFieldMissing("uid or name")
-
-        # Secondary parameters
-        secondary_parameters = {
-            "details-level": str,
-            "ignore-warnings": bool,
-            "ignore-errors": bool,
-        }
-        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
-
-        return self._post("delete-group", json=payload)
+        return self.delete_object(endpoint="delete-group", uid=uid, name=name, **kw)
 
     def show_groups(
         self,

@@ -271,25 +271,7 @@ class NetworkAPI(NetworkObjectAPI):
         Examples:
             >>> firewallManagementApi.network_objects.network.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
-
-        # Main request parameters
-        payload = {}
-        if uid is not None:
-            payload["uid"] = uid
-        elif name is not None:
-            payload["name"] = name
-        else:
-            raise MandatoryFieldMissing("uid or name")
-
-        # Secondary parameters
-        secondary_parameters = {
-            "details-level": str,
-            "ignore-warnings": bool,
-            "ignore-errors": bool,
-        }
-        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
-
-        return self._post("delete-network", json=payload)
+        return self.delete_object(endpoint="delete-network", uid=uid, name=name, **kw)
 
     def show_networks(
         self,
