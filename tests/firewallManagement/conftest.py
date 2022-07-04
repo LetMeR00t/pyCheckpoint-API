@@ -581,7 +581,7 @@ def firewallManagement(session):
     )
 
     firewallManagementAPI = FirewallManagementAPI(
-        username="test@example.com",
+        user="test@example.com",
         password="false_strong_password",
         hostname="127.0.0.1",
         port=443,

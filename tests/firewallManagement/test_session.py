@@ -16,7 +16,7 @@ def test_login_username_password(firewallManagement, session):
     )
 
     resp = firewallManagement.session.login(
-        username="test@example.com",
+        user="test@example.com",
         password="hunter2",
         domain="MyDomain",
     )

@@ -9,14 +9,14 @@ from pycheckpoint.models import Color
 
 class SessionAPI(APIEndpoint):
     def login(
-        self, username: str = None, password: str = None, api_key: str = None, **kw
+        self, user: str = None, password: str = None, api_key: str = None, **kw
     ) -> Box:
         """
         Creates a Firewall Management authentication session. You should authenticate using either a
         username/password or by using an API key.
 
         Args:
-            username (str): Username of admin user for the authentication session. You must specify "password" too.
+            user (str): Username of admin user for the authentication session. You must specify "password" too.
             password (str): Password of the admin user for the authentication session. You must specify "username" too.
             api_key (str): API key of the admin user for the authentication session (use this only or user/password)
         Keyword Args:
@@ -47,15 +47,15 @@ class SessionAPI(APIEndpoint):
 
         # Main request parameters
         payload = {}
-        if username is not None:
+        if user is not None:
             if password is not None:
-                payload = {"username": username, "password": password}
+                payload = {"user": user, "password": password}
             else:
                 raise MandatoryFieldMissing("password")
-        elif username is None and api_key is not None:
+        elif user is None and api_key is not None:
             payload = {"api-key": api_key}
-        elif username is None:
-            raise MandatoryFieldMissing("username")
+        elif user is None:
+            raise MandatoryFieldMissing("user")
         else:
             raise MandatoryFieldMissing("api_key")
 
