@@ -50,9 +50,7 @@ def test_set_time(firewallManagement, resp_time):
     )
 
     resp = firewallManagement.network_objects.time.set(
-        uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",
-        subnet="192.0.2.0",
-        subnet_mask="255.255.255.0",
+        uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7", new_name="timeObject1"
     )
 
     assert resp.uid == "aa785d6d-7785-aad5-36a3-ab2d74c966ee"

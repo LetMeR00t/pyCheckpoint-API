@@ -783,6 +783,44 @@ def fixture_resp_time():
     }
 
 
+@pytest.fixture(name="resp_time_group")
+def fixture_resp_time_group():
+    return {
+        "uid": "d5878541-abbd-ad58-d23a-01a12352abc6",
+        "folder": {
+            "uid": "5568324a-68ed-4c6c-9aa6-553978c7e746",
+            "name": "/Global Objects",
+        },
+        "domain": {
+            "domain-type": "local domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1435470206821,
+                "iso-8601": "2015-06-28T08:43+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1435470206821,
+                "iso-8601": "2015-06-28T08:43+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "name": "New Time Group",
+        "comments": "",
+        "color": "black",
+        "icon": "General/group",
+        "groups": [],
+        "members": [],
+    }
+
+
 @pytest.fixture(name="firewallManagement")
 @responses.activate
 def firewallManagement(session):

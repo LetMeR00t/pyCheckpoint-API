@@ -14,6 +14,7 @@ from .network_interface import NetworkInterfaceAPI
 from .checkpoint_host import CheckpointHostAPI
 from .security_zone import SecurityZoneAPI
 from .time import TimeAPI
+from .time_group import TimeGroupAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -86,3 +87,8 @@ class NetworkObjects(APIEndpoint):
     def time(self):
         """The interface object for the network objects type "Time" Management."""
         return TimeAPI(self)
+
+    @property
+    def time_group(self):
+        """The interface object for the network objects type "Time Group" Management."""
+        return TimeGroupAPI(self)

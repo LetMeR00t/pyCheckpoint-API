@@ -8,17 +8,12 @@ from pycheckpoint.utils import sanitize_secondary_parameters
 from pycheckpoint.models import Color
 
 
-class TimeAPI(NetworkObjectAPI):
+class TimeGroupAPI(NetworkObjectAPI):
     def add(
         self,
         name: str,
-        end: dict = None,
-        end_never: bool = None,
-        hours_ranges: list[dict] = None,
-        start: dict = None,
-        start_now: bool = None,
+        members: Union[str, list[str]] = None,
         tags: Union[str, list[str]] = None,
-        recurrence: dict = None,
         **kw
     ) -> Box:
         """
@@ -26,14 +21,8 @@ class TimeAPI(NetworkObjectAPI):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            end (dict): End time. Note: Each gateway may interpret this time differently according to its time zone.
-            end_never (bool): End never.
-            hours_ranges (list[dict]): Hours recurrence. Note: Each gateway may interpret this time differently
-            according to its time zone.
-            start (dict): Starting time. Note: Each gateway may interpret this time differently according to its time zone.
-            start_now (bool): Start immediately.
+            members (Union[str, list[str]]): Collection of Network objects identified by the name or UID.
             tags (Union(str,list[str])): Collection of tag identifiers.
-            recurrence (dict): Days recurrence.
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -52,30 +41,18 @@ class TimeAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.time.add(name="My object")
+            >>> firewallManagementApi.network_objects.time_group.add(name="My object")
         """
 
         # Main request parameters
         payload = {"name": name}
-
-        if end is not None:
-            payload["end"] = end
-        if end_never is not None:
-            payload["end-never"] = end_never
-        if hours_ranges is not None:
-            payload["hours-ranges"] = hours_ranges
-        if start is not None:
-            payload["start"] = start
-        if start_now is not None:
-            payload["start-now"] = start_now
-        if recurrence is not None:
-            payload["recurrence"] = recurrence
+        if members is not None:
+            payload["members"] = members
         if tags is not None:
             payload["tags"] = tags
 
         # Secondary parameters
         secondary_parameters = {
-            "set-if-exists": bool,
             "color": Color,
             "comments": str,
             "details-level": str,
@@ -85,7 +62,7 @@ class TimeAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("add-time", json=payload)
+        return self._post("add-time-group", json=payload)
 
     def show(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -101,39 +78,28 @@ class TimeAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.time.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> firewallManagementApi.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-        return self.show_object(endpoint="show-time", uid=uid, name=name, **kw)
+        return self.show_object(endpoint="show-time-group", uid=uid, name=name, **kw)
 
     def set(
         self,
         uid: str = None,
         name: str = None,
-        end: dict = None,
-        end_never: bool = None,
-        hours_ranges: list[dict] = None,
-        start: dict = None,
-        start_now: bool = None,
-        tags: Union[str, list[str]] = None,
-        recurrence: dict = None,
+        members: Union[dict, str, list[str]] = None,
         new_name: str = None,
+        tags: Union[dict, str, list[str]] = None,
         **kw
     ) -> Box:
         """
-        Create new object.
+        Edit existing object using object name or uid.
 
         Args:
             uid (str): Object unique identifier.
-            name (str): Object name. Must be unique in the domain.
-            end (dict): End time. Note: Each gateway may interpret this time differently according to its time zone.
-            end_never (bool): End never.
-            hours_ranges (list[dict]): Hours recurrence. Note: Each gateway may interpret this time differently
-            according to its time zone.
-            start (dict): Starting time. Note: Each gateway may interpret this time differently according to its time zone.
-            start_now (bool): Start immediately.
-            tags (Union(str,list[str])): Collection of tag identifiers.
-            recurrence (dict): Days recurrence.
+            name (str): Object name.
+            members (Union[dict, str, list[str]]): Collection of Network objects identified by the name or UID.
             new_name (str): New name of the object.
+            tags (Union(str,list[str])): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -152,8 +118,8 @@ class TimeAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.time.set(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",
-            new_name="timeObject1")
+            >>> firewallManagement.network_objects.time_group.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            new_name="New Time Group")
         """
 
         # Main request parameters
@@ -165,22 +131,12 @@ class TimeAPI(NetworkObjectAPI):
         else:
             raise MandatoryFieldMissing("uid or name")
 
-        if end is not None:
-            payload["end"] = end
-        if end_never is not None:
-            payload["end-never"] = end_never
-        if hours_ranges is not None:
-            payload["hours-ranges"] = hours_ranges
-        if start is not None:
-            payload["start"] = start
-        if start_now is not None:
-            payload["start-now"] = start_now
-        if recurrence is not None:
-            payload["recurrence"] = recurrence
-        if tags is not None:
-            payload["tags"] = tags
+        if members is not None:
+            payload["members"] = members
         if new_name is not None:
             payload["new-name"] = new_name
+        if tags is not None:
+            payload["tags"] = tags
 
         # Secondary parameters
         secondary_parameters = {
@@ -193,7 +149,7 @@ class TimeAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("set-time", json=payload)
+        return self._post("set-time-group", json=payload)
 
     def delete(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -214,16 +170,19 @@ class TimeAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.time.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> firewallManagementApi.network_objects.time_group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-        return self.delete_object(endpoint="delete-time", uid=uid, name=name, **kw)
+        return self.delete_object(
+            endpoint="delete-time-group", uid=uid, name=name, **kw
+        )
 
-    def show_times(
+    def show_time_groups(
         self,
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
         order: list[dict] = None,
+        show_as_ranges: bool = False,
         **kw
     ) -> Box:
         """
@@ -238,17 +197,21 @@ class TimeAPI(NetworkObjectAPI):
             offset (int): Number of the results to initially skip. Default to 0
             order (list[dict]): Sorts results by the given field. By default the results are sorted in the
             descending order by the session publish time.
+            show_as_ranges (bool): When true, the group's matched content is displayed as ranges of IP addresses rather
+            than network objects. Objects that are not represented using IP addresses are presented as objects.
+            The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.
+            Default is False.
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.time.shows_times()
+            >>> firewallManagementApi.network_objects.time_group.shows_time_groups()
         """
         return self.show_objects(
-            endpoint="show-times",
+            endpoint="show-time-groups",
             filter=filter,
             limit=limit,
             offset=offset,
             order=order,
-            extra_secondary_parameters={"show-membership": bool},
+            extra_secondary_parameters={"domains-to-process": bool},
             **kw
         )
