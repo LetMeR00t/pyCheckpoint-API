@@ -744,6 +744,24 @@ def fixture_resp_checkpoint_host():
     }
 
 
+@pytest.fixture(name="resp_security_zone")
+def fixture_resp_security_zone():
+    return {
+        "folder": {
+            "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+            "name": "/Global Objects",
+        },
+        "domain": {
+            "domain-type": "local domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "type": "security-zone",
+        "name": "SZone1",
+        "uid": "cecd7d2e-c5bb-40d2-bd34-7afe8c37a062",
+    }
+
+
 @pytest.fixture(name="firewallManagement")
 @responses.activate
 def firewallManagement(session):

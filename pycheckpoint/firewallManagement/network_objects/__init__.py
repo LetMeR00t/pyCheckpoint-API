@@ -12,6 +12,7 @@ from .simple_gateway import SimpleGatewayAPI
 from .simple_cluster import SimpleClusterAPI
 from .network_interface import NetworkInterfaceAPI
 from .checkpoint_host import CheckpointHostAPI
+from .security_zone import SecurityZoneAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -74,3 +75,8 @@ class NetworkObjects(APIEndpoint):
     def checkpoint_host(self):
         """The interface object for the network objects type "Checkpoint Host" Management."""
         return CheckpointHostAPI(self)
+
+    @property
+    def security_zone(self):
+        """The interface object for the network objects type "Security Zone" Management."""
+        return SecurityZoneAPI(self)
