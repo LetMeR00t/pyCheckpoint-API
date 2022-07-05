@@ -16,6 +16,7 @@ from .security_zone import SecurityZoneAPI
 from .time import TimeAPI
 from .time_group import TimeGroupAPI
 from .dynamic_object import DynamicObjectAPI
+from .tag import TagAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -96,5 +97,10 @@ class NetworkObjects(APIEndpoint):
 
     @property
     def dynamic_object(self):
-        """The interface object for the network objects type "Time Group" Management."""
+        """The interface object for the network objects type "Dynamic Object" Management."""
         return DynamicObjectAPI(self)
+
+    @property
+    def tag(self):
+        """The interface object for the network objects type "Tag" Management."""
+        return TagAPI(self)
