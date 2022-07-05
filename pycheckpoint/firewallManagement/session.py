@@ -149,7 +149,7 @@ class SessionAPI(APIEndpoint):
         Examples:
             >>> firewallManagementApi.session.keepalive()
         """
-        return self._post("keepalive", box=False)
+        return self._post("keepalive")
 
     def revert_to_revision(self, to_session: str = None) -> Box:
         """

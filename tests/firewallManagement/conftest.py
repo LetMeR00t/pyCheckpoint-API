@@ -662,6 +662,22 @@ def fixture_resp_simple_cluster():
     }
 
 
+@pytest.fixture(name="resp_get_interfaces")
+def fixture_resp_get_interfaces():
+    return {
+        "tasks": [
+            {
+                "task-name": "get-interfaces",
+                "task-id": "01234567-89ab-cdef-9e1f-0e1e68312345",
+                "status": "succeeded",
+                "progress-percentage": 100,
+                "suppressed": False,
+                "task-details": [{"interfaces": ["eth0", "eth1"]}],
+            }
+        ]
+    }
+
+
 @pytest.fixture(name="firewallManagement")
 @responses.activate
 def firewallManagement(session):

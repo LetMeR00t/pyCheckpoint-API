@@ -10,6 +10,7 @@ from .multicast_address_range import MulticastAddressRangeAPI
 from .group_with_exclusion import GroupWithExclusionAPI
 from .simple_gateway import SimpleGatewayAPI
 from .simple_cluster import SimpleClusterAPI
+from .network_interface import NetworkInterfaceAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -62,3 +63,8 @@ class NetworkObjects(APIEndpoint):
     def simple_cluster(self):
         """The interface object for the network objects type "Simple Cluster" Management."""
         return SimpleClusterAPI(self)
+
+    @property
+    def network_interface(self):
+        """The interface object for the network objects type "Network Interface" Management."""
+        return NetworkInterfaceAPI(self)

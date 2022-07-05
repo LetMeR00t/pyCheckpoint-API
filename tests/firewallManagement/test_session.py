@@ -119,7 +119,7 @@ def test_keepalive(firewallManagement, resp_message_ok):
 
     resp = firewallManagement.session.keepalive()
 
-    assert resp.json()["message"] == "OK"
+    assert resp.message == "OK"
 
 
 @responses.activate
