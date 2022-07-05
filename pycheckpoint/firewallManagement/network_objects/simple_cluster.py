@@ -8,7 +8,7 @@ from pycheckpoint.utils import sanitize_secondary_parameters
 from pycheckpoint.models import Color
 
 
-class SimpleGatewayAPI(NetworkObjectAPI):
+class SimpleClusterAPI(NetworkObjectAPI):
     def add(
         self,
         name: str,
@@ -18,17 +18,17 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         anti_bot: bool = None,
         anti_virus: bool = None,
         application_control: bool = None,
+        cluster_mode: str = None,
         content_awareness: bool = None,
+        data_awareness: bool = None,
         firewall: bool = None,
         firewall_settings: dict = None,
-        icap_server: bool = None,
+        hardware: str = None,
         interfaces: list[dict] = None,
         ips: bool = None,
-        logs_settings: dict = None,
-        one_time_password: str = None,
+        members: list[dict] = None,
         os_name: str = None,
         platform_portal_settings: dict = None,
-        save_logs_locally: bool = None,
         send_alerts_to_server: Union[str, list[str]] = None,
         send_logs_to_backup_server: Union[str, list[str]] = None,
         send_logs_to_server: Union[str, list[str]] = None,
@@ -55,17 +55,18 @@ class SimpleGatewayAPI(NetworkObjectAPI):
             anti_bot (bool): Anti-Bot blade enabled.
             anti_virus (bool): Anti-Virus blade enabled.
             application_control (bool): Application Control blade enabled.
+            cluster_mode (str): Cluster mode.
             content_awareness (bool): Content Awareness blade enabled.
+            data_awareness (bool): Data Awareness blade enabled.
             firewall (bool): Firewall blade enabled.
             firewall_settings (dict): N/A
-            icap_server (bool): ICAP Server enabled.
+            hardware (str): Cluster platform hardware.
             interfaces (list[dict]): Network interfaces.
             ips (bool): Intrusion Prevention System blade enabled.
-            logs_settings (dict): N/A
-            one_time_password (str): N/A
+            members (list[dict]): Cluster members list. Only new cluster member can be added.
+            Adding existing gateway is not supported.
             os_name (str): Gateway platform operating system.
             platform_portal_settings (dict): Platform portal settings.
-            save_logs_locally (bool): Save logs locally on the gateway.
             send_alerts_to_server (Union[str, list[str]]): Server(s) to send alerts to.
             send_logs_to_backup_server (Union[str, list[str]]): Backup server(s) to send logs to.
             send_logs_to_server (Union[str, list[str]]): Server(s) to send logs to.
@@ -99,8 +100,8 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>>     resp = firewallManagement.network_objects.simple_gateway.add(
-        name="gw1", ip_address="192.0.2.1")
+            >>> firewallManagement.network_objects.simple_cluster.add(
+        name="cluster1", ip_address="17.23.5.1")
         """
 
         # Main request parameters
@@ -120,30 +121,30 @@ class SimpleGatewayAPI(NetworkObjectAPI):
             payload["anti-virus"] = anti_virus
         if application_control is not None:
             payload["application-control"] = application_control
+        if cluster_mode is not None:
+            payload["cluster_mode"] = cluster_mode
         if content_awareness is not None:
             payload["content-awareness"] = content_awareness
+        if data_awareness is not None:
+            payload["data-awareness"] = data_awareness
         if firewall is not None:
             payload["firewall"] = firewall
         if firewall_settings is not None:
             payload["firewall-settings"] = firewall_settings
-        if icap_server is not None:
-            payload["icap-server"] = icap_server
+        if hardware is not None:
+            payload["hardware"] = hardware
         if interfaces is not None:
             payload["interfaces"] = interfaces
         if ips is not None:
             payload["ips"] = ips
-        if logs_settings is not None:
-            payload["logs-settings"] = logs_settings
-        if one_time_password is not None:
-            payload["one-time-password"] = one_time_password
+        if members is not None:
+            payload["members"] = members
         if os_name is not None:
             payload["os-name"] = os_name
         if platform_portal_settings is not None:
             payload["platform-portal-settings"] = platform_portal_settings
         if tags is not None:
             payload["tags"] = tags
-        if save_logs_locally is not None:
-            payload["save-logs-locally"] = save_logs_locally
         if send_alerts_to_server is not None:
             payload["send-alerts-to-server"] = send_alerts_to_server
         if send_logs_to_backup_server is not None:
@@ -180,7 +181,7 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("add-simple-gateway", json=payload)
+        return self._post("add-simple-cluster", json=payload)
 
     def show(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -196,11 +197,11 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.simple_gateway.show(
+            >>> firewallManagementApi.network_objects.simple_cluster.show(
                 uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.show_object(
-            endpoint="show-simple-gateway",
+            endpoint="show-simple-cluster",
             uid=uid,
             name=name,
             extra_secondary_parameters={"show-portals-certificate": bool},
@@ -217,18 +218,18 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         anti_bot: bool = None,
         anti_virus: bool = None,
         application_control: bool = None,
+        cluster_mode: str = None,
         content_awareness: bool = None,
+        data_awareness: bool = None,
         firewall: bool = None,
         firewall_settings: dict = None,
-        icap_server: bool = None,
+        hardware: str = None,
         interfaces: list[dict] = None,
         ips: bool = None,
-        logs_settings: dict = None,
+        members: list[dict] = None,
         new_name: str = None,
-        one_time_password: str = None,
         os_name: str = None,
         platform_portal_settings: dict = None,
-        save_logs_locally: bool = None,
         send_alerts_to_server: Union[str, list[str]] = None,
         send_logs_to_backup_server: Union[str, list[str]] = None,
         send_logs_to_server: Union[str, list[str]] = None,
@@ -276,8 +277,8 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.simple_gateway.set(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4",
-            ip_address="192.0.2.1")
+            >>> firewallManagement.network_objects.simple_cluster.set(
+        uid="4a5d882a-5568-2c3b-aa78-751ab23d6c11", ip_address="17.23.5.1")
         """
 
         # Main request parameters
@@ -302,32 +303,32 @@ class SimpleGatewayAPI(NetworkObjectAPI):
             payload["anti-virus"] = anti_virus
         if application_control is not None:
             payload["application-control"] = application_control
+        if cluster_mode is not None:
+            payload["cluster_mode"] = cluster_mode
         if content_awareness is not None:
             payload["content-awareness"] = content_awareness
+        if data_awareness is not None:
+            payload["data-awareness"] = data_awareness
         if firewall is not None:
             payload["firewall"] = firewall
         if firewall_settings is not None:
             payload["firewall-settings"] = firewall_settings
-        if icap_server is not None:
-            payload["icap-server"] = icap_server
+        if hardware is not None:
+            payload["hardware"] = hardware
         if interfaces is not None:
             payload["interfaces"] = interfaces
         if ips is not None:
             payload["ips"] = ips
-        if logs_settings is not None:
-            payload["logs-settings"] = logs_settings
+        if members is not None:
+            payload["members"] = members
         if new_name is not None:
             payload["new-name"] = new_name
-        if one_time_password is not None:
-            payload["one-time-password"] = one_time_password
         if os_name is not None:
             payload["os-name"] = os_name
         if platform_portal_settings is not None:
             payload["platform-portal-settings"] = platform_portal_settings
         if tags is not None:
             payload["tags"] = tags
-        if save_logs_locally is not None:
-            payload["save-logs-locally"] = save_logs_locally
         if send_alerts_to_server is not None:
             payload["send-alerts-to-server"] = send_alerts_to_server
         if send_logs_to_backup_server is not None:
@@ -364,7 +365,7 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("set-simple-gateway", json=payload)
+        return self._post("set-simple-cluster", json=payload)
 
     def delete(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -385,13 +386,13 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.simple_gateway.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> firewallManagementApi.network_objects.simple_cluster.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.delete_object(
-            endpoint="delete-simple-gateway", uid=uid, name=name, **kw
+            endpoint="delete-simple-cluster", uid=uid, name=name, **kw
         )
 
-    def show_simple_gateways(
+    def show_simple_clusters(
         self,
         filter: str = None,
         limit: int = 50,
@@ -414,10 +415,10 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.simple_gateway.show_simple_gateways()
+            >>> firewallManagementApi.network_objects.simple_cluster.show_simple_clusters()
         """
         return self.show_objects(
-            endpoint="show-simple-gateways",
+            endpoint="show-simple-clusters",
             filter=filter,
             limit=limit,
             offset=offset,
