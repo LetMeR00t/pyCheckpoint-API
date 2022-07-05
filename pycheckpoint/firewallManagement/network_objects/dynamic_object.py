@@ -8,20 +8,13 @@ from pycheckpoint.utils import sanitize_secondary_parameters
 from pycheckpoint.models import Color
 
 
-class GroupAPI(NetworkObjectAPI):
-    def add(
-        self,
-        name: str,
-        members: Union[str, list[str]] = None,
-        tags: Union[str, list[str]] = None,
-        **kw
-    ) -> Box:
+class DynamicObjectAPI(NetworkObjectAPI):
+    def add(self, name: str, tags: Union[str, list[str]] = None, **kw) -> Box:
         """
         Create new object.
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            members (Union[str, list[str]]): Collection of Network objects identified by the name or UID.
             tags (Union(str,list[str])): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
@@ -46,8 +39,6 @@ class GroupAPI(NetworkObjectAPI):
 
         # Main request parameters
         payload = {"name": name}
-        if members is not None:
-            payload["members"] = members
         if tags is not None:
             payload["tags"] = tags
 
@@ -62,7 +53,7 @@ class GroupAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("add-group", json=payload)
+        return self._post("add-dynamic-object", json=payload)
 
     def show(
         self, uid: str = None, name: str = None, show_as_ranges: bool = False, **kw
@@ -84,9 +75,11 @@ class GroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.network_objects.dynamic-object.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-        return self.show_object(endpoint="show-group", uid=uid, name=name, **kw)
+        return self.show_object(
+            endpoint="show-dynamic-object", uid=uid, name=name, **kw
+        )
 
     def set(
         self,
@@ -95,7 +88,7 @@ class GroupAPI(NetworkObjectAPI):
         members: Union[dict, str, list[str]] = None,
         new_name: str = None,
         tags: Union[str, list[str]] = None,
-        **kw
+        **kw,
     ) -> Box:
         """
         Edit existing object using object name or uid.
@@ -124,7 +117,8 @@ class GroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.group.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",new_name="New Group 3")
+            >>> firewallManagement.network_objects.dynamic_object.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            new_name="Dynamic_Object_1")
         """
 
         # Main request parameters
@@ -154,7 +148,7 @@ class GroupAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("set-group", json=payload)
+        return self._post("set-dynamic-object", json=payload)
 
     def delete(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -175,18 +169,19 @@ class GroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.network_objects.dynamic_object.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-        return self.delete_object(endpoint="delete-group", uid=uid, name=name, **kw)
+        return self.delete_object(
+            endpoint="delete-dynamic-object", uid=uid, name=name, **kw
+        )
 
-    def show_groups(
+    def show_dynamic_objects(
         self,
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
         order: list[dict] = None,
-        show_as_ranges: bool = False,
-        **kw
+        **kw,
     ) -> Box:
         """
         Retrieve all objects.
@@ -207,18 +202,17 @@ class GroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.group.shows_groups()
+            >>> firewallManagementApi.network_objects.dynamic_object.shows_dynamic_objects()
         """
         return self.show_objects(
-            endpoint="show-groups",
+            endpoint="show-dynamic-objects",
             filter=filter,
             limit=limit,
             offset=offset,
             order=order,
-            show_as_ranges=show_as_ranges,
             extra_secondary_parameters={
-                "dereference-group-members": bool,
+                "domains-to-process": bool,
                 "show-membership": bool,
             },
-            **kw
+            **kw,
         )

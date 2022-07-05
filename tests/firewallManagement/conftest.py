@@ -821,6 +821,39 @@ def fixture_resp_time_group():
     }
 
 
+@pytest.fixture(name="resp_dynamic_object")
+def fixture_resp_dynamic_object():
+    return {
+        "uid": "c5a7f50c-a951-45be-8b82-48441c9f48de",
+        "name": "Dynamic_Object_1",
+        "type": "dynamic-object",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "last-modify-time": {
+                "posix": 1478597722485,
+                "iso-8601": "2016-11-08T11:35+0200",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1478597722485,
+                "iso-8601": "2016-11-08T11:35+0200",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "read-only": True,
+        "comments": "My Dynamic Object 1",
+        "color": "yellow",
+        "icon": "NetworkObjects/dynamicObject",
+    }
+
+
 @pytest.fixture(name="firewallManagement")
 @responses.activate
 def firewallManagement(session):

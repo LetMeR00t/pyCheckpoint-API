@@ -109,6 +109,7 @@ class NetworkObjectAPI(ABC, APIEndpoint):
         limit: int = 50,
         offset: int = 0,
         order: list[dict] = None,
+        show_as_ranges: bool = None,
         extra_secondary_parameters: dict = None,
         **kw
     ) -> Box:
@@ -142,6 +143,8 @@ class NetworkObjectAPI(ABC, APIEndpoint):
             payload["offset"] = offset
         if order is not None:
             payload["order"] = order
+        if show_as_ranges is not None:
+            payload["show-as-ranges"] = show_as_ranges
 
         # Secondary parameters
         secondary_parameters = {

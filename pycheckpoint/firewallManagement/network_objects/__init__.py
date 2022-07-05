@@ -15,6 +15,7 @@ from .checkpoint_host import CheckpointHostAPI
 from .security_zone import SecurityZoneAPI
 from .time import TimeAPI
 from .time_group import TimeGroupAPI
+from .dynamic_object import DynamicObjectAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -92,3 +93,8 @@ class NetworkObjects(APIEndpoint):
     def time_group(self):
         """The interface object for the network objects type "Time Group" Management."""
         return TimeGroupAPI(self)
+
+    @property
+    def dynamic_object(self):
+        """The interface object for the network objects type "Time Group" Management."""
+        return DynamicObjectAPI(self)
