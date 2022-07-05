@@ -919,6 +919,40 @@ def fixture_resp_tag():
     }
 
 
+@pytest.fixture(name="resp_dns_domain")
+def fixture_resp_dns_domain():
+    return {
+        "uid": "ea6b168b-87d8-4ab6-9a8c-89c422dbde88",
+        "name": ".www.example.com",
+        "type": "dns-domain",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "last-modify-time": {
+                "posix": 1478675596098,
+                "iso-8601": "2016-11-09T09:13+0200",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1478675596098,
+                "iso-8601": "2016-11-09T09:13+0200",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "read-only": True,
+        "comments": "",
+        "color": "black",
+        "icon": "Objects/domain",
+        "is-sub-domain": False,
+    }
+
+
 @pytest.fixture(name="firewallManagement")
 @responses.activate
 def firewallManagement(session):

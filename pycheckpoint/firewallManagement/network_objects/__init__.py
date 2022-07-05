@@ -17,6 +17,7 @@ from .time import TimeAPI
 from .time_group import TimeGroupAPI
 from .dynamic_object import DynamicObjectAPI
 from .tag import TagAPI
+from .dns_domain import DNSDomainAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -104,3 +105,8 @@ class NetworkObjects(APIEndpoint):
     def tag(self):
         """The interface object for the network objects type "Tag" Management."""
         return TagAPI(self)
+
+    @property
+    def dns_domain(self):
+        """The interface object for the network objects type "DNS Domain" Management."""
+        return DNSDomainAPI(self)

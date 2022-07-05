@@ -8,13 +8,16 @@ from pycheckpoint.utils import sanitize_secondary_parameters
 from pycheckpoint.models import Color
 
 
-class TagAPI(NetworkObjectAPI):
-    def add(self, name: str, tags: Union[str, list[str]] = None, **kw) -> Box:
+class DNSDomainAPI(NetworkObjectAPI):
+    def add(
+        self, name: str, is_sub_domain: bool, tags: Union[str, list[str]] = None, **kw
+    ) -> Box:
         """
         Create new object.
 
         Args:
             name (str): Object name. Must be unique in the domain.
+            is_sub_domain (bool): Whether to match sub-domains in addition to the domain itself.
             tags (Union(str,list[str])): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
@@ -34,11 +37,11 @@ class TagAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tag.add(name="My object")
+            >>> firewallManagementApi.network_objects.dns_domain.add(name="My object")
         """
 
         # Main request parameters
-        payload = {"name": name}
+        payload = {"name": name, "is-sub-domain": is_sub_domain}
         if tags is not None:
             payload["tags"] = tags
 
@@ -53,7 +56,7 @@ class TagAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("add-tag", json=payload)
+        return self._post("add-dns-domain", json=payload)
 
     def show(
         self, uid: str = None, name: str = None, show_as_ranges: bool = False, **kw
@@ -75,14 +78,15 @@ class TagAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tag.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.network_objects.dns_domain.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-        return self.show_object(endpoint="show-tag", uid=uid, name=name, **kw)
+        return self.show_object(endpoint="show-dns-domain", uid=uid, name=name, **kw)
 
     def set(
         self,
         uid: str = None,
         name: str = None,
+        is_sub_domain: bool = None,
         new_name: str = None,
         tags: Union[str, list[str]] = None,
         **kw
@@ -93,6 +97,7 @@ class TagAPI(NetworkObjectAPI):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
+            is_sub_domain (bool): Whether to match sub-domains in addition to the domain itself.
             new_name (str): New name of the object.
             tags (Union(str,list[str])): Collection of tag identifiers.
         Keyword Args:
@@ -113,8 +118,8 @@ class TagAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.tag.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
-            new_name="New Tag")
+            >>> firewallManagement.network_objects.dns_domain.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            new_name="New DNS Domain")
         """
 
         # Main request parameters
@@ -126,6 +131,8 @@ class TagAPI(NetworkObjectAPI):
         else:
             raise MandatoryFieldMissing("uid or name")
 
+        if is_sub_domain is not None:
+            payload["is-sub-domain"] = is_sub_domain
         if new_name is not None:
             payload["new-name"] = new_name
         if tags is not None:
@@ -142,7 +149,7 @@ class TagAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("set-tag", json=payload)
+        return self._post("set-dns-domain", json=payload)
 
     def delete(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -163,11 +170,13 @@ class TagAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tag.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.network_objects.dns_domain.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-        return self.delete_object(endpoint="delete-tag", uid=uid, name=name, **kw)
+        return self.delete_object(
+            endpoint="delete-dns-domain", uid=uid, name=name, **kw
+        )
 
-    def show_tags(
+    def show_dns_domains(
         self,
         filter: str = None,
         limit: int = 50,
@@ -195,10 +204,10 @@ class TagAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tag.shows_tags()
+            >>> firewallManagementApi.network_objects.dns_domain.shows_tags()
         """
         return self.show_objects(
-            endpoint="show-tags",
+            endpoint="show-dns-domains",
             filter=filter,
             limit=limit,
             offset=offset,

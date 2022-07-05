@@ -58,12 +58,12 @@ def test_delete_tag(firewallManagement, resp_message_ok):
 
     responses.add(
         responses.POST,
-        url="https://127.0.0.1:443/web_api/v1.5/delete-group",
+        url="https://127.0.0.1:443/web_api/v1.5/delete-tag",
         json=resp_message_ok,
         status=200,
     )
 
-    resp = firewallManagement.network_objects.group.delete(
+    resp = firewallManagement.network_objects.tag.delete(
         uid="728a4212-a521-46a2-a5a1-b6536a9aecd5"
     )
 
@@ -74,11 +74,11 @@ def test_delete_tag(firewallManagement, resp_message_ok):
 def test_show_tags(firewallManagement, resp_from_to_objects):
     responses.add(
         responses.POST,
-        url="https://127.0.0.1:443/web_api/v1.5/show-groups",
+        url="https://127.0.0.1:443/web_api/v1.5/show-tags",
         json=resp_from_to_objects,
         status=200,
     )
 
-    resp = firewallManagement.network_objects.group.show_groups()
+    resp = firewallManagement.network_objects.tag.show_tags()
 
     assert isinstance(resp.total, int)
