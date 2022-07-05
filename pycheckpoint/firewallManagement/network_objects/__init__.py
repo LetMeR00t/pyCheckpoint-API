@@ -11,6 +11,7 @@ from .group_with_exclusion import GroupWithExclusionAPI
 from .simple_gateway import SimpleGatewayAPI
 from .simple_cluster import SimpleClusterAPI
 from .network_interface import NetworkInterfaceAPI
+from .checkpoint_host import CheckpointHostAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -68,3 +69,8 @@ class NetworkObjects(APIEndpoint):
     def network_interface(self):
         """The interface object for the network objects type "Network Interface" Management."""
         return NetworkInterfaceAPI(self)
+
+    @property
+    def checkpoint_host(self):
+        """The interface object for the network objects type "Checkpoint Host" Management."""
+        return CheckpointHostAPI(self)
