@@ -13,6 +13,7 @@ from .simple_cluster import SimpleClusterAPI
 from .network_interface import NetworkInterfaceAPI
 from .checkpoint_host import CheckpointHostAPI
 from .security_zone import SecurityZoneAPI
+from .time import TimeAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -80,3 +81,8 @@ class NetworkObjects(APIEndpoint):
     def security_zone(self):
         """The interface object for the network objects type "Security Zone" Management."""
         return SecurityZoneAPI(self)
+
+    @property
+    def time(self):
+        """The interface object for the network objects type "Time" Management."""
+        return TimeAPI(self)

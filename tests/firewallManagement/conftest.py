@@ -762,6 +762,27 @@ def fixture_resp_security_zone():
     }
 
 
+@pytest.fixture(name="resp_time")
+def fixture_resp_time():
+    return {
+        "uid": "aa785d6d-7785-aad5-36a3-ab2d74c966ee",
+        "name": "timeObject1",
+        "start-now": True,
+        "end": {"date": "24-Nov-2014", "time": "21:22"},
+        "end-never": "false",
+        "hours-ranges": [
+            {"from": "00:00", "to": "00:00", "enabled": True, "index": 1},
+            {"from": "00:00", "to": "00:00", "enabled": False, "index": 2},
+        ],
+        "recurrence": {
+            "pattern": "Daily",
+            "month": "Any",
+            "weekdays": ["Sun", "Mon"],
+            "days": ["1"],
+        },
+    }
+
+
 @pytest.fixture(name="firewallManagement")
 @responses.activate
 def firewallManagement(session):
