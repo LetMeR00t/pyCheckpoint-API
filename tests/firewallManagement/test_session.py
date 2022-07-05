@@ -101,7 +101,9 @@ def test_disconnect(firewallManagement, resp_message_ok):
         status=200,
     )
 
-    resp = firewallManagement.session.disconnect()
+    resp = firewallManagement.session.disconnect(
+        uid="7a13a360-9b24-40d7-acd3-5b50247be33e"
+    )
 
     assert resp.message == "OK"
 

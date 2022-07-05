@@ -41,7 +41,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The authenticated session information.
         Examples:
-            >>> firewallManagementApi.session.create(username='admin@example.com',
+            >>> firewallManagementApi.session.login(username='admin@example.com',
             ...    password='MyInsecurePassword')
         """
 
@@ -81,9 +81,9 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.delete()
+            >>> firewallManagementApi.session.logout()
         """
-        return self._post("logout")
+        return self._post("logout", json={})
 
     def publish(self, uid: str = None) -> Box:
         """
@@ -121,16 +121,24 @@ class SessionAPI(APIEndpoint):
 
         return self._post("discard", json=payload)
 
-    def disconnect(self) -> Box:
+    def disconnect(self, uid: str, discard: bool = False) -> Box:
         """
         Disconnect a private session.
 
+        Args:
+            uid (str): Session unique identifier.
+            discard (bool): Discard all changes committed during the session.
         Returns:
             :obj:`Box`: The response from the server
         Examples:
             >>> firewallManagementApi.session.disconnect()
         """
-        return self._post("disconnect")
+        payload = {"uid": uid}
+
+        if discard is not None:
+            payload["discard"] = discard
+
+        return self._post("disconnect", json=payload)
 
     def keepalive(self) -> Box:
         """
