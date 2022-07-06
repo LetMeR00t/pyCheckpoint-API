@@ -19,6 +19,7 @@ from .dynamic_object import DynamicObjectAPI
 from .tag import TagAPI
 from .dns_domain import DNSDomainAPI
 from .opsec_application import OPSECApplicationAPI
+from .lsv_profile import LSVProfileAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -116,3 +117,8 @@ class NetworkObjects(APIEndpoint):
     def opsec_application(self):
         """The interface object for the network objects type "OPSEC Application" Management."""
         return OPSECApplicationAPI(self)
+
+    @property
+    def lsv_profile(self):
+        """The interface object for the network objects type "LSV Profile" Management."""
+        return LSVProfileAPI(self)

@@ -991,6 +991,43 @@ def fixture_resp_opsec_application():
     }
 
 
+@pytest.fixture(name="resp_lsv_profile")
+def fixture_resp_lsv_profile():
+    return {
+        "uid": "160de00a-c8b8-4cb4-ae4b-8623d0e6f8b6",
+        "name": "New lsv-profile",
+        "type": "lsv-profile",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "last-modify-time": {
+                "posix": 1562087584480,
+                "iso-8601": "2019-07-02T20:13+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1562087584480,
+                "iso-8601": "2019-07-02T20:13+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "read-only": True,
+        "comments": "",
+        "color": "black",
+        "icon": "Profiles/lsv_profile",
+        "certificate-authority": "896977ae-64d3-e44f-945d-148def7383f7",
+        "vpn-domain": {"limit-peer-domain-size": False, "max-allowed-addresses": 256},
+        "allowed-ip-addresses": [],
+        "restrict-allowed-addresses": False,
+    }
+
+
 @pytest.fixture(name="firewallManagement")
 @responses.activate
 def firewallManagement(session):
