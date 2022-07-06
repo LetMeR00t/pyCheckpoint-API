@@ -8,34 +8,30 @@ from pycheckpoint.utils import sanitize_secondary_parameters
 from pycheckpoint.models import Color
 
 
-class AccessPointNameAPI(NetworkObjectAPI):
+class LSMGatewayAPI(NetworkObjectAPI):
     def add(
         self,
         name: str,
-        apn: str,
-        enforce_end_user_domain: bool = None,
-        block_traffic_other_end_user_domains: bool = None,
-        block_traffic_this_end_user_domain: bool = None,
-        end_user_domain: str = None,
+        security_profile: str,
+        provisioning_settings: dict = None,
+        provisioning_state: str = None,
+        sic: dict = None,
         tags: Union[str, list[str]] = None,
         **kw
     ) -> Box:
         """
-        Create new object.
+        Add LSM Gateway.
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            apn (str): APN name.
-            enforce_end_user_domain (bool): Enable enforce end user domain.
-            block_traffic_other_end_user_domains (bool): Block MS to MS traffic between this and other APN end user domains.
-            block_traffic_this_end_user_domain (bool): Block MS to MS traffic within this end user domain.
-            end_user_domain (str): End user domain name or UID.
+            security_profile (str):	LSM profile.
+            provisioning_settings (dict): Provisioning settings.
+            provisioning_state (str): Provisioning state. By default the state is 'manual'- enable provisioning
+            but not attach to profile. If 'using-profile' state is provided a provisioning profile must be
+            provided in provisioning-settings.
+            sic (dict): Secure Internal Communication.
             tags (Union(str,list[str])): Collection of tag identifiers.
         Keyword Args:
-            **set-if-exists (bool, optional):
-                If another object with the same identifier already exists, it will be updated.
-                The command behaviour will be the same as if originally a set command was called.
-                Pay attention that original object's fields will be overwritten by the fields provided in the request payload!
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
             **comments (str, optional):
@@ -53,30 +49,22 @@ class AccessPointNameAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.access_point_name.add(name="My object")
+            >>> firewallManagementApi.network_objects.lsm_gateway.add(name="My object")
         """
 
         # Main request parameters
-        payload = {"name": name, "apn": apn}
-
+        payload = {"name": name, "security-profile": security_profile}
+        if provisioning_settings is not None:
+            payload["provisioning-settings"] = provisioning_settings
+        if provisioning_state is not None:
+            payload["provisioning-state"] = provisioning_state
+        if sic is not None:
+            payload["sic"] = sic
         if tags is not None:
             payload["tags"] = tags
-        if enforce_end_user_domain is not None:
-            payload["enforce-end-user-domain"] = enforce_end_user_domain
-        if block_traffic_other_end_user_domains is not None:
-            payload[
-                "block-traffic-other-end-user-domains"
-            ] = block_traffic_other_end_user_domains
-        if block_traffic_this_end_user_domain is not None:
-            payload[
-                "block-traffic-this-end-user-domain"
-            ] = block_traffic_this_end_user_domain
-        if end_user_domain is not None:
-            payload["end-user-domain"] = end_user_domain
 
         # Secondary parameters
         secondary_parameters = {
-            "set-if-exists": bool,
             "color": Color,
             "comments": str,
             "details-level": str,
@@ -86,7 +74,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("add-access-point-name", json=payload)
+        return self._post("add-lsm-gateway", json=payload)
 
     def show(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -102,21 +90,18 @@ class AccessPointNameAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.access_point_name.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.network_objects.lsm_gateway.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-        return self.show_object(
-            endpoint="show-access-point-name", uid=uid, name=name, **kw
-        )
+        return self.show_object(endpoint="show-lsm-gateway", uid=uid, name=name, **kw)
 
     def set(
         self,
         uid: str = None,
         name: str = None,
-        apn: str = None,
-        enforce_end_user_domain: bool = None,
-        block_traffic_other_end_user_domains: bool = None,
-        block_traffic_this_end_user_domain: bool = None,
-        end_user_domain: str = None,
+        security_profile: str = None,
+        provisioning_settings: dict = None,
+        provisioning_state: str = None,
+        sic: dict = None,
         new_name: str = None,
         tags: Union[str, list[str]] = None,
         **kw
@@ -127,11 +112,12 @@ class AccessPointNameAPI(NetworkObjectAPI):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
-            apn (str): APN name.
-            enforce_end_user_domain (bool): Enable enforce end user domain.
-            block_traffic_other_end_user_domains (bool): Block MS to MS traffic between this and other APN end user domains.
-            block_traffic_this_end_user_domain (bool): Block MS to MS traffic within this end user domain.
-            end_user_domain (str): End user domain name or UID.
+            security_profile (str):	LSM profile.
+            provisioning_settings (dict): Provisioning settings.
+            provisioning_state (str): Provisioning state. By default the state is 'manual'- enable provisioning
+            but not attach to profile. If 'using-profile' state is provided a provisioning profile must be
+            provided in provisioning-settings.
+            sic (dict): Secure Internal Communication.
             new_name (str): New name of the object.
             tags (Union(str,list[str])): Collection of tag identifiers.
         Keyword Args:
@@ -152,8 +138,8 @@ class AccessPointNameAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.access_point_name.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
-            new_name="New Access Point Name")
+            >>> firewallManagement.network_objects.lsm_gateway.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            new_name="New Tag")
         """
 
         # Main request parameters
@@ -165,24 +151,18 @@ class AccessPointNameAPI(NetworkObjectAPI):
         else:
             raise MandatoryFieldMissing("uid or name")
 
+        if security_profile is not None:
+            payload["security-profile"] = security_profile
+        if provisioning_settings is not None:
+            payload["provisioning-settings"] = provisioning_settings
+        if provisioning_state is not None:
+            payload["provisioning-state"] = provisioning_state
+        if sic is not None:
+            payload["sic"] = sic
         if new_name is not None:
             payload["new-name"] = new_name
         if tags is not None:
             payload["tags"] = tags
-        if apn is not None:
-            payload["apn"] = apn
-        if enforce_end_user_domain is not None:
-            payload["enforce-end-user-domain"] = enforce_end_user_domain
-        if block_traffic_other_end_user_domains is not None:
-            payload[
-                "block-traffic-other-end-user-domains"
-            ] = block_traffic_other_end_user_domains
-        if block_traffic_this_end_user_domain is not None:
-            payload[
-                "block-traffic-this-end-user-domain"
-            ] = block_traffic_this_end_user_domain
-        if end_user_domain is not None:
-            payload["end-user-domain"] = end_user_domain
 
         # Secondary parameters
         secondary_parameters = {
@@ -195,7 +175,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("set-access-point-name", json=payload)
+        return self._post("set-lsm-gateway", json=payload)
 
     def delete(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -216,13 +196,13 @@ class AccessPointNameAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.access_point_name.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.network_objects.lsm_gateway.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
-            endpoint="delete-access-point-name", uid=uid, name=name, **kw
+            endpoint="delete-lsm-gateway", uid=uid, name=name, **kw
         )
 
-    def show_access_point_names(
+    def show_lsm_gateways(
         self,
         filter: str = None,
         limit: int = 50,
@@ -242,13 +222,17 @@ class AccessPointNameAPI(NetworkObjectAPI):
             offset (int): Number of the results to initially skip. Default to 0
             order (list[dict]): Sorts results by the given field. By default the results are sorted in the
             descending order by the session publish time.
+            show_as_ranges (bool): When true, the group's matched content is displayed as ranges of IP addresses rather
+            than network objects. Objects that are not represented using IP addresses are presented as objects.
+            The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.
+            Default is False.
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.access_point_name.shows_access_point_names()
+            >>> firewallManagementApi.network_objects.lsm_gateway.shows_lsm_gateways()
         """
         return self.show_objects(
-            endpoint="show-access-point-names",
+            endpoint="show-lsm-gateways",
             filter=filter,
             limit=limit,
             offset=offset,
