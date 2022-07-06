@@ -1,4 +1,4 @@
-name: build
+name: "Build the package: Validation of tests"
 
 on:
   push:
