@@ -17,7 +17,7 @@ jobs:
   build:
 
     environment:
-      name: test
+      name: "PyCheckpoint - Test environment on Ubuntu"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
