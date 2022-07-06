@@ -24,6 +24,7 @@ from .tacacs_server import TacacsServerAPI
 from .tacacs_group import TacacsGroupAPI
 from .access_point_name import AccessPointNameAPI
 from .lsm_gateway import LSMGatewayAPI
+from .lsm_cluster import LSMClusterAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -146,3 +147,8 @@ class NetworkObjects(APIEndpoint):
     def lsm_gateway(self):
         """The interface object for the network objects type "LSM Gateway" Management."""
         return LSMGatewayAPI(self)
+
+    @property
+    def lsm_cluster(self):
+        """The interface object for the network objects type "LSM Cluster" Management."""
+        return LSMClusterAPI(self)

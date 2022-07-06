@@ -1214,6 +1214,78 @@ def fixture_resp_lsm_gateway():
     }
 
 
+@pytest.fixture(name="resp_lsm_cluster")
+def fixture_resp_lsm_cluster():
+    return {
+        "uid": "d1c363bc-c4c6-4903-9426-495d800b47ae",
+        "name": "Gaia_gaia_cluster",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "last-modify-time": {
+                "posix": 1608633933685,
+                "iso-8601": "2020-12-22T12:45+0200",
+            },
+            "last-modifier": "System",
+            "creation-time": {
+                "posix": 1608633909531,
+                "iso-8601": "2020-12-22T12:45+0200",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "read-only": False,
+        "comments": "this object was created via API",
+        "color": "black",
+        "icon": "NetworkObjects/ROBO/ROBO_CLUSTER",
+        "security-profile": "gaia_cluster",
+        "main-ip-address": "192.168.68.197",
+        "version": "R81.10",
+        "os-name": "Gaia",
+        "members": [
+            {
+                "member-uid": "6c015875-6776-4066-8735-9c4f43e3787d",
+                "member-name": "Gaia_gw1",
+                "sic-name": "CN=Gaia_gw1,O=R81.10_API..wm5cer",
+                "sic-state": "Initialized",
+                "main-ip-address": "192.168.8.200",
+                "interfaces": [
+                    {"name": "WAN", "ip-address": "192.168.8.200"},
+                    {"name": "LAN1", "ip-address": "10.8.197.200"},
+                ],
+            },
+            {
+                "member-uid": "6e648bd7-c686-46db-a0f1-0d1d794f4ea9",
+                "member-name": "Gaia_gw2",
+                "sic-name": "CN=Gaia_gw2,O=R81.10_API_Cluster..wm5cer",
+                "sic-state": "Initialized",
+                "main-ip-address": "192.168.8.202",
+                "interfaces": [
+                    {"name": "WAN", "ip-address": "192.168.8.202"},
+                    {"name": "LAN1", "ip-address": "10.8.197.202"},
+                ],
+            },
+        ],
+        "interfaces": [
+            {
+                "name": "WAN",
+                "member-network-override": "192.168.68.0",
+                "cluster-ip-address-override": "192.168.68.197",
+            },
+            {
+                "name": "LAN1",
+                "member-network-override": "10.8.197.0",
+                "cluster-ip-address-override": "10.8.197.1",
+            },
+        ],
+    }
+
+
 @pytest.fixture(name="firewallManagement")
 @responses.activate
 def firewallManagement(session):
