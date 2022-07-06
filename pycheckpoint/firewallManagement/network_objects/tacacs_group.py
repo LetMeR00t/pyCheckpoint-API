@@ -8,13 +8,20 @@ from pycheckpoint.utils import sanitize_secondary_parameters
 from pycheckpoint.models import Color
 
 
-class TagAPI(NetworkObjectAPI):
-    def add(self, name: str, tags: Union[str, list[str]] = None, **kw) -> Box:
+class TacacsGroupAPI(NetworkObjectAPI):
+    def add(
+        self,
+        name: str,
+        members: Union[str, list[str]] = None,
+        tags: Union[str, list[str]] = None,
+        **kw,
+    ) -> Box:
         """
         Create new object.
 
         Args:
             name (str): Object name. Must be unique in the domain.
+            members (Union[str, list[str]]): Collection of tacacs servers identified by the name or UID.
             tags (Union(str,list[str])): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
@@ -34,11 +41,13 @@ class TagAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tag.add(name="My object")
+            >>> firewallManagementApi.network_objects.tacacs_group.add(name="My object")
         """
 
         # Main request parameters
         payload = {"name": name}
+        if members is not None:
+            payload["members"] = members
         if tags is not None:
             payload["tags"] = tags
 
@@ -53,7 +62,7 @@ class TagAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("add-tag", json=payload)
+        return self._post("add-tacacs-group", json=payload)
 
     def show(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -62,6 +71,10 @@ class TagAPI(NetworkObjectAPI):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
+            show_as_ranges (bool): When true, the group's matched content is displayed as ranges of IP addresses rather
+            than network objects. Objects that are not represented using IP addresses are presented as objects.
+            The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.
+            Default is False.
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
@@ -69,17 +82,18 @@ class TagAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tag.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.network_objects.tacacs_group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-        return self.show_object(endpoint="show-tag", uid=uid, name=name, **kw)
+        return self.show_object(endpoint="show-tacacs-group", uid=uid, name=name, **kw)
 
     def set(
         self,
         uid: str = None,
         name: str = None,
+        members: Union[dict, str, list[str]] = None,
         new_name: str = None,
         tags: Union[str, list[str]] = None,
-        **kw
+        **kw,
     ) -> Box:
         """
         Edit existing object using object name or uid.
@@ -87,6 +101,7 @@ class TagAPI(NetworkObjectAPI):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
+            members (Union[dict, str, list[str]]): Collection of tacacs servers identified by the name or UID.
             new_name (str): New name of the object.
             tags (Union(str,list[str])): Collection of tag identifiers.
         Keyword Args:
@@ -107,8 +122,8 @@ class TagAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.tag.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
-            new_name="New Tag")
+            >>> firewallManagement.network_objects.tacacs_group.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            new_name="New TACACS Group 3")
         """
 
         # Main request parameters
@@ -120,6 +135,8 @@ class TagAPI(NetworkObjectAPI):
         else:
             raise MandatoryFieldMissing("uid or name")
 
+        if members is not None:
+            payload["members"] = members
         if new_name is not None:
             payload["new-name"] = new_name
         if tags is not None:
@@ -136,7 +153,7 @@ class TagAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("set-tag", json=payload)
+        return self._post("set-tacacs-group", json=payload)
 
     def delete(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -157,17 +174,19 @@ class TagAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tag.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.network_objects.tacacs_group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-        return self.delete_object(endpoint="delete-tag", uid=uid, name=name, **kw)
+        return self.delete_object(
+            endpoint="delete-tacacs-group", uid=uid, name=name, **kw
+        )
 
-    def show_tags(
+    def show_tacacs_groups(
         self,
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
         order: list[dict] = None,
-        **kw
+        **kw,
     ) -> Box:
         """
         Retrieve all objects.
@@ -188,14 +207,16 @@ class TagAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tag.shows_tags()
+            >>> firewallManagementApi.network_objects.tacacs_group.shows_tacacs_groups()
         """
         return self.show_objects(
-            endpoint="show-tags",
+            endpoint="show-tacacs-groups",
             filter=filter,
             limit=limit,
             offset=offset,
             order=order,
-            extra_secondary_parameters={"domains-to-process": list[str]},
-            **kw
+            extra_secondary_parameters={
+                "show-membership": bool,
+            },
+            **kw,
         )
