@@ -1137,6 +1137,42 @@ def fixture_resp_tacacs_group():
     }
 
 
+@pytest.fixture(name="resp_access_point_name")
+def fixture_resp_access_point_name():
+    return {
+        "uid": "5064644d-6cc7-4703-823c-54f01ab720e6",
+        "name": "myaccesspointname",
+        "type": "access-point-name",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "tags": [],
+        "read-only": True,
+        "comments": "",
+        "color": "black",
+        "icon": "NetworkObjects/AccessPointName",
+        "groups": [],
+        "apn": "apnname",
+        "enforce-end-user-domain": True,
+        "end-user-domain": {
+            "uid": "b307ca15-2ee8-414a-b261-ac7fb7464736",
+            "name": "All_Internet",
+            "type": "address-range",
+            "domain": {
+                "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                "name": "SMC User",
+                "domain-type": "domain",
+            },
+            "ipv4-address-first": "0.0.0.0",
+            "ipv4-address-last": "255.255.255.255",
+        },
+        "block-traffic-other-end-user-domains": True,
+        "block-traffic-this-end-user-domain": True,
+    }
+
+
 @pytest.fixture(name="firewallManagement")
 @responses.activate
 def firewallManagement(session):

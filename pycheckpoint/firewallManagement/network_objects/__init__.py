@@ -22,6 +22,7 @@ from .opsec_application import OPSECApplicationAPI
 from .lsv_profile import LSVProfileAPI
 from .tacacs_server import TacacsServerAPI
 from .tacacs_group import TacacsGroupAPI
+from .access_point_name import AccessPointNameAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -134,3 +135,8 @@ class NetworkObjects(APIEndpoint):
     def tacacs_group(self):
         """The interface object for the network objects type "TACACS Group" Management."""
         return TacacsGroupAPI(self)
+
+    @property
+    def access_point_name(self):
+        """The interface object for the network objects type "Access Point Name" Management."""
+        return AccessPointNameAPI(self)
