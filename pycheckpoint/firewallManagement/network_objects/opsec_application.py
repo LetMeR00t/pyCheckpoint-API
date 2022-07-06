@@ -8,13 +8,26 @@ from pycheckpoint.utils import sanitize_secondary_parameters
 from pycheckpoint.models import Color
 
 
-class TagAPI(NetworkObjectAPI):
-    def add(self, name: str, tags: Union[str, list[str]] = None, **kw) -> Box:
+class OPSECApplicationAPI(NetworkObjectAPI):
+    def add(
+        self,
+        name: str,
+        host: str,
+        cpmi: dict = None,
+        lea: dict = None,
+        one_time_password: str = None,
+        tags: Union[str, list[str]] = None,
+        **kw
+    ) -> Box:
         """
-        Create new object.
+        Create a new OPSEC Application. At least one client entity (LEA, CPMI) must be supplied.
 
         Args:
             name (str): Object name. Must be unique in the domain.
+            host (str): The host where the server is running. Pre-define the host as a network object.
+            cpmi (dict): Used to setup the CPMI client entity.
+            lea (dict): Used to setup the LEA client entity.
+            one_time_password (str): A password required for establishing a Secure Internal Communication (SIC).
             tags (Union(str,list[str])): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
@@ -34,11 +47,27 @@ class TagAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tag.add(name="My object")
+            >>> firewallManagement.network_objects.opsec_application.add(
+        name="MyOpsecApplication",
+        host="SomeHost",
+        cpmi={
+            "enabled": "true",
+            "use-administrator-credentials": "false",
+            "administrator-profile": "Super User",
+        },
+        lea={"enabled": "false"},
+        one_time_password="SomePassword")
         """
 
         # Main request parameters
-        payload = {"name": name}
+        payload = {"name": name, "host": host}
+
+        if cpmi is not None:
+            payload["cpmi"] = cpmi
+        if lea is not None:
+            payload["lea"] = lea
+        if one_time_password is not None:
+            payload["one-time-password"] = one_time_password
         if tags is not None:
             payload["tags"] = tags
 
@@ -53,7 +82,7 @@ class TagAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("add-tag", json=payload)
+        return self._post("add-opsec-application", json=payload)
 
     def show(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -69,14 +98,20 @@ class TagAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tag.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.network_objects.opsec_application.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-        return self.show_object(endpoint="show-tag", uid=uid, name=name, **kw)
+        return self.show_object(
+            endpoint="show-opsec-application", uid=uid, name=name, **kw
+        )
 
     def set(
         self,
         uid: str = None,
         name: str = None,
+        host: str = None,
+        cpmi: dict = None,
+        lea: dict = None,
+        one_time_password: str = None,
         new_name: str = None,
         tags: Union[str, list[str]] = None,
         **kw
@@ -87,6 +122,10 @@ class TagAPI(NetworkObjectAPI):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
+            host (str): The host where the server is running. Pre-define the host as a network object.
+            cpmi (dict): Used to setup the CPMI client entity.
+            lea (dict): Used to setup the LEA client entity.
+            one_time_password (str): A password required for establishing a Secure Internal Communication (SIC).
             new_name (str): New name of the object.
             tags (Union(str,list[str])): Collection of tag identifiers.
         Keyword Args:
@@ -120,6 +159,14 @@ class TagAPI(NetworkObjectAPI):
         else:
             raise MandatoryFieldMissing("uid or name")
 
+        if host is not None:
+            payload["host"] = host
+        if cpmi is not None:
+            payload["cpmi"] = cpmi
+        if lea is not None:
+            payload["lea"] = lea
+        if one_time_password is not None:
+            payload["one-time-password"] = one_time_password
         if new_name is not None:
             payload["new-name"] = new_name
         if tags is not None:
@@ -136,7 +183,7 @@ class TagAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("set-tag", json=payload)
+        return self._post("set-opsec-application", json=payload)
 
     def delete(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -157,11 +204,13 @@ class TagAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tag.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.network_objects.opsec_application.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-        return self.delete_object(endpoint="delete-tag", uid=uid, name=name, **kw)
+        return self.delete_object(
+            endpoint="delete-opsec-application", uid=uid, name=name, **kw
+        )
 
-    def show_tags(
+    def show_opsec_applications(
         self,
         filter: str = None,
         limit: int = 50,
@@ -189,10 +238,10 @@ class TagAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tag.shows_tags()
+            >>> firewallManagementApi.network_objects.opsec_application.shows_opsec_applications()
         """
         return self.show_objects(
-            endpoint="show-tags",
+            endpoint="show-opsec-applications",
             filter=filter,
             limit=limit,
             offset=offset,

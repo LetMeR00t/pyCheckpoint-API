@@ -18,6 +18,7 @@ from .time_group import TimeGroupAPI
 from .dynamic_object import DynamicObjectAPI
 from .tag import TagAPI
 from .dns_domain import DNSDomainAPI
+from .opsec_application import OPSECApplicationAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -110,3 +111,8 @@ class NetworkObjects(APIEndpoint):
     def dns_domain(self):
         """The interface object for the network objects type "DNS Domain" Management."""
         return DNSDomainAPI(self)
+
+    @property
+    def opsec_application(self):
+        """The interface object for the network objects type "OPSEC Application" Management."""
+        return OPSECApplicationAPI(self)

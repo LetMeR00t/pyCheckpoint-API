@@ -953,6 +953,44 @@ def fixture_resp_dns_domain():
     }
 
 
+@pytest.fixture(name="resp_opsec_application")
+def fixture_resp_opsec_application():
+    return {
+        "uid": "1741bb6c-3b19-456c-a635-b96c8456a0e8",
+        "name": "MyOpsecApplication",
+        "type": "opsec-application",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "host": "SomeHost",
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "last-modify-time": {
+                "posix": 1481003908596,
+                "iso-8601": "2016-12-06T07:58+0200",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1481003908596,
+                "iso-8601": "2016-12-06T07:58+0200",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "read-only": True,
+        "comments": "",
+        "color": "black",
+        "icon": "OPSECapplications/OPSEC",
+        "cpmi": {
+            "use-administrator-credentials": False,
+            "administrator-profile": "super user",
+        },
+    }
+
+
 @pytest.fixture(name="firewallManagement")
 @responses.activate
 def firewallManagement(session):
