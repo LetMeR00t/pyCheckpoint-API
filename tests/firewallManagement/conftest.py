@@ -1028,6 +1028,43 @@ def fixture_resp_lsv_profile():
     }
 
 
+@pytest.fixture(name="resp_tacacs_server")
+def fixture_resp_tacacs_server():
+    return {
+        "uid": "c9d1de16-407a-42bc-a28d-3b9d7f933766",
+        "name": "tacacs7",
+        "type": "tacacs-server",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "last-modify-time": {
+                "posix": 1583675379149,
+                "iso-8601": "2020-03-08T15:49+0200",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1583675379149,
+                "iso-8601": "2020-03-08T15:49+0200",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "read-only": True,
+        "comments": "",
+        "color": "black",
+        "icon": "Objects/account_unit",
+        "groups": [],
+        "server-type": "TACACS",
+        "server": {"name": "h1", "uid": "eead9bf5-4640-432c-979b-5d7ae7a8bfb7"},
+        "priority": 1,
+    }
+
+
 @pytest.fixture(name="firewallManagement")
 @responses.activate
 def firewallManagement(session):

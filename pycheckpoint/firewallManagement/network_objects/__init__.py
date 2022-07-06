@@ -20,6 +20,7 @@ from .tag import TagAPI
 from .dns_domain import DNSDomainAPI
 from .opsec_application import OPSECApplicationAPI
 from .lsv_profile import LSVProfileAPI
+from .tacacs_server import TacacsServerAPI
 
 
 class NetworkObjects(APIEndpoint):
@@ -122,3 +123,8 @@ class NetworkObjects(APIEndpoint):
     def lsv_profile(self):
         """The interface object for the network objects type "LSV Profile" Management."""
         return LSVProfileAPI(self)
+
+    @property
+    def tacacs_server(self):
+        """The interface object for the network objects type "LSV Profile" Management."""
+        return TacacsServerAPI(self)
