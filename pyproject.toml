@@ -29,7 +29,7 @@ include = [
 "Bug Tracker" = ""
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 restfly = "^1.4.6"
 
 [tool.poetry.dev-dependencies]
