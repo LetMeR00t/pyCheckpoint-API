@@ -34,9 +34,10 @@ jobs:
         uses: py-actions/py-dependency-install@v3
         with:
           path: "dev_requirements.txt"
-      - name: Configure the environment
+      - name: Configure the environment and additional libraries
         run: |
           pip install -e .
+          pip install flake8
       - name: Lint with flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
