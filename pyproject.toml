@@ -39,7 +39,6 @@ pre-commit = "^2.19.0"
 responses = "^0.21.0"
 toml = "^0.10.2"
 furo = "^2022.6.21"
-Sphinx = "^5.0.2"
 pytest = "^7.1.2"
 
 [build-system]
