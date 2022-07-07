@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, List
 
 from box import Box
 
@@ -14,10 +14,10 @@ class TimeAPI(NetworkObjectAPI):
         name: str,
         end: dict = None,
         end_never: bool = None,
-        hours_ranges: list[dict] = None,
+        hours_ranges: List[dict] = None,
         start: dict = None,
         start_now: bool = None,
-        tags: Union[str, list[str]] = None,
+        tags: Union[str, List[str]] = None,
         recurrence: dict = None,
         **kw
     ) -> Box:
@@ -28,11 +28,11 @@ class TimeAPI(NetworkObjectAPI):
             name (str): Object name. Must be unique in the domain.
             end (dict): End time. Note: Each gateway may interpret this time differently according to its time zone.
             end_never (bool): End never.
-            hours_ranges (list[dict]): Hours recurrence. Note: Each gateway may interpret this time differently
+            hours_ranges (List[dict]): Hours recurrence. Note: Each gateway may interpret this time differently
             according to its time zone.
             start (dict): Starting time. Note: Each gateway may interpret this time differently according to its time zone.
             start_now (bool): Start immediately.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            tags (Union(str,List[str])): Collection of tag identifiers.
             recurrence (dict): Days recurrence.
         Keyword Args:
             **color (Color, optional):
@@ -42,7 +42,7 @@ class TimeAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -79,7 +79,7 @@ class TimeAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
             "ignore-errors": bool,
         }
@@ -111,10 +111,10 @@ class TimeAPI(NetworkObjectAPI):
         name: str = None,
         end: dict = None,
         end_never: bool = None,
-        hours_ranges: list[dict] = None,
+        hours_ranges: List[dict] = None,
         start: dict = None,
         start_now: bool = None,
-        tags: Union[str, list[str]] = None,
+        tags: Union[str, List[str]] = None,
         recurrence: dict = None,
         new_name: str = None,
         **kw
@@ -127,11 +127,11 @@ class TimeAPI(NetworkObjectAPI):
             name (str): Object name. Must be unique in the domain.
             end (dict): End time. Note: Each gateway may interpret this time differently according to its time zone.
             end_never (bool): End never.
-            hours_ranges (list[dict]): Hours recurrence. Note: Each gateway may interpret this time differently
+            hours_ranges (List[dict]): Hours recurrence. Note: Each gateway may interpret this time differently
             according to its time zone.
             start (dict): Starting time. Note: Each gateway may interpret this time differently according to its time zone.
             start_now (bool): Start immediately.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            tags (Union(str,List[str])): Collection of tag identifiers.
             recurrence (dict): Days recurrence.
             new_name (str): New name of the object.
         Keyword Args:
@@ -142,7 +142,7 @@ class TimeAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -187,7 +187,7 @@ class TimeAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
             "ignore-errors": bool,
         }
@@ -223,7 +223,7 @@ class TimeAPI(NetworkObjectAPI):
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
-        order: list[dict] = None,
+        order: List[dict] = None,
         **kw
     ) -> Box:
         """
@@ -236,7 +236,7 @@ class TimeAPI(NetworkObjectAPI):
             he search involves both a IP search and a textual search in name, comment, tags etc.
             limit (int): The maximal number of returned results. Default to 50 (between 1 and 500)
             offset (int): Number of the results to initially skip. Default to 0
-            order (list[dict]): Sorts results by the given field. By default the results are sorted in the
+            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
             descending order by the session publish time.
         Returns:
             :obj:`Box`: The response from the server

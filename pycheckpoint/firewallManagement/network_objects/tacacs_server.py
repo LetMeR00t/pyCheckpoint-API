@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, List
 
 from box import Box
 
@@ -18,7 +18,7 @@ class TacacsServerAPI(NetworkObjectAPI):
         priority: int = 1,
         server_type: str = "TACACS",
         service: str = "TACACS",
-        tags: Union[str, list[str]] = None,
+        tags: Union[str, List[str]] = None,
         **kw
     ) -> Box:
         """
@@ -33,7 +33,7 @@ class TacacsServerAPI(NetworkObjectAPI):
             priority (int): The priority of the TACACS Server in case it is a member of a TACACS Group.
             server_type (str): Server type, TACACS or TACACS+.
             service (str): Server service, only relevant when "server-type" is TACACS.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            tags (Union(str,List[str])): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -42,7 +42,7 @@ class TacacsServerAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -76,7 +76,7 @@ class TacacsServerAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
             "ignore-errors": bool,
         }
@@ -113,7 +113,7 @@ class TacacsServerAPI(NetworkObjectAPI):
         server_type: str = "TACACS",
         service: str = "TACACS",
         new_name: str = None,
-        tags: Union[str, list[str]] = None,
+        tags: Union[str, List[str]] = None,
         **kw
     ) -> Box:
         """
@@ -130,7 +130,7 @@ class TacacsServerAPI(NetworkObjectAPI):
             server_type (str): Server type, TACACS or TACACS+.
             service (str): Server service, only relevant when "server-type" is TACACS.
             new_name (str): New name of the object.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            tags (Union(str,List[str])): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -139,7 +139,7 @@ class TacacsServerAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -182,7 +182,7 @@ class TacacsServerAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
             "ignore-errors": bool,
         }
@@ -220,7 +220,7 @@ class TacacsServerAPI(NetworkObjectAPI):
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
-        order: list[dict] = None,
+        order: List[dict] = None,
         show_as_ranges: bool = False,
         **kw
     ) -> Box:
@@ -234,7 +234,7 @@ class TacacsServerAPI(NetworkObjectAPI):
             he search involves both a IP search and a textual search in name, comment, tags etc.
             limit (int): The maximal number of returned results. Default to 50 (between 1 and 500)
             offset (int): Number of the results to initially skip. Default to 0
-            order (list[dict]): Sorts results by the given field. By default the results are sorted in the
+            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
             descending order by the session publish time.
             show_as_ranges (bool): When true, the group's matched content is displayed as ranges of IP addresses rather
             than network objects. Objects that are not represented using IP addresses are presented as objects.
@@ -252,6 +252,6 @@ class TacacsServerAPI(NetworkObjectAPI):
             offset=offset,
             order=order,
             show_as_ranges=show_as_ranges,
-            extra_secondary_parameters={"domains-to-process": list[str]},
+            extra_secondary_parameters={"domains-to-process": List[str]},
             **kw
         )

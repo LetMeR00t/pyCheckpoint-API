@@ -1,4 +1,10 @@
-from typing import Union, get_origin
+import sys
+
+# Add support for Python 3.7
+if sys.version_info > (3, 8):
+    from typing import Union, get_origin
+else:
+    from typing import Union
 
 from pycheckpoint.firewallManagement.exception import MandatoryFieldMissing, WrongType
 
@@ -12,7 +18,12 @@ def sanitize_value(field: str, t: type, is_mandatory: bool = False, default=None
         raise MandatoryFieldMissing(field)
     # Otherwise, it means that the parameter is not mandatory or the value is set
     # Check also if the type is Union.
-    if get_origin(t) is Union:
+    origin = None
+    if sys.version_info > (3, 8):
+        origin = get_origin(t)
+    else:
+        origin = t.__origin__
+    if origin is Union:
         if value is None or type(value) in t.__args__:
             return value
         else:

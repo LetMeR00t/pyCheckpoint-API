@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, List
 
 from box import Box
 
@@ -15,7 +15,7 @@ class CheckpointHostAPI(NetworkObjectAPI):
         ip_address: str = None,
         ipv4_address: str = None,
         ipv6_address: str = None,
-        interfaces: Union[dict, list[dict]] = None,
+        interfaces: Union[dict, List[dict]] = None,
         nat_settings: dict = None,
         one_time_password: str = None,
         hardware: str = None,
@@ -24,10 +24,10 @@ class CheckpointHostAPI(NetworkObjectAPI):
         management_blades: dict = None,
         logs_settings: dict = None,
         save_logs_locally: bool = None,
-        send_alerts_to_server: Union[str, list[str]] = None,
-        send_logs_to_backup_server: Union[str, list[str]] = None,
-        send_logs_to_server: Union[str, list[str]] = None,
-        tags: Union[str, list[str]] = None,
+        send_alerts_to_server: Union[str, List[str]] = None,
+        send_logs_to_backup_server: Union[str, List[str]] = None,
+        send_logs_to_server: Union[str, List[str]] = None,
+        tags: Union[str, List[str]] = None,
         **kw,
     ) -> Box:
         """
@@ -39,7 +39,7 @@ class CheckpointHostAPI(NetworkObjectAPI):
             and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
             ipv4_address (str): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
             ipv6_address (str): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
-            interfaces (Union[dict, list[dict]]): Check Point host interfaces.
+            interfaces (Union[dict, List[dict]]): Check Point host interfaces.
             nat_settings (dict): NAT settings.
             one_time_password (str): Secure internal connection one time password.
             hardware (str): Hardware name.
@@ -48,10 +48,10 @@ class CheckpointHostAPI(NetworkObjectAPI):
             management_blades (dict): Management blades.
             logs_settings (dict): Logs settings.
             save_logs_locally (bool): Save logs locally on the gateway.
-            send_alerts_to_server (Union[str, list[str]]): Server(s) to send alerts to.
-            send_logs_to_backup_server (Union[str, list[str]]): Backup server(s) to send logs to.
-            send_logs_to_server (Union[str, list[str]]): Server(s) to send logs to.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            send_alerts_to_server (Union[str, List[str]]): Server(s) to send alerts to.
+            send_logs_to_backup_server (Union[str, List[str]]): Backup server(s) to send logs to.
+            send_logs_to_server (Union[str, List[str]]): Server(s) to send logs to.
+            tags (Union(str,List[str])): Collection of tag identifiers.
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -65,7 +65,7 @@ class CheckpointHostAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -128,7 +128,7 @@ class CheckpointHostAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
@@ -166,7 +166,7 @@ class CheckpointHostAPI(NetworkObjectAPI):
         ip_address: str = None,
         ipv4_address: str = None,
         ipv6_address: str = None,
-        interfaces: Union[dict, list[dict]] = None,
+        interfaces: Union[dict, List[dict]] = None,
         nat_settings: dict = None,
         new_name: str = None,
         one_time_password: str = None,
@@ -176,10 +176,10 @@ class CheckpointHostAPI(NetworkObjectAPI):
         management_blades: dict = None,
         logs_settings: dict = None,
         save_logs_locally: bool = None,
-        send_alerts_to_server: Union[str, list[str]] = None,
-        send_logs_to_backup_server: Union[str, list[str]] = None,
-        send_logs_to_server: Union[str, list[str]] = None,
-        tags: Union[str, list[str]] = None,
+        send_alerts_to_server: Union[str, List[str]] = None,
+        send_logs_to_backup_server: Union[str, List[str]] = None,
+        send_logs_to_server: Union[str, List[str]] = None,
+        tags: Union[str, List[str]] = None,
         **kw,
     ) -> Box:
         """
@@ -192,7 +192,7 @@ class CheckpointHostAPI(NetworkObjectAPI):
             and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
             ipv4_address (str): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
             ipv6_address (str): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
-            interfaces (Union[dict, list[dict]]): Check Point host interfaces.
+            interfaces (Union[dict, List[dict]]): Check Point host interfaces.
             nat_settings (dict): NAT settings.
             new_name (str): New name of the object.
             one_time_password (str): Secure internal connection one time password.
@@ -202,10 +202,10 @@ class CheckpointHostAPI(NetworkObjectAPI):
             management_blades (dict): Management blades.
             logs_settings (dict): Logs settings.
             save_logs_locally (bool): Save logs locally on the gateway.
-            send_alerts_to_server (Union[str, list[str]]): Server(s) to send alerts to.
-            send_logs_to_backup_server (Union[str, list[str]]): Backup server(s) to send logs to.
-            send_logs_to_server (Union[str, list[str]]): Server(s) to send logs to.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            send_alerts_to_server (Union[str, List[str]]): Server(s) to send alerts to.
+            send_logs_to_backup_server (Union[str, List[str]]): Backup server(s) to send logs to.
+            send_logs_to_server (Union[str, List[str]]): Server(s) to send logs to.
+            tags (Union(str,List[str])): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -214,7 +214,7 @@ class CheckpointHostAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -279,7 +279,7 @@ class CheckpointHostAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
@@ -316,7 +316,7 @@ class CheckpointHostAPI(NetworkObjectAPI):
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
-        order: list[dict] = None,
+        order: List[dict] = None,
         **kw,
     ) -> Box:
         """
@@ -329,7 +329,7 @@ class CheckpointHostAPI(NetworkObjectAPI):
             he search involves both a IP search and a textual search in name, comment, tags etc.
             limit (int): The maximal number of returned results. Default to 50 (between 1 and 500)
             offset (int): Number of the results to initially skip. Default to 0
-            order (list[dict]): Sorts results by the given field. By default the results are sorted in the
+            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
             descending order by the session publish time.
         Returns:
             :obj:`Box`: The response from the server

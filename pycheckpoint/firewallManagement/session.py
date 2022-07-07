@@ -1,5 +1,5 @@
 from box import Box
-from typing import Union
+from typing import Union, List
 from restfly.endpoint import APIEndpoint
 
 from .exception import MandatoryFieldMissing
@@ -228,7 +228,7 @@ class SessionAPI(APIEndpoint):
         self,
         description: str = None,
         new_name: str = None,
-        tags: Union[dict, str, list[str]] = None,
+        tags: Union[dict, str, List[str]] = None,
         **kw
     ) -> Box:
         """
@@ -237,7 +237,7 @@ class SessionAPI(APIEndpoint):
         Args:
             description (str): Session description.
             new_name (str): New name of the object.
-            tags (list[str]): Collection of tag identifiers.
+            tags (List[str]): Collection of tag identifiers.
         Keyword Args:
             **color (string, optional):
                 Color of the object. Should be one of existing colors.
@@ -264,7 +264,7 @@ class SessionAPI(APIEndpoint):
         if new_name is not None:
             payload["new-name"] = sanitize_value(kw.get("new_name", None), t=str)
         if tags is not None:
-            payload["tags"] = sanitize_value(kw.get("tags", None), t=list[str])
+            payload["tags"] = sanitize_value(kw.get("tags", None), t=List[str])
 
         # Secondary parameters
         secondary_parameters = {
@@ -362,7 +362,7 @@ class SessionAPI(APIEndpoint):
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
-        order: list[dict] = None,
+        order: List[dict] = None,
         view_published_sessions: bool = False,
         **kw
     ) -> Box:
@@ -376,7 +376,7 @@ class SessionAPI(APIEndpoint):
             he search involves both a IP search and a textual search in name, comment, tags etc.
             limit (int): The maximal number of returned results. Default to 50 (between 1 and 500)
             offset (int): Number of the results to initially skip. Default to 0
-            order (list[dict]): Sorts results by the given field. By default the results are sorted in the
+            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
             descending order by the session publish time.
             view_published_sessions (bool): Show a list of published sessions. Default to False
         Returns:

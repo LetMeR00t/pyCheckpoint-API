@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, List
 
 from box import Box
 
@@ -20,7 +20,7 @@ class NetworkAPI(NetworkObjectAPI):
         mask_length6: str = None,
         subnet_mask: str = None,
         nat_settings: dict = None,
-        tags: Union[str, list[str]] = None,
+        tags: Union[str, List[str]] = None,
         broadcast: str = None,
         **kw
     ) -> Box:
@@ -42,7 +42,7 @@ class NetworkAPI(NetworkObjectAPI):
             Mandatory if "mask_length" or "mask_length6" or "subnet_mask" is not set
             subnet_mask (str): IPv4 network mask. Mandatory if "mask_length" or "mask_length4" or "mask_length6" is not set
             nat_settings (dict): NAT settings.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            tags (Union(str,List[str])): Collection of tag identifiers.
             broadcast (str): Allow broadcast address inclusion.
         Keyword Args:
             **set-if-exists (bool, optional):
@@ -56,7 +56,7 @@ class NetworkAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -103,7 +103,7 @@ class NetworkAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
             "ignore-errors": bool,
         }
@@ -142,7 +142,7 @@ class NetworkAPI(NetworkObjectAPI):
         subnet_mask: str = None,
         new_name: str = None,
         nat_settings: dict = None,
-        tags: Union[str, list[str]] = None,
+        tags: Union[str, List[str]] = None,
         broadcast: str = None,
         **kw
     ) -> Box:
@@ -166,7 +166,7 @@ class NetworkAPI(NetworkObjectAPI):
             subnet_mask (str): IPv4 network mask. Mandatory if "mask_length" or "mask_length4" or "mask_length6" is not set
             new_name (str): New name of the object.
             nat_settings (dict): NAT settings.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            tags (Union(str,List[str])): Collection of tag identifiers.
             broadcast (str): Allow broadcast address inclusion.
         Keyword Args:
             **color (Color, optional):
@@ -176,7 +176,7 @@ class NetworkAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -229,7 +229,7 @@ class NetworkAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
             "ignore-errors": bool,
         }
@@ -265,7 +265,7 @@ class NetworkAPI(NetworkObjectAPI):
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
-        order: list[dict] = None,
+        order: List[dict] = None,
         **kw
     ) -> Box:
         """
@@ -278,7 +278,7 @@ class NetworkAPI(NetworkObjectAPI):
             he search involves both a IP search and a textual search in name, comment, tags etc.
             limit (int): The maximal number of returned results. Default to 50 (between 1 and 500)
             offset (int): Number of the results to initially skip. Default to 0
-            order (list[dict]): Sorts results by the given field. By default the results are sorted in the
+            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
             descending order by the session publish time.
         Returns:
             :obj:`Box`: The response from the server

@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, List
 
 from box import Box
 
@@ -15,9 +15,9 @@ class HostAPI(NetworkObjectAPI):
         ip_address: str = None,
         ipv4_address: str = None,
         ipv6_address: str = None,
-        interfaces: Union[dict, list[dict]] = None,
+        interfaces: Union[dict, List[dict]] = None,
         nat_settings: dict = None,
-        tags: Union[str, list[str]] = None,
+        tags: Union[str, List[str]] = None,
         host_servers: dict = None,
         **kw
     ) -> Box:
@@ -30,9 +30,9 @@ class HostAPI(NetworkObjectAPI):
             and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
             ipv4_address (str): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
             ipv6_address (str): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
-            interfaces (Union[dict,list[dict]]): Host interfaces.
+            interfaces (Union[dict,List[dict]]): Host interfaces.
             nat_settings (dict): NAT settings.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            tags (Union(str,List[str])): Collection of tag identifiers.
             host_servers (dict): Servers Configuration.
         Keyword Args:
             **set-if-exists (bool, optional):
@@ -46,7 +46,7 @@ class HostAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -85,7 +85,7 @@ class HostAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
             "ignore-errors": bool,
         }
@@ -118,10 +118,10 @@ class HostAPI(NetworkObjectAPI):
         ip_address: str = None,
         ipv4_address: str = None,
         ipv6_address: str = None,
-        interfaces: Union[dict, list[dict]] = None,
+        interfaces: Union[dict, List[dict]] = None,
         nat_settings: dict = None,
         new_name: str = None,
-        tags: Union[str, list[str]] = None,
+        tags: Union[str, List[str]] = None,
         host_servers: dict = None,
         **kw
     ) -> Box:
@@ -135,10 +135,10 @@ class HostAPI(NetworkObjectAPI):
             and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
             ipv4_address (str): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
             ipv6_address (str): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
-            interfaces (Union[dict,list[dict]]): Host interfaces.
+            interfaces (Union[dict,List[dict]]): Host interfaces.
             nat_settings (dict): NAT settings.
             new_name (str): New name of the object.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            tags (Union(str,List[str])): Collection of tag identifiers.
             host_servers (dict): Servers Configuration.
         Keyword Args:
             **color (Color, optional):
@@ -148,7 +148,7 @@ class HostAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -193,7 +193,7 @@ class HostAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
             "ignore-errors": bool,
         }
@@ -229,7 +229,7 @@ class HostAPI(NetworkObjectAPI):
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
-        order: list[dict] = None,
+        order: List[dict] = None,
         **kw
     ) -> Box:
         """
@@ -242,7 +242,7 @@ class HostAPI(NetworkObjectAPI):
             he search involves both a IP search and a textual search in name, comment, tags etc.
             limit (int): The maximal number of returned results. Default to 50 (between 1 and 500)
             offset (int): Number of the results to initially skip. Default to 0
-            order (list[dict]): Sorts results by the given field. By default the results are sorted in the
+            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
             descending order by the session publish time.
         Returns:
             :obj:`Box`: The response from the server

@@ -11,7 +11,7 @@ def test_add_tag(firewallManagement, resp_tag):
         status=200,
     )
 
-    resp = firewallManagement.network_objects.tag.add(name="My New Tag1")
+    resp = firewallManagement.network_objects.tag.add(name="My New Tag1", tags=1)
 
     assert resp.uid == "728a4212-a521-46a2-a5a1-b6536a9aecd5"
     assert resp.name == "My New Tag1"

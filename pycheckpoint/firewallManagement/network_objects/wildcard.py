@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, List
 
 from box import Box
 
@@ -16,7 +16,7 @@ class WildcardAPI(NetworkObjectAPI):
         ipv4_mask_wildcard: str = None,
         ipv6_address: str = None,
         ipv6_mask_wildcard: str = None,
-        tags: Union[str, list[str]] = None,
+        tags: Union[str, List[str]] = None,
         **kw,
     ) -> Box:
         """
@@ -30,7 +30,7 @@ class WildcardAPI(NetworkObjectAPI):
             ipv4_mask_wildcard (str): IPv4 mask wildcard.
             ipv6_address (str): IPv6 address.
             ipv6_mask_wildcard (str): IPv6 mask wildcard.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            tags (Union(str,List[str])): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -39,7 +39,7 @@ class WildcardAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -71,7 +71,7 @@ class WildcardAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
             "ignore-errors": bool,
         }
@@ -106,7 +106,7 @@ class WildcardAPI(NetworkObjectAPI):
         ipv6_address: str = None,
         ipv6_mask_wildcard: str = None,
         new_name: str = None,
-        tags: Union[str, list[str]] = None,
+        tags: Union[str, List[str]] = None,
         **kw,
     ) -> Box:
         """
@@ -119,10 +119,10 @@ class WildcardAPI(NetworkObjectAPI):
             and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
             ipv4_address (str): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
             ipv6_address (str): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
-            interfaces (Union[dict,list[dict]]): Host interfaces.
+            interfaces (Union[dict,List[dict]]): Host interfaces.
             nat_settings (dict): NAT settings.
             new_name (str): New name of the object.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            tags (Union(str,List[str])): Collection of tag identifiers.
             host_servers (dict): Servers Configuration.
         Keyword Args:
             **color (Color, optional):
@@ -132,7 +132,7 @@ class WildcardAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -173,7 +173,7 @@ class WildcardAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
             "ignore-errors": bool,
         }
@@ -209,7 +209,7 @@ class WildcardAPI(NetworkObjectAPI):
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
-        order: list[dict] = None,
+        order: List[dict] = None,
         **kw,
     ) -> Box:
         """
@@ -222,7 +222,7 @@ class WildcardAPI(NetworkObjectAPI):
             he search involves both a IP search and a textual search in name, comment, tags etc.
             limit (int): The maximal number of returned results. Default to 50 (between 1 and 500)
             offset (int): Number of the results to initially skip. Default to 0
-            order (list[dict]): Sorts results by the given field. By default the results are sorted in the
+            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
             descending order by the session publish time.
         Returns:
             :obj:`Box`: The response from the server

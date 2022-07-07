@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, List
 
 from box import Box
 
@@ -22,17 +22,17 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         firewall: bool = None,
         firewall_settings: dict = None,
         icap_server: bool = None,
-        interfaces: list[dict] = None,
+        interfaces: List[dict] = None,
         ips: bool = None,
         logs_settings: dict = None,
         one_time_password: str = None,
         os_name: str = None,
         platform_portal_settings: dict = None,
         save_logs_locally: bool = None,
-        send_alerts_to_server: Union[str, list[str]] = None,
-        send_logs_to_backup_server: Union[str, list[str]] = None,
-        send_logs_to_server: Union[str, list[str]] = None,
-        tags: Union[str, list[str]] = None,
+        send_alerts_to_server: Union[str, List[str]] = None,
+        send_logs_to_backup_server: Union[str, List[str]] = None,
+        send_logs_to_server: Union[str, List[str]] = None,
+        tags: Union[str, List[str]] = None,
         threat_emulation: bool = None,
         threat_extraction: bool = None,
         threat_prevention_mode: str = None,
@@ -59,17 +59,17 @@ class SimpleGatewayAPI(NetworkObjectAPI):
             firewall (bool): Firewall blade enabled.
             firewall_settings (dict): N/A
             icap_server (bool): ICAP Server enabled.
-            interfaces (list[dict]): Network interfaces.
+            interfaces (List[dict]): Network interfaces.
             ips (bool): Intrusion Prevention System blade enabled.
             logs_settings (dict): N/A
             one_time_password (str): N/A
             os_name (str): Gateway platform operating system.
             platform_portal_settings (dict): Platform portal settings.
             save_logs_locally (bool): Save logs locally on the gateway.
-            send_alerts_to_server (Union[str, list[str]]): Server(s) to send alerts to.
-            send_logs_to_backup_server (Union[str, list[str]]): Backup server(s) to send logs to.
-            send_logs_to_server (Union[str, list[str]]): Server(s) to send logs to.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            send_alerts_to_server (Union[str, List[str]]): Server(s) to send alerts to.
+            send_logs_to_backup_server (Union[str, List[str]]): Backup server(s) to send logs to.
+            send_logs_to_server (Union[str, List[str]]): Server(s) to send logs to.
+            tags (Union(str,List[str])): Collection of tag identifiers.
             threat_emulation (bool): Threat Emulation blade enabled.
             threat_extraction (bool): Threat Extraction blade enabled.
             threat_prevention_mode (str): The mode of Threat Prevention to use. When using Autonomous Threat Prevention,
@@ -89,7 +89,7 @@ class SimpleGatewayAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -175,7 +175,7 @@ class SimpleGatewayAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
@@ -221,7 +221,7 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         firewall: bool = None,
         firewall_settings: dict = None,
         icap_server: bool = None,
-        interfaces: list[dict] = None,
+        interfaces: List[dict] = None,
         ips: bool = None,
         logs_settings: dict = None,
         new_name: str = None,
@@ -229,10 +229,10 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         os_name: str = None,
         platform_portal_settings: dict = None,
         save_logs_locally: bool = None,
-        send_alerts_to_server: Union[str, list[str]] = None,
-        send_logs_to_backup_server: Union[str, list[str]] = None,
-        send_logs_to_server: Union[str, list[str]] = None,
-        tags: Union[str, list[str]] = None,
+        send_alerts_to_server: Union[str, List[str]] = None,
+        send_logs_to_backup_server: Union[str, List[str]] = None,
+        send_logs_to_server: Union[str, List[str]] = None,
+        tags: Union[str, List[str]] = None,
         threat_emulation: bool = None,
         threat_extraction: bool = None,
         threat_prevention_mode: str = None,
@@ -253,10 +253,10 @@ class SimpleGatewayAPI(NetworkObjectAPI):
             and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
             ipv4_address (str): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
             ipv6_address (str): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
-            interfaces (Union[dict,list[dict]]): Host interfaces.
+            interfaces (Union[dict,List[dict]]): Host interfaces.
             nat_settings (dict): NAT settings.
             new_name (str): New name of the object.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            tags (Union(str,List[str])): Collection of tag identifiers.
             host_servers (dict): Servers Configuration.
         Keyword Args:
             **color (Color, optional):
@@ -266,7 +266,7 @@ class SimpleGatewayAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -359,7 +359,7 @@ class SimpleGatewayAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
@@ -396,7 +396,7 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
-        order: list[dict] = None,
+        order: List[dict] = None,
         **kw,
     ) -> Box:
         """
@@ -409,7 +409,7 @@ class SimpleGatewayAPI(NetworkObjectAPI):
             he search involves both a IP search and a textual search in name, comment, tags etc.
             limit (int): The maximal number of returned results. Default to 50 (between 1 and 500)
             offset (int): Number of the results to initially skip. Default to 0
-            order (list[dict]): Sorts results by the given field. By default the results are sorted in the
+            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
             descending order by the session publish time.
         Returns:
             :obj:`Box`: The response from the server

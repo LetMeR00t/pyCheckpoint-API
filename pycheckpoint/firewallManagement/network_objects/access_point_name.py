@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, List
 
 from box import Box
 
@@ -17,7 +17,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
         block_traffic_other_end_user_domains: bool = None,
         block_traffic_this_end_user_domain: bool = None,
         end_user_domain: str = None,
-        tags: Union[str, list[str]] = None,
+        tags: Union[str, List[str]] = None,
         **kw
     ) -> Box:
         """
@@ -30,7 +30,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
             block_traffic_other_end_user_domains (bool): Block MS to MS traffic between this and other APN end user domains.
             block_traffic_this_end_user_domain (bool): Block MS to MS traffic within this end user domain.
             end_user_domain (str): End user domain name or UID.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            tags (Union(str,List[str])): Collection of tag identifiers.
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -43,7 +43,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -80,7 +80,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
             "ignore-errors": bool,
         }
@@ -118,7 +118,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
         block_traffic_this_end_user_domain: bool = None,
         end_user_domain: str = None,
         new_name: str = None,
-        tags: Union[str, list[str]] = None,
+        tags: Union[str, List[str]] = None,
         **kw
     ) -> Box:
         """
@@ -133,7 +133,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
             block_traffic_this_end_user_domain (bool): Block MS to MS traffic within this end user domain.
             end_user_domain (str): End user domain name or UID.
             new_name (str): New name of the object.
-            tags (Union(str,list[str])): Collection of tag identifiers.
+            tags (Union(str,List[str])): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -142,7 +142,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,list[str])):
+            **groups (Union(str,List[str])):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
@@ -189,7 +189,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
             "color": Color,
             "comments": str,
             "details-level": str,
-            "groups": Union[str, list[str]],
+            "groups": Union[str, List[str]],
             "ignore-warnings": bool,
             "ignore-errors": bool,
         }
@@ -227,7 +227,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
-        order: list[dict] = None,
+        order: List[dict] = None,
         **kw
     ) -> Box:
         """
@@ -240,7 +240,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
             he search involves both a IP search and a textual search in name, comment, tags etc.
             limit (int): The maximal number of returned results. Default to 50 (between 1 and 500)
             offset (int): Number of the results to initially skip. Default to 0
-            order (list[dict]): Sorts results by the given field. By default the results are sorted in the
+            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
             descending order by the session publish time.
         Returns:
             :obj:`Box`: The response from the server
@@ -253,6 +253,6 @@ class AccessPointNameAPI(NetworkObjectAPI):
             limit=limit,
             offset=offset,
             order=order,
-            extra_secondary_parameters={"domains-to-process": list[str]},
+            extra_secondary_parameters={"domains-to-process": List[str]},
             **kw
         )

@@ -1,6 +1,7 @@
 from restfly.endpoint import APIEndpoint
 from abc import ABC, abstractclassmethod
 from box import Box
+from typing import List
 
 from ..exception import MandatoryFieldMissing
 from pycheckpoint.utils import sanitize_secondary_parameters
@@ -108,7 +109,7 @@ class NetworkObjectAPI(ABC, APIEndpoint):
         filter: str = None,
         limit: int = 50,
         offset: int = 0,
-        order: list[dict] = None,
+        order: List[dict] = None,
         show_as_ranges: bool = None,
         extra_secondary_parameters: dict = None,
         **kw
@@ -124,7 +125,7 @@ class NetworkObjectAPI(ABC, APIEndpoint):
             he search involves both a IP search and a textual search in name, comment, tags etc.
             limit (int): The maximal number of returned results. Default to 50 (between 1 and 500)
             offset (int): Number of the results to initially skip. Default to 0
-            order (list[dict]): Sorts results by the given field. By default the results are sorted in the
+            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
             descending order by the session publish time.
             extra_secondary_parameters (dict): Any additional secondary parameter need to be add in the request
         Returns:
@@ -149,7 +150,7 @@ class NetworkObjectAPI(ABC, APIEndpoint):
         # Secondary parameters
         secondary_parameters = {
             "details-level": str,
-            "domains-to-process": list[str],
+            "domains-to-process": List[str],
         }
 
         if extra_secondary_parameters is not None:
