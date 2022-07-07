@@ -4,7 +4,7 @@ import sys
 if sys.version_info > (3, 8):
     from typing import Union, get_origin
 else:
-    from typing import Union
+    from typing import Union, List
 
 from pycheckpoint.firewallManagement.exception import MandatoryFieldMissing, WrongType
 
@@ -21,9 +21,11 @@ def sanitize_value(field: str, t: type, is_mandatory: bool = False, default=None
     origin = None
     if sys.version_info > (3, 8):
         origin = get_origin(t)
+        final_type = [Union]
     else:
-        origin = t.__origin__
-    if origin is Union:
+        origin = t
+        final_type = [Union[str, List[str]], Union[dict, str, List[str]], Union[dict, List[dict]]]
+    if origin in final_type:
         if value is None or type(value) in t.__args__:
             return value
         else:

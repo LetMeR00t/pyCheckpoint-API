@@ -114,7 +114,7 @@ def fixture_resp_host():
             },
             "creator": "aa",
         },
-        "tags": [],
+        "tags": ["t1","t2","t3"],
         "name": "New Host 4",
         "comments": "",
         "color": "black",

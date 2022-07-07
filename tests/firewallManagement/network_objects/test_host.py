@@ -12,12 +12,13 @@ def test_add_host(firewallManagement, resp_host):
     )
 
     resp = firewallManagement.network_objects.host.add(
-        name="New Host 4", ip_address="192.0.2.1"
+        name="New Host 4", ip_address="192.0.2.1", tags=["t1", "t2", "t3"]
     )
 
     assert resp.uid == "9423d36f-2d66-4754-b9e2-e7f4493756d4"
     assert resp.name == "New Host 4"
     assert resp.ipv4_address == "192.0.2.1"
+    assert resp.tags == ["t1", "t2", "t3"]
 
 
 @responses.activate
