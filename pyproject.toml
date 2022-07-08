@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyCheckpoint"
-version = "0.2.0"
+version = "0.3.0"
 description = "A python SDK for the Checkpoint firewalls"
 authors = ["LmR <letmer00t@gmail.com>"]
 license = "MIT"
