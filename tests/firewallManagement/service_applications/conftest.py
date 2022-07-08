@@ -168,3 +168,49 @@ def fixture_resp_service_icmp6():
         "icon": "Services/ICMPV6Service",
         "groups": [],
     }
+
+
+@pytest.fixture(name="resp_service_sctp")
+def fixture_resp_service_sctp():
+    return {
+        "uid": "d0385c6d-72dd-4981-b951-4783b7100343",
+        "name": "New_SCTP_Service_1",
+        "type": "service-sctp",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "last-modify-time": {
+                "posix": 1479720948687,
+                "iso-8601": "2016-11-21T11:35+0200",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1479720948687,
+                "iso-8601": "2016-11-21T11:35+0200",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "read-only": True,
+        "comments": "",
+        "color": "black",
+        "icon": "Services/SCTPService",
+        "groups": [],
+        "keep-connections-open-after-policy-installation": False,
+        "session-timeout": 0,
+        "use-default-session-timeout": True,
+        "match-for-any": True,
+        "sync-connections-on-cluster": True,
+        "aggressive-aging": {
+            "enable": True,
+            "timeout": 360,
+            "use-default-timeout": False,
+            "default-timeout": 0,
+        },
+        "port": "5669",
+    }
