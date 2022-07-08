@@ -8,10 +8,11 @@ from pycheckpoint.utils import sanitize_secondary_parameters
 from pycheckpoint.models import Color
 
 
-class ServiceTCPAPI(NetworkObjectAPI):
+class ServiceUDPAPI(NetworkObjectAPI):
     def add(
         self,
         name: str,
+        acccept_replies: bool = None,
         aggressive_aging: dict = None,
         keep_connections_open_after_policy_installation: bool = None,
         match_by_protocol_signature: bool = False,
@@ -31,6 +32,7 @@ class ServiceTCPAPI(NetworkObjectAPI):
 
         Args:
             name (str): Object name. Must be unique in the domain.
+            acccept_replies (bool): N/A
             aggressive_aging (dict): Sets short (aggressive) timeouts for idle connections.
             keep_connections_open_after_policy_installation (bool): Keep connections open after policy has been installed
             even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.
@@ -77,18 +79,14 @@ class ServiceTCPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.service_applications.service_tcp.add(
-        name="New_TCP_Service_1",
-        port=5669,
-        keep_connections_open_after_policy_installation=False,
-        session_timeout=0,
-        match_for_any=True,
-        sync_connections_on_cluster=True,
-        aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False})
+            >>> firewallManagementApi.service_applications.service_udp.add(name="My object")
         """
 
         # Main request parameters
         payload = {"name": name}
+
+        if acccept_replies is not None:
+            payload["acccept-replies"] = acccept_replies
         if aggressive_aging is not None:
             payload["aggressive-aging"] = aggressive_aging
         if keep_connections_open_after_policy_installation is not None:
@@ -128,7 +126,7 @@ class ServiceTCPAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("add-service-tcp", json=payload)
+        return self._post("add-service-udp", json=payload)
 
     def show(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -144,15 +142,16 @@ class ServiceTCPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_tcp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.service_applications.service_udp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-        return self.show_object(endpoint="show-service-tcp", uid=uid, name=name, **kw)
+        return self.show_object(endpoint="show-service-udp", uid=uid, name=name, **kw)
 
     def set(
         self,
         uid: str = None,
         name: str = None,
         new_name: str = None,
+        acccept_replies: bool = None,
         aggressive_aging: dict = None,
         keep_connections_open_after_policy_installation: bool = None,
         match_by_protocol_signature: bool = False,
@@ -174,6 +173,7 @@ class ServiceTCPAPI(NetworkObjectAPI):
             uid (str): Object unique identifier.
             name (str): Object name.
             new_name (str): New name of the object.
+            acccept_replies (bool): N/A
             aggressive_aging (dict): Sets short (aggressive) timeouts for idle connections.
             keep_connections_open_after_policy_installation (bool): Keep connections open after policy has been installed
             even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.
@@ -216,7 +216,7 @@ class ServiceTCPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.service_applications.service_tcp.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            >>> firewallManagement.service_applications.service_udp.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New Service TCP")
         """
 
@@ -231,6 +231,8 @@ class ServiceTCPAPI(NetworkObjectAPI):
 
         if new_name is not None:
             payload["new-name"] = new_name
+        if acccept_replies is not None:
+            payload["acccept-replies"] = acccept_replies
         if aggressive_aging is not None:
             payload["aggressive-aging"] = aggressive_aging
         if keep_connections_open_after_policy_installation is not None:
@@ -269,7 +271,7 @@ class ServiceTCPAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("set-service-tcp", json=payload)
+        return self._post("set-service-udp", json=payload)
 
     def delete(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -290,13 +292,13 @@ class ServiceTCPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_tcp.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.service_applications.service_udp.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
-            endpoint="delete-service-tcp", uid=uid, name=name, **kw
+            endpoint="delete-service-udp", uid=uid, name=name, **kw
         )
 
-    def show_services_tcp(
+    def show_services_udp(
         self,
         filter: str = None,
         limit: int = 50,
@@ -323,10 +325,10 @@ class ServiceTCPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_tcp.shows_services_tcp()
+            >>> firewallManagementApi.service_applications.service_udp.shows_services_udp()
         """
         return self.show_objects(
-            endpoint="show-services-tcp",
+            endpoint="show-services-udp",
             filter=filter,
             limit=limit,
             offset=offset,
