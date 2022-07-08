@@ -214,3 +214,50 @@ def fixture_resp_service_sctp():
         },
         "port": "5669",
     }
+
+
+@pytest.fixture(name="resp_service_other")
+def fixture_resp_service_other():
+    return {
+        "uid": "42f2b86e-09ee-415c-a6ae-75556c6c70e0",
+        "name": "New_Service_1",
+        "type": "service-other",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "last-modify-time": {
+                "posix": 1479721379028,
+                "iso-8601": "2016-11-21T11:42+0200",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1479721379028,
+                "iso-8601": "2016-11-21T11:42+0200",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "read-only": True,
+        "comments": "",
+        "color": "black",
+        "icon": "Services/OtherService",
+        "groups": [],
+        "keep-connections-open-after-policy-installation": False,
+        "session-timeout": 0,
+        "use-default-session-timeout": True,
+        "match-for-any": True,
+        "sync-connections-on-cluster": True,
+        "aggressive-aging": {
+            "enable": True,
+            "timeout": 360,
+            "use-default-timeout": False,
+            "default-timeout": 0,
+        },
+        "ip-protocol": 51,
+        "accept-replies": False,
+    }

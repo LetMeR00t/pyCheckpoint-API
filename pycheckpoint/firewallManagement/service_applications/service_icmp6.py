@@ -52,7 +52,7 @@ class ServiceICMP6API(NetworkObjectAPI):
             :obj:`Box`: The response from the server
         Examples:
             >>> firewallManagement.service_applications.service_icmp6.add(
-        name="New_TCP_Service_1",
+        name="Icmp2",
         port=5669,
         keep_connections_open_after_policy_installation=False,
         session_timeout=0,

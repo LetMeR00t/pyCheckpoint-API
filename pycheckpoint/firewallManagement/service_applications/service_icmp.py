@@ -52,13 +52,13 @@ class ServiceICMPAPI(NetworkObjectAPI):
             :obj:`Box`: The response from the server
         Examples:
             >>> firewallManagement.service_applications.service_icmp.add(
-        name="New_TCP_Service_1",
+        name="Icmp1",
         port=5669,
         keep_connections_open_after_policy_installation=False,
         session_timeout=0,
         match_for_any=True,
         sync_connections_on_cluster=True,
-        aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False})
+        aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False},)
         """
 
         # Main request parameters

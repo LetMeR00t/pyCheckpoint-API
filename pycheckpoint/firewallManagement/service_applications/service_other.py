@@ -8,16 +8,19 @@ from pycheckpoint.utils import sanitize_secondary_parameters
 from pycheckpoint.models import Color
 
 
-class ServiceSCTPAPI(NetworkObjectAPI):
+class ServiceOtherAPI(NetworkObjectAPI):
     def add(
         self,
         name: str,
-        port: str,
+        accept_replies: bool = None,
+        action: str = None,
         aggressive_aging: dict = None,
+        ip_protocol: int = None,
         keep_connections_open_after_policy_installation: bool = None,
+        match: str = False,
         match_for_any: bool = None,
+        override_default_settings: bool = None,
         session_timeout: int = None,
-        source_port: str = None,
         sync_connections_on_cluster: bool = None,
         tags: Union[str, List[str]] = None,
         use_default_session_timeout: bool = None,
@@ -28,14 +31,27 @@ class ServiceSCTPAPI(NetworkObjectAPI):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            port (str): The number of the port used to provide this service.
-            To specify a port range, place a hyphen between the lowest and highest port numbers, for example 44-55.
+            accept_replies (bool): Specifies whether Other Service replies are to be accepted.
+            action (str): Contains an INSPECT expression that defines the action to take if a rule containing this service
+            is matched. Example: set r_mhandler &open_ssl_handler sets a handler on the connection.
             aggressive_aging (dict): Sets short (aggressive) timeouts for idle connections.
+            ip_protocol (int): IP protocol number.
             keep_connections_open_after_policy_installation (bool): Keep connections open after policy has been installed
             even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.
             If you change this property, the change will not affect open connections, but only future connections.
+            match (str): 	Contains an INSPECT expression that defines the matching criteria. The connection is examined
+            against the expression during the first packet. Example: other, dport = 21, direction = 0 matches incoming FTP
+            control connections.
             match_for_any (bool): Indicates whether this service is used when 'Any' is set as the rule's service and there are
             several service objects with the same source port and protocol.
+            override_default_settings (bool): Indicates whether this service is a Data Domain service which has been overridden
+            port (str): The number of the port used to provide this service.
+            To specify a port range, place a hyphen between the lowest and highest port numbers, for example 44-55.
+            protocol (str): Select the protocol type associated with the service, and by implication, the management server
+            (if any) that enforces Content Security and Authentication for the service.
+            Selecting a Protocol Type invokes the specific protocol handlers for each protocol type,
+            thus enabling higher level of security by parsing the protocol, and higher level of connectivity
+            by tracking dynamic actions (such as opening of ports).
             session_timeout (int): Time (in seconds) before the session times out.
             source_port (str): Port number for the client side service. If specified, only those Source port Numbers will be
             Accepted, Dropped, or Rejected during packet inspection. Otherwise, the source port is not inspected.
@@ -65,31 +81,39 @@ class ServiceSCTPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.service_applications.service_sctp.add(
-        name="New_SCTP_Service_1",
-        port=5669,
+            >>> firewallManagement.service_applications.service_other.add(
+        name="New_Service_1",
         keep_connections_open_after_policy_installation=False,
         session_timeout=0,
         match_for_any=True,
         sync_connections_on_cluster=True,
-        aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False})
+        ip_protocol=51,
+        aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False},)
         """
 
         # Main request parameters
-        payload = {"name": name, "port": port}
+        payload = {"name": name}
 
+        if accept_replies is not None:
+            payload["accept_replies"] = accept_replies
+        if action is not None:
+            payload["action"] = action
         if aggressive_aging is not None:
             payload["aggressive-aging"] = aggressive_aging
+        if ip_protocol is not None:
+            payload["ip-protocol"] = ip_protocol
         if keep_connections_open_after_policy_installation is not None:
             payload[
                 "keep-connections-open-after-policy-installation"
             ] = keep_connections_open_after_policy_installation
+        if match is not None:
+            payload["match"] = match
         if match_for_any is not None:
             payload["match-for-any"] = match_for_any
+        if override_default_settings is not None:
+            payload["override-default-settings"] = override_default_settings
         if session_timeout is not None:
             payload["session-timeout"] = session_timeout
-        if source_port is not None:
-            payload["source-port"] = source_port
         if sync_connections_on_cluster is not None:
             payload["sync-connections-on-cluster"] = sync_connections_on_cluster
         if tags is not None:
@@ -109,7 +133,7 @@ class ServiceSCTPAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("add-service-sctp", json=payload)
+        return self._post("add-service-other", json=payload)
 
     def show(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -125,21 +149,24 @@ class ServiceSCTPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_sctp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.service_applications.service_other.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-        return self.show_object(endpoint="show-service-sctp", uid=uid, name=name, **kw)
+        return self.show_object(endpoint="show-service-other", uid=uid, name=name, **kw)
 
     def set(
         self,
         uid: str = None,
         name: str = None,
         new_name: str = None,
-        port: str = None,
+        accept_replies: bool = None,
+        action: str = None,
         aggressive_aging: dict = None,
+        ip_protocol: int = None,
         keep_connections_open_after_policy_installation: bool = None,
+        match: str = False,
         match_for_any: bool = None,
+        override_default_settings: bool = None,
         session_timeout: int = None,
-        source_port: str = None,
         sync_connections_on_cluster: bool = None,
         tags: Union[str, List[str]] = None,
         use_default_session_timeout: bool = None,
@@ -150,16 +177,29 @@ class ServiceSCTPAPI(NetworkObjectAPI):
 
         Args:
             uid (str): Object unique identifier.
+            name (str): Object name.
             new_name (str): New name of the object.
-            name (str): Object name. Must be unique in the domain.
-            port (str): The number of the port used to provide this service.
-            To specify a port range, place a hyphen between the lowest and highest port numbers, for example 44-55.
+            accept_replies (bool): Specifies whether Other Service replies are to be accepted.
+            action (str): Contains an INSPECT expression that defines the action to take if a rule containing this service
+            is matched. Example: set r_mhandler &open_ssl_handler sets a handler on the connection.
             aggressive_aging (dict): Sets short (aggressive) timeouts for idle connections.
+            ip_protocol (int): IP protocol number.
             keep_connections_open_after_policy_installation (bool): Keep connections open after policy has been installed
             even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.
             If you change this property, the change will not affect open connections, but only future connections.
+            match (str): 	Contains an INSPECT expression that defines the matching criteria. The connection is examined
+            against the expression during the first packet. Example: other, dport = 21, direction = 0 matches incoming FTP
+            control connections.
             match_for_any (bool): Indicates whether this service is used when 'Any' is set as the rule's service and there are
             several service objects with the same source port and protocol.
+            override_default_settings (bool): Indicates whether this service is a Data Domain service which has been overridden
+            port (str): The number of the port used to provide this service.
+            To specify a port range, place a hyphen between the lowest and highest port numbers, for example 44-55.
+            protocol (str): Select the protocol type associated with the service, and by implication, the management server
+            (if any) that enforces Content Security and Authentication for the service.
+            Selecting a Protocol Type invokes the specific protocol handlers for each protocol type,
+            thus enabling higher level of security by parsing the protocol, and higher level of connectivity
+            by tracking dynamic actions (such as opening of ports).
             session_timeout (int): Time (in seconds) before the session times out.
             source_port (str): Port number for the client side service. If specified, only those Source port Numbers will be
             Accepted, Dropped, or Rejected during packet inspection. Otherwise, the source port is not inspected.
@@ -185,7 +225,7 @@ class ServiceSCTPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.service_applications.service_sctp.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            >>> firewallManagement.service_applications.service_other.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New Service TCP")
         """
 
@@ -200,20 +240,26 @@ class ServiceSCTPAPI(NetworkObjectAPI):
 
         if new_name is not None:
             payload["new-name"] = new_name
+        if accept_replies is not None:
+            payload["accept_replies"] = accept_replies
+        if action is not None:
+            payload["action"] = action
         if aggressive_aging is not None:
             payload["aggressive-aging"] = aggressive_aging
+        if ip_protocol is not None:
+            payload["ip-protocol"] = ip_protocol
         if keep_connections_open_after_policy_installation is not None:
             payload[
                 "keep-connections-open-after-policy-installation"
             ] = keep_connections_open_after_policy_installation
+        if match is not None:
+            payload["match"] = match
         if match_for_any is not None:
             payload["match-for-any"] = match_for_any
-        if port is not None:
-            payload["port"] = port
+        if override_default_settings is not None:
+            payload["override-default-settings"] = override_default_settings
         if session_timeout is not None:
             payload["session-timeout"] = session_timeout
-        if source_port is not None:
-            payload["source-port"] = source_port
         if sync_connections_on_cluster is not None:
             payload["sync-connections-on-cluster"] = sync_connections_on_cluster
         if tags is not None:
@@ -232,7 +278,7 @@ class ServiceSCTPAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("set-service-sctp", json=payload)
+        return self._post("set-service-other", json=payload)
 
     def delete(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -253,13 +299,13 @@ class ServiceSCTPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_sctp.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.service_applications.service_other.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
-            endpoint="delete-service-sctp", uid=uid, name=name, **kw
+            endpoint="delete-service-other", uid=uid, name=name, **kw
         )
 
-    def show_services_sctp(
+    def show_services_other(
         self,
         filter: str = None,
         limit: int = 50,
@@ -286,10 +332,10 @@ class ServiceSCTPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_sctp.shows_services_sctp()
+            >>> firewallManagementApi.service_applications.service_other.shows_services_other()
         """
         return self.show_objects(
-            endpoint="show-services-sctp",
+            endpoint="show-services-other",
             filter=filter,
             limit=limit,
             offset=offset,

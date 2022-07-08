@@ -79,7 +79,14 @@ class ServiceUDPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_udp.add(name="My object")
+            >>> firewallManagement.service_applications.service_udp.add(
+        name="New_UDP_Service_1",
+        port=5669,
+        keep_connections_open_after_policy_installation=False,
+        session_timeout=0,
+        match_for_any=True,
+        sync_connections_on_cluster=True,
+        aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False})
         """
 
         # Main request parameters
