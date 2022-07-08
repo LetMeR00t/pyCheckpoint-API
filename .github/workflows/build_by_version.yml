@@ -1,4 +1,4 @@
-name: "Build: Tests validation by python version"
+name: "Build: Tests validation"
 
 on:
   push:
