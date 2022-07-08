@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pyCheckpoint"
+name = "pyCheckpoint-API"
 version = "0.3.0"
 description = "A python SDK for the Checkpoint firewalls"
 authors = ["LmR <letmer00t@gmail.com>"]
@@ -7,7 +7,10 @@ license = "MIT"
 readme = "README.md"
 documentation = ""
 homepage = ""
-repository = ""
+repository = "https://github.com/LetMeR00t/pyCheckpoint-API"
+
+
+
 classifiers = [
     "Environment :: Console",
     "Intended Audience :: Developers",
@@ -27,7 +30,7 @@ include = [
 ]
 
 [tool.poetry.urls]
-"Bug Tracker" = ""
+"Bug Tracker" = "https://github.com/LetMeR00t/pyCheckpoint-API/issues"
 
 [tool.poetry.dependencies]
 python = "^3.7"

@@ -1,7 +1,7 @@
 import pytest
 import responses
 
-from pycheckpoint.firewallManagement import FirewallManagementAPI
+from pycheckpoint_api.firewallManagement import FirewallManagementAPI
 
 
 @pytest.fixture(name="session")

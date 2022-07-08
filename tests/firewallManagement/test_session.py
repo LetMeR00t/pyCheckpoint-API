@@ -2,7 +2,7 @@ from box import Box
 import responses
 import pytest
 
-from pycheckpoint.firewallManagement.exception import MandatoryFieldMissing
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate

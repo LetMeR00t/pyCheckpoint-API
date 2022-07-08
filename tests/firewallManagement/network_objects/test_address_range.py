@@ -1,5 +1,5 @@
 import responses
-from pycheckpoint.models import Color
+from pycheckpoint_api.models import Color
 
 
 @responses.activate
