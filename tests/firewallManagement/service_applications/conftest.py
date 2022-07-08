@@ -131,3 +131,40 @@ def fixture_resp_service_icmp():
         "icon": "Services/ICMPService",
         "groups": [],
     }
+
+
+@pytest.fixture(name="resp_service_icmp6")
+def fixture_resp_service_icmp6():
+    return {
+        "uid": "d9dcb753-1aa7-4e65-b5ff-b4878f8b3890",
+        "name": "Icmp2",
+        "type": "service-icmp6",
+        "domain": {
+            "domain-type": "domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "icmp-type": 5,
+        "icmp-code": 7,
+        "keep-connections-open-after-policy-installation": False,
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "last-modify-time": {
+                "posix": 1475051823316,
+                "iso-8601": "2016-09-28T11:37+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1475051823316,
+                "iso-8601": "2016-09-28T11:37+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "read-only": True,
+        "comments": "",
+        "color": "black",
+        "icon": "Services/ICMPV6Service",
+        "groups": [],
+    }
