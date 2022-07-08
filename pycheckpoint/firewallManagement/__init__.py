@@ -5,6 +5,7 @@ from pycheckpoint import __version__
 
 from .session import SessionAPI
 from .network_objects import NetworkObjects
+from .service_applications import ServiceApplications
 
 from pycheckpoint.utils import sanitize_value
 
@@ -67,5 +68,10 @@ class FirewallManagementAPI(APISession):
 
     @property
     def network_objects(self):
-        """The interface object for the Network Management."""
+        """The interface object for the Network Objects Management."""
         return NetworkObjects(self)
+
+    @property
+    def service_applications(self):
+        """The interface object for the Service & Applications Management."""
+        return ServiceApplications(self)
