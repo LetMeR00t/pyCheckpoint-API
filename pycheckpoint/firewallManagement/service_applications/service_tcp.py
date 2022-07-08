@@ -89,6 +89,7 @@ class ServiceTCPAPI(NetworkObjectAPI):
 
         # Main request parameters
         payload = {"name": name}
+
         if aggressive_aging is not None:
             payload["aggressive-aging"] = aggressive_aging
         if keep_connections_open_after_policy_installation is not None:
@@ -331,5 +332,9 @@ class ServiceTCPAPI(NetworkObjectAPI):
             limit=limit,
             offset=offset,
             order=order,
+            extra_secondary_parameters={
+                "show-membership": bool,
+                "domains-to-process": List[str],
+            },
             **kw
         )
