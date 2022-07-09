@@ -46,8 +46,8 @@ def sanitize_value(field: str, t: type, is_mandatory: bool = False, default=None
 def sanitize_secondary_parameters(d: dict, **kw):
     """This function is used to sanitize any secondary parameter (meaning not mandatory parameters)"""
     payload = {}
-    for field, type in d.items():
-        value = sanitize_value(field=field, t=type, is_mandatory=False, **kw)
+    for field, field_type in d.items():
+        value = sanitize_value(field=field_type, t=type, is_mandatory=False, **kw)
         if value is not None:
             payload[field] = value
     return payload

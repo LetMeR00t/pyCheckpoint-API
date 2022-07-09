@@ -359,7 +359,7 @@ class SessionAPI(APIEndpoint):
 
     def show_sessions(
         self,
-        filter: str = None,
+        filter_results: str = None,
         limit: int = 50,
         offset: int = 0,
         order: List[dict] = None,
@@ -370,7 +370,7 @@ class SessionAPI(APIEndpoint):
         Retrieve all objects.
 
         Args:
-            filter (str): Search expression to filter objects by.
+            filter_results (str): Search expression to filter objects by.
             The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.
             The logical operators in the expression ('AND', 'OR') should be provided in capital letters.
             he search involves both a IP search and a textual search in name, comment, tags etc.
@@ -387,8 +387,8 @@ class SessionAPI(APIEndpoint):
 
         # Main request parameters
         payload = {}
-        if filter is not None:
-            payload["filter"] = filter
+        if filter_results is not None:
+            payload["filter"] = filter_results
         if limit is not None:
             payload["limit"] = limit
         if offset is not None:

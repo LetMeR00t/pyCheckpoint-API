@@ -263,7 +263,7 @@ class MulticastAddressRangeAPI(NetworkObjectAPI):
 
     def show_multicast_address_ranges(
         self,
-        filter: str = None,
+        filter_results: str = None,
         limit: int = 50,
         offset: int = 0,
         order: List[dict] = None,
@@ -273,7 +273,7 @@ class MulticastAddressRangeAPI(NetworkObjectAPI):
         Retrieve all objects.
 
         Args:
-            filter (str): Search expression to filter objects by.
+            filter_results (str): Search expression to filter objects by.
             The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.
             The logical operators in the expression ('AND', 'OR') should be provided in capital letters.
             he search involves both a IP search and a textual search in name, comment, tags etc.
@@ -288,7 +288,7 @@ class MulticastAddressRangeAPI(NetworkObjectAPI):
         """
         return self.show_objects(
             endpoint="show-multicast-address-ranges",
-            filter=filter,
+            filter_results=filter_results,
             limit=limit,
             offset=offset,
             order=order,

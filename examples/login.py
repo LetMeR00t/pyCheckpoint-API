@@ -14,8 +14,7 @@ logger = logging.getLogger(__name__)
 # GLOBAL VARIABLE
 HOSTNAME = ""
 PORT = 443
-USER = ""
-PASSWORD = ""
+API_KEY = ""
 VERSION = "1.8"
 DOMAIN = ""
 
@@ -30,8 +29,7 @@ try:
     api = FirewallManagementAPI(
         hostname=HOSTNAME,
         port=PORT,
-        user=USER,
-        password=PASSWORD,
+        api_key=API_KEY,
         version=VERSION,
         domain=DOMAIN,
         ssl_verify=False,

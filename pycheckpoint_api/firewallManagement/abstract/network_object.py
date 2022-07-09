@@ -1,5 +1,4 @@
 from restfly.endpoint import APIEndpoint
-from abc import ABC, abstractclassmethod
 from box import Box
 from typing import List
 
@@ -7,11 +6,7 @@ from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 
 
-class NetworkObjectAPI(ABC, APIEndpoint):
-    @abstractclassmethod
-    def add(self):
-        pass
-
+class NetworkObjectAPI(APIEndpoint):
     def show_object(
         self,
         endpoint: str,
@@ -56,10 +51,6 @@ class NetworkObjectAPI(ABC, APIEndpoint):
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
         return self._post(endpoint, json=payload)
-
-    @abstractclassmethod
-    def set(self):
-        pass
 
     def delete_object(self, endpoint: str, uid: str = None, name: str = None, **kw):
         """
@@ -106,7 +97,7 @@ class NetworkObjectAPI(ABC, APIEndpoint):
     def show_objects(
         self,
         endpoint: str,
-        filter: str = None,
+        filter_results: str = None,
         limit: int = 50,
         offset: int = 0,
         order: List[dict] = None,
@@ -119,7 +110,7 @@ class NetworkObjectAPI(ABC, APIEndpoint):
 
         Args:
             endpoint (str): Endpoint to reach to show the objects
-            filter (str): Search expression to filter objects by.
+            filter_results (str): Search expression to filter objects by.
             The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.
             The logical operators in the expression ('AND', 'OR') should be provided in capital letters.
             he search involves both a IP search and a textual search in name, comment, tags etc.
@@ -136,8 +127,8 @@ class NetworkObjectAPI(ABC, APIEndpoint):
 
         # Main request parameters
         payload = {}
-        if filter is not None:
-            payload["filter"] = filter
+        if filter_results is not None:
+            payload["filter"] = filter_results
         if limit is not None:
             payload["limit"] = limit
         if offset is not None:

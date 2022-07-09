@@ -231,7 +231,7 @@ def fixture_resp_gsn_handover_group():
                     "name": "SMC User",
                     "domain-type": "domain",
                 },
-                "ipv4-address-first": "0.0.0.0",
+                "ipv4-address-first": "10.0.0.0",
                 "ipv4-address-last": "255.255.255.255",
             }
         ],
@@ -1080,7 +1080,7 @@ def fixture_resp_access_point_name():
                 "name": "SMC User",
                 "domain-type": "domain",
             },
-            "ipv4-address-first": "0.0.0.0",
+            "ipv4-address-first": "10.0.0.0",
             "ipv4-address-last": "255.255.255.255",
         },
         "block-traffic-other-end-user-domains": True,
