@@ -24,7 +24,7 @@ api = None
 
 try:
     # Please note that, as it's an example, we enabled the SSL verify to False to avoid having SSL certificate issues.
-    # However, it's higtly recommanded to use certificates with know certificate authorities.
+    # However, it's highly recommanded to use certificates with know certificate authorities.
     logger.info("Trying to login to the API...")
 
     api = FirewallManagementAPI(
