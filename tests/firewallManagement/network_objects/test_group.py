@@ -1,4 +1,7 @@
 import responses
+import pytest
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -63,6 +66,10 @@ def test_set_group(firewallManagement, resp_group):
 
     assert resp.uid == "ed997ff8-6709-4d71-a713-99bf01711cd5"
     assert resp.name == "New Group 3"
+
+    # None arguments
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.group.set()
 
 
 @responses.activate

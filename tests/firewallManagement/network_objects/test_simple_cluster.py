@@ -97,7 +97,9 @@ def test_add_simple_cluster(firewallManagement, resp_task):
 
 
 @responses.activate
-def test_show_simple_cluster(firewallManagement, resp_simple_cluster_ipv4):
+def test_show_simple_cluster(
+    firewallManagement, resp_simple_cluster_ipv4, resp_simple_cluster_ipv6
+):
 
     responses.add(
         responses.POST,
@@ -114,6 +116,25 @@ def test_show_simple_cluster(firewallManagement, resp_simple_cluster_ipv4):
     assert resp.name == "cluster1"
     assert resp.ipv4_address == "17.23.5.1"
 
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/show-simple-cluster",
+        json=resp_simple_cluster_ipv6,
+        status=200,
+    )
+
+    resp = firewallManagement.network_objects.simple_cluster.show(
+        uid="4a5d882a-5568-2c3b-aa78-751ab23d6c11"
+    )
+
+    assert resp.uid == "4a5d882a-5568-2c3b-aa78-751ab23d6c11"
+    assert resp.name == "cluster1"
+    assert resp.ipv6_address == "2001:db8:0000:0000:0000:0000:0000:000b"
+
+    # Missing IP information
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.simple_cluster.add(name="cluster1")
+
 
 @responses.activate
 def test_set_simple_cluster(firewallManagement, resp_task):
@@ -127,6 +148,7 @@ def test_set_simple_cluster(firewallManagement, resp_task):
 
     resp = firewallManagement.network_objects.simple_cluster.set(
         uid="4a5d882a-5568-2c3b-aa78-751ab23d6c11",
+        new_name="cluster1",
         ip_address="17.23.5.1",
         anti_bot=True,
         anti_virus=True,
