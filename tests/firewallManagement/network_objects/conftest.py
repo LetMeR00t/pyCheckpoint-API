@@ -240,8 +240,8 @@ def fixture_resp_gsn_handover_group():
     }
 
 
-@pytest.fixture(name="resp_address_range")
-def fixture_resp_address_range():
+@pytest.fixture(name="resp_address_range_ipv4")
+def fixture_resp_address_range_ipv4():
     return {
         "uid": "196e93a9-b90b-4ab1-baa6-124e7289aa20",
         "folder": {
@@ -308,6 +308,77 @@ def fixture_resp_address_range():
         "ipv4-address-last": "192.0.2.10",
         "ipv6-address-first": "",
         "ipv6-address-last": "",
+    }
+
+
+@pytest.fixture(name="resp_address_range_ipv6")
+def fixture_resp_address_range_ipv6():
+    return {
+        "uid": "196e93a9-b90b-4ab1-baa6-124e7289aa20",
+        "folder": {
+            "uid": "5568324a-68ed-4c6c-9aa6-553978c7e746",
+            "name": "/Global Objects",
+        },
+        "domain": {
+            "domain-type": "local domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1435470754504,
+                "iso-8601": "2015-06-28T08:52+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1435470754504,
+                "iso-8601": "2015-06-28T08:52+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": ["t1"],
+        "name": "New Address Range 1",
+        "comments": "",
+        "color": "black",
+        "icon": "Objects/ip",
+        "groups": [
+            {
+                "folder": {
+                    "uid": "5568324a-68ed-4c6c-9aa6-553978c7e746",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "group",
+                "name": "New Group 1",
+                "uid": "d20710f1-831c-49dd-a009-aa9e569f643a",
+            },
+            {
+                "folder": {
+                    "uid": "5568324a-68ed-4c6c-9aa6-553978c7e746",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "group",
+                "name": "New Group 2",
+                "uid": "6e3e3f33-fc23-433d-ac90-d72196f9ffcf",
+            },
+        ],
+        "nat-settings": {"auto-rule": False},
+        "ipv4-address-first": "",
+        "ipv4-address-last": "",
+        "ipv6-address-first": "2001:db8::",
+        "ipv6-address-last": "2001:db8:0000:0000:0000:0000:0000:000f",
     }
 
 
