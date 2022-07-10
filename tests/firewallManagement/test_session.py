@@ -279,7 +279,13 @@ def test_purge_published_sessions(firewallManagement, resp_task):
     )
 
     resp = firewallManagement.session.purge_published_sessions(
-        number_of_sessions_to_preserve=5, preserve_to_date="2022-07-10T11:43:07.931Z"
+        number_of_sessions_to_preserve=5
+    )
+
+    assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"
+
+    resp = firewallManagement.session.purge_published_sessions(
+        preserve_to_date="2022-07-10T11:43:07.931Z"
     )
 
     assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"
