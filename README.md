@@ -14,11 +14,10 @@ pyCheckpoint-API is an SDK that provides a uniform and easy-to-use interface for
 
 This SDK is not affiliated with, nor supported by Checkpoint in any way.
 
-## Quick links
-TODO
-
 ## Overview
 Checkpoint firewalls solution are now using a well detailed API. This SDK simplifies software development using the Checkpoint Firewall API in Python.
+
+This SDK is based on the [Checkpoint official API documentation](https://sc1.checkpoint.com/documents/latest/APIs/#introduction~v1.8%20).
 
 This SDK leverages the [RESTfly framework](https://restfly.readthedocs.io/en/latest/index.html) developed by Steve McGrath.
 
@@ -53,33 +52,14 @@ Once you have the requirements and you have installed pyCheckpoint-API, you're r
 from pycheckpoint_api.firewallManagement import FirewallManagementAPI
 from pprint import pprint
 
-# 1st scenario: User/Password
 # Please note that, as it's an example, we enabled the SSL verify to False to avoid having SSL certificate issues.
 # However, it's highly recommanded to use certificates with know certificate authorities.
+# If you want to use an API key instead, remove the 'user' and 'password' fields and use the 'api_key' field.
 api = FirewallManagementAPI(
     hostname='HOSTNAME',
     port='PORT',
     user='USER',
     password='PASSWORD',
-    version='VERSION',
-    domain='DOMAIN',
-    ssl_verify=False,
-)
-
-pprint(
-    "Connection is successfull, we have a token: "
-    + api._session.headers["X-chkp-sid"]
-)
-
-api.session.logout()
-
-pprint("Logout is successfull")
-
-# 2nd scenario: API Key
-api = FirewallManagementAPI(
-    hostname='HOSTNAME',
-    port='PORT',
-    api_key='API_KEY',
     version='VERSION',
     domain='DOMAIN',
     ssl_verify=False,
