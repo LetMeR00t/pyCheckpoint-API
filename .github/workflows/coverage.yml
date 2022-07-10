@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  coverage:
 
     environment:
       name: "PyCheckpoint-API - Test environment on Ubuntu"
