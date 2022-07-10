@@ -230,7 +230,7 @@ def test_set_checkpoint_host(
     assert resp.name == "secondarylogserver"
     assert resp.ipv6_address == "2001:db8:0000:0000:0000:0000:0000:000a"
 
-    # None IP address information
+    # None arguments
     with pytest.raises(MandatoryFieldMissing):
         firewallManagement.network_objects.checkpoint_host.set()
 
