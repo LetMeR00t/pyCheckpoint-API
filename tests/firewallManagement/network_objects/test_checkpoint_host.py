@@ -139,8 +139,9 @@ def test_set_checkpoint_host(
     )
 
     resp = firewallManagement.network_objects.checkpoint_host.set(
-        name="secondarylogserver",
+        uid="f50f3810-d16c-4239-88d0-9f37ac581387",
         ip_address="5.5.5.5",
+        new_name="secondarylogserver",
         hardware="Open server",
         interfaces=[],
         nat_settings={"auto-rule": False},
