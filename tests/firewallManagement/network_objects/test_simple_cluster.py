@@ -224,6 +224,12 @@ def test_set_simple_cluster(firewallManagement, resp_task):
 
     assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"
 
+    resp = firewallManagement.network_objects.simple_cluster.set(
+        name="gw1", ipv4_address="192.0.2.1"
+    )
+
+    assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"
+
     # None arguments
     with pytest.raises(MandatoryFieldMissing):
         firewallManagement.network_objects.simple_cluster.set()
