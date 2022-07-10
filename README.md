@@ -75,6 +75,126 @@ pprint("Logout is successfull")
 ```
 
 ## Documentation
+### Web API Coverage
+Legend: 
+* 🟢: Fully covered
+* 🟡: Partially covered
+* 🔴: Not covered yet
+
+Here is the list of endpoints that are currently supported by this SDK:
+API reference:
+* 🟢 Session Management
+* 🟢 Network Objects
+* 🔴 Compliance
+* 🔴 Gaia Best Practice
+* 🔴 Data Center
+  * show-data-center-content
+  * Data Center Server
+  * Data Center Object
+  * Data Center Query
+* 🔴 Azure Active Directory
+* 🔴 Updatable Objects
+  * Updatable Objects Repository
+  * Updatable Object
+* 🟡 Service & Applications
+  * 🟢 Service TCP
+  * 🟢 Service UDP
+  * 🟢 Service ICMP
+  * 🟢 Service ICMP6
+  * 🟢 Service SCTP
+  * 🟢 Service Other
+  * 🟢 Service Group
+  * 🔴 Application
+  * 🔴 Application Category
+  * 🔴 Application Group
+  * 🔴 Service DCE-RPC
+  * 🔴 Service RPC
+  * 🔴 Service GTP
+  * 🔴 Service Citrix TCP
+  * 🔴 Service Compound TCP
+* 🔴 Access Control & NAT
+  * Access Rule
+  * Access Section
+  * Access Layer
+  * NAT Rule
+  * NAT Section
+* 🔴 VPN
+  * VPN Community Meshed
+  * VPN Community Star
+  * VPN Community Remote Access
+* 🔴 VSX
+* 🔴 Threat Prevention
+  * Autonomous Threat Prevention
+  * Threat Rule
+  * Threat Exception
+  * Threat Exception Group
+  * Threat Protection
+  * Threat Profile
+  * Threat Indicator
+  * Threat IOC feed
+  * Threat Layer
+  * IPS
+  * IPS Extended Attributes
+  * Threat Emulation
+* 🔴 HTTPS Inspection
+  * HTTPS Rule
+  * HTTPS Section
+  * HTTPS Layer
+  * Server Certificate
+* 🔴 Policy
+  * install-policy
+  * verify-policy
+  * Policy Package
+* 🔴 Multi-Domain
+  * Domain
+  * Global Domain
+  * Multi-Domain Server (MDS)
+  * Placeholder
+  * Global Assignment
+  * Migration
+  * Dynamic Global Network Object
+* 🔴 Migration
+* 🔴 SmartTasks
+* 🔴 Package Deployment
+* 🔴 Users
+  * add-user
+  * show-user
+  * set-user
+  * delete-user
+  * show-users
+  * Access Role
+  * Identity Tag
+  * User Template
+  * User Group
+* 🔴 High Availability
+* 🔴 Manage & Settings
+  * Administrator
+  * Trusted Client
+  * API Key
+  * API Settings
+  * Policy Settings
+* 🔴 Logs
+* 🔴 Misc.
+  * add-objects-batch
+  * set-objects-batch
+  * delete-objects-batch
+  * cme-api
+  * gaia-api
+  * export
+  * show-changes
+  * show-api-versions
+  * put-file
+  * where-used
+  * run-script
+  * show-unused-objects
+  * show-gateways-and-servers
+  * show-layer-structure
+  * show-validations
+  * show-commands
+  * install-database
+  * Task
+  * Object
+
 ### API Documentation
 TODO
 
