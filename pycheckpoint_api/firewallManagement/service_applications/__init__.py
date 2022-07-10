@@ -42,5 +42,5 @@ class ServiceApplications(APIEndpoint):
 
     @property
     def service_group(self):
-        """The interface object for the network objects type "Service Other" Management."""
+        """The interface object for the network objects type "Service Group" Management."""
         return ServiceGroupAPI(self)
