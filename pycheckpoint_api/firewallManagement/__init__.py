@@ -58,7 +58,7 @@ class FirewallManagementAPI(APISession):
 
     def _deauthenticate(self):
         """Ends the authentication session."""
-        self._session.headers.update({"X-chkp-sid": None})
+        del self._session.headers["X-chkp-sid"]
         return self.session.logout()
 
     @property

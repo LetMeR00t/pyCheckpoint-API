@@ -55,7 +55,7 @@ from pprint import pprint
 # Please note that, as it's an example, we enabled the SSL verify to False to avoid having SSL certificate issues.
 # However, it's highly recommanded to use certificates with know certificate authorities.
 # If you want to use an API key instead, remove the 'user' and 'password' fields and use the 'api_key' field.
-api = FirewallManagementAPI(
+with FirewallManagementAPI(
     hostname='HOSTNAME',
     port='PORT',
     user='USER',
@@ -63,15 +63,14 @@ api = FirewallManagementAPI(
     version='VERSION',
     domain='DOMAIN',
     ssl_verify=False,
-)
+) as api:
 
-pprint(
-    "Connection is successfull, we have a token: "
-    + api._session.headers["X-chkp-sid"]
-)
+    pprint(
+        "Connection is successfull, we have a token: "
+        + api._session.headers["X-chkp-sid"]
+    )
 
-api.session.logout()
-
+# Since we are out of the previous block, the API has been disconnected
 pprint("Logout is successfull")
 ```
 

@@ -2,11 +2,47 @@ from box import Box
 import responses
 import pytest
 
+from pycheckpoint_api.firewallManagement import FirewallManagementAPI
 from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
-def test_login_username_password(firewallManagement, session):
+def test_login_logout(firewallManagement, session, resp_message_ok):
+
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/login",
+        json=session,
+        status=200,
+    )
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/logout",
+        json=resp_message_ok,
+        status=200,
+    )
+
+    api = None
+    with FirewallManagementAPI(
+        hostname="127.0.0.1",
+        port=443,
+        user="test@example.com",
+        password="hunter2",
+        domain="MyDomain",
+        version="1.5",
+        ssl_verify=False,
+    ) as api:
+
+        assert (
+            api._session.headers.get("X-chkp-sid")
+            == "97BVpRfN4j81ogN-V2XqGYmw3DDwIhoSn0og8PiKDiM"
+        )
+
+    assert api._session.headers.get("X-chkp-sid") is None
+
+
+@responses.activate
+def test_login_user_password(firewallManagement, session):
 
     responses.add(
         responses.POST,
@@ -42,12 +78,14 @@ def test_login_api_key(firewallManagement, session):
 
 
 @responses.activate
-def test_login_missing_mandatory_parameters(firewallManagement, session):
+def test_login_missing_mandatory_parameters(firewallManagement):
 
     with pytest.raises(MandatoryFieldMissing):
-        firewallManagement.session.login(username="User1")
+        firewallManagement.session.login(user="User1")
     with pytest.raises(MandatoryFieldMissing):
         firewallManagement.session.login(password="Password1")
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.session.login()
 
 
 @responses.activate
@@ -73,7 +111,15 @@ def test_publish(firewallManagement, resp_task):
         status=200,
     )
 
+    # If we don't provide any UID, use the current one
     resp = firewallManagement.session.publish()
+
+    assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"
+
+    # If we provide a specific UID, use this one
+    resp = firewallManagement.session.publish(
+        uid="01234567-89ab-cdef-a930-8c37a59972b3"
+    )
 
     assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"
 
@@ -87,7 +133,15 @@ def test_discard(firewallManagement, resp_message_ok_with_number_of_discarded_ch
         status=200,
     )
 
+    # If we don't provide any UID, use the current one
     resp = firewallManagement.session.discard()
+
+    assert resp.message == "OK"
+
+    # If we provide a specific UID, use this one
+    resp = firewallManagement.session.discard(
+        uid="01234567-89ab-cdef-a930-8c37a59972b3"
+    )
 
     assert resp.message == "OK"
 
@@ -131,7 +185,15 @@ def test_revert_to_revision(firewallManagement, resp_task):
         status=200,
     )
 
+    # If we don't provide any UID, use the current one
     resp = firewallManagement.session.revert_to_revision()
+
+    assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"
+
+    # If we provide a specific UID, use this one
+    resp = firewallManagement.session.revert_to_revision(
+        to_session="7a13a360-9b24-40d7-acd3-5b50247be33e"
+    )
 
     assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"
 
@@ -176,7 +238,15 @@ def test_show_session(firewallManagement, resp_session):
         status=200,
     )
 
+    # If we don't provide any UID, use the current one
     resp = firewallManagement.session.show_session()
+
+    assert resp.uid == "7a13a360-9b24-40d7-acd3-5b50247be33e"
+
+    # If we provide a specific UID, use this one
+    resp = firewallManagement.session.show_session(
+        uid="7a13a360-9b24-40d7-acd3-5b50247be33e"
+    )
 
     assert resp.uid == "7a13a360-9b24-40d7-acd3-5b50247be33e"
 
@@ -191,7 +261,9 @@ def test_set_session(firewallManagement, resp_session):
     )
 
     resp = firewallManagement.session.set_session(
-        description="This is my new description"
+        description="This is my new description",
+        new_name="MySession",
+        tags=["t1", "t2"],
     )
 
     assert resp.uid == "7a13a360-9b24-40d7-acd3-5b50247be33e"
@@ -207,7 +279,7 @@ def test_purge_published_sessions(firewallManagement, resp_task):
     )
 
     resp = firewallManagement.session.purge_published_sessions(
-        number_of_sessions_to_preserve=5
+        number_of_sessions_to_preserve=5, preserve_to_date="2022-07-10T11:43:07.931Z"
     )
 
     assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"
@@ -231,6 +303,9 @@ def test_switch_session(firewallManagement, resp_session):
 
     assert resp.uid == "7a13a360-9b24-40d7-acd3-5b50247be33e"
 
+    with pytest.raises(TypeError):
+        firewallManagement.session.switch_session()
+
 
 @responses.activate
 def test_take_over_session(firewallManagement, resp_session):
@@ -242,7 +317,7 @@ def test_take_over_session(firewallManagement, resp_session):
     )
 
     resp = firewallManagement.session.take_over_session(
-        uid="7a13a360-9b24-40d7-acd3-5b50247be33e"
+        uid="7a13a360-9b24-40d7-acd3-5b50247be33e", disconnect_active_session=True
     )
 
     assert resp.uid == "7a13a360-9b24-40d7-acd3-5b50247be33e"
@@ -257,7 +332,9 @@ def test_show_sessions(firewallManagement, resp_from_to_objects):
         status=200,
     )
 
-    resp = firewallManagement.session.show_sessions()
+    resp = firewallManagement.session.show_sessions(
+        filter_results="name:API", order=[{"ASC": "name"}], view_published_sessions=True
+    )
 
     assert isinstance(resp.total, int)
 
@@ -316,7 +393,9 @@ def test_set_login_message(firewallManagement, resp_login_message):
         status=200,
     )
 
-    resp = firewallManagement.session.set_login_message(header="D")
+    resp = firewallManagement.session.set_login_message(
+        header="D", message="C", show_message=True, warning=True
+    )
 
     assert resp.header == "D"
 
@@ -332,7 +411,13 @@ def test_set_automatic_purge(firewallManagement, resp_automatic_purge):
     )
 
     resp = firewallManagement.session.set_automatic_purge(
-        enabled=True, number_of_sessions_to_keep=10
+        enabled=True,
+        number_of_sessions_to_keep=10,
+        scheduling={
+            "start-date": "2022-07-10T11:43:07.931Z",
+            "time-units": "hours",
+            "check-interval": 24,
+        },
     )
 
     assert resp.enabled is True

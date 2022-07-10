@@ -26,22 +26,20 @@ try:
     # However, it's highly recommanded to use certificates with know certificate authorities.
     logger.info("Trying to login to the API...")
 
-    api = FirewallManagementAPI(
+    with FirewallManagementAPI(
         hostname=HOSTNAME,
         port=PORT,
         api_key=API_KEY,
         version=VERSION,
         domain=DOMAIN,
         ssl_verify=False,
-    )
+    ) as api:
 
-    logger.info(
-        "Connection is successfull, we have a token: "
-        + api._session.headers["X-chkp-sid"]
-    )
-    logger.info("Trying to logout from the API...")
-
-    api.session.logout()
+        logger.info(
+            "Connection is successfull, we have a token: "
+            + api._session.headers["X-chkp-sid"]
+        )
+        logger.info("Trying to logout from the API...")
 
     logger.info("Logout is successfull")
 except restfly.errors.BadRequestError as e:

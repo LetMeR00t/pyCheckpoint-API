@@ -52,12 +52,10 @@ class SessionAPI(APIEndpoint):
                 payload = {"user": user, "password": password}
             else:
                 raise MandatoryFieldMissing("password")
-        elif user is None and api_key is not None:
+        elif api_key is not None:
             payload = {"api-key": api_key}
-        elif user is None:
-            raise MandatoryFieldMissing("user")
         else:
-            raise MandatoryFieldMissing("api_key")
+            raise MandatoryFieldMissing("user/password or api_key")
 
         # Secondary parameters
         secondary_parameters = {
@@ -323,11 +321,7 @@ class SessionAPI(APIEndpoint):
             >>> firewallManagementApi.session.switch_session(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
         """
 
-        payload = {}
-        if uid is not None:
-            payload["uid"] = uid
-        else:
-            raise MandatoryFieldMissing("uid")
+        payload = {"uid": uid}
 
         return self._post("switch-session", json=payload)
 
@@ -347,11 +341,8 @@ class SessionAPI(APIEndpoint):
             >>> firewallManagementApi.session.take_over_session(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
         """
 
-        payload = {}
-        if uid is not None:
-            payload["uid"] = uid
-        else:
-            raise MandatoryFieldMissing("uid")
+        payload = {"uid": uid}
+
         if disconnect_active_session is not False:
             payload["disconnect-active-session"] = True
 
@@ -418,9 +409,7 @@ class SessionAPI(APIEndpoint):
             >>> firewallManagementApi.session.continue_session_in_smartconsole(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
         """
 
-        payload = {}
-        if uid is not None:
-            payload["uid"] = uid
+        payload = {"uid": uid}
 
         return self._post("continue-session-in-smartconsole", json=payload)
 
