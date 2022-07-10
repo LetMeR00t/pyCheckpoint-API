@@ -35,10 +35,8 @@ def sanitize_value(field: str, t: type, is_mandatory: bool = False, default=None
     if origin in final_type:
         if value is None or type(value) in t.__args__:
             return value
-        elif (
-            sys.version_info > (3, 8)
-            and (isinstance(value, list) and List[str] in t.__args__)
-            or (isinstance(value, dict) and Dict[str] in t.__args__)
+        elif (isinstance(value, list) and List[str] in t.__args__) or (
+            isinstance(value, dict) and Dict[str] in t.__args__
         ):
             return value
         else:
