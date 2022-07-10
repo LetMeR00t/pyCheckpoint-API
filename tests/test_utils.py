@@ -50,7 +50,7 @@ def test_sanitize_value():
 
     # Union field used, but with the wrong type (not in Union)
     kw = {"field1": 1}
-    with pytest.raises(WrongType):
+    with pytest.raises(WrongType) as exception:
         result = sanitize_value(
             field="field1",
             t=Union[str, List[str]],
@@ -58,6 +58,7 @@ def test_sanitize_value():
             default=None,
             **kw
         )
+    assert "This value has not the expected type" in str(exception.value)
 
 
 def test_sanitize_secondary_parameters():

@@ -84,8 +84,11 @@ def test_login_missing_mandatory_parameters(firewallManagement):
         firewallManagement.session.login(user="User1")
     with pytest.raises(MandatoryFieldMissing):
         firewallManagement.session.login(password="Password1")
-    with pytest.raises(MandatoryFieldMissing):
+    with pytest.raises(MandatoryFieldMissing) as exception:
         firewallManagement.session.login()
+    assert "This field has no value provided whereas it's mandatory" in str(
+        exception.value
+    )
 
 
 @responses.activate

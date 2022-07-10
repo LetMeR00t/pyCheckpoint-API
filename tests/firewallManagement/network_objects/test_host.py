@@ -1,4 +1,7 @@
 import responses
+import pytest
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -39,6 +42,15 @@ def test_show_host(firewallManagement, resp_host):
     assert resp.name == "New Host 4"
     assert resp.ipv4_address == "192.0.2.1"
 
+    resp = firewallManagement.network_objects.host.show(name="New Host 4")
+
+    assert resp.uid == "9423d36f-2d66-4754-b9e2-e7f4493756d4"
+    assert resp.name == "New Host 4"
+    assert resp.ipv4_address == "192.0.2.1"
+
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.host.show()
+
 
 @responses.activate
 def test_set_host(firewallManagement, resp_host):
@@ -75,6 +87,13 @@ def test_delete_host(firewallManagement, resp_message_ok):
 
     assert resp.message == "OK"
 
+    resp = firewallManagement.network_objects.host.delete(name="New Host 4")
+
+    assert resp.message == "OK"
+
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.host.delete()
+
 
 @responses.activate
 def test_show_hosts(firewallManagement, resp_from_to_objects):
@@ -85,6 +104,8 @@ def test_show_hosts(firewallManagement, resp_from_to_objects):
         status=200,
     )
 
-    resp = firewallManagement.network_objects.host.show_hosts()
+    resp = firewallManagement.network_objects.host.show_hosts(
+        filter_results="name:host1", order={"ASC": "name"}
+    )
 
     assert isinstance(resp.total, int)
