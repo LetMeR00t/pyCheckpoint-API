@@ -60,6 +60,14 @@ def test_sanitize_value():
         )
     assert "This value has not the expected type" in str(exception.value)
 
+    # Union field used, having the specific case of using a typing.List object instead of list
+    kw = {"field1": ["value1", "value2"]}
+    result = sanitize_value(
+        field="field1", t=Union[str, List[str]], is_mandatory=False, default=None, **kw
+    )
+
+    assert result == ["value1", "value2"]
+
 
 def test_sanitize_secondary_parameters():
 

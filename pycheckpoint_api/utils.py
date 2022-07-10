@@ -2,9 +2,9 @@ import sys
 
 # Add support for Python 3.7
 if sys.version_info > (3, 8):
-    from typing import Union, get_origin
+    from typing import Union, get_origin, List, Dict
 else:
-    from typing import Union, List
+    from typing import Union, List, Dict
 
 from pycheckpoint_api.firewallManagement.exception import (
     MandatoryFieldMissing,
@@ -34,6 +34,12 @@ def sanitize_value(field: str, t: type, is_mandatory: bool = False, default=None
         ]
     if origin in final_type:
         if value is None or type(value) in t.__args__:
+            return value
+        elif (
+            sys.version_info > (3, 8)
+            and (isinstance(value, list) and List[str] in t.__args__)
+            or (isinstance(value, dict) and Dict[str] in t.__args__)
+        ):
             return value
         else:
             raise WrongType(value=value, expected_type=t)
