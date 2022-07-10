@@ -72,7 +72,7 @@ def test_set_service_group(firewallManagement, resp_service_group):
 
     # None arguments
     with pytest.raises(MandatoryFieldMissing):
-        firewallManagement.service_applications.service_applications.set()
+        firewallManagement.service_applications.service_group.set()
 
 
 @responses.activate
