@@ -77,12 +77,11 @@ pprint("Logout is successfull")
 ## Documentation
 ### Web API Coverage
 Legend: 
-* 🟢: Fully covered
-* 🟡: Partially covered
-* 🔴: Not covered yet
+* 🟢 means "Fully covered"
+* 🟡 means "Partially covered"
+* 🔴 means "Not covered yet"
 
-Here is the list of endpoints that are currently supported by this SDK:
-API reference:
+Here is the list of endpoints that are currently supported by this SDK and base on the [Checkpoint official API reference](https://sc1.checkpoint.com/documents/latest/APIs/#introduction~v1.8%20).:
 * 🟢 Session Management
 * 🟢 Network Objects
 * 🔴 Compliance
