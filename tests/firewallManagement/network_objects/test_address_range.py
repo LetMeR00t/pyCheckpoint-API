@@ -119,7 +119,7 @@ def test_set_address_range(
     assert resp.ipv4_address_last == "192.0.2.10"
 
     resp = firewallManagement.network_objects.address_range.set(
-        uid="196e93a9-b90b-4ab1-baa6-124e7289aa20",
+        name="New Address Range 1",
         ipv4_address_first="192.0.2.1",
         ipv4_address_last="192.0.2.10",
     )
