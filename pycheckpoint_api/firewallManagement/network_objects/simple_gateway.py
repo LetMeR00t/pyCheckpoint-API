@@ -140,8 +140,6 @@ class SimpleGatewayAPI(NetworkObjectAPI):
             payload["os-name"] = os_name
         if platform_portal_settings is not None:
             payload["platform-portal-settings"] = platform_portal_settings
-        if tags is not None:
-            payload["tags"] = tags
         if save_logs_locally is not None:
             payload["save-logs-locally"] = save_logs_locally
         if send_alerts_to_server is not None:
