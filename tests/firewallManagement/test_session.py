@@ -342,7 +342,7 @@ def test_show_sessions(firewallManagement, resp_from_to_objects):
     )
 
     resp = firewallManagement.session.show_sessions(
-        filter_results="name:API", order=[{"ASC": "name"}], view_published_sessions=True
+        filter_results="session_", order=[{"ASC": "name"}], view_published_sessions=True
     )
 
     assert isinstance(resp.total, int)

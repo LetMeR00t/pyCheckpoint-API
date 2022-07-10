@@ -105,7 +105,7 @@ def test_show_hosts(firewallManagement, resp_from_to_objects):
     )
 
     resp = firewallManagement.network_objects.host.show_hosts(
-        filter_results="name:host1", order={"ASC": "name"}
+        filter_results="host_", order={"ASC": "name"}
     )
 
     assert isinstance(resp.total, int)
