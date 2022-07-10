@@ -1,4 +1,7 @@
 import responses
+import pytest
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -66,6 +69,10 @@ def test_set_service_group(firewallManagement, resp_service_group):
 
     assert resp.uid == "dce67d0d-5efe-4808-b22d-2eb99e24c70d"
     assert resp.name == "New Service Group 3"
+
+    # None arguments
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.service_applications.service_applications.set()
 
 
 @responses.activate
