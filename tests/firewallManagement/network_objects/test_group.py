@@ -11,7 +11,9 @@ def test_add_group(firewallManagement, resp_group):
         status=200,
     )
 
-    resp = firewallManagement.network_objects.group.add(name="New Group 4")
+    resp = firewallManagement.network_objects.group.add(
+        name="New Group 4", members=["New Host 1", "My Test Host 3"], tags=["t1"]
+    )
 
     assert resp.uid == "ed997ff8-6709-4d71-a713-99bf01711cd5"
     assert resp.name == "New Group 3"
@@ -46,7 +48,17 @@ def test_set_group(firewallManagement, resp_group):
     )
 
     resp = firewallManagement.network_objects.group.set(
-        uid="ed997ff8-6709-4d71-a713-99bf01711cd5", new_name="New Group 3"
+        uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+        new_name="New Group 3",
+        members=["New Host 1", "My Test Host 3"],
+        tags=["t1"],
+    )
+
+    assert resp.uid == "ed997ff8-6709-4d71-a713-99bf01711cd5"
+    assert resp.name == "New Group 3"
+
+    resp = firewallManagement.network_objects.group.set(
+        name="Old Name Group 3", new_name="New Group 3"
     )
 
     assert resp.uid == "ed997ff8-6709-4d71-a713-99bf01711cd5"
