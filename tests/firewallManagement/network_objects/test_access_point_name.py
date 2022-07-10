@@ -1,4 +1,7 @@
 import responses
+import pytest
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -16,6 +19,9 @@ def test_add_access_point_name(firewallManagement, resp_access_point_name):
         apn="apnname",
         enforce_end_user_domain=True,
         end_user_domain="All_Internet",
+        block_traffic_other_end_user_domains=True,
+        block_traffic_this_end_user_domain=True,
+        tags=["t1"],
     )
 
     assert resp.uid == "5064644d-6cc7-4703-823c-54f01ab720e6"
@@ -56,6 +62,23 @@ def test_set_access_point_name(firewallManagement, resp_access_point_name):
 
     assert resp.uid == "5064644d-6cc7-4703-823c-54f01ab720e6"
     assert resp.name == "myaccesspointname"
+
+    resp = firewallManagement.network_objects.access_point_name.set(
+        name="myaccesspointname_oldname",
+        new_name="myaccesspointname",
+        tags=["t1"],
+        apn="apnname",
+        enforce_end_user_domain=True,
+        block_traffic_other_end_user_domains=True,
+        block_traffic_this_end_user_domain=True,
+        end_user_domain="b307ca15-2ee8-414a-b261-ac7fb7464736",
+    )
+
+    assert resp.uid == "5064644d-6cc7-4703-823c-54f01ab720e6"
+    assert resp.name == "myaccesspointname"
+
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.access_point_name.set()
 
 
 @responses.activate
