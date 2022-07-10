@@ -6,6 +6,7 @@ from .service_icmp import ServiceICMPAPI
 from .service_icmp6 import ServiceICMP6API
 from .service_sctp import ServiceSCTPAPI
 from .service_other import ServiceOtherAPI
+from .service_group import ServiceGroupAPI
 
 
 class ServiceApplications(APIEndpoint):
@@ -38,3 +39,8 @@ class ServiceApplications(APIEndpoint):
     def service_other(self):
         """The interface object for the network objects type "Service Other" Management."""
         return ServiceOtherAPI(self)
+
+    @property
+    def service_group(self):
+        """The interface object for the network objects type "Service Other" Management."""
+        return ServiceGroupAPI(self)

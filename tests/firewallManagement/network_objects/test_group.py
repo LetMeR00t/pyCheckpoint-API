@@ -12,7 +12,7 @@ def test_add_group(firewallManagement, resp_group):
     )
 
     resp = firewallManagement.network_objects.group.add(
-        name="New Group 4", members=["New Host 1", "My Test Host 3"], tags=["t1"]
+        name="New Group 3", members=["New Host 1", "My Test Host 3"], tags=["t1"]
     )
 
     assert resp.uid == "ed997ff8-6709-4d71-a713-99bf01711cd5"
