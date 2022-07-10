@@ -664,8 +664,8 @@ def fixture_resp_get_interfaces():
     }
 
 
-@pytest.fixture(name="resp_checkpoint_host")
-def fixture_resp_checkpoint_host():
+@pytest.fixture(name="resp_checkpoint_host_ipv4")
+def fixture_resp_checkpoint_host_ipv4():
     return {
         "uid": "f50f3810-d16c-4239-88d0-9f37ac581387",
         "name": "secondarylogserver",
@@ -683,6 +683,98 @@ def fixture_resp_checkpoint_host():
         "groups": [],
         "nat-settings": {"auto-rule": False},
         "ipv4-address": "5.5.5.5",
+        "interfaces": [],
+        "version": "R81",
+        "os": "Gaia",
+        "hardware": "Open server",
+        "sic-state": "uninitialized",
+        "management-blades": {
+            "logging-and-status": True,
+            "smart-event-server": False,
+            "smart-event-correlation": False,
+            "network-policy-management": True,
+            "user-directory": False,
+            "compliance": False,
+            "endpoint-policy": False,
+            "secondary": True,
+            "identity-logging": False,
+        },
+        "logs-settings": {
+            "rotate-log-by-file-size": False,
+            "rotate-log-file-size-threshold": 1000,
+            "rotate-log-on-schedule": False,
+            "alert-when-free-disk-space-below-metrics": "mbytes",
+            "alert-when-free-disk-space-below": True,
+            "alert-when-free-disk-space-below-threshold": 20,
+            "alert-when-free-disk-space-below-type": "popup alert",
+            "delete-when-free-disk-space-below-metrics": "mbytes",
+            "delete-when-free-disk-space-below": True,
+            "delete-when-free-disk-space-below-threshold": 5000,
+            "before-delete-keep-logs-from-the-last-days": False,
+            "before-delete-keep-logs-from-the-last-days-threshold": 3664,
+            "before-delete-run-script": False,
+            "before-delete-run-script-command": "",
+            "stop-logging-when-free-disk-space-below-metrics": "mbytes",
+            "stop-logging-when-free-disk-space-below": False,
+            "stop-logging-when-free-disk-space-below-threshold": 100,
+            "delete-index-files-older-than-days": False,
+            "delete-index-files-older-than-days-threshold": 14,
+            "forward-logs-to-log-server": False,
+            "update-account-log-every": 3600,
+            "detect-new-citrix-ica-application-names": False,
+            "turn-on-qos-logging": True,
+            "enable-log-indexing": True,
+            "smart-event-intro-correlation-unit": True,
+            "accept-syslog-messages": False,
+        },
+        "send-alerts-to-server": [
+            {
+                "uid": "6da0cc30-4ac4-c544-bd20-d8ba9bf7f51c",
+                "name": "ice-main-take-183",
+                "type": "checkpoint-host",
+                "domain": {
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                    "domain-type": "domain",
+                },
+            }
+        ],
+        "send-logs-to-server": [
+            {
+                "uid": "6da0cc30-4ac4-c544-bd20-d8ba9bf7f51c",
+                "name": "ice-main-take-183",
+                "type": "checkpoint-host",
+                "domain": {
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                    "domain-type": "domain",
+                },
+            }
+        ],
+        "send-logs-to-backup-server": [],
+        "save-logs-locally": False,
+    }
+
+
+@pytest.fixture(name="resp_checkpoint_host_ipv6")
+def fixture_resp_checkpoint_host_ipv6():
+    return {
+        "uid": "f50f3810-d16c-4239-88d0-9f37ac581387",
+        "name": "secondarylogserver",
+        "type": "checkpoint-host",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "tags": ["t1"],
+        "read-only": True,
+        "comments": "",
+        "color": "black",
+        "icon": "General/globalsNa",
+        "groups": [],
+        "nat-settings": {"auto-rule": False},
+        "ipv6-address": "2001:db8:0000:0000:0000:0000:0000:000a",
         "interfaces": [],
         "version": "R81",
         "os": "Gaia",
