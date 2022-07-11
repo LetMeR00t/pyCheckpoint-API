@@ -23,6 +23,10 @@ def test_add_service_group(firewallManagement, resp_service_group):
     assert resp.uid == "dce67d0d-5efe-4808-b22d-2eb99e24c70d"
     assert resp.name == "New Service Group 3"
 
+    # None arguments
+    with pytest.raises(TypeError):
+        firewallManagement.service_applications.service_group.add()
+
 
 @responses.activate
 def test_show_service_group(firewallManagement, resp_service_group):

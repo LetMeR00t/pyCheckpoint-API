@@ -459,3 +459,46 @@ def fixture_resp_application_site_category():
         "groups": [],
         "user_defined": True,
     }
+
+
+@pytest.fixture(name="resp_application_site_group")
+def fixture_resp_application_site_group():
+    return {
+        "uid": "5a2d5c36-1998-2022-acce-a5c3b699d522",
+        "folder": {
+            "uid": "5568324a-68ed-4c6c-9aa6-553978c7e746",
+            "name": "/Global Objects",
+        },
+        "domain": {
+            "domain-type": "local domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1435472557082,
+                "iso-8601": "2015-06-28T09:22+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1435472557082,
+                "iso-8601": "2015-06-28T09:22+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": ["t1"],
+        "name": "New Application Site Group 1",
+        "comments": "",
+        "color": "black",
+        "type": "application-site-group",
+        "groups": [],
+        "members": [
+            "facebook",
+            "Social Networking",
+            "New Application Site 1",
+            "New Application Site Category 1",
+        ],
+    }

@@ -8,7 +8,7 @@ from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class ServiceGroupAPI(NetworkObjectAPI):
+class ApplicationSiteGroupAPI(NetworkObjectAPI):
     def add(
         self,
         name: str,
@@ -41,9 +41,14 @@ class ServiceGroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.service_applications.service_group.add(
-        name="New Service Group 3",
-        members=["New Host 1", "My Test Host 3"],
+            >>> firewallManagement.service_applications.application_site_group.add(
+        name="New Application Site Group 1",
+        members=[
+            "facebook",
+            "Social Networking",
+            "New Application Site 1",
+            "New Application Site Category 1",
+        ],
         tags=["t1"],)
         """
 
@@ -65,7 +70,7 @@ class ServiceGroupAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("add-service-group", json=payload)
+        return self._post("add-application-site-group", json=payload)
 
     def show(
         self, uid: str = None, name: str = None, show_as_ranges: bool = False, **kw
@@ -87,9 +92,12 @@ class ServiceGroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.service_applications.application_site_group.show(
+                uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-        return self.show_object(endpoint="show-service-group", uid=uid, name=name, **kw)
+        return self.show_object(
+            endpoint="show-application-site-group", uid=uid, name=name, **kw
+        )
 
     def set(
         self,
@@ -127,9 +135,9 @@ class ServiceGroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.service_applications.service_group.set(
-        uid="dce67d0d-5efe-4808-b22d-2eb99e24c70d",
-        new_name="New Service Group 3",
+            >>> firewallManagement.service_applications.application_site_group.set(
+        uid="5a2d5c36-1998-2022-acce-a5c3b699d522",
+        new_name="New Application Site Group 1",
         members=["https"],
         groups=["My Service Group1", "My Service Group2"],
         tags=["t1"],)
@@ -162,7 +170,7 @@ class ServiceGroupAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("set-service-group", json=payload)
+        return self._post("set-application-site-group", json=payload)
 
     def delete(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -186,16 +194,15 @@ class ServiceGroupAPI(NetworkObjectAPI):
             >>> firewallManagementApi.service_applications.group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
-            endpoint="delete-service-group", uid=uid, name=name, **kw
+            endpoint="delete-application-site-group", uid=uid, name=name, **kw
         )
 
-    def show_service_groups(
+    def show_application_site_groups(
         self,
         filter_results: str = None,
         limit: int = 50,
         offset: int = 0,
         order: List[dict] = None,
-        show_as_ranges: bool = False,
         **kw
     ) -> Box:
         """
@@ -220,15 +227,15 @@ class ServiceGroupAPI(NetworkObjectAPI):
             >>> firewallManagementApi.service_applications.group.shows_groups()
         """
         return self.show_objects(
-            endpoint="show-service-groups",
+            endpoint="show-application-site-groups",
             filter_results=filter_results,
             limit=limit,
             offset=offset,
             order=order,
-            show_as_ranges=show_as_ranges,
             extra_secondary_parameters={
                 "dereference-group-members": bool,
                 "show-membership": bool,
+                "domains-to-process": List[str],
             },
             **kw
         )

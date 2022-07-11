@@ -9,6 +9,7 @@ from .service_other import ServiceOtherAPI
 from .service_group import ServiceGroupAPI
 from .application_site import ApplicationSiteAPI
 from .application_site_category import ApplicationSiteCategoryAPI
+from .application_site_group import ApplicationSiteGroupAPI
 
 
 class ServiceApplications(APIEndpoint):
@@ -49,10 +50,15 @@ class ServiceApplications(APIEndpoint):
 
     @property
     def application_site(self):
-        """The interface object for the network objects type "Service Group" Management."""
+        """The interface object for the network objects type "Application Site" Management."""
         return ApplicationSiteAPI(self)
 
     @property
     def application_site_category(self):
-        """The interface object for the network objects type "Service Group" Management."""
+        """The interface object for the network objects type "Application Site Category" Management."""
         return ApplicationSiteCategoryAPI(self)
+
+    @property
+    def application_site_group(self):
+        """The interface object for the network objects type "Application Site Group" Management."""
+        return ApplicationSiteGroupAPI(self)
