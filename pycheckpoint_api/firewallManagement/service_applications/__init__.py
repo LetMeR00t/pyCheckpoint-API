@@ -11,6 +11,7 @@ from .application_site import ApplicationSiteAPI
 from .application_site_category import ApplicationSiteCategoryAPI
 from .application_site_group import ApplicationSiteGroupAPI
 from .service_dce_rpc import ServiceDCERPCAPI
+from .service_rpc import ServiceRPCAPI
 
 
 class ServiceApplications(APIEndpoint):
@@ -68,3 +69,8 @@ class ServiceApplications(APIEndpoint):
     def service_dce_rpc(self):
         """The interface object for the network objects type "Service DCE RPC" Management."""
         return ServiceDCERPCAPI(self)
+
+    @property
+    def service_rpc(self):
+        """The interface object for the network objects type "Service RPC" Management."""
+        return ServiceRPCAPI(self)

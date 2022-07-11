@@ -538,3 +538,50 @@ def fixture_resp_service_dce_rpc():
         "keep-connections-open-after-policy-installation": False,
         "interface-uuid": "97aeb460-9aea-11d5-bd16-0090272ccb30",
     }
+
+
+@pytest.fixture(name="resp_service_rpc")
+def fixture_resp_service_rpc():
+    return {
+        "uid": "66333250-0680-46c3-a894-ebe1fef657f4",
+        "name": "New_RPC_Service_2",
+        "type": "service-rpc",
+        "domain": {
+            "domain-type": "domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1453627762831,
+                "iso-8601": "2016-01-24T11:29+0200",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1453627762831,
+                "iso-8601": "2016-01-24T11:29+0200",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "comments": "",
+        "color": "black",
+        "icon": "Services/RPCService",
+        "groups": [
+            {
+                "uid": "62bc081a-a09a-4109-a719-b26261780f4c",
+                "name": "MY_GROUP",
+                "type": "service-group",
+                "domain": {
+                    "domain-type": "domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+            }
+        ],
+        "keep-connections-open-after-policy-installation": False,
+        "program-number": 5669,
+    }
