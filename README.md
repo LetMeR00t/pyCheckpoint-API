@@ -101,7 +101,7 @@ Here is the list of endpoints that are currently supported by this SDK and base 
 -    🟢 Application Group
 -    🟢 Service DCE-RPC
 -    🟢 Service RPC
--    🔴 Service GTP
+-    🟢 Service GTP
 -    🔴 Service Citrix TCP
 -    🔴 Service Compound TCP
 -  🔴 Access Control & NAT

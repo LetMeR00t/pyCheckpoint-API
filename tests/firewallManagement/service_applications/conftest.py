@@ -585,3 +585,75 @@ def fixture_resp_service_rpc():
         "keep-connections-open-after-policy-installation": False,
         "program-number": 5669,
     }
+
+
+@pytest.fixture(name="resp_service_gtp")
+def fixture_resp_service_gtp():
+    return {
+        "uid": "70e390d7-b070-4d6e-b8d7-53b7f6cc7fe6",
+        "name": "New_gtp_Service_1",
+        "type": "service-gtp",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "last-modify-time": {
+                "posix": 1587897335598,
+                "iso-8601": "2020-04-26T13:35+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1587897335598,
+                "iso-8601": "2020-04-26T13:35+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "read-only": True,
+        "comments": "",
+        "color": "black",
+        "icon": "Services/GTPService",
+        "groups": [],
+        "version": "v2",
+        "reverse-service": False,
+        "interface-profile": {
+            "profile": {
+                "uid": "b458696d-8967-469c-91cc-c6162c14cb27",
+                "name": "Any",
+                "type": "GTPInterfaceProfile",
+                "domain": {
+                    "uid": "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+                    "name": "Check Point Data",
+                    "domain-type": "data domain",
+                },
+            }
+        },
+        "allow-usage-of-static-ip": True,
+        "apply-access-policy-on-user-traffic": {
+            "enable": False,
+            "add-imsi-field-to-log": False,
+        },
+        "imsi-prefix": {"enable": True, "prefix": "313460000000001"},
+        "access-point-name": {"enable": False},
+        "selection-mode": {"enable": True, "mode": 2},
+        "ms-isdn": {"enable": False, "ms-isdn": "1"},
+        "ldap-group": {"enable": False, "according-to": "MS-ISDN"},
+        "radio-access-technology": {
+            "utran": False,
+            "geran": False,
+            "wlan": False,
+            "gan": False,
+            "hspa-evolution": False,
+            "eutran": False,
+            "virtual": False,
+            "nb-iot": False,
+            "other-types-range": {"enable": False, "types": ""},
+        },
+        "trace-management": True,
+        "cs-fallback-and-srvcc": False,
+        "restoration-and-recovery": False,
+    }
