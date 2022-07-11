@@ -1,4 +1,7 @@
 import responses
+import pytest
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -19,6 +22,7 @@ def test_add_service_icmp(firewallManagement, resp_service_icmp):
         match_for_any=True,
         sync_connections_on_cluster=True,
         aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False},
+        tags=["t1"],
     )
 
     assert resp.uid == "22c8faba-3a24-4e99-ae6f-e798014facc2"
@@ -58,13 +62,30 @@ def test_set_service_icmp(firewallManagement, resp_service_icmp):
     )
 
     resp = firewallManagement.service_applications.service_icmp.set(
-        uid="22c8faba-3a24-4e99-ae6f-e798014facc2", ip_address="192.0.2.1"
+        uid="22c8faba-3a24-4e99-ae6f-e798014facc2",
+        new_name="Icmp1",
+        ip_address="192.0.2.1",
+        keep_connections_open_after_policy_installation=True,
+        tags=["t1"],
     )
 
     assert resp.uid == "22c8faba-3a24-4e99-ae6f-e798014facc2"
     assert resp.name == "Icmp1"
     assert resp.icmp_type == 5
     assert resp.icmp_code == 7
+
+    resp = firewallManagement.service_applications.service_icmp.set(
+        name="Icmp1", ip_address="192.0.2.1"
+    )
+
+    assert resp.uid == "22c8faba-3a24-4e99-ae6f-e798014facc2"
+    assert resp.name == "Icmp1"
+    assert resp.icmp_type == 5
+    assert resp.icmp_code == 7
+
+    # None arguments
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.service_applications.service_icmp.set()
 
 
 @responses.activate
