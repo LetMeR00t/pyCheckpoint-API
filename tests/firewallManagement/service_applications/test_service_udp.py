@@ -1,4 +1,7 @@
 import responses
+import pytest
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -18,6 +21,11 @@ def test_add_service_udp(firewallManagement, resp_service_udp):
         session_timeout=0,
         match_for_any=True,
         sync_connections_on_cluster=True,
+        override_default_settings=False,
+        protocol="DNS_UDP",
+        source_port=1234,
+        tags=["t1"],
+        use_default_session_timeout=True,
         aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False},
     )
 
@@ -56,12 +64,38 @@ def test_set_service_udp(firewallManagement, resp_service_udp):
     )
 
     resp = firewallManagement.service_applications.service_udp.set(
-        uid="64a4c8d1-7fed-4320-9826-0570bbb4a5bd", ip_address="192.0.2.1"
+        uid="64a4c8d1-7fed-4320-9826-0570bbb4a5bd",
+        new_name="New_UDP_Service_1",
+        ip_address="192.0.2.1",
+        port=5669,
+        keep_connections_open_after_policy_installation=False,
+        session_timeout=0,
+        match_for_any=True,
+        sync_connections_on_cluster=True,
+        override_default_settings=False,
+        protocol="DNS_UDP",
+        source_port=1234,
+        tags=["t1"],
+        use_default_session_timeout=True,
+        aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False},
     )
 
     assert resp.uid == "64a4c8d1-7fed-4320-9826-0570bbb4a5bd"
     assert resp.name == "New_UDP_Service_1"
     assert resp.port == "5669"
+
+    resp = firewallManagement.service_applications.service_udp.set(
+        name="New_UDP_Service_1",
+        ip_address="192.0.2.1",
+    )
+
+    assert resp.uid == "64a4c8d1-7fed-4320-9826-0570bbb4a5bd"
+    assert resp.name == "New_UDP_Service_1"
+    assert resp.port == "5669"
+
+    # None arguments
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.service_applications.service_tcp.set()
 
 
 @responses.activate

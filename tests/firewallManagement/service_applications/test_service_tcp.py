@@ -1,4 +1,7 @@
 import responses
+import pytest
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -18,7 +21,12 @@ def test_add_service_tcp(firewallManagement, resp_service_tcp):
         session_timeout=0,
         match_for_any=True,
         sync_connections_on_cluster=True,
+        override_default_settings=False,
+        protocol="DNS_TCP",
+        use_default_session_timeout=True,
+        source_port=1234,
         aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False},
+        tags=["t1"],
     )
 
     assert resp.uid == "bee785c5-998b-4a45-80e8-3fa91181aba9"
@@ -56,12 +64,38 @@ def test_set_service_tcp(firewallManagement, resp_service_tcp):
     )
 
     resp = firewallManagement.service_applications.service_tcp.set(
-        uid="bee785c5-998b-4a45-80e8-3fa91181aba9", ip_address="192.0.2.1"
+        uid="bee785c5-998b-4a45-80e8-3fa91181aba9",
+        new_name="New_TCP_Service_1",
+        ip_address="192.0.2.1",
+        port=5669,
+        keep_connections_open_after_policy_installation=False,
+        session_timeout=0,
+        match_for_any=True,
+        sync_connections_on_cluster=True,
+        override_default_settings=False,
+        protocol="DNS_TCP",
+        use_default_session_timeout=True,
+        source_port=1234,
+        aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False},
+        tags=["t1"],
     )
 
     assert resp.uid == "bee785c5-998b-4a45-80e8-3fa91181aba9"
     assert resp.name == "New_TCP_Service_1"
     assert resp.port == "5669"
+
+    resp = firewallManagement.service_applications.service_tcp.set(
+        name="New_TCP_Service_1",
+        ip_address="192.0.2.1",
+    )
+
+    assert resp.uid == "bee785c5-998b-4a45-80e8-3fa91181aba9"
+    assert resp.name == "New_TCP_Service_1"
+    assert resp.port == "5669"
+
+    # None arguments
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.service_applications.service_tcp.set()
 
 
 @responses.activate
