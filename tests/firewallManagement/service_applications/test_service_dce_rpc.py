@@ -18,6 +18,7 @@ def test_add_service_dce_rpc(firewallManagement, resp_service_dce_rpc):
         name="New_DCE-RPC_Service_1",
         interface_uuid="97aeb460-9aea-11d5-bd16-0090272ccb30",
         keep_connections_open_after_policy_installation=False,
+        tags=["t1"],
     )
 
     assert resp.uid == "b02db15d-c8e9-408c-a789-095b6d76db02"
@@ -56,6 +57,7 @@ def test_set_service_dce_rpc(firewallManagement, resp_service_dce_rpc):
         uid="b02db15d-c8e9-408c-a789-095b6d76db02",
         new_name="New_DCE-RPC_Service_1",
         interface_uuid="97aeb460-9aea-11d5-bd16-0090272ccb30",
+        tags=["t1"],
         keep_connections_open_after_policy_installation=False,
     )
 

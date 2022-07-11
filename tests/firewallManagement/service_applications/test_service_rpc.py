@@ -18,6 +18,7 @@ def test_add_service_rpc(firewallManagement, resp_service_rpc):
         name="New_RPC_Service_2",
         program_number="5669",
         keep_connections_open_after_policy_installation=False,
+        tags=["t1"],
     )
 
     assert resp.uid == "66333250-0680-46c3-a894-ebe1fef657f4"
@@ -57,6 +58,7 @@ def test_set_service_rpc(firewallManagement, resp_service_rpc):
         new_name="New_RPC_Service_2",
         program_number="5669",
         keep_connections_open_after_policy_installation=False,
+        tags=["t1"],
     )
 
     assert resp.uid == "66333250-0680-46c3-a894-ebe1fef657f4"
