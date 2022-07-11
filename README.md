@@ -24,13 +24,13 @@ This SDK leverages the [RESTfly framework](https://restfly.readthedocs.io/en/lat
 This SDK implementation was largely inspired from the [pyZscaler](https://github.com/mitchos/pyZscaler) SDK development.
 
 ## Features
-  - Simplified authentication with Checkpoint API versions.
-  - Uniform interaction with the Checkpoint API versions.
-  - Uses [python-box](https://github.com/cdgriffith/Box/wiki) to add dot notation access to json data structures.
-  - Various quality of life enhancements for object CRUD methods.
+-   Simplified authentication with Checkpoint API versions.
+-   Uniform interaction with the Checkpoint API versions.
+-   Uses [python-box](https://github.com/cdgriffith/Box/wiki) to add dot notation access to json data structures.
+-   Various quality of life enhancements for object CRUD methods.
 
 ## Products
-  - [Checkpoint](https://www.checkpoint.com/) Firewall
+-   [Checkpoint](https://www.checkpoint.com/) Firewall
 
 ## Installation
 
@@ -76,49 +76,49 @@ Once you have the requirements and you have installed pyCheckpoint-API, you're r
 ## Documentation
 ### Web API Coverage
 Legend: 
-  - 🟢 means "Fully covered"
-  - 🟡 means "Partially covered"
-  - 🔴 means "Not covered yet"
+-   🟢 means "Fully covered"
+-   🟡 means "Partially covered"
+-   🔴 means "Not covered yet"
 
 Here is the list of endpoints that are currently supported by this SDK and base on the [Checkpoint official API reference](https://sc1.checkpoint.com/documents/latest/APIs/#introduction~v1.8%20).:
-  - 🟢 Session Management
-  - 🟢 Network Objects
-  - 🔴 Compliance
-  - 🔴 Gaia Best Practice
-  - 🔴 Data Center
-  - 🔴 Azure Active Directory
-  - 🔴 Updatable Objects
-  - 🟡 Service & Applications
-    - 🟢 Service TCP
-    - 🟢 Service UDP
-    - 🟢 Service ICMP
-    - 🟢 Service ICMP6
-    - 🟢 Service SCTP
-    - 🟢 Service Other
-    - 🟢 Service Group
-    - 🟢 Application (Site)
-    - 🟢 Application Category
-    - 🟢 Application Group
-    - 🔴 Service DCE-RPC
-    - 🔴 Service RPC
-    - 🔴 Service GTP
-    - 🔴 Service Citrix TCP
-    - 🔴 Service Compound TCP
-  - 🔴 Access Control & NAT
-  - 🔴 VPN
-  - 🔴 VSX
-  - 🔴 Threat Prevention
-  - 🔴 HTTPS Inspection
-  - 🔴 Policy
-  - 🔴 Multi-Domain
-  - 🔴 Migration
-  - 🔴 SmartTasks
-  - 🔴 Package Deployment
-  - 🔴 Users
-  - 🔴 High Availability
-  - 🔴 Manage & Settings
-  - 🔴 Logs
-  - 🔴 Misc.
+-   🟢 Session Management
+-   🟢 Network Objects
+-   🔴 Compliance
+-   🔴 Gaia Best Practice
+-   🔴 Data Center
+-   🔴 Azure Active Directory
+-   🔴 Updatable Objects
+-   🟡 Service & Applications
+-     🟢 Service TCP
+-     🟢 Service UDP
+-     🟢 Service ICMP
+-     🟢 Service ICMP6
+-     🟢 Service SCTP
+-     🟢 Service Other
+-     🟢 Service Group
+-     🟢 Application (Site)
+-     🟢 Application Category
+-     🟢 Application Group
+-     🔴 Service DCE-RPC
+-     🔴 Service RPC
+-     🔴 Service GTP
+-     🔴 Service Citrix TCP
+-     🔴 Service Compound TCP
+-   🔴 Access Control & NAT
+-   🔴 VPN
+-   🔴 VSX
+-   🔴 Threat Prevention
+-   🔴 HTTPS Inspection
+-   🔴 Policy
+-   🔴 Multi-Domain
+-   🔴 Migration
+-   🔴 SmartTasks
+-   🔴 Package Deployment
+-   🔴 Users
+-   🔴 High Availability
+-   🔴 Manage & Settings
+-   🔴 Logs
+-   🔴 Misc.
 
 ### API Documentation
 TODO
