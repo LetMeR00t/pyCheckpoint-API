@@ -89,21 +89,21 @@ Here is the list of endpoints that are currently supported by this SDK and base 
 -  🔴 Azure Active Directory
 -  🔴 Updatable Objects
 -  🟡 Service & Applications
--    🟢 Service TCP
--    🟢 Service UDP
--    🟢 Service ICMP
--    🟢 Service ICMP6
--    🟢 Service SCTP
--    🟢 Service Other
--    🟢 Service Group
--    🟢 Application (Site)
--    🟢 Application Category
--    🟢 Application Group
--    🟢 Service DCE-RPC
--    🟢 Service RPC
--    🟢 Service GTP
--    🔴 Service Citrix TCP
--    🔴 Service Compound TCP
+    - 🟢 Service TCP
+    - 🟢 Service UDP
+    - 🟢 Service ICMP
+    - 🟢 Service ICMP6
+    - 🟢 Service SCTP
+    - 🟢 Service Other
+    - 🟢 Service Group
+    - 🟢 Application (Site)
+    - 🟢 Application Category
+    - 🟢 Application Group
+    - 🟢 Service DCE-RPC
+    - 🟢 Service RPC
+    - 🟢 Service GTP
+    - 🔴 Service Citrix TCP
+    - 🔴 Service Compound TCP
 -  🔴 Access Control & NAT
 -  🔴 VPN
 -  🔴 VSX
