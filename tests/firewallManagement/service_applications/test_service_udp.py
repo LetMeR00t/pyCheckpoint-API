@@ -17,6 +17,7 @@ def test_add_service_udp(firewallManagement, resp_service_udp):
     resp = firewallManagement.service_applications.service_udp.add(
         name="New_UDP_Service_1",
         port=5669,
+        acccept_replies=True,
         keep_connections_open_after_policy_installation=False,
         session_timeout=0,
         match_for_any=True,
@@ -68,6 +69,7 @@ def test_set_service_udp(firewallManagement, resp_service_udp):
         new_name="New_UDP_Service_1",
         ip_address="192.0.2.1",
         port=5669,
+        acccept_replies=True,
         keep_connections_open_after_policy_installation=False,
         session_timeout=0,
         match_for_any=True,
@@ -95,7 +97,7 @@ def test_set_service_udp(firewallManagement, resp_service_udp):
 
     # None arguments
     with pytest.raises(MandatoryFieldMissing):
-        firewallManagement.service_applications.service_tcp.set()
+        firewallManagement.service_applications.service_udp.set()
 
 
 @responses.activate
