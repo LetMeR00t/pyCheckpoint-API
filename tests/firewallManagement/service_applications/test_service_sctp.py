@@ -1,4 +1,7 @@
 import responses
+import pytest
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -18,6 +21,9 @@ def test_add_service_sctp(firewallManagement, resp_service_sctp):
         session_timeout=0,
         match_for_any=True,
         sync_connections_on_cluster=True,
+        source_port=1234,
+        tags=["t1"],
+        use_default_session_timeout=False,
         aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False},
     )
 
@@ -56,12 +62,35 @@ def test_set_service_sctp(firewallManagement, resp_service_sctp):
     )
 
     resp = firewallManagement.service_applications.service_sctp.set(
-        uid="d0385c6d-72dd-4981-b951-4783b7100343", ip_address="192.0.2.1"
+        uid="d0385c6d-72dd-4981-b951-4783b7100343",
+        new_name="New_SCTP_Service_1",
+        ip_address="192.0.2.1",
+        port=5669,
+        keep_connections_open_after_policy_installation=False,
+        session_timeout=0,
+        match_for_any=True,
+        sync_connections_on_cluster=True,
+        source_port=1234,
+        tags=["t1"],
+        use_default_session_timeout=False,
+        aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False},
     )
 
     assert resp.uid == "d0385c6d-72dd-4981-b951-4783b7100343"
     assert resp.name == "New_SCTP_Service_1"
     assert resp.port == "5669"
+
+    resp = firewallManagement.service_applications.service_sctp.set(
+        name="New_SCTP_Service_1", ip_address="192.0.2.1"
+    )
+
+    assert resp.uid == "d0385c6d-72dd-4981-b951-4783b7100343"
+    assert resp.name == "New_SCTP_Service_1"
+    assert resp.port == "5669"
+
+    # None arguments
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.service_applications.service_sctp.set()
 
 
 @responses.activate

@@ -1,4 +1,7 @@
 import responses
+import pytest
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -18,6 +21,11 @@ def test_add_service_other(firewallManagement, resp_service_other):
         match_for_any=True,
         sync_connections_on_cluster=True,
         ip_protocol=51,
+        accept_replies=True,
+        action="",
+        override_default_settings=False,
+        tags=["t1"],
+        use_default_session_timeout=True,
         aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False},
     )
 
@@ -56,12 +64,38 @@ def test_set_service_other(firewallManagement, resp_service_other):
     )
 
     resp = firewallManagement.service_applications.service_other.set(
-        uid="42f2b86e-09ee-415c-a6ae-75556c6c70e0", ip_address="192.0.2.1"
+        uid="42f2b86e-09ee-415c-a6ae-75556c6c70e0",
+        new_name="New_Service_1",
+        ip_address="192.0.2.1",
+        keep_connections_open_after_policy_installation=False,
+        session_timeout=0,
+        match_for_any=True,
+        sync_connections_on_cluster=True,
+        ip_protocol=51,
+        accept_replies=True,
+        action="",
+        override_default_settings=False,
+        tags=["t1"],
+        use_default_session_timeout=True,
+        aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False},
     )
 
     assert resp.uid == "42f2b86e-09ee-415c-a6ae-75556c6c70e0"
     assert resp.name == "New_Service_1"
     assert resp.ip_protocol == 51
+
+    resp = firewallManagement.service_applications.service_other.set(
+        name="New_Service_1",
+        ip_address="192.0.2.1",
+    )
+
+    assert resp.uid == "42f2b86e-09ee-415c-a6ae-75556c6c70e0"
+    assert resp.name == "New_Service_1"
+    assert resp.ip_protocol == 51
+
+    # None arguments
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.service_applications.service_other.set()
 
 
 @responses.activate
