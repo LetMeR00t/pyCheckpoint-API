@@ -502,3 +502,39 @@ def fixture_resp_application_site_group():
             "New Application Site Category 1",
         ],
     }
+
+
+@pytest.fixture(name="resp_service_dce_rpc")
+def fixture_resp_service_dce_rpc():
+    return {
+        "uid": "b02db15d-c8e9-408c-a789-095b6d76db02",
+        "name": "New_DCE-RPC_Service_1",
+        "type": "service-dce-rpc",
+        "domain": {
+            "domain-type": "domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1453627297760,
+                "iso-8601": "2016-01-24T11:21+0200",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1453627297760,
+                "iso-8601": "2016-01-24T11:21+0200",
+            },
+            "creator": "aa",
+        },
+        "tags": [],
+        "comments": "",
+        "color": "black",
+        "icon": "Services/DCEService",
+        "groups": [],
+        "keep-connections-open-after-policy-installation": False,
+        "interface-uuid": "97aeb460-9aea-11d5-bd16-0090272ccb30",
+    }

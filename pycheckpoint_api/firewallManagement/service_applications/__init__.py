@@ -10,6 +10,7 @@ from .service_group import ServiceGroupAPI
 from .application_site import ApplicationSiteAPI
 from .application_site_category import ApplicationSiteCategoryAPI
 from .application_site_group import ApplicationSiteGroupAPI
+from .service_dce_rpc import ServiceDCERPCAPI
 
 
 class ServiceApplications(APIEndpoint):
@@ -62,3 +63,8 @@ class ServiceApplications(APIEndpoint):
     def application_site_group(self):
         """The interface object for the network objects type "Application Site Group" Management."""
         return ApplicationSiteGroupAPI(self)
+
+    @property
+    def service_dce_rpc(self):
+        """The interface object for the network objects type "Service DCE RPC" Management."""
+        return ServiceDCERPCAPI(self)
