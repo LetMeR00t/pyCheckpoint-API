@@ -343,3 +343,79 @@ def fixture_resp_service_group():
             }
         ],
     }
+
+
+@pytest.fixture(name="resp_application_site")
+def fixture_resp_application_site():
+    return {
+        "uid": "ded526ad-5d62-a851-2523-d3ac26998ef3",
+        "folder": {
+            "uid": "5568324a-68ed-4c6c-9aa6-553978c7e746",
+            "name": "/Global Objects",
+        },
+        "domain": {
+            "domain-type": "local domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1435472557082,
+                "iso-8601": "2015-06-28T09:22+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1435472557082,
+                "iso-8601": "2015-06-28T09:22+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": ["t1"],
+        "name": "New Application Site 1",
+        "comments": "",
+        "color": "black",
+        "icon": "Custom Applications/Sites",
+        "type": "application-site",
+        "additional-categories": [],
+        "application-id": 15874256,
+        "application-signature": "",
+        "description": "A custom description",
+        "groups": [
+            {
+                "folder": {
+                    "uid": "5568324a-68ed-4c6c-9aa6-553978c7e746",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "service-group",
+                "name": "My Service Group1",
+                "uid": "70600af1-3e61-41e2-b031-d46b2a171f86",
+            },
+            {
+                "folder": {
+                    "uid": "5568324a-68ed-4c6c-9aa6-553978c7e746",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "service-group",
+                "name": "My Service Group2",
+                "uid": "e971be7e-8372-475f-9863-c0b0c5285cc0",
+            },
+        ],
+        "primary-category": "Anonymizer",
+        "risk": "Critical",
+        "url-list": [],
+        "urls-defined-as-regular-expression": False,
+        "user-defined": True,
+    }

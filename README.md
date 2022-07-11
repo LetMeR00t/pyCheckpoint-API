@@ -97,7 +97,7 @@ Here is the list of endpoints that are currently supported by this SDK and base 
   * 🟢 Service SCTP
   * 🟢 Service Other
   * 🟢 Service Group
-  * 🔴 Application
+  * 🟢 Application (Site)
   * 🔴 Application Category
   * 🔴 Application Group
   * 🔴 Service DCE-RPC
