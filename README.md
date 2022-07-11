@@ -47,7 +47,7 @@ Once you have the requirements and you have installed pyCheckpoint-API, you're r
 ### Quick Examples
 
 #### API login/logout
-    ```python
+```python
     from pycheckpoint_api.firewallManagement import FirewallManagementAPI
     from pprint import pprint
 
@@ -71,7 +71,7 @@ Once you have the requirements and you have installed pyCheckpoint-API, you're r
 
     # Since we are out of the previous block, the API has been disconnected
     pprint("Logout is successfull")
-    ```
+```
 
 ## Documentation
 ### Web API Coverage
