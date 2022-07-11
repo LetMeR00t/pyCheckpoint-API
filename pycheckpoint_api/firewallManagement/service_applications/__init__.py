@@ -8,6 +8,7 @@ from .service_sctp import ServiceSCTPAPI
 from .service_other import ServiceOtherAPI
 from .service_group import ServiceGroupAPI
 from .application_site import ApplicationSiteAPI
+from .application_site_category import ApplicationSiteCategoryAPI
 
 
 class ServiceApplications(APIEndpoint):
@@ -50,3 +51,8 @@ class ServiceApplications(APIEndpoint):
     def application_site(self):
         """The interface object for the network objects type "Service Group" Management."""
         return ApplicationSiteAPI(self)
+
+    @property
+    def application_site_category(self):
+        """The interface object for the network objects type "Service Group" Management."""
+        return ApplicationSiteCategoryAPI(self)

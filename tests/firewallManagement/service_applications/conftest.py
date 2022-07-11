@@ -419,3 +419,43 @@ def fixture_resp_application_site():
         "urls-defined-as-regular-expression": False,
         "user-defined": True,
     }
+
+
+@pytest.fixture(name="resp_application_site_category")
+def fixture_resp_application_site_category():
+    return {
+        "uid": "aa85d95a-2548-2136-aa4a-cc8a95c26d8ad92",
+        "folder": {
+            "uid": "5568324a-68ed-4c6c-9aa6-553978c7e746",
+            "name": "/Global Objects",
+        },
+        "domain": {
+            "domain-type": "local domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1435472557082,
+                "iso-8601": "2015-06-28T09:22+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1435472557082,
+                "iso-8601": "2015-06-28T09:22+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": ["t1"],
+        "name": "New Application Site Category 1",
+        "comments": "",
+        "color": "black",
+        "icon": "Custom Applications/SiteCategories",
+        "type": "application-site-category",
+        "description": "A custom description",
+        "groups": [],
+        "user_defined": True,
+    }
