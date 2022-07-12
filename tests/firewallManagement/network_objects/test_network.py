@@ -62,7 +62,7 @@ def test_add_network(firewallManagement, resp_network_ipv4, resp_network_ipv6):
     assert resp.uid == "d5e8d56f-2d77-4824-a5d2-c4a7885dd4a7"
     assert resp.name == "New Network 4"
     assert resp.subnet6 == "2001:0DB8:ABCD:0012:0000:0000:0000:0005"
-    assert resp.mask_length6 == "128"
+    assert resp.mask_length6 == 128
 
     # Missing IP information
     with pytest.raises(MandatoryFieldMissing):
@@ -147,7 +147,7 @@ def test_set_network(firewallManagement, resp_network_ipv4, resp_network_ipv6):
     assert resp.uid == "d5e8d56f-2d77-4824-a5d2-c4a7885dd4a7"
     assert resp.name == "New Network 4"
     assert resp.subnet6 == "2001:0DB8:ABCD:0012:0000:0000:0000:0005"
-    assert resp.mask_length6 == "128"
+    assert resp.mask_length6 == 128
 
     # Missing IP information
     with pytest.raises(MandatoryFieldMissing):
