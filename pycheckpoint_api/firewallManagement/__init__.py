@@ -6,6 +6,7 @@ from pycheckpoint_api import __version__
 from .session import Session
 from .network_objects import NetworkObjects
 from .service_applications import ServiceApplications
+from .access_control_nat import AccessControlNAT
 
 from pycheckpoint_api.utils import sanitize_value
 
@@ -75,3 +76,8 @@ class FirewallManagement(APISession):
     def service_applications(self):
         """The interface object for the Service & Applications Management."""
         return ServiceApplications(self)
+
+    @property
+    def access_control_nat(self):
+        """The interface object for the Access Control & NAT Management."""
+        return AccessControlNAT(self)
