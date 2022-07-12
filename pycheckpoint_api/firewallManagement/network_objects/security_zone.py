@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class SecurityZoneAPI(NetworkObjectAPI):
+class SecurityZone(NetworkObject):
     def add(self, name: str, tags: Union[str, List[str]] = None, **kw) -> Box:
         """
         Create new object.
@@ -38,7 +38,7 @@ class SecurityZoneAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.security_zone.add(name="My object")
+            >>> FirewallManagement.network_objects.security_zone.add(name="My object")
         """
 
         # Main request parameters
@@ -72,7 +72,7 @@ class SecurityZoneAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.security_zone.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> FirewallManagement.network_objects.security_zone.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
         return self.show_object(endpoint="show-security-zone", uid=uid, name=name, **kw)
 
@@ -160,7 +160,7 @@ class SecurityZoneAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.security_zone.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> FirewallManagement.network_objects.security_zone.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
         return self.delete_object(
             endpoint="delete-security-zone", uid=uid, name=name, **kw
@@ -189,7 +189,7 @@ class SecurityZoneAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.security_zone.shows_security_zones()
+            >>> FirewallManagement.network_objects.security_zone.shows_security_zones()
         """
         return self.show_objects(
             endpoint="show-security-zones",

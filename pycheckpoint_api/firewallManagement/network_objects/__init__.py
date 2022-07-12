@@ -1,154 +1,154 @@
 from restfly.endpoint import APIEndpoint
 
-from .host import HostAPI
-from .network import NetworkAPI
-from .wildcard import WildcardAPI
-from .group import GroupAPI
-from .gsn_handover_group import GSNHandoverGroupAPI
-from .address_range import AddressRangeAPI
-from .multicast_address_range import MulticastAddressRangeAPI
-from .group_with_exclusion import GroupWithExclusionAPI
-from .simple_gateway import SimpleGatewayAPI
-from .simple_cluster import SimpleClusterAPI
-from .network_interface import NetworkInterfaceAPI
-from .checkpoint_host import CheckpointHostAPI
-from .security_zone import SecurityZoneAPI
-from .time import TimeAPI
-from .time_group import TimeGroupAPI
-from .dynamic_object import DynamicObjectAPI
-from .tag import TagAPI
-from .dns_domain import DNSDomainAPI
-from .opsec_application import OPSECApplicationAPI
-from .lsv_profile import LSVProfileAPI
-from .tacacs_server import TacacsServerAPI
-from .tacacs_group import TacacsGroupAPI
-from .access_point_name import AccessPointNameAPI
-from .lsm_gateway import LSMGatewayAPI
-from .lsm_cluster import LSMClusterAPI
+from .host import Host
+from .network import Network
+from .wildcard import Wildcard
+from .group import Group
+from .gsn_handover_group import GSNHandoverGroup
+from .address_range import AddressRange
+from .multicast_address_range import MulticastAddressRange
+from .group_with_exclusion import GroupWithExclusion
+from .simple_gateway import SimpleGateway
+from .simple_cluster import SimpleCluster
+from .network_interface import NetworkInterface
+from .checkpoint_host import CheckpointHost
+from .security_zone import SecurityZone
+from .time import Time
+from .time_group import TimeGroup
+from .dynamic_object import DynamicObject
+from .tag import Tag
+from .dns_domain import DNSDomain
+from .opsec_application import OPSECApplication
+from .lsv_profile import LSVProfile
+from .tacacs_server import TacacsServer
+from .tacacs_group import TacacsGroup
+from .access_point_name import AccessPointName
+from .lsm_gateway import LSMGateway
+from .lsm_cluster import LSMCluster
 
 
 class NetworkObjects(APIEndpoint):
     @property
     def host(self):
         """The interface object for the network objects type "Host" Management."""
-        return HostAPI(self)
+        return Host(self)
 
     @property
     def network(self):
         """The interface object for the network objects type "Network" Management."""
-        return NetworkAPI(self)
+        return Network(self)
 
     @property
     def wildcard(self):
         """The interface object for the network objects type "Wildcard" Management."""
-        return WildcardAPI(self)
+        return Wildcard(self)
 
     @property
     def group(self):
         """The interface object for the network objects type "Group" Management."""
-        return GroupAPI(self)
+        return Group(self)
 
     @property
     def gsn_handover_group(self):
         """The interface object for the network objects type "GSN Handover Group" Management."""
-        return GSNHandoverGroupAPI(self)
+        return GSNHandoverGroup(self)
 
     @property
     def address_range(self):
         """The interface object for the network objects type "Address Range" Management."""
-        return AddressRangeAPI(self)
+        return AddressRange(self)
 
     @property
     def multicast_address_range(self):
         """The interface object for the network objects type "Multicast Address Range" Management."""
-        return MulticastAddressRangeAPI(self)
+        return MulticastAddressRange(self)
 
     @property
     def group_with_exclusion(self):
         """The interface object for the network objects type "Group With Exclusion" Management."""
-        return GroupWithExclusionAPI(self)
+        return GroupWithExclusion(self)
 
     @property
     def simple_gateway(self):
         """The interface object for the network objects type "Simple Gateway" Management."""
-        return SimpleGatewayAPI(self)
+        return SimpleGateway(self)
 
     @property
     def simple_cluster(self):
         """The interface object for the network objects type "Simple Cluster" Management."""
-        return SimpleClusterAPI(self)
+        return SimpleCluster(self)
 
     @property
     def network_interface(self):
         """The interface object for the network objects type "Network Interface" Management."""
-        return NetworkInterfaceAPI(self)
+        return NetworkInterface(self)
 
     @property
     def checkpoint_host(self):
         """The interface object for the network objects type "Checkpoint Host" Management."""
-        return CheckpointHostAPI(self)
+        return CheckpointHost(self)
 
     @property
     def security_zone(self):
         """The interface object for the network objects type "Security Zone" Management."""
-        return SecurityZoneAPI(self)
+        return SecurityZone(self)
 
     @property
     def time(self):
         """The interface object for the network objects type "Time" Management."""
-        return TimeAPI(self)
+        return Time(self)
 
     @property
     def time_group(self):
         """The interface object for the network objects type "Time Group" Management."""
-        return TimeGroupAPI(self)
+        return TimeGroup(self)
 
     @property
     def dynamic_object(self):
         """The interface object for the network objects type "Dynamic Object" Management."""
-        return DynamicObjectAPI(self)
+        return DynamicObject(self)
 
     @property
     def tag(self):
         """The interface object for the network objects type "Tag" Management."""
-        return TagAPI(self)
+        return Tag(self)
 
     @property
     def dns_domain(self):
         """The interface object for the network objects type "DNS Domain" Management."""
-        return DNSDomainAPI(self)
+        return DNSDomain(self)
 
     @property
     def opsec_application(self):
         """The interface object for the network objects type "OPSEC Application" Management."""
-        return OPSECApplicationAPI(self)
+        return OPSECApplication(self)
 
     @property
     def lsv_profile(self):
         """The interface object for the network objects type "LSV Profile" Management."""
-        return LSVProfileAPI(self)
+        return LSVProfile(self)
 
     @property
     def tacacs_server(self):
         """The interface object for the network objects type "TACACS Server" Management."""
-        return TacacsServerAPI(self)
+        return TacacsServer(self)
 
     @property
     def tacacs_group(self):
         """The interface object for the network objects type "TACACS Group" Management."""
-        return TacacsGroupAPI(self)
+        return TacacsGroup(self)
 
     @property
     def access_point_name(self):
         """The interface object for the network objects type "Access Point Name" Management."""
-        return AccessPointNameAPI(self)
+        return AccessPointName(self)
 
     @property
     def lsm_gateway(self):
         """The interface object for the network objects type "LSM Gateway" Management."""
-        return LSMGatewayAPI(self)
+        return LSMGateway(self)
 
     @property
     def lsm_cluster(self):
         """The interface object for the network objects type "LSM Cluster" Management."""
-        return LSMClusterAPI(self)
+        return LSMCluster(self)

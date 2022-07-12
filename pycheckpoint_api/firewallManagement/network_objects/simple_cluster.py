@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class SimpleClusterAPI(NetworkObjectAPI):
+class SimpleCluster(NetworkObject):
     def add(
         self,
         name: str,
@@ -197,7 +197,7 @@ class SimpleClusterAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.simple_cluster.show(
+            >>> FirewallManagement.network_objects.simple_cluster.show(
                 uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.show_object(
@@ -386,7 +386,7 @@ class SimpleClusterAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.simple_cluster.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> FirewallManagement.network_objects.simple_cluster.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.delete_object(
             endpoint="delete-simple-cluster", uid=uid, name=name, **kw
@@ -415,7 +415,7 @@ class SimpleClusterAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.simple_cluster.show_simple_clusters()
+            >>> FirewallManagement.network_objects.simple_cluster.show_simple_clusters()
         """
         return self.show_objects(
             endpoint="show-simple-clusters",

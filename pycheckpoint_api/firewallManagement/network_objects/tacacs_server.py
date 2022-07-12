@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class TacacsServerAPI(NetworkObjectAPI):
+class TacacsServer(NetworkObject):
     def add(
         self,
         name: str,
@@ -52,7 +52,7 @@ class TacacsServerAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tag.add(name="My object")
+            >>> FirewallManagement.network_objects.tag.add(name="My object")
         """
 
         # Main request parameters
@@ -98,7 +98,7 @@ class TacacsServerAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tacacs_server.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.tacacs_server.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-tacacs-server", uid=uid, name=name, **kw)
 
@@ -209,7 +209,7 @@ class TacacsServerAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tacacs_server.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.tacacs_server.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-tacacs-server", uid=uid, name=name, **kw
@@ -243,7 +243,7 @@ class TacacsServerAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.tacacs_server.shows_tacacs_servers()
+            >>> FirewallManagement.network_objects.tacacs_server.shows_tacacs_servers()
         """
         return self.show_objects(
             endpoint="show-tacacs-servers",

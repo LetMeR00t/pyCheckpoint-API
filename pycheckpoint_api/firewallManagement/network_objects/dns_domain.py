@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class DNSDomainAPI(NetworkObjectAPI):
+class DNSDomain(NetworkObject):
     def add(
         self, name: str, is_sub_domain: bool, tags: Union[str, List[str]] = None, **kw
     ) -> Box:
@@ -37,7 +37,7 @@ class DNSDomainAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.dns_domain.add(name="My object")
+            >>> FirewallManagement.network_objects.dns_domain.add(name="My object")
         """
 
         # Main request parameters
@@ -78,7 +78,7 @@ class DNSDomainAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.dns_domain.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.dns_domain.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-dns-domain", uid=uid, name=name, **kw)
 
@@ -170,7 +170,7 @@ class DNSDomainAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.dns_domain.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.dns_domain.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-dns-domain", uid=uid, name=name, **kw
@@ -204,7 +204,7 @@ class DNSDomainAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.dns_domain.shows_tags()
+            >>> FirewallManagement.network_objects.dns_domain.shows_tags()
         """
         return self.show_objects(
             endpoint="show-dns-domains",

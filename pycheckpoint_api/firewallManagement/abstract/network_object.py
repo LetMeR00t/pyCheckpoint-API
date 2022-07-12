@@ -6,7 +6,7 @@ from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 
 
-class NetworkObjectAPI(APIEndpoint):
+class NetworkObject(APIEndpoint):
     def show_object(
         self,
         endpoint: str,
@@ -30,7 +30,7 @@ class NetworkObjectAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.<OBJECT_TYPE>.show(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
+            >>> FirewallManagement.network_objects.<OBJECT_TYPE>.show(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
         """
 
         # Main request parameters
@@ -72,7 +72,7 @@ class NetworkObjectAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.<OBJECT_TYPE>.delete(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
+            >>> FirewallManagement.network_objects.<OBJECT_TYPE>.delete(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
         """
 
         # Main request parameters
@@ -122,7 +122,7 @@ class NetworkObjectAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.<OBJECT_TYPE>.shows_objects()
+            >>> FirewallManagement.network_objects.<OBJECT_TYPE>.shows_objects()
         """
 
         # Main request parameters

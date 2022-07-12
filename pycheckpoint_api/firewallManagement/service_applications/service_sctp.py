@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class ServiceSCTPAPI(NetworkObjectAPI):
+class ServiceSCTP(NetworkObject):
     def add(
         self,
         name: str,
@@ -125,7 +125,7 @@ class ServiceSCTPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_sctp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.service_sctp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-service-sctp", uid=uid, name=name, **kw)
 
@@ -253,7 +253,7 @@ class ServiceSCTPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_sctp.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.service_sctp.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-service-sctp", uid=uid, name=name, **kw
@@ -286,7 +286,7 @@ class ServiceSCTPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_sctp.shows_services_sctp()
+            >>> FirewallManagement.service_applications.service_sctp.shows_services_sctp()
         """
         return self.show_objects(
             endpoint="show-services-sctp",

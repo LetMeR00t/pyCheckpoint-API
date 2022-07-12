@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class ServiceGroupAPI(NetworkObjectAPI):
+class ServiceGroup(NetworkObject):
     def add(
         self,
         name: str,
@@ -87,7 +87,7 @@ class ServiceGroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.service_group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-service-group", uid=uid, name=name, **kw)
 
@@ -183,7 +183,7 @@ class ServiceGroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.service_group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-service-group", uid=uid, name=name, **kw
@@ -217,7 +217,7 @@ class ServiceGroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_group.shows_service_groups()
+            >>> FirewallManagement.service_applications.service_group.shows_service_groups()
         """
         return self.show_objects(
             endpoint="show-service-groups",

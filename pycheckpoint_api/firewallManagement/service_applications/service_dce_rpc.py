@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class ServiceDCERPCAPI(NetworkObjectAPI):
+class ServiceDCERPC(NetworkObject):
     def add(
         self,
         name: str,
@@ -92,7 +92,7 @@ class ServiceDCERPCAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_dce_rpc.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.service_dce_rpc.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(
             endpoint="show-service-dce-rpc", uid=uid, name=name, **kw
@@ -194,7 +194,7 @@ class ServiceDCERPCAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_dce_rpc.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.service_dce_rpc.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-service-dce-rpc", uid=uid, name=name, **kw
@@ -227,7 +227,7 @@ class ServiceDCERPCAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_dce_rpc.show_services_dce_rpc()
+            >>> FirewallManagement.service_applications.service_dce_rpc.show_services_dce_rpc()
         """
         return self.show_objects(
             endpoint="show-services-dce-rpc",

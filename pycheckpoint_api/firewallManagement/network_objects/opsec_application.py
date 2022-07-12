@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class OPSECApplicationAPI(NetworkObjectAPI):
+class OPSECApplication(NetworkObject):
     def add(
         self,
         name: str,
@@ -98,7 +98,7 @@ class OPSECApplicationAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.opsec_application.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.opsec_application.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(
             endpoint="show-opsec-application", uid=uid, name=name, **kw
@@ -204,7 +204,7 @@ class OPSECApplicationAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.opsec_application.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.opsec_application.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-opsec-application", uid=uid, name=name, **kw
@@ -238,7 +238,7 @@ class OPSECApplicationAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.opsec_application.shows_opsec_applications()
+            >>> FirewallManagement.network_objects.opsec_application.shows_opsec_applications()
         """
         return self.show_objects(
             endpoint="show-opsec-applications",

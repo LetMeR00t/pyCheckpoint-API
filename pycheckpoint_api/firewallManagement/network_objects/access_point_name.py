@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class AccessPointNameAPI(NetworkObjectAPI):
+class AccessPointName(NetworkObject):
     def add(
         self,
         name: str,
@@ -53,7 +53,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.access_point_name.add(name="My object")
+            >>> FirewallManagement.network_objects.access_point_name.add(name="My object")
         """
 
         # Main request parameters
@@ -102,7 +102,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.access_point_name.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.access_point_name.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(
             endpoint="show-access-point-name", uid=uid, name=name, **kw
@@ -216,7 +216,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.access_point_name.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.access_point_name.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-access-point-name", uid=uid, name=name, **kw
@@ -245,7 +245,7 @@ class AccessPointNameAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.access_point_name.shows_access_point_names()
+            >>> FirewallManagement.network_objects.access_point_name.shows_access_point_names()
         """
         return self.show_objects(
             endpoint="show-access-point-names",

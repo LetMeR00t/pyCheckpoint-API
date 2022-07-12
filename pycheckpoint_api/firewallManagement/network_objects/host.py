@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class HostAPI(NetworkObjectAPI):
+class Host(NetworkObject):
     def add(
         self,
         name: str,
@@ -56,7 +56,7 @@ class HostAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.host.add(name="My object")
+            >>> FirewallManagement.network_objects.host.add(name="My object")
         """
 
         # Main request parameters
@@ -107,7 +107,7 @@ class HostAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.host.show(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> FirewallManagement.network_objects.host.show(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.show_object(endpoint="show-host", uid=uid, name=name, **kw)
 
@@ -220,7 +220,7 @@ class HostAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.host.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> FirewallManagement.network_objects.host.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.delete_object(endpoint="delete-host", uid=uid, name=name, **kw)
 
@@ -247,7 +247,7 @@ class HostAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.host.shows_hosts()
+            >>> FirewallManagement.network_objects.host.shows_hosts()
         """
         return self.show_objects(
             endpoint="show-hosts",

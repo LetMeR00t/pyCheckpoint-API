@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class ServiceOtherAPI(NetworkObjectAPI):
+class ServiceOther(NetworkObject):
     def add(
         self,
         name: str,
@@ -149,7 +149,7 @@ class ServiceOtherAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_other.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.service_other.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-service-other", uid=uid, name=name, **kw)
 
@@ -299,7 +299,7 @@ class ServiceOtherAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_other.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.service_other.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-service-other", uid=uid, name=name, **kw
@@ -332,7 +332,7 @@ class ServiceOtherAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_other.shows_services_other()
+            >>> FirewallManagement.service_applications.service_other.shows_services_other()
         """
         return self.show_objects(
             endpoint="show-services-other",

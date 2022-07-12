@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class GSNHandoverGroupAPI(NetworkObjectAPI):
+class GSNHandoverGroup(NetworkObject):
     def add(
         self,
         name: str,
@@ -49,7 +49,7 @@ class GSNHandoverGroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.gsn_handover_group.add(name="My object")
+            >>> FirewallManagement.network_objects.gsn_handover_group.add(name="My object")
         """
 
         # Main request parameters
@@ -91,7 +91,7 @@ class GSNHandoverGroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.gsn_handover_group.show(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e")
+            >>> FirewallManagement.network_objects.gsn_handover_group.show(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e")
         """
 
         # Main request parameters
@@ -235,7 +235,7 @@ class GSNHandoverGroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.group.shows_groups()
+            >>> FirewallManagement.network_objects.group.shows_groups()
         """
         return self.show_objects(
             endpoint="show-gsn-handover-groups",

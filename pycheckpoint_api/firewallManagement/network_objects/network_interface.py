@@ -4,7 +4,7 @@ from restfly.endpoint import APIEndpoint
 from ..exception import MandatoryFieldMissing
 
 
-class NetworkInterfaceAPI(APIEndpoint):
+class NetworkInterface(APIEndpoint):
     def abort_get_interfaces(self, task_id: str, force_cleanup: bool = False) -> Box:
         """
         Attempt to abort an on-going "get-interfaces" operation.
@@ -16,7 +16,7 @@ class NetworkInterfaceAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.network_interface.abort_get_interfaces(
+            >>> FirewallManagement.network_objects.network_interface.abort_get_interfaces(
                 task_id="01234567-89ab-cdef-a930-8c37a59972b3")
         """
         # Main request parameters
@@ -52,7 +52,7 @@ class NetworkInterfaceAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.network_interface.get_interfaces(
+            >>> FirewallManagement.network_objects.network_interface.get_interfaces(
                 target_name="gw123")
         """
         # Main request parameters

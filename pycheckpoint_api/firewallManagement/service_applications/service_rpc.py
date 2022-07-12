@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class ServiceRPCAPI(NetworkObjectAPI):
+class ServiceRPC(NetworkObject):
     def add(
         self,
         name: str,
@@ -201,7 +201,7 @@ class ServiceRPCAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_rpc.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.service_rpc.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-service-rpc", uid=uid, name=name, **kw
@@ -234,7 +234,7 @@ class ServiceRPCAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_rpc.show_services_rpc()
+            >>> FirewallManagement.service_applications.service_rpc.show_services_rpc()
         """
         return self.show_objects(
             endpoint="show-services-rpc",

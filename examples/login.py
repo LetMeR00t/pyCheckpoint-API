@@ -1,6 +1,6 @@
 import restfly
 
-from pycheckpoint_api.firewallManagement import FirewallManagementAPI
+from pycheckpoint_api.firewallManagement import FirewallManagement
 import logging
 
 # Setup the logger configuration. If you have any trouble, turn the logging mode to logging.DEBUG
@@ -26,18 +26,18 @@ try:
     # However, it's highly recommanded to use certificates with know certificate authorities.
     logger.info("Trying to login to the API...")
 
-    with FirewallManagementAPI(
+    with FirewallManagement(
         hostname=HOSTNAME,
         port=PORT,
         api_key=API_KEY,
         version=VERSION,
         domain=DOMAIN,
         ssl_verify=False,
-    ) as api:
+    ) as firewall:
 
         logger.info(
             "Connection is successfull, we have a token: "
-            + api._session.headers["X-chkp-sid"]
+            + firewall._session.headers["X-chkp-sid"]
         )
         logger.info("Trying to logout from the API...")
 

@@ -3,14 +3,14 @@ from restfly.session import APISession
 
 from pycheckpoint_api import __version__
 
-from .session import SessionAPI
+from .session import Session
 from .network_objects import NetworkObjects
 from .service_applications import ServiceApplications
 
 from pycheckpoint_api.utils import sanitize_value
 
 
-class FirewallManagementAPI(APISession):
+class FirewallManagement(APISession):
     """
     A Controller to access Endpoints in the Checkpoint Firewall Management API.
     The ManagementAPI object stores the session token and simplifies access to CRUD options within the Checkpoint firewalls.
@@ -47,11 +47,11 @@ class FirewallManagementAPI(APISession):
         if self._version not in ["1.6", "1.6.1", "1.7", "1.7.1", "1.8", "1.9"]:
             self._url += f"/v{self._version}"
         self.conv_box = True
-        super(FirewallManagementAPI, self).__init__(**kw)
+        super(FirewallManagement, self).__init__(**kw)
 
     def _build_session(self, **kwargs) -> Box:
         """Creates a Firewall Management API session."""
-        super(FirewallManagementAPI, self)._build_session(**kwargs)
+        super(FirewallManagement, self)._build_session(**kwargs)
         resp = self.session.login(**kwargs)
         self._session.headers.update({"X-chkp-sid": resp["sid"]})
         return resp
@@ -64,7 +64,7 @@ class FirewallManagementAPI(APISession):
     @property
     def session(self):
         """The interface object for the Session Management."""
-        return SessionAPI(self)
+        return Session(self)
 
     @property
     def network_objects(self):

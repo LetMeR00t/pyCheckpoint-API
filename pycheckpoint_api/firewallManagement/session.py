@@ -7,7 +7,7 @@ from pycheckpoint_api.utils import sanitize_value, sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class SessionAPI(APIEndpoint):
+class Session(APIEndpoint):
     def login(
         self, user: str = None, password: str = None, api_key: str = None, **kw
     ) -> Box:
@@ -41,7 +41,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The authenticated session information.
         Examples:
-            >>> firewallManagementApi.session.login(username='admin@example.com',
+            >>> FirewallManagement.session.login(username='admin@example.com',
             ...    password='MyInsecurePassword')
         """
 
@@ -79,7 +79,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.logout()
+            >>> FirewallManagement.session.logout()
         """
         return self._post("logout", json={})
 
@@ -92,7 +92,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.publish(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
+            >>> FirewallManagement.session.publish(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
         """
 
         payload = {}
@@ -110,7 +110,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.discard(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
+            >>> FirewallManagement.session.discard(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
         """
 
         payload = {}
@@ -129,7 +129,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.disconnect()
+            >>> FirewallManagement.session.disconnect()
         """
         payload = {"uid": uid}
 
@@ -145,7 +145,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Response`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.keepalive()
+            >>> FirewallManagement.session.keepalive()
         """
         return self._post("keepalive")
 
@@ -158,7 +158,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.revert_to_revision(to_session="7a13a360-9b24-40d7-acd3-5b50247be33e")
+            >>> FirewallManagement.session.revert_to_revision(to_session="7a13a360-9b24-40d7-acd3-5b50247be33e")
         """
 
         payload = {}
@@ -176,7 +176,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.verify_revert(to_session="7a13a360-9b24-40d7-acd3-5b50247be33e")
+            >>> FirewallManagement.session.verify_revert(to_session="7a13a360-9b24-40d7-acd3-5b50247be33e")
         """
 
         payload = {}
@@ -195,7 +195,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.login_to_domain(domain="OneDomain")
+            >>> FirewallManagement.session.login_to_domain(domain="OneDomain")
         """
 
         payload = {}
@@ -213,7 +213,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.show_session(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
+            >>> FirewallManagement.session.show_session(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
         """
 
         payload = {}
@@ -252,7 +252,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.set_session(description="My custom description")
+            >>> FirewallManagement.session.set_session(description="My custom description")
         """
 
         payload = {}
@@ -292,7 +292,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.purge_published_sessions(number_of_sessions_to_preserve=1)
+            >>> FirewallManagement.session.purge_published_sessions(number_of_sessions_to_preserve=1)
         """
 
         payload = {}
@@ -318,7 +318,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.switch_session(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
+            >>> FirewallManagement.session.switch_session(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
         """
 
         payload = {"uid": uid}
@@ -338,7 +338,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.take_over_session(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
+            >>> FirewallManagement.session.take_over_session(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
         """
 
         payload = {"uid": uid}
@@ -373,7 +373,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.switch_session(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
+            >>> FirewallManagement.session.switch_session(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
         """
 
         # Main request parameters
@@ -406,7 +406,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.continue_session_in_smartconsole(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
+            >>> FirewallManagement.session.continue_session_in_smartconsole(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
         """
 
         payload = {"uid": uid}
@@ -421,7 +421,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.show_last_published_session()
+            >>> FirewallManagement.session.show_last_published_session()
         """
 
         return self._post("show-last-published-session", json={})
@@ -434,7 +434,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.show_login_message()
+            >>> FirewallManagement.session.show_login_message()
         """
 
         payload = {}
@@ -464,7 +464,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.set_login_message(message="Hello World!")
+            >>> FirewallManagement.session.set_login_message(message="Hello World!")
         """
 
         payload = {}
@@ -514,7 +514,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.set_automatic_purge(enabled=True)
+            >>> FirewallManagement.session.set_automatic_purge(enabled=True)
         """
 
         payload = {"enabled": enabled}
@@ -539,7 +539,7 @@ class SessionAPI(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.session.show_automatic_purge()
+            >>> FirewallManagement.session.show_automatic_purge()
         """
 
         return self._post("show-automatic-purge", json={})

@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class ApplicationSiteCategoryAPI(NetworkObjectAPI):
+class ApplicationSiteCategory(NetworkObject):
     def add(
         self,
         name: str,
@@ -41,7 +41,7 @@ class ApplicationSiteCategoryAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.group.add(name="My object")
+            >>> FirewallManagement.network_objects.group.add(name="My object")
         """
 
         # Main request parameters
@@ -84,7 +84,7 @@ class ApplicationSiteCategoryAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(
             endpoint="show-application-site-category", uid=uid, name=name, **kw
@@ -177,7 +177,7 @@ class ApplicationSiteCategoryAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-application-site-category", uid=uid, name=name, **kw
@@ -210,7 +210,7 @@ class ApplicationSiteCategoryAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.group.shows_groups()
+            >>> FirewallManagement.network_objects.group.shows_groups()
         """
         return self.show_objects(
             endpoint="show-application-site-categories",

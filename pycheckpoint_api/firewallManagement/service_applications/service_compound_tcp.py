@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class ServiceCompoundTCPAPI(NetworkObjectAPI):
+class ServiceCompoundTCP(NetworkObject):
     def add(
         self,
         name: str,
@@ -207,7 +207,7 @@ class ServiceCompoundTCPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_compound_tcp.delete(
+            >>> FirewallManagement.service_applications.service_compound_tcp.delete(
                 uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
@@ -241,7 +241,7 @@ class ServiceCompoundTCPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_compound_tcp.show_services_compound_tcp()
+            >>> FirewallManagement.service_applications.service_compound_tcp.show_services_compound_tcp()
         """
         return self.show_objects(
             endpoint="show-services-compound-tcp",

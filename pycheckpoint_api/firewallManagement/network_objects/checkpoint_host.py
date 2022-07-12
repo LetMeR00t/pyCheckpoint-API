@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class CheckpointHostAPI(NetworkObjectAPI):
+class CheckpointHost(NetworkObject):
     def add(
         self,
         name: str,
@@ -149,7 +149,7 @@ class CheckpointHostAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.checkpoint_host.show(
+            >>> FirewallManagement.network_objects.checkpoint_host.show(
                 uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.show_object(
@@ -305,7 +305,7 @@ class CheckpointHostAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.checkpoint_host.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> FirewallManagement.network_objects.checkpoint_host.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.delete_object(
             endpoint="delete-checkpoint-host", uid=uid, name=name, **kw
@@ -334,7 +334,7 @@ class CheckpointHostAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.checkpoint_host.show_checkpoint_hosts()
+            >>> FirewallManagement.network_objects.checkpoint_host.show_checkpoint_hosts()
         """
         return self.show_objects(
             endpoint="show-checkpoint-hosts",

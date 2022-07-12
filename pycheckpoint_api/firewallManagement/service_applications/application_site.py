@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class ApplicationSiteAPI(NetworkObjectAPI):
+class ApplicationSite(NetworkObject):
     def add(
         self,
         name: str,
@@ -149,7 +149,7 @@ class ApplicationSiteAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.application_site.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.application_site.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(
             endpoint="show-application-site", uid=uid, name=name, **kw
@@ -271,7 +271,7 @@ class ApplicationSiteAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.application_site.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.application_site.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-application-site", uid=uid, name=name, **kw
@@ -304,7 +304,7 @@ class ApplicationSiteAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.application_site.shows_application_sites()
+            >>> FirewallManagement.service_applications.application_site.shows_application_sites()
         """
         return self.show_objects(
             endpoint="show-application-sites",

@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class GroupAPI(NetworkObjectAPI):
+class Group(NetworkObject):
     def add(
         self,
         name: str,
@@ -41,7 +41,7 @@ class GroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.group.add(name="My object")
+            >>> FirewallManagement.network_objects.group.add(name="My object")
         """
 
         # Main request parameters
@@ -84,7 +84,7 @@ class GroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-group", uid=uid, name=name, **kw)
 
@@ -175,7 +175,7 @@ class GroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(endpoint="delete-group", uid=uid, name=name, **kw)
 
@@ -207,7 +207,7 @@ class GroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.group.shows_groups()
+            >>> FirewallManagement.network_objects.group.shows_groups()
         """
         return self.show_objects(
             endpoint="show-groups",

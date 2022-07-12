@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class ServiceCitrixTCPAPI(NetworkObjectAPI):
+class ServiceCitrixTCP(NetworkObject):
     def add(
         self,
         name: str,
@@ -81,7 +81,7 @@ class ServiceCitrixTCPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_citrix_tcp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.service_citrix_tcp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(
             endpoint="show-service-citrix-tcp", uid=uid, name=name, **kw
@@ -178,7 +178,7 @@ class ServiceCitrixTCPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_citrix_tcp.delete(
+            >>> FirewallManagement.service_applications.service_citrix_tcp.delete(
                 uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
@@ -208,7 +208,7 @@ class ServiceCitrixTCPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_citrix_tcp.show_services_citrix_tcp()
+            >>> FirewallManagement.service_applications.service_citrix_tcp.show_services_citrix_tcp()
         """
         return self.show_objects(
             endpoint="show-services-citrix-tcp",

@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class ServiceICMPAPI(NetworkObjectAPI):
+class ServiceICMP(NetworkObject):
     def add(
         self,
         name: str,
@@ -103,7 +103,7 @@ class ServiceICMPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_icmp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.service_icmp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-service-icmp", uid=uid, name=name, **kw)
 
@@ -207,7 +207,7 @@ class ServiceICMPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_icmp.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.service_icmp.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-service-icmp", uid=uid, name=name, **kw
@@ -240,7 +240,7 @@ class ServiceICMPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_icmp.shows_services_icmp()
+            >>> FirewallManagement.service_applications.service_icmp.shows_services_icmp()
         """
         return self.show_objects(
             endpoint="show-services-icmp",

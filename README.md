@@ -48,13 +48,13 @@ Once you have the requirements and you have installed pyCheckpoint-API, you're r
 
 #### API login/logout
 ```python
-   from pycheckpoint_api.firewallManagement import FirewallManagementAPI
+   from pycheckpoint_api.firewallManagement import FirewallManagement
    from pprint import pprint
 
    # Please note that, as it's an example, we enabled the SSL verify to False to avoid having SSL certificate issues.
    # However, it's highly recommanded to use certificates with know certificate authorities.
    # If you want to use an API key instead, remove the 'user' and 'password' fields and use the 'api_key' field.
-   with FirewallManagementAPI(
+   with FirewallManagement(
       hostname='HOSTNAME',
       port='PORT',
       user='USER',

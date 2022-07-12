@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class TimeAPI(NetworkObjectAPI):
+class Time(NetworkObject):
     def add(
         self,
         name: str,
@@ -52,7 +52,7 @@ class TimeAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.time.add(name="My object")
+            >>> FirewallManagement.network_objects.time.add(name="My object")
         """
 
         # Main request parameters
@@ -101,7 +101,7 @@ class TimeAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.time.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> FirewallManagement.network_objects.time.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
         return self.show_object(endpoint="show-time", uid=uid, name=name, **kw)
 
@@ -214,7 +214,7 @@ class TimeAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.time.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> FirewallManagement.network_objects.time.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
         return self.delete_object(endpoint="delete-time", uid=uid, name=name, **kw)
 
@@ -241,7 +241,7 @@ class TimeAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.time.shows_times()
+            >>> FirewallManagement.network_objects.time.shows_times()
         """
         return self.show_objects(
             endpoint="show-times",

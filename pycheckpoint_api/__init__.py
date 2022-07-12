@@ -3,4 +3,4 @@ __license__ = "MIT"
 __contributors__ = []
 __version__ = "0.5.0"
 
-from pycheckpoint_api.firewallManagement import FirewallManagementAPI  # noqa
+from pycheckpoint_api.firewallManagement import FirewallManagement  # noqa

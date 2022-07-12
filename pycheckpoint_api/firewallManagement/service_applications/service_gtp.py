@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class ServiceGTPAPI(NetworkObjectAPI):
+class ServiceGTP(NetworkObject):
     def add(
         self,
         name: str,
@@ -175,7 +175,7 @@ class ServiceGTPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_gtp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.service_gtp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-service-gtp", uid=uid, name=name, **kw)
 
@@ -363,7 +363,7 @@ class ServiceGTPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_gtp.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.service_applications.service_gtp.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-service-gtp", uid=uid, name=name, **kw
@@ -396,7 +396,7 @@ class ServiceGTPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_gtp.show_services_gtp()
+            >>> FirewallManagement.service_applications.service_gtp.show_services_gtp()
         """
         return self.show_objects(
             endpoint="show-services-gtp",

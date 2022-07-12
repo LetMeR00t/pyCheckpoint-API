@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class MulticastAddressRangeAPI(NetworkObjectAPI):
+class MulticastAddressRange(NetworkObject):
     def add(
         self,
         name: str,
@@ -122,7 +122,7 @@ class MulticastAddressRangeAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.multicast_address_range.show(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
+            >>> FirewallManagement.network_objects.multicast_address_range.show(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
         """
         return self.show_object(
             endpoint="show-multicast-address-range", uid=uid, name=name, **kw
@@ -254,7 +254,7 @@ class MulticastAddressRangeAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.multicast_address_range.delete(
+            >>> FirewallManagement.network_objects.multicast_address_range.delete(
                 uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
         """
         return self.delete_object(
@@ -284,7 +284,7 @@ class MulticastAddressRangeAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.network.show_multicast_address_ranges()
+            >>> FirewallManagement.network_objects.network.show_multicast_address_ranges()
         """
         return self.show_objects(
             endpoint="show-multicast-address-ranges",

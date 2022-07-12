@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class LSMClusterAPI(NetworkObjectAPI):
+class LSMCluster(NetworkObject):
     def add(
         self,
         name: str,
@@ -104,7 +104,7 @@ class LSMClusterAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.lsm_cluster.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.lsm_cluster.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-lsm-cluster", uid=uid, name=name, **kw)
 
@@ -200,7 +200,7 @@ class LSMClusterAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.lsm_cluster.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.lsm_cluster.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-lsm-cluster", uid=uid, name=name, **kw
@@ -233,7 +233,7 @@ class LSMClusterAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.lsm_cluster.shows_lsm_clusters()
+            >>> FirewallManagement.network_objects.lsm_cluster.shows_lsm_clusters()
         """
         return self.show_objects(
             endpoint="show-lsm-clusters",

@@ -1,7 +1,7 @@
 import pytest
 import responses
 
-from pycheckpoint_api.firewallManagement import FirewallManagementAPI
+from pycheckpoint_api.firewallManagement import FirewallManagement
 
 
 @pytest.fixture(name="session")
@@ -97,7 +97,7 @@ def firewallManagement(session):
         status=200,
     )
 
-    firewallManagementAPI = FirewallManagementAPI(
+    fw = FirewallManagement(
         user="test@example.com",
         password="false_strong_password",
         hostname="127.0.0.1",
@@ -106,8 +106,8 @@ def firewallManagement(session):
     )
 
     assert (
-        firewallManagementAPI._session.headers["X-chkp-sid"]
+        fw._session.headers["X-chkp-sid"]
         == "97BVpRfN4j81ogN-V2XqGYmw3DDwIhoSn0og8PiKDiM"
     )
 
-    return firewallManagementAPI
+    return fw

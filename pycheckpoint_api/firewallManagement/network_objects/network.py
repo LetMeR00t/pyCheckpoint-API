@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class NetworkAPI(NetworkObjectAPI):
+class Network(NetworkObject):
     def add(
         self,
         name: str,
@@ -66,7 +66,7 @@ class NetworkAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.network.add(name="My object")
+            >>> FirewallManagement.network_objects.network.add(name="My object")
         """
 
         # Main request parameters
@@ -125,7 +125,7 @@ class NetworkAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.network.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> FirewallManagement.network_objects.network.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
         return self.show_object(endpoint="show-network", uid=uid, name=name, **kw)
 
@@ -256,7 +256,7 @@ class NetworkAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.network.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> FirewallManagement.network_objects.network.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
         return self.delete_object(endpoint="delete-network", uid=uid, name=name, **kw)
 
@@ -283,7 +283,7 @@ class NetworkAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.network.shows_networks()
+            >>> FirewallManagement.network_objects.network.shows_networks()
         """
         return self.show_objects(
             endpoint="show-networks",

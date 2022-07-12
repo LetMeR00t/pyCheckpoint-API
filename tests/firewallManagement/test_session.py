@@ -2,7 +2,7 @@ from box import Box
 import responses
 import pytest
 
-from pycheckpoint_api.firewallManagement import FirewallManagementAPI
+from pycheckpoint_api.firewallManagement import FirewallManagement
 from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
@@ -23,7 +23,7 @@ def test_login_logout(firewallManagement, session, resp_message_ok):
     )
 
     api = None
-    with FirewallManagementAPI(
+    with FirewallManagement(
         hostname="127.0.0.1",
         port=443,
         user="test@example.com",

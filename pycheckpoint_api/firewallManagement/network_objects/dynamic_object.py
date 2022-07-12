@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class DynamicObjectAPI(NetworkObjectAPI):
+class DynamicObject(NetworkObject):
     def add(self, name: str, tags: Union[str, List[str]] = None, **kw) -> Box:
         """
         Create new object.
@@ -34,7 +34,7 @@ class DynamicObjectAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.group.add(name="My object")
+            >>> FirewallManagement.network_objects.group.add(name="My object")
         """
 
         # Main request parameters
@@ -75,7 +75,7 @@ class DynamicObjectAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.dynamic-object.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.dynamic-object.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(
             endpoint="show-dynamic-object", uid=uid, name=name, **kw
@@ -169,7 +169,7 @@ class DynamicObjectAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.dynamic_object.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> FirewallManagement.network_objects.dynamic_object.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-dynamic-object", uid=uid, name=name, **kw
@@ -202,7 +202,7 @@ class DynamicObjectAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.dynamic_object.shows_dynamic_objects()
+            >>> FirewallManagement.network_objects.dynamic_object.shows_dynamic_objects()
         """
         return self.show_objects(
             endpoint="show-dynamic-objects",

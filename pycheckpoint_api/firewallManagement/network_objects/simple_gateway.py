@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class SimpleGatewayAPI(NetworkObjectAPI):
+class SimpleGateway(NetworkObject):
     def add(
         self,
         name: str,
@@ -194,7 +194,7 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.simple_gateway.show(
+            >>> FirewallManagement.network_objects.simple_gateway.show(
                 uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.show_object(
@@ -383,7 +383,7 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.simple_gateway.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> FirewallManagement.network_objects.simple_gateway.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.delete_object(
             endpoint="delete-simple-gateway", uid=uid, name=name, **kw
@@ -412,7 +412,7 @@ class SimpleGatewayAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.simple_gateway.show_simple_gateways()
+            >>> FirewallManagement.network_objects.simple_gateway.show_simple_gateways()
         """
         return self.show_objects(
             endpoint="show-simple-gateways",

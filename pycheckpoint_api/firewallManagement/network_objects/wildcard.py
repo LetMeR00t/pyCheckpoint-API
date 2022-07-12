@@ -2,13 +2,13 @@ from typing import Union, List
 
 from box import Box
 
-from ..abstract.network_object import NetworkObjectAPI
+from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class WildcardAPI(NetworkObjectAPI):
+class Wildcard(NetworkObject):
     def add(
         self,
         name: str,
@@ -49,7 +49,7 @@ class WildcardAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.wildcard.add(name="My object")
+            >>> FirewallManagement.network_objects.wildcard.add(name="My object")
         """
 
         # Main request parameters
@@ -93,7 +93,7 @@ class WildcardAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.wildcard.show(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> FirewallManagement.network_objects.wildcard.show(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.show_object(endpoint="show-wildcard", uid=uid, name=name, **kw)
 
@@ -142,7 +142,7 @@ class WildcardAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.wildcard.set(name="My object")
+            >>> FirewallManagement.network_objects.wildcard.set(name="My object")
         """
 
         # Main request parameters
@@ -200,7 +200,7 @@ class WildcardAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.wildcard.delete(uid="d8a5e4dd-2a93-4847-aaa8-d5d33a695da5")
+            >>> FirewallManagement.network_objects.wildcard.delete(uid="d8a5e4dd-2a93-4847-aaa8-d5d33a695da5")
         """
         return self.delete_object(endpoint="delete-wildcard", uid=uid, name=name, **kw)
 
@@ -227,7 +227,7 @@ class WildcardAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.network_objects.wildcard.shows_wildcards()
+            >>> FirewallManagement.network_objects.wildcard.shows_wildcards()
         """
         return self.show_objects(
             endpoint="show-wildcards",
