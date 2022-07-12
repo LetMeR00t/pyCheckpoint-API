@@ -14,6 +14,7 @@ from .service_dce_rpc import ServiceDCERPCAPI
 from .service_rpc import ServiceRPCAPI
 from .service_gtp import ServiceGTPAPI
 from .service_citrix_tcp import ServiceCitrixTCPAPI
+from .service_compound_tcp import ServiceCompoundTCPAPI
 
 
 class ServiceApplications(APIEndpoint):
@@ -86,3 +87,8 @@ class ServiceApplications(APIEndpoint):
     def service_citrix_tcp(self):
         """The interface object for the network objects type "Service Citrix TCP" Management."""
         return ServiceCitrixTCPAPI(self)
+
+    @property
+    def service_compound_tcp(self):
+        """The interface object for the network objects type "Service Compound TCP" Management."""
+        return ServiceCompoundTCPAPI(self)

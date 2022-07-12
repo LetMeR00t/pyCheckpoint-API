@@ -679,3 +679,26 @@ def fixture_resp_service_citrix_tcp():
         "application": "My Citrix Application",
         "port": "1494",
     }
+
+
+@pytest.fixture(name="resp_service_compound_tcp")
+def fixture_resp_service_compound_tcp():
+    return {
+        "uid": "1f0f2270-b297-4400-afa4-d9f56a1cb407",
+        "name": "mycompoundtcp",
+        "type": "service-compound-tcp",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "tags": [],
+        "read-only": False,
+        "comments": "",
+        "color": "black",
+        "icon": "Services/CompoundTCPService",
+        "groups": [],
+        "keep-connections-open-after-policy-installation": True,
+        "compound-service": "pointcast",
+        "port": "80",
+    }
