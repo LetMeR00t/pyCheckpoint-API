@@ -18,7 +18,7 @@ def test_add_network(firewallManagement, resp_network_ipv4, resp_network_ipv6):
         name="New Network 4",
         subnet="192.0.2.0",
         subnet_mask="255.255.255.0",
-        broadbast="disallow",
+        broadcast="disallow",
         nat_settings={"auto-rule": False},
         tags=["t1"],
     )
@@ -66,7 +66,12 @@ def test_add_network(firewallManagement, resp_network_ipv4, resp_network_ipv6):
 
     # Missing IP information
     with pytest.raises(MandatoryFieldMissing):
-        firewallManagement.network_objects.simple_gateway.add(name="network1")
+        firewallManagement.network_objects.network.add(name="network1")
+    # Missing mask information
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.network.add(
+            name="network1", subnet="192.0.2.0"
+        )
 
 
 @responses.activate
@@ -101,9 +106,10 @@ def test_set_network(firewallManagement, resp_network_ipv4, resp_network_ipv6):
 
     resp = firewallManagement.network_objects.network.set(
         uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",
+        new_name="New Network 4",
         subnet="192.0.2.0",
         subnet_mask="255.255.255.0",
-        broadbast="disallow",
+        broadcast="disallow",
         nat_settings={"auto-rule": False},
         tags=["t1"],
     )
@@ -149,9 +155,9 @@ def test_set_network(firewallManagement, resp_network_ipv4, resp_network_ipv6):
     assert resp.subnet6 == "2001:0DB8:ABCD:0012:0000:0000:0000:0005"
     assert resp.mask_length6 == 128
 
-    # Missing IP information
+    # Missing mandatory field
     with pytest.raises(MandatoryFieldMissing):
-        firewallManagement.network_objects.simple_gateway.set()
+        firewallManagement.network_objects.network.set()
 
 
 @responses.activate

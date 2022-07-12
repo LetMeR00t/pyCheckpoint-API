@@ -180,6 +180,7 @@ def test_set_simple_gateway(
 
     resp = firewallManagement.network_objects.simple_gateway.set(
         uid="99457705-dc26-40ce-b9cd-5633eb09b1aa",
+        new_name="gw1",
         ip_address="192.0.2.1",
         anti_bot=True,
         anti_virus=True,

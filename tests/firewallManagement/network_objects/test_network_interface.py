@@ -1,4 +1,7 @@
 import responses
+import pytest
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -33,3 +36,13 @@ def test_get_interfaces(firewallManagement, resp_get_interfaces):
     )
 
     assert resp.tasks[0].task_id == "01234567-89ab-cdef-9e1f-0e1e68312345"
+
+    resp = firewallManagement.network_objects.network_interface.get_interfaces(
+        target_uid="aa5d2edc-a588-5bb5-2365-15a2cd52e6dd", with_topology=True
+    )
+
+    assert resp.tasks[0].task_id == "01234567-89ab-cdef-9e1f-0e1e68312345"
+
+    # Missing mask information
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.network_interface.get_interfaces()
