@@ -86,11 +86,11 @@ def test_add_simple_cluster(firewallManagement, resp_task):
     assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"
 
     resp = firewallManagement.network_objects.simple_cluster.add(
-        name="gw1", ipv4_address="192.0.2.1"
+        name="cluster1", ipv4_address="192.0.2.1"
     )
 
     resp = firewallManagement.network_objects.simple_cluster.add(
-        name="gw1", ipv6_address="2001:db8:0000:0000:0000:0000:0000:000b"
+        name="cluster1", ipv6_address="2001:db8:0000:0000:0000:0000:0000:000b"
     )
 
     assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"
@@ -219,13 +219,13 @@ def test_set_simple_cluster(firewallManagement, resp_task):
     assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"
 
     resp = firewallManagement.network_objects.simple_cluster.set(
-        name="gw1", ip_address="192.0.2.1"
+        name="cluster1", ip_address="192.0.2.1"
     )
 
     assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"
 
     resp = firewallManagement.network_objects.simple_cluster.set(
-        name="gw1", ipv4_address="192.0.2.1"
+        name="cluster1", ipv4_address="192.0.2.1"
     )
 
     assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"
@@ -235,7 +235,7 @@ def test_set_simple_cluster(firewallManagement, resp_task):
         firewallManagement.network_objects.simple_cluster.set()
 
     resp = firewallManagement.network_objects.simple_cluster.set(
-        name="gw1", ipv6_address="2001:db8:0000:0000:0000:0000:0000:000b"
+        name="cluster1", ipv6_address="2001:db8:0000:0000:0000:0000:0000:000b"
     )
 
     assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"

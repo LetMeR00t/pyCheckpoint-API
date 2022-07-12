@@ -41,8 +41,8 @@ def fixture_resp_host():
     }
 
 
-@pytest.fixture(name="resp_network")
-def fixture_resp_network():
+@pytest.fixture(name="resp_network_ipv4")
+def fixture_resp_network_ipv4():
     return {
         "uid": "d5e8d56f-2d77-4824-a5d2-c4a7885dd4a7",
         "folder": {
@@ -78,6 +78,46 @@ def fixture_resp_network():
         "nat-settings": {"auto-rule": False},
         "subnet": "192.0.2.0",
         "subnet-mask": "255.255.255.0",
+    }
+
+
+@pytest.fixture(name="resp_network_ipv6")
+def fixture_resp_network_ipv6():
+    return {
+        "uid": "d5e8d56f-2d77-4824-a5d2-c4a7885dd4a7",
+        "folder": {
+            "uid": "feb54da1-c5e2-4e83-a3ed-d0601ba5ccb9",
+            "name": "/Global Objects",
+        },
+        "domain": {
+            "domain-type": "local domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1429440561055,
+                "iso-8601": "2015-04-19T13:49+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1429440561055,
+                "iso-8601": "2015-04-19T13:49+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": ["t1"],
+        "name": "New Network 4",
+        "comments": "",
+        "color": "black",
+        "icon": "Objects/network",
+        "groups": [],
+        "nat-settings": {"auto-rule": False},
+        "subnet6": "2001:0DB8:ABCD:0012:0000:0000:0000:0005",
+        "mask-length6": 128,
     }
 
 
@@ -460,8 +500,8 @@ def fixture_resp_group_with_exclusion():
     }
 
 
-@pytest.fixture(name="resp_simple_gateway")
-def fixture_resp_simple_gateway():
+@pytest.fixture(name="resp_simple_gateway_ipv4")
+def fixture_resp_simple_gateway_ipv4():
     return {
         "uid": "99457705-dc26-40ce-b9cd-5633eb09b1aa",
         "domain": {
@@ -492,6 +532,101 @@ def fixture_resp_simple_gateway():
         "groups": [],
         "ipv4-address": "192.0.2.1",
         "ipv6-address": "::0",
+        "dynamic-ip": False,
+        "version": "R80",
+        "os-name": "Gaia",
+        "hardware": "Open server",
+        "sic-name": "",
+        "sic-state": "uninitialized",
+        "interfaces": [],
+        "firewall": True,
+        "firewall-settings": {
+            "auto-maximum-limit-for-concurrent-connections": True,
+            "maximum-limit-for-concurrent-connections": 25000,
+            "auto-calculate-connections-hash-table-size-and-memory-pool": True,
+            "connections-hash-size": 131072,
+            "memory-pool-size": 6,
+            "maximum-memory-pool-size": 30,
+        },
+        "vpn": False,
+        "application-control": False,
+        "url-filtering": False,
+        "data-awareness": False,
+        "ips": False,
+        "anti-bot": False,
+        "anti-virus": False,
+        "threat-emulation": False,
+        "save-logs-locally": False,
+        "send-alerts-to-server": ["test_server_1"],
+        "send-logs-to-server": ["test_server_2"],
+        "send-logs-to-backup-server": [],
+        "logs-settings": {
+            "rotate-log-by-file-size": False,
+            "rotate-log-file-size-threshold": 1000,
+            "rotate-log-on-schedule": False,
+            "alert-when-free-disk-space-below-metrics": "mbytes",
+            "alert-when-free-disk-space-below": True,
+            "alert-when-free-disk-space-below-threshold": 20,
+            "alert-when-free-disk-space-below-type": "popup alert",
+            "delete-when-free-disk-space-below-metrics": "mbytes",
+            "delete-when-free-disk-space-below": True,
+            "delete-when-free-disk-space-below-threshold": 5000,
+            "before-delete-keep-logs-from-the-last-days": False,
+            "before-delete-keep-logs-from-the-last-days-threshold": 0,
+            "before-delete-run-script": False,
+            "before-delete-run-script-command": "",
+            "stop-logging-when-free-disk-space-below-metrics": "mbytes",
+            "stop-logging-when-free-disk-space-below": True,
+            "stop-logging-when-free-disk-space-below-threshold": 100,
+            "reject-connections-when-free-disk-space-below-threshold": False,
+            "reserve-for-packet-capture-metrics": "mbytes",
+            "reserve-for-packet-capture-threshold": 500,
+            "delete-index-files-when-index-size-above-metrics": "mbytes",
+            "delete-index-files-when-index-size-above": False,
+            "delete-index-files-when-index-size-above-threshold": 100000,
+            "delete-index-files-older-than-days": True,
+            "delete-index-files-older-than-days-threshold": 14,
+            "forward-logs-to-log-server": False,
+            "perform-log-rotate-before-log-forwarding": False,
+            "update-account-log-every": 3600,
+            "detect-new-citrix-ica-application-names": False,
+            "turn-on-qos-logging": True,
+        },
+    }
+
+
+@pytest.fixture(name="resp_simple_gateway_ipv6")
+def fixture_resp_simple_gateway_ipv6():
+    return {
+        "uid": "99457705-dc26-40ce-b9cd-5633eb09b1aa",
+        "domain": {
+            "domain-type": "domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1451485835851,
+                "iso-8601": "2015-12-30T16:30+0200",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1451485835851,
+                "iso-8601": "2015-12-30T16:30+0200",
+            },
+            "creator": "aa",
+        },
+        "tags": ["t1"],
+        "name": "gw1",
+        "comments": "",
+        "color": "black",
+        "icon": "General/globalsNa",
+        "groups": [],
+        "ipv4-address": "",
+        "ipv6-address": "2001:db8:0000:0000:0000:0000:0000:000c",
         "dynamic-ip": False,
         "version": "R80",
         "os-name": "Gaia",
