@@ -8,11 +8,11 @@ from pycheckpoint_api.utils import sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
 
 
-class ServiceGroupAPI(NetworkObjectAPI):
+class ServiceCitrixTCPAPI(NetworkObjectAPI):
     def add(
         self,
         name: str,
-        members: Union[str, List[str]] = None,
+        application: str = None,
         tags: Union[str, List[str]] = None,
         **kw
     ) -> Box:
@@ -21,7 +21,7 @@ class ServiceGroupAPI(NetworkObjectAPI):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            members (Union[str, List[str]]): Collection of Service objects identified by the name or UID.
+            application (str): Citrix application name.
             tags (Union(str,List[str])): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
@@ -41,16 +41,13 @@ class ServiceGroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.service_applications.service_group.add(
-        name="New Service Group 3",
-        members=["New Host 1", "My Test Host 3"],
-        tags=["t1"],)
+            >>>
         """
 
         # Main request parameters
         payload = {"name": name}
-        if members is not None:
-            payload["members"] = members
+        if application is not None:
+            payload["application"] = application
         if tags is not None:
             payload["tags"] = tags
 
@@ -65,21 +62,15 @@ class ServiceGroupAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("add-service-group", json=payload)
+        return self._post("add-service-citrix-tcp", json=payload)
 
-    def show(
-        self, uid: str = None, name: str = None, show_as_ranges: bool = False, **kw
-    ) -> Box:
+    def show(self, uid: str = None, name: str = None, **kw) -> Box:
         """
         Retrieve existing object using object name or uid.
 
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
-            show_as_ranges (bool): When true, the group's matched content is displayed as ranges of IP addresses rather
-            than network objects. Objects that are not represented using IP addresses are presented as objects.
-            The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.
-            Default is False.
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
@@ -87,15 +78,17 @@ class ServiceGroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.service_applications.service_citrix_tcp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
-        return self.show_object(endpoint="show-service-group", uid=uid, name=name, **kw)
+        return self.show_object(
+            endpoint="show-service-citrix-tcp", uid=uid, name=name, **kw
+        )
 
     def set(
         self,
         uid: str = None,
         name: str = None,
-        members: Union[dict, str, List[str]] = None,
+        application: str = None,
         new_name: str = None,
         tags: Union[str, List[str]] = None,
         **kw
@@ -106,7 +99,7 @@ class ServiceGroupAPI(NetworkObjectAPI):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
-            members (Union[dict, str, List[str]]): Collection of Network objects identified by the name or UID.
+            application (str): Citrix application name.
             new_name (str): New name of the object.
             tags (Union(str,List[str])): Collection of tag identifiers.
         Keyword Args:
@@ -127,12 +120,7 @@ class ServiceGroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.service_applications.service_group.set(
-        uid="dce67d0d-5efe-4808-b22d-2eb99e24c70d",
-        new_name="New Service Group 3",
-        members=["https"],
-        groups=["My Service Group1", "My Service Group2"],
-        tags=["t1"],)
+            >>>
         """
 
         # Main request parameters
@@ -144,8 +132,8 @@ class ServiceGroupAPI(NetworkObjectAPI):
         else:
             raise MandatoryFieldMissing("uid or name")
 
-        if members is not None:
-            payload["members"] = members
+        if application is not None:
+            payload["application"] = application
         if new_name is not None:
             payload["new-name"] = new_name
         if tags is not None:
@@ -162,7 +150,7 @@ class ServiceGroupAPI(NetworkObjectAPI):
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("set-service-group", json=payload)
+        return self._post("set-service-citrix-tcp", json=payload)
 
     def delete(self, uid: str = None, name: str = None, **kw) -> Box:
         """
@@ -183,19 +171,19 @@ class ServiceGroupAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewallManagementApi.service_applications.service_citrix_tcp.delete(
+                uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
-            endpoint="delete-service-group", uid=uid, name=name, **kw
+            endpoint="delete-service-citrix-tcp", uid=uid, name=name, **kw
         )
 
-    def show_service_groups(
+    def show_services_citrix_tcp(
         self,
         filter_results: str = None,
         limit: int = 50,
         offset: int = 0,
         order: List[dict] = None,
-        show_as_ranges: bool = False,
         **kw
     ) -> Box:
         """
@@ -210,22 +198,17 @@ class ServiceGroupAPI(NetworkObjectAPI):
             offset (int): Number of the results to initially skip. Default to 0
             order (List[dict]): Sorts results by the given field. By default the results are sorted in the
             descending order by the session publish time.
-            show_as_ranges (bool): When true, the group's matched content is displayed as ranges of IP addresses rather
-            than network objects. Objects that are not represented using IP addresses are presented as objects.
-            The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.
-            Default is False.
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagementApi.service_applications.service_group.shows_service_groups()
+            >>> firewallManagementApi.service_applications.service_citrix_tcp.show_services_citrix_tcp()
         """
         return self.show_objects(
-            endpoint="show-service-groups",
+            endpoint="show-services-citrix-tcp",
             filter_results=filter_results,
             limit=limit,
             offset=offset,
             order=order,
-            show_as_ranges=show_as_ranges,
             extra_secondary_parameters={
                 "dereference-group-members": bool,
                 "show-membership": bool,

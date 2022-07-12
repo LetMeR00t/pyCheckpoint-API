@@ -657,3 +657,25 @@ def fixture_resp_service_gtp():
         "cs-fallback-and-srvcc": False,
         "restoration-and-recovery": False,
     }
+
+
+@pytest.fixture(name="resp_service_citrix_tcp")
+def fixture_resp_service_citrix_tcp():
+    return {
+        "uid": "3464de87-7e4c-4dde-8b67-89cf2f46c32c",
+        "name": "mycitrixtcp",
+        "type": "service-citrix-tcp",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "tags": [],
+        "read-only": True,
+        "comments": "",
+        "color": "black",
+        "icon": "Services/TCPCitrixService",
+        "groups": [],
+        "application": "My Citrix Application",
+        "port": "1494",
+    }
