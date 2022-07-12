@@ -41,7 +41,10 @@ class ServiceCitrixTCPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>>
+            >>> firewallManagement.service_applications.service_citrix_tcp.add(
+        name="mycitrixtcp",
+        application="My Citrix Application",
+        tags=["t1"],)
         """
 
         # Main request parameters
@@ -120,7 +123,11 @@ class ServiceCitrixTCPAPI(NetworkObjectAPI):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>>
+            >>> firewallManagement.service_applications.service_citrix_tcp.set(
+        uid="3464de87-7e4c-4dde-8b67-89cf2f46c32c",
+        new_name="mycitrixtcp",
+        application="My Citrix Application",
+        tags=["t1"],)
         """
 
         # Main request parameters
