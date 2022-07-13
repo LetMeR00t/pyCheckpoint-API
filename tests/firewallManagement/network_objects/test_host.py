@@ -5,17 +5,29 @@ from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
-def test_add_host(firewallManagement, resp_host):
+def test_add_host(firewallManagement, resp_host_ipv4, resp_host_ipv6):
 
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/add-host",
-        json=resp_host,
+        json=resp_host_ipv4,
         status=200,
     )
 
     resp = firewallManagement.network_objects.host.add(
-        name="New Host 4", ip_address="192.0.2.1", tags=["t1", "t2", "t3"]
+        name="New Host 4",
+        ip_address="192.0.2.1",
+        tags=["t1", "t2", "t3"],
+        interfaces="",
+        host_servers={},
+        nat_settings={
+            "auto-rule": True,
+            "method": "hide",
+            "hide-behind": "ip-address",
+            "ipv4-address": "192.0.2.1",
+            "ipv6-address": "FE80::0202:B3FF:FE1E:8329",
+            "install-on": "All",
+        },
     )
 
     assert resp.uid == "9423d36f-2d66-4754-b9e2-e7f4493756d4"
@@ -23,14 +35,44 @@ def test_add_host(firewallManagement, resp_host):
     assert resp.ipv4_address == "192.0.2.1"
     assert resp.tags == ["t1", "t2", "t3"]
 
+    resp = firewallManagement.network_objects.host.add(
+        name="New Host 4",
+        ipv4_address="192.0.2.1",
+    )
+
+    assert resp.uid == "9423d36f-2d66-4754-b9e2-e7f4493756d4"
+    assert resp.name == "New Host 4"
+    assert resp.ipv4_address == "192.0.2.1"
+    assert resp.tags == ["t1", "t2", "t3"]
+
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/add-host",
+        json=resp_host_ipv6,
+        status=200,
+    )
+
+    resp = firewallManagement.network_objects.host.add(
+        name="New Host 4",
+        ipv6_address="2001:db8:0000:0000:0000:0000:0000:0005",
+    )
+
+    assert resp.uid == "9423d36f-2d66-4754-b9e2-e7f4493756d4"
+    assert resp.name == "New Host 4"
+    assert resp.ipv6_address == "2001:db8:0000:0000:0000:0000:0000:0005"
+    assert resp.tags == ["t1", "t2", "t3"]
+
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.host.add(name="New Host 4")
+
 
 @responses.activate
-def test_show_host(firewallManagement, resp_host):
+def test_show_host(firewallManagement, resp_host_ipv4):
 
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/show-host",
-        json=resp_host,
+        json=resp_host_ipv4,
         status=200,
     )
 
@@ -53,22 +95,66 @@ def test_show_host(firewallManagement, resp_host):
 
 
 @responses.activate
-def test_set_host(firewallManagement, resp_host):
+def test_set_host(firewallManagement, resp_host_ipv4, resp_host_ipv6):
 
     responses.add(
         responses.POST,
         url="https://127.0.0.1:443/web_api/v1.5/set-host",
-        json=resp_host,
+        json=resp_host_ipv4,
         status=200,
     )
 
     resp = firewallManagement.network_objects.host.set(
-        uid="9423d36f-2d66-4754-b9e2-e7f4493756d4", ip_address="192.0.2.1"
+        uid="9423d36f-2d66-4754-b9e2-e7f4493756d4",
+        new_name="New Host 4",
+        ip_address="192.0.2.1",
+        tags=["t1", "t2", "t3"],
+        interfaces="",
+        host_servers={},
+        nat_settings={
+            "auto-rule": True,
+            "method": "hide",
+            "hide-behind": "ip-address",
+            "ipv4-address": "192.0.2.1",
+            "ipv6-address": "FE80::0202:B3FF:FE1E:8329",
+            "install-on": "All",
+        },
     )
 
     assert resp.uid == "9423d36f-2d66-4754-b9e2-e7f4493756d4"
     assert resp.name == "New Host 4"
     assert resp.ipv4_address == "192.0.2.1"
+    assert resp.tags == ["t1", "t2", "t3"]
+
+    resp = firewallManagement.network_objects.host.set(
+        name="New Host 4",
+        ipv4_address="192.0.2.1",
+    )
+
+    assert resp.uid == "9423d36f-2d66-4754-b9e2-e7f4493756d4"
+    assert resp.name == "New Host 4"
+    assert resp.ipv4_address == "192.0.2.1"
+    assert resp.tags == ["t1", "t2", "t3"]
+
+    responses.add(
+        responses.POST,
+        url="https://127.0.0.1:443/web_api/v1.5/set-host",
+        json=resp_host_ipv6,
+        status=200,
+    )
+
+    resp = firewallManagement.network_objects.host.set(
+        name="New Host 4",
+        ipv6_address="2001:db8:0000:0000:0000:0000:0000:0005",
+    )
+
+    assert resp.uid == "9423d36f-2d66-4754-b9e2-e7f4493756d4"
+    assert resp.name == "New Host 4"
+    assert resp.ipv6_address == "2001:db8:0000:0000:0000:0000:0000:0005"
+    assert resp.tags == ["t1", "t2", "t3"]
+
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.host.set()
 
 
 @responses.activate

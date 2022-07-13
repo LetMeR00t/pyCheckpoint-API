@@ -1,8 +1,8 @@
 import pytest
 
 
-@pytest.fixture(name="resp_host")
-def fixture_resp_host():
+@pytest.fixture(name="resp_host_ipv4")
+def fixture_resp_host_ipv4():
     return {
         "uid": "9423d36f-2d66-4754-b9e2-e7f4493756d4",
         "folder": {
@@ -38,6 +38,46 @@ def fixture_resp_host():
         "nat-settings": {"auto-rule": False},
         "ipv4-address": "192.0.2.1",
         "ipv6-address": "",
+    }
+
+
+@pytest.fixture(name="resp_host_ipv6")
+def fixture_resp_host_ipv6():
+    return {
+        "uid": "9423d36f-2d66-4754-b9e2-e7f4493756d4",
+        "folder": {
+            "uid": "feb54da1-c5e2-4e83-a3ed-d0601ba5ccb9",
+            "name": "/Global Objects",
+        },
+        "domain": {
+            "domain-type": "local domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1429440561055,
+                "iso-8601": "2015-04-19T13:49+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1429440561055,
+                "iso-8601": "2015-04-19T13:49+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": ["t1", "t2", "t3"],
+        "name": "New Host 4",
+        "comments": "",
+        "color": "black",
+        "icon": "Objects/host",
+        "groups": [],
+        "nat-settings": {"auto-rule": False},
+        "ipv4-address": "",
+        "ipv6-address": "2001:db8:0000:0000:0000:0000:0000:0005",
     }
 
 
@@ -527,8 +567,59 @@ def fixture_resp_address_range_ipv6():
     }
 
 
-@pytest.fixture(name="resp_multicast_address_range")
-def fixture_resp_multicast_address_range():
+@pytest.fixture(name="resp_multicast_address_range_single_ip")
+def fixture_resp_multicast_address_range_single_ip():
+    return {
+        "uid": "faff3fdf-01b9-4c58-97dc-176c409b5bc1",
+        "name": "New Multicast Address Range",
+        "type": "multicast-address-range",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "last-modify-time": {
+                "posix": 1483966213026,
+                "iso-8601": "2017-01-09T14:50+0200",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1483966213026,
+                "iso-8601": "2017-01-09T14:50+0200",
+            },
+            "creator": "aa",
+        },
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
+        "read-only": True,
+        "comments": "",
+        "color": "black",
+        "icon": "Objects/ip",
+        "groups": [],
+        "ipv4-address-first": "224.0.0.5",
+        "ipv4-address-last": "224.0.0.5",
+    }
+
+
+@pytest.fixture(name="resp_multicast_address_range_ipv4")
+def fixture_resp_multicast_address_range_ipv4():
     return {
         "uid": "faff3fdf-01b9-4c58-97dc-176c409b5bc1",
         "name": "New Multicast Address Range",
@@ -575,6 +666,57 @@ def fixture_resp_multicast_address_range():
         "groups": [],
         "ipv4-address-first": "224.0.0.1",
         "ipv4-address-last": "224.0.0.4",
+    }
+
+
+@pytest.fixture(name="resp_multicast_address_range_ipv6")
+def fixture_resp_multicast_address_range_ipv6():
+    return {
+        "uid": "faff3fdf-01b9-4c58-97dc-176c409b5bc1",
+        "name": "New Multicast Address Range",
+        "type": "multicast-address-range",
+        "domain": {
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+            "domain-type": "domain",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "last-modify-time": {
+                "posix": 1483966213026,
+                "iso-8601": "2017-01-09T14:50+0200",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1483966213026,
+                "iso-8601": "2017-01-09T14:50+0200",
+            },
+            "creator": "aa",
+        },
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
+        "read-only": True,
+        "comments": "",
+        "color": "black",
+        "icon": "Objects/ip",
+        "groups": [],
+        "ipv6-address-first": "2001:db8:0000:0000:0000:0000:0000:0002",
+        "ipv6-address-last": "2001:db8:0000:0000:0000:0000:0000:0004",
     }
 
 

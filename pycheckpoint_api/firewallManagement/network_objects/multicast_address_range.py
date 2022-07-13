@@ -73,7 +73,7 @@ class MulticastAddressRange(NetworkObject):
         payload = {"name": name}
 
         if ip_address is not None:
-            payload["ip-address"] = ip_address_first
+            payload["ip-address"] = ip_address
         elif ipv4_address_first is not None:
             payload["ipv4-address"] = ipv4_address
         elif ipv6_address_first is not None:
@@ -197,7 +197,7 @@ class MulticastAddressRange(NetworkObject):
             raise MandatoryFieldMissing("uid or name")
 
         if ip_address is not None:
-            payload["ip-address"] = ip_address_first
+            payload["ip-address"] = ip_address
         elif ipv4_address_first is not None:
             payload["ipv4-address"] = ipv4_address
         elif ipv6_address_first is not None:
