@@ -1238,3 +1238,61 @@ def fixture_resp_access_section():
         ],
         "read-only": False,
     }
+
+
+@pytest.fixture(name="resp_access_layer")
+def fixture_resp_access_layer():
+    return {
+        "uid": "81530aad-bc98-4e8f-a62d-079424ddd955",
+        "folder": {
+            "uid": "3b1764a5-363a-4f63-a2ab-2ef90746c70c",
+            "name": "/Global Objects",
+        },
+        "domain": {
+            "domain-type": "local domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "locked by current session",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1435737909731,
+                "iso-8601": "2015-07-01T11:05+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1435737908063,
+                "iso-8601": "2015-07-01T11:05+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
+        "name": "New Layer 1",
+        "comments": "",
+        "color": "black",
+        "icon": "ApplicationFirewall/rulebase",
+        "applications-and-url-filtering": False,
+        "content-awareness": False,
+        "detect-using-x-forward-for": True,
+        "firewall": True,
+        "parent-layer": "",
+        "mobile-access": False,
+        "show-parent-rule": True,
+    }

@@ -1,5 +1,5 @@
 [![pyCheckpoint-API](https://raw.githubusercontent.com/LetMeR00t/pyCheckpoint-API/main/images/logo.png)](https://github.com/LetMeR00t/pyCheckpoint-API)
-# pyCheckpoint-API - An unofficial Python SDK for Checkpoint Firewalls API
+# pyCheckpoint-API - An unofficial Python SDK for Checkpoint API
 
 [![PyPI Version](https://img.shields.io/pypi/v/pycheckpoint-api.svg)](https://pypi.org/project/pyCheckpoint-API)
 [![GitHub Release](https://img.shields.io/github/release/LetMeR00t/pyCheckpoint-API.svg)](https://github.com/LetMeR00t/pyCheckpoint-API/releases/)
@@ -92,7 +92,7 @@ Here is the list of endpoints that are currently supported by this SDK and base 
 -  🟡 Access Control & NAT
    -  🟢 Access Rule
    -  🟢 Access Section
-   -  🔴 Access Layer
+   -  🟢 Access Layer
    -  🔴 NAT Rule
    -  🔴 NAT Section
 -  🔴 VPN
