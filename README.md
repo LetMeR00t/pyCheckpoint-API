@@ -91,7 +91,7 @@ Here is the list of endpoints that are currently supported by this SDK and base 
 -  🟢 Service & Applications
 -  🟡 Access Control & NAT
    -  🟢 Access Rule
-   -  🔴 Access Section
+   -  🟢 Access Section
    -  🔴 Access Layer
    -  🔴 NAT Rule
    -  🔴 NAT Section
