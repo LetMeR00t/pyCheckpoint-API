@@ -178,7 +178,7 @@ def test_show_nat_rulebase(firewallManagement, resp_nat_rulebase):
         order={"ASC": "name"},
         details_level="standard",
         use_object_dictionnary=True,
-        filter_results="CPDShield",
+        filter_results="",
         filter_settings={},
     )
 

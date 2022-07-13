@@ -370,7 +370,7 @@ class NATRule(APIEndpoint):
         order={"ASC": "name"},
         details_level="standard",
         use_object_dictionnary=True,
-        filter_results="CPDShield",
+        filter_results="",
         filter_settings={},)
         """
         # Main request parameters

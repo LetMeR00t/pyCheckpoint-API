@@ -203,7 +203,7 @@ def test_show_access_rulebase(firewallManagement, resp_access_rulebase):
         details_level="standard",
         show_as_ranges=True,
         use_object_dictionnary=True,
-        filter_results="CPDShield",
+        filter_results="",
         filter_settings={},
         show_hits=True,
         hits_settings={
