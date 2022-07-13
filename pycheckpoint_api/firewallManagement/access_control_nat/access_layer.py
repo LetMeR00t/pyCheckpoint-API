@@ -55,7 +55,16 @@ class AccessLayer(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>>
+            >>> firewallManagement.access_control_nat.access_layer.add(
+        name="New Layer 1",
+        add_default_rule=True,
+        applications_and_url_filtering=False,
+        content_awareness=False,
+        detect_using_x_forward_for=True,
+        firewall=True,
+        mobile_access=False,
+        shared=False,
+        tags=["t1"],)
         """
 
         # Main request parameters
@@ -112,7 +121,8 @@ class AccessLayer(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>>
+            >>> firewallManagement.access_control_nat.access_layer.show(
+        uid="81530aad-bc98-4e8f-a62d-079424ddd955")
         """
         # Main request parameters
         payload = {}
@@ -177,7 +187,16 @@ class AccessLayer(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>>
+            >>> firewallManagement.access_control_nat.access_layer.set(
+        name="New Layer 1",
+        add_default_rule=True,
+        applications_and_url_filtering=False,
+        content_awareness=False,
+        detect_using_x_forward_for=True,
+        firewall=True,
+        mobile_access=False,
+        shared=False,
+        tags=["t1"],)
         """
 
         # Main request parameters
@@ -241,7 +260,8 @@ class AccessLayer(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>>
+            >>> firewallManagement.access_control_nat.access_layer.delete(
+        layer="Network", uid="81530aad-bc98-4e8f-a62d-079424ddd955")
         """
         # Main request parameters
         payload = {}
@@ -282,7 +302,7 @@ class AccessLayer(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>>
+            >>> firewallManagement.access_control_nat.access_layer.show_access_layers()
         """
 
         # Main request parameters
