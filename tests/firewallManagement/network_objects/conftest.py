@@ -69,7 +69,22 @@ def fixture_resp_network_ipv4():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "name": "New Network 4",
         "comments": "",
         "color": "black",
@@ -109,7 +124,22 @@ def fixture_resp_network_ipv6():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "name": "New Network 4",
         "comments": "",
         "color": "black",
@@ -149,7 +179,22 @@ def fixture_resp_wildcard():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "name": "New Wildcard 4",
         "comments": "",
         "color": "black",
@@ -190,7 +235,22 @@ def fixture_resp_group():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "name": "New Group 3",
         "comments": "",
         "color": "black",
@@ -255,7 +315,22 @@ def fixture_resp_gsn_handover_group():
             "name": "SMC User",
             "domain-type": "domain",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "read-only": True,
         "comments": "",
         "color": "black",
@@ -308,7 +383,22 @@ def fixture_resp_address_range_ipv4():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "name": "New Address Range 1",
         "comments": "",
         "color": "black",
@@ -379,7 +469,22 @@ def fixture_resp_address_range_ipv6():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "name": "New Address Range 1",
         "comments": "",
         "color": "black",
@@ -447,7 +552,22 @@ def fixture_resp_multicast_address_range():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "read-only": True,
         "comments": "",
         "color": "black",
@@ -483,7 +603,22 @@ def fixture_resp_group_with_exclusion():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "read-only": False,
         "comments": "",
         "color": "black",
@@ -524,7 +659,22 @@ def fixture_resp_simple_gateway_ipv4():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "name": "gw1",
         "comments": "",
         "color": "black",
@@ -619,7 +769,22 @@ def fixture_resp_simple_gateway_ipv6():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "name": "gw1",
         "comments": "",
         "color": "black",
@@ -903,7 +1068,22 @@ def fixture_resp_checkpoint_host_ipv4():
             "name": "SMC User",
             "domain-type": "domain",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "read-only": True,
         "comments": "",
         "color": "black",
@@ -995,7 +1175,22 @@ def fixture_resp_checkpoint_host_ipv6():
             "name": "SMC User",
             "domain-type": "domain",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "read-only": True,
         "comments": "",
         "color": "black",
@@ -1117,7 +1312,22 @@ def fixture_resp_time_group():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "name": "New Time Group",
         "comments": "",
         "color": "black",
@@ -1152,7 +1362,22 @@ def fixture_resp_dynamic_object():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "read-only": True,
         "comments": "My Dynamic Object 1",
         "color": "yellow",
@@ -1250,7 +1475,22 @@ def fixture_resp_dns_domain():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "read-only": True,
         "comments": "",
         "color": "black",
@@ -1285,7 +1525,22 @@ def fixture_resp_opsec_application():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "read-only": True,
         "comments": "",
         "color": "black",
@@ -1322,7 +1577,22 @@ def fixture_resp_lsv_profile():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "read-only": True,
         "comments": "",
         "color": "black",
@@ -1359,7 +1629,22 @@ def fixture_resp_tacacs_server():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "read-only": True,
         "comments": "",
         "color": "black",
@@ -1399,7 +1684,22 @@ def fixture_resp_tacacs_group():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "name": "New TACACS Group 3",
         "comments": "",
         "color": "black",
@@ -1429,7 +1729,22 @@ def fixture_resp_tacacs_group():
                     },
                     "creator": "aa",
                 },
-                "tags": ["t1"],
+                "tags": [
+                    {
+                        "folder": {
+                            "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                            "name": "/Global Objects",
+                        },
+                        "domain": {
+                            "domain-type": "local domain",
+                            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                            "name": "SMC User",
+                        },
+                        "type": "tag",
+                        "name": "tag1",
+                        "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+                    }
+                ],
                 "read-only": True,
                 "comments": "",
                 "color": "black",
@@ -1454,7 +1769,22 @@ def fixture_resp_access_point_name():
             "name": "SMC User",
             "domain-type": "domain",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "read-only": True,
         "comments": "",
         "color": "black",
@@ -1504,7 +1834,22 @@ def fixture_resp_lsm_gateway():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "read-only": False,
         "comments": "",
         "color": "black",
@@ -1544,7 +1889,22 @@ def fixture_resp_lsm_cluster():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "read-only": False,
         "comments": "this object was created via API",
         "color": "black",

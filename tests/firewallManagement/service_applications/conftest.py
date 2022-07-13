@@ -373,7 +373,22 @@ def fixture_resp_application_site():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "name": "New Application Site 1",
         "comments": "",
         "color": "black",
@@ -449,7 +464,22 @@ def fixture_resp_application_site_category():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "name": "New Application Site Category 1",
         "comments": "",
         "color": "black",
@@ -489,7 +519,22 @@ def fixture_resp_application_site_group():
             },
             "creator": "aa",
         },
-        "tags": ["t1"],
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
         "name": "New Application Site Group 1",
         "comments": "",
         "color": "black",
