@@ -299,15 +299,9 @@ class AccessRule(APIEndpoint):
             user_check (dict): User check settings.
             vpn (Union[str, dict, List[dict]]): Communities or Directional. See the API documentation for more information
         Keyword Args:
-            **color (Color, optional):
-                Color of the object. Should be one of existing colors.
-            **comments (str, optional):
-                Comments string.
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,List[str])):
-                Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Default is False
             **ignore-errors (bool, optional):
@@ -355,8 +349,6 @@ class AccessRule(APIEndpoint):
         else:
             raise MandatoryFieldMissing("uid or name or rule_number")
 
-        if name is not None:
-            payload["name"] = name
         if action is not None:
             payload["action"] = action
         if action_settings is not None:
