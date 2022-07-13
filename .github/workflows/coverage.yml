@@ -2,12 +2,12 @@ name: "Flake8 and Coverage"
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, develop ]
     paths-ignore:
       - '.github/**'
       - 'examples/**'
   pull_request:
-    branches: [ main ]
+    branches: [ main, develop ]
     paths-ignore:
       - '.github/**'
       - 'examples/**'
