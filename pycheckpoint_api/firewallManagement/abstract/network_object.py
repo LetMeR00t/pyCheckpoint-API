@@ -1,9 +1,11 @@
-from restfly.endpoint import APIEndpoint
-from box import Box
 from typing import List
 
-from ..exception import MandatoryFieldMissing
+from box import Box
+from restfly.endpoint import APIEndpoint
+
 from pycheckpoint_api.utils import sanitize_secondary_parameters
+
+from ..exception import MandatoryFieldMissing
 
 
 class NetworkObject(APIEndpoint):

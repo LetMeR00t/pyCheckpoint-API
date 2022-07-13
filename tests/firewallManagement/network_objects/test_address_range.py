@@ -1,5 +1,5 @@
-import responses
 import pytest
+import responses
 
 from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 from pycheckpoint_api.models import Color

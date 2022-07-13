@@ -1,20 +1,20 @@
 from restfly.endpoint import APIEndpoint
 
-from .service_tcp import ServiceTCP
-from .service_udp import ServiceUDP
-from .service_icmp import ServiceICMP
-from .service_icmp6 import ServiceICMP6
-from .service_sctp import ServiceSCTP
-from .service_other import ServiceOther
-from .service_group import ServiceGroup
 from .application_site import ApplicationSite
 from .application_site_category import ApplicationSiteCategory
 from .application_site_group import ApplicationSiteGroup
-from .service_dce_rpc import ServiceDCERPC
-from .service_rpc import ServiceRPC
-from .service_gtp import ServiceGTP
 from .service_citrix_tcp import ServiceCitrixTCP
 from .service_compound_tcp import ServiceCompoundTCP
+from .service_dce_rpc import ServiceDCERPC
+from .service_group import ServiceGroup
+from .service_gtp import ServiceGTP
+from .service_icmp import ServiceICMP
+from .service_icmp6 import ServiceICMP6
+from .service_other import ServiceOther
+from .service_rpc import ServiceRPC
+from .service_sctp import ServiceSCTP
+from .service_tcp import ServiceTCP
+from .service_udp import ServiceUDP
 
 
 class ServiceApplications(APIEndpoint):

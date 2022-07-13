@@ -2,7 +2,7 @@ import sys
 
 # Add support for Python 3.7
 if sys.version_info > (3, 8):
-    from typing import Union, get_origin, List, Dict
+    from typing import Dict, List, Union, get_origin
 else:
     from typing import Union, List, Dict
 

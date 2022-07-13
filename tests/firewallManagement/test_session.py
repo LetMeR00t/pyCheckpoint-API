@@ -1,6 +1,6 @@
-from box import Box
-import responses
 import pytest
+import responses
+from box import Box
 
 from pycheckpoint_api.firewallManagement import FirewallManagement
 from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing

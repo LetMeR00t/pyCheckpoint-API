@@ -1,8 +1,8 @@
 from restfly.endpoint import APIEndpoint
 
+from .access_layer import AccessLayer
 from .access_rule import AccessRule
 from .access_section import AccessSection
-from .access_layer import AccessLayer
 from .nat_rule import NATRule
 from .nat_section import NASSection
 

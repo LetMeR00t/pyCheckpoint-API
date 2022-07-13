@@ -1,7 +1,8 @@
+import logging
+
 import restfly
 
 from pycheckpoint_api.firewallManagement import FirewallManagement
-import logging
 
 # Setup the logger configuration. If you have any trouble, turn the logging mode to logging.DEBUG
 logging.basicConfig(

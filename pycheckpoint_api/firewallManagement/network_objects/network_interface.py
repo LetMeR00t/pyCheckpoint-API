@@ -1,6 +1,6 @@
 from box import Box
-
 from restfly.endpoint import APIEndpoint
+
 from ..exception import MandatoryFieldMissing
 
 

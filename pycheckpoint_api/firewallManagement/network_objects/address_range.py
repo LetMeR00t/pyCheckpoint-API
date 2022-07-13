@@ -1,11 +1,12 @@
-from typing import Union, List
+from typing import List, Union
 
 from box import Box
 
+from pycheckpoint_api.models import Color
+from pycheckpoint_api.utils import sanitize_secondary_parameters
+
 from ..abstract.network_object import NetworkObject
 from ..exception import MandatoryFieldMissing
-from pycheckpoint_api.utils import sanitize_secondary_parameters
-from pycheckpoint_api.models import Color
 
 
 class AddressRange(NetworkObject):

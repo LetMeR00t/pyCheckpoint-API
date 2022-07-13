@@ -1,10 +1,12 @@
+from typing import List, Union
+
 from box import Box
-from typing import Union, List
 from restfly.endpoint import APIEndpoint
 
-from .exception import MandatoryFieldMissing
-from pycheckpoint_api.utils import sanitize_value, sanitize_secondary_parameters
 from pycheckpoint_api.models import Color
+from pycheckpoint_api.utils import sanitize_secondary_parameters, sanitize_value
+
+from .exception import MandatoryFieldMissing
 
 
 class Session(APIEndpoint):

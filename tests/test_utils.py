@@ -1,11 +1,12 @@
+from typing import List, Union
+
 import pytest
-from typing import Union, List
 
 from pycheckpoint_api.firewallManagement.exception import (
     MandatoryFieldMissing,
     WrongType,
 )
-from pycheckpoint_api.utils import sanitize_value, sanitize_secondary_parameters
+from pycheckpoint_api.utils import sanitize_secondary_parameters, sanitize_value
 
 
 def test_sanitize_value():

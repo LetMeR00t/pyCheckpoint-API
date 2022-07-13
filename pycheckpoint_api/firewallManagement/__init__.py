@@ -2,13 +2,12 @@ from box import Box
 from restfly.session import APISession
 
 from pycheckpoint_api import __version__
+from pycheckpoint_api.utils import sanitize_value
 
-from .session import Session
+from .access_control_nat import AccessControlNAT
 from .network_objects import NetworkObjects
 from .service_applications import ServiceApplications
-from .access_control_nat import AccessControlNAT
-
-from pycheckpoint_api.utils import sanitize_value
+from .session import Session
 
 
 class FirewallManagement(APISession):

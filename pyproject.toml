@@ -36,6 +36,7 @@ include = [
 python = "^3.7"
 restfly = "^1.4.6"
 coverage = "^6.4.1"
+isort = "^5.10.1"
 
 [tool.poetry.dev-dependencies]
 requests = "^2.28.0"
