@@ -299,6 +299,14 @@ class AccessLayer(APIEndpoint):
             he search involves both a IP search and a textual search in name, comment, tags etc.
             limit (int): The maximal number of returned results. Default to 50 (between 1 and 500)
             offset (int): Number of the results to initially skip. Default to 0
+        Keyword Args:
+            **details-level (str, optional):
+                The level of detail for some of the fields in the response can vary from showing only the UID value
+                of the object to a fully detailed representation of the object.
+            **domains-to-process (List[str], optional):
+                Indicates which domains to process the commands on. It cannot be used with the details-level full,
+                must be run from the System Domain only and with ignore-warnings true.
+                Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
         Returns:
             :obj:`Box`: The response from the server
         Examples:

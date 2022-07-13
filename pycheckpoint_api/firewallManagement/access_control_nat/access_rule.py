@@ -497,6 +497,14 @@ class AccessRule(APIEndpoint):
             show_hits (bool): N/A
             use_object_dictionnary (bool): N/A
             hits_settings (dict): N/A
+        Keyword Args:
+            **details-level (str, optional):
+                The level of detail for some of the fields in the response can vary from showing only the UID value
+                of the object to a fully detailed representation of the object.
+            **show-membership (bool, optional):
+                Indicates whether to calculate and show "groups" field for every object in reply.
+            **dereference-group-members (bool, optional):
+                Indicates whether to dereference "members" field by details level for every object in reply.
         Returns:
             :obj:`Box`: The response from the server
         Examples:
@@ -536,7 +544,7 @@ class AccessRule(APIEndpoint):
         secondary_parameters = {
             "dereference-group-members": bool,
             "details-level": str,
-            "domains-to-process": List[str],
+            "show-membership": bool,
         }
 
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
