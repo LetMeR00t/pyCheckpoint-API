@@ -93,7 +93,7 @@ Here is the list of endpoints that are currently supported by this SDK and base 
    -  🟢 Access Rule
    -  🟢 Access Section
    -  🟢 Access Layer
-   -  🔴 NAT Rule
+   -  🟢 NAT Rule
    -  🔴 NAT Section
 -  🔴 VPN
 -  🔴 VSX

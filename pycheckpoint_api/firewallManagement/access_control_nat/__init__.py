@@ -3,6 +3,7 @@ from restfly.endpoint import APIEndpoint
 from .access_rule import AccessRule
 from .access_section import AccessSection
 from .access_layer import AccessLayer
+from .nat_rule import NATRule
 
 
 class AccessControlNAT(APIEndpoint):
@@ -20,3 +21,8 @@ class AccessControlNAT(APIEndpoint):
     def access_layer(self):
         """The interface object for the objects type "Access Layer" Management."""
         return AccessLayer(self)
+
+    @property
+    def nat_rule(self):
+        """The interface object for the objects type "NAT Rule" Management."""
+        return NATRule(self)
