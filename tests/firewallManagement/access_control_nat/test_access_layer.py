@@ -1,4 +1,7 @@
 import responses
+import pytest
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -49,6 +52,10 @@ def test_show_access_layer(firewallManagement, resp_access_layer):
     assert resp.uid == "81530aad-bc98-4e8f-a62d-079424ddd955"
     assert resp.name == "New Layer 1"
 
+    # Missing mandatory parameter
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.access_control_nat.access_layer.show()
+
 
 @responses.activate
 def test_set_access_layer(firewallManagement, resp_access_layer):
@@ -83,6 +90,10 @@ def test_set_access_layer(firewallManagement, resp_access_layer):
     assert resp.uid == "81530aad-bc98-4e8f-a62d-079424ddd955"
     assert resp.name == "New Layer 1"
 
+    # Missing mandatory parameter
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.access_control_nat.access_layer.set()
+
 
 @responses.activate
 def test_delete_access_layer(firewallManagement, resp_message_ok):
@@ -106,6 +117,10 @@ def test_delete_access_layer(firewallManagement, resp_message_ok):
 
     assert resp.message == "OK"
 
+    # Missing mandatory parameter
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.access_control_nat.access_layer.delete()
+
 
 @responses.activate
 def test_show_access_layers(firewallManagement, resp_from_to_objects):
@@ -116,6 +131,12 @@ def test_show_access_layers(firewallManagement, resp_from_to_objects):
         status=200,
     )
 
-    resp = firewallManagement.access_control_nat.access_layer.show_access_layers()
+    resp = firewallManagement.access_control_nat.access_layer.show_access_layers(
+        offset=0,
+        limit=20,
+        order={"ASC": "name"},
+        details_level="standard",
+        filter_results="",
+    )
 
     assert isinstance(resp.total, int)
