@@ -242,7 +242,6 @@ class AccessLayer(APIEndpoint):
 
     def delete(
         self,
-        layer: str,
         uid: str = None,
         name: str = None,
         **kw,
