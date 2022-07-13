@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # Visual Studio environment configuration
-.vscode/settings.json
+.vscode/
