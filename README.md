@@ -89,12 +89,7 @@ Here is the list of endpoints that are currently supported by this SDK and base 
 -  🔴 Azure Active Directory
 -  🔴 Updatable Objects
 -  🟢 Service & Applications
--  🟡 Access Control & NAT
-   -  🟢 Access Rule
-   -  🟢 Access Section
-   -  🟢 Access Layer
-   -  🟢 NAT Rule
-   -  🔴 NAT Section
+-  🟢 Access Control & NAT
 -  🔴 VPN
 -  🔴 VSX
 -  🔴 Threat Prevention
