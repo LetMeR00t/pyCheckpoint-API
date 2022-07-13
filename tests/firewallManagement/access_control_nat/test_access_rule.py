@@ -82,7 +82,11 @@ def test_show_access_rule(firewallManagement, resp_access_rule):
 
     # Missing mandatory parameter
     with pytest.raises(TypeError):
-        firewallManagement.access_control_nat.access_rule.add(rule_number=3)
+        firewallManagement.access_control_nat.access_rule.show(rule_number=3)
+
+    # Missing mandatory parameter
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.access_control_nat.access_rule.show(layer="Network")
 
 
 @responses.activate
@@ -128,6 +132,15 @@ def test_set_access_rule(firewallManagement, resp_access_rule):
     resp = firewallManagement.access_control_nat.access_rule.set(
         layer="Network",
         name="Rule 1",
+        new_position=3,
+    )
+
+    assert resp.uid == "1df8a4b0-fa8b-428b-b649-626b74bf7f81"
+    assert resp.name == "Rule 1"
+
+    resp = firewallManagement.access_control_nat.access_rule.set(
+        layer="Network",
+        rule_number=4,
         new_position=3,
     )
 
@@ -185,6 +198,8 @@ def test_show_access_rulebase(firewallManagement, resp_access_rulebase):
         name="Network",
         offset=0,
         limit=20,
+        order={"ASC": "name"},
+        package="",
         details_level="standard",
         show_as_ranges=True,
         use_object_dictionnary=True,
@@ -199,3 +214,13 @@ def test_show_access_rulebase(firewallManagement, resp_access_rulebase):
     )
 
     assert isinstance(resp.total, int)
+
+    resp = firewallManagement.access_control_nat.access_rule.show_access_rulebase(
+        uid="21127e7c-d19b-4c65-b9c3-8e20e66ea1ae"
+    )
+
+    assert isinstance(resp.total, int)
+
+    # Missing mandatory parameter
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.access_control_nat.access_rule.show_access_rulebase()
