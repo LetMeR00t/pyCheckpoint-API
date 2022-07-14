@@ -1,4 +1,4 @@
-[![pyCheckpoint-API](https://raw.githubusercontent.com/LetMeR00t/pyCheckpoint-API/main/images/logo.png)](https://github.com/LetMeR00t/pyCheckpoint-API)
+[![pyCheckpoint-API](https://letmer00t.github.io/pyCheckpoint-API/_static/logo.png)](https://github.com/LetMeR00t/pyCheckpoint-API)
 # pyCheckpoint-API - An unofficial Python SDK for Checkpoint API
 
 [![PyPI Version](https://img.shields.io/pypi/v/pycheckpoint-api.svg)](https://pypi.org/project/pyCheckpoint-API)
