@@ -9,3 +9,4 @@ It helps to integrate the Checkpoint API in Python.
 
     models
     utils
+    exception

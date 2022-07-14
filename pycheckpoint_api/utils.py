@@ -20,8 +20,8 @@ def sanitize_value(
     Args:
         field (str): Name of the field to sanitize
         t (type): Expected type from the given ``field``
-        is_mandatory (bool, optional): Indicates if ``field`` is mandatory. Default to False
-        default (:obj:`Any`, optional): Default value for ``field`` if any. Default to None
+        is_mandatory (bool, optional): Indicates if ``field`` is mandatory. Defaults to False
+        default (:obj:`Any`, optional): Default value for ``field`` if any. Defaults to None
         **kw (dict, required): The ``field`` value will be extracted from the provided keyword aguments
 
     Raises:

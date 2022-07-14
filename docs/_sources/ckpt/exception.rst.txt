@@ -1,4 +1,4 @@
-Exception
+Exceptions
 ==========================
 
 .. toctree::

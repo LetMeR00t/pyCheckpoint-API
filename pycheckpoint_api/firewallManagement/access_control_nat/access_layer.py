@@ -49,10 +49,10 @@ class AccessLayer(APIEndpoint):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
             **ignore-warnings (bool, optional):
-                Apply changes ignoring warnings. Default is False
+                Apply changes ignoring warnings. Defaults to False
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Default is False
+                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
         Returns:
             :obj:`Box`: The response from the server
         Examples:
@@ -181,10 +181,10 @@ class AccessLayer(APIEndpoint):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
             **ignore-warnings (bool, optional):
-                Apply changes ignoring warnings. Default is False
+                Apply changes ignoring warnings. Defaults to False
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Default is False
+                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
         Returns:
             :obj:`Box`: The response from the server
         Examples:
@@ -297,8 +297,8 @@ class AccessLayer(APIEndpoint):
             The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.
             The logical operators in the expression ('AND', 'OR') should be provided in capital letters.
             he search involves both a IP search and a textual search in name, comment, tags etc.
-            limit (int): The maximal number of returned results. Default to 50 (between 1 and 500)
-            offset (int): Number of the results to initially skip. Default to 0
+            limit (int): The maximal number of returned results. Defaults to 50 (between 1 and 500)
+            offset (int): Number of the results to initially skip. Defaults to 0
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value

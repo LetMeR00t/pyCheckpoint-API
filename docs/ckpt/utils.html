@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="Models" href="models.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Exceptions" href="exception.html" /><link rel="prev" title="Models" href="models.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
         <title>Utils - pyCheckpoint-API 0.6.0 documentation</title>
@@ -158,8 +158,8 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="firewallManagement/index.html">TODO</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="firewallManagement/exception.html">Exception</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="firewallManagement/index.html">Firewall Management</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="firewallManagement/session.html">Session</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -169,6 +169,9 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Utils</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exception.html">Exceptions</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -253,15 +256,15 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>field</strong> (<em>str</em>) – Name of the field to sanitize</p></li>
 <li><p><strong>t</strong> (<em>type</em>) – Expected type from the given <code class="docutils literal notranslate"><span class="pre">field</span></code></p></li>
-<li><p><strong>is_mandatory</strong> (<em>bool</em><em>, </em><em>optional</em>) – Indicates if <code class="docutils literal notranslate"><span class="pre">field</span></code> is mandatory. Default to False</p></li>
-<li><p><strong>default</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code>, optional) – Default value for <code class="docutils literal notranslate"><span class="pre">field</span></code> if any. Default to None</p></li>
+<li><p><strong>is_mandatory</strong> (<em>bool</em><em>, </em><em>optional</em>) – Indicates if <code class="docutils literal notranslate"><span class="pre">field</span></code> is mandatory. Defaults to False</p></li>
+<li><p><strong>default</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code>, optional) – Default value for <code class="docutils literal notranslate"><span class="pre">field</span></code> if any. Defaults to None</p></li>
 <li><p><strong>**kw</strong> (<em>dict</em><em>, </em><em>required</em>) – The <code class="docutils literal notranslate"><span class="pre">field</span></code> value will be extracted from the provided keyword aguments</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="firewallManagement/exception.html#pycheckpoint_api.firewallManagement.exception.MandatoryFieldMissing" title="pycheckpoint_api.firewallManagement.exception.MandatoryFieldMissing"><strong>MandatoryFieldMissing</strong></a> – The value is not given as a keyword parameter and it’s mandatory</p></li>
-<li><p><a class="reference internal" href="firewallManagement/exception.html#pycheckpoint_api.firewallManagement.exception.WrongType" title="pycheckpoint_api.firewallManagement.exception.WrongType"><strong>WrongType</strong></a> – If <code class="docutils literal notranslate"><span class="pre">t</span></code> is not equals to the value type for the given field</p></li>
+<li><p><a class="reference internal" href="exception.html#pycheckpoint_api.firewallManagement.exception.MandatoryFieldMissing" title="pycheckpoint_api.firewallManagement.exception.MandatoryFieldMissing"><strong>MandatoryFieldMissing</strong></a> – The value is not given as a keyword parameter and it’s mandatory</p></li>
+<li><p><a class="reference internal" href="exception.html#pycheckpoint_api.firewallManagement.exception.WrongType" title="pycheckpoint_api.firewallManagement.exception.WrongType"><strong>WrongType</strong></a> – If <code class="docutils literal notranslate"><span class="pre">t</span></code> is not equals to the value type for the given field</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns</dt>
@@ -289,7 +292,15 @@
       <footer>
         
         <div class="related-pages">
-          
+          <a class="next-page" href="exception.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Exceptions</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
           <a class="prev-page" href="models.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
