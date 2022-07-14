@@ -1,0 +1,31 @@
+{{summaryPlaceholder}}
+
+Args:
+{{#args}}
+    {{var}} ({{typePlaceholder}}): {{descriptionPlaceholder}}
+{{/args}}
+{{#kwargs}}                       
+    {{var}} ({{typePlaceholder}}, optional): {{descriptionPlaceholder}}. Default to {{&default}}
+{{/kwargs}}
+    **kw (dict, optional): Arbitrary keyword arguments for secondary parameters.
+
+Keyword Args:                   
+    **_var_ (_type_, optional)            
+        _description_      
+{{#exceptionsExist}}
+Raises:
+{{#exceptions}}
+    {{type}}: {{descriptionPlaceholder}}
+{{/exceptions}}
+{{/exceptionsExist}}
+{{#returnsExist}}
+
+Returns:
+{{#returns}}                    
+    {{typePlaceholder}}: {{descriptionPlaceholder}}
+{{/returns}}
+{{/returnsExist}}
+
+Examples:
+    >>> 
+
