@@ -18,11 +18,11 @@ class Session(APIEndpoint):
         
         Args:
             user (str, optional): Username of admin user for the authentication session. If set, you must specify\
- ``password`` too. Defaults to None
+            ``password`` too. Defaults to None
             password (str, optional): Password of the admin user for the authentication session. If set, you must\
- specify ``user`` too. Defaults to None
+            specify ``user`` too. Defaults to None
             api_key (str, optional): An API key used to authenticate instead of a user/password.\ You must enter\
- either a ``user``/``password`` or an ``api_key``. Defaults to None
+            either a ``user``/``password`` or an ``api_key``. Defaults to None
             **kw (dict, optional): Arbitrary keyword arguments for secondary parameters.
         
         Keyword Args:                   

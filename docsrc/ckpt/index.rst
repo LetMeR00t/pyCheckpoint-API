@@ -7,6 +7,7 @@ It helps to integrate the Checkpoint API in Python.
 .. toctree::
     :maxdepth: 1
 
+    abstract_objects
     models
     utils
     exception

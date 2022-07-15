@@ -9,6 +9,8 @@ from ..exception import MandatoryFieldMissing
 
 
 class NetworkObject(APIEndpoint):
+    """This class is used to create a common shape for any network object"""
+
     def show_object(
         self,
         endpoint: str,
@@ -22,17 +24,22 @@ class NetworkObject(APIEndpoint):
 
         Args:
             endpoint (str): Endpoint to reach to show the objects
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier. Defaults to None
+            name (str, optional): Object name. Defaults to None
             extra_secondary_parameters (dict): Any additional secondary parameter need to be add in the request
+            **kw (dict, optional): Arbitrary keyword arguments for secondary parameters.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
                 of the object to a fully detailed representation of the object.
+
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> FirewallManagement.network_objects.<OBJECT_TYPE>.show(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
+
         """
 
         # Main request parameters
@@ -60,8 +67,10 @@ class NetworkObject(APIEndpoint):
 
         Args:
             endpoint (str): Endpoint to reach to show the objects
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier. Defaults to None
+            name (str, optional): Object name. Defaults to None
+            **kw (dict, optional): Arbitrary keyword arguments for secondary parameters.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
@@ -71,10 +80,13 @@ class NetworkObject(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> FirewallManagement.network_objects.<OBJECT_TYPE>.delete(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
+
         """
 
         # Main request parameters
@@ -112,15 +124,18 @@ class NetworkObject(APIEndpoint):
 
         Args:
             endpoint (str): Endpoint to reach to show the objects
-            filter_results (str): Search expression to filter objects by.
+            filter_results (str, optional): Search expression to filter objects by. Defaults to None
             The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.
             The logical operators in the expression ('AND', 'OR') should be provided in capital letters.
             he search involves both a IP search and a textual search in name, comment, tags etc.
-            limit (int): The maximal number of returned results. Defaults to 50 (between 1 and 500)
-            offset (int): Number of the results to initially skip. Defaults to 0
-            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
-            descending order by the session publish time.
-            extra_secondary_parameters (dict): Any additional secondary parameter need to be add in the request
+            limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
+            offset (int, optional): Number of the results to initially skip. Defaults to 0
+            order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the
+            descending order by the session publish time. Defaults to None
+            extra_secondary_parameters (dict, optional): Any additional secondary parameter need to be add in the request
+            Defaults to None
+            **kw (dict, optional): Arbitrary keyword arguments for secondary parameters.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
@@ -129,10 +144,13 @@ class NetworkObject(APIEndpoint):
                 Indicates which domains to process the commands on. It cannot be used with the details-level full,
                 must be run from the System Domain only and with ignore-warnings true.
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
+
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> FirewallManagement.network_objects.<OBJECT_TYPE>.shows_objects()
+
         """
 
         # Main request parameters
