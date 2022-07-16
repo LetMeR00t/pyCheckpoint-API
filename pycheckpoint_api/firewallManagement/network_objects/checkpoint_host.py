@@ -36,23 +36,23 @@ class CheckpointHost(NetworkObject):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            ip_address (str): 	IPv4 or IPv6 address. If both addresses are required use ipv4-address
+            ip_address (str, optional): IPv4 or IPv6 address. If both addresses are required use ipv4-address\
             and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
-            ipv4_address (str): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
-            ipv6_address (str): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
-            interfaces (Union[dict, List[dict]]): Check Point host interfaces.
-            nat_settings (dict): NAT settings.
-            one_time_password (str): Secure internal connection one time password.
-            hardware (str): Hardware name.
-            os (str): Operating system name.
-            version (str): Check Point host platform version.
-            management_blades (dict): Management blades.
-            logs_settings (dict): Logs settings.
-            save_logs_locally (bool): Save logs locally on the gateway.
-            send_alerts_to_server (Union[str, List[str]]): Server(s) to send alerts to.
-            send_logs_to_backup_server (Union[str, List[str]]): Backup server(s) to send logs to.
-            send_logs_to_server (Union[str, List[str]]): Server(s) to send logs to.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            ipv4_address (str, optional): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
+            ipv6_address (str, optional): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
+            interfaces (Union[dict, List[dict]], optional): Check Point host interfaces.
+            nat_settings (dict, optional): NAT settings.
+            one_time_password (str, optional): Secure internal connection one time password.
+            hardware (str, optional): Hardware name.
+            os (str, optional): Operating system name.
+            version (str, optional): Check Point host platform version.
+            management_blades (dict, optional): Management blades.
+            logs_settings (dict, optional): Logs settings.
+            save_logs_locally (bool, optional): Save logs locally on the gateway.
+            send_alerts_to_server (Union[str, List[str]], optional): Server(s) to send alerts to.
+            send_logs_to_backup_server (Union[str, List[str]], optional): Backup server(s) to send logs to.
+            send_logs_to_server (Union[str, List[str]], optional): Server(s) to send logs to.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -76,13 +76,9 @@ class CheckpointHost(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewall.network_objects.checkpoint_host.add(
-        name="secondarylogserver",
-        ipv4_address="5.5.5.5",
-        management_blades={
-            "network-policy-management": True,
-            "logging-and-status": True,
-        },)
+            >>> firewall.network_objects.checkpoint_host.add(name="secondarylogserver",\
+ipv4_address="5.5.5.5",management_blades={"network-policy-management": True,\
+"logging-and-status": True,})
         """
 
         # Main request parameters
@@ -141,8 +137,8 @@ class CheckpointHost(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
@@ -187,26 +183,26 @@ class CheckpointHost(NetworkObject):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name. Must be unique in the domain.
-            ip_address (str): 	IPv4 or IPv6 address. If both addresses are required use ipv4-address
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name. Must be unique in the domain.
+            ip_address (str, optional): 	IPv4 or IPv6 address. If both addresses are required use ipv4-address\
             and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
-            ipv4_address (str): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
-            ipv6_address (str): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
-            interfaces (Union[dict, List[dict]]): Check Point host interfaces.
-            nat_settings (dict): NAT settings.
-            new_name (str): New name of the object.
-            one_time_password (str): Secure internal connection one time password.
-            hardware (str): Hardware name.
-            os (str): Operating system name.
-            version (str): Check Point host platform version.
-            management_blades (dict): Management blades.
-            logs_settings (dict): Logs settings.
-            save_logs_locally (bool): Save logs locally on the gateway.
-            send_alerts_to_server (Union[str, List[str]]): Server(s) to send alerts to.
-            send_logs_to_backup_server (Union[str, List[str]]): Backup server(s) to send logs to.
-            send_logs_to_server (Union[str, List[str]]): Server(s) to send logs to.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            ipv4_address (str, optional): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
+            ipv6_address (str, optional): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
+            interfaces (Union[dict, List[dict]], optional): Check Point host interfaces.
+            nat_settings (dict, optional): NAT settings.
+            new_name (str, optional): New name of the object.
+            one_time_password (str, optional): Secure internal connection one time password.
+            hardware (str, optional): Hardware name.
+            os (str, optional): Operating system name.
+            version (str, optional): Check Point host platform version.
+            management_blades (dict, optional): Management blades.
+            logs_settings (dict, optional): Logs settings.
+            save_logs_locally (bool, optional): Save logs locally on the gateway.
+            send_alerts_to_server (Union[str, List[str]], optional): Server(s) to send alerts to.
+            send_logs_to_backup_server (Union[str, List[str]], optional): Backup server(s) to send logs to.
+            send_logs_to_server (Union[str, List[str]], optional): Server(s) to send logs to.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -225,8 +221,8 @@ class CheckpointHost(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewall.network_objects.checkpoint_host.set(
-        uid="f50f3810-d16c-4239-88d0-9f37ac581387", ip_address="5.5.5.5")
+            >>> firewall.network_objects.checkpoint_host.set(uid="f50f3810-d16c-4239-88d0-9f37ac581387", \
+ip_address="5.5.5.5")
         """
 
         # Main request parameters
@@ -292,8 +288,8 @@ class CheckpointHost(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
@@ -324,13 +320,13 @@ class CheckpointHost(NetworkObject):
         Retrieve all objects.
 
         Args:
-            filter_results (str): Search expression to filter objects by.
-            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.
-            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.
+            filter_results (str, optional): Search expression to filter objects by.\
+            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.\
+            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.\
             he search involves both a IP search and a textual search in name, comment, tags etc.
-            limit (int): The maximal number of returned results. Defaults to 50 (between 1 and 500)
-            offset (int): Number of the results to initially skip. Defaults to 0
-            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
+            limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
+            offset (int, optional): Number of the results to initially skip. Defaults to 0
+            order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
         Returns:
             :obj:`Box`: The response from the server

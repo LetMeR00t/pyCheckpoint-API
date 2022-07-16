@@ -340,14 +340,14 @@ class NATRule(APIEndpoint):
             package (str): Name of the package
             name (str): Object name. Must be unique in the domain.
             uid (str): 	Object unique identifier.
-            filter_results (str): Search expression to filter objects by.
-            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.
-            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.
+            filter_results (str): Search expression to filter objects by.\
+            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.\
+            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.\
             he search involves both a IP search and a textual search in name, comment, tags etc.
             filter_settings (str): Sets filter preferences.
             limit (int): The maximal number of returned results. Defaults to 50 (between 1 and 500)
             offset (int): Number of the results to initially skip. Defaults to 0
-            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
+            order (List[dict]): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
             package (str): Name of the package.
             use_object_dictionnary (bool): N/A

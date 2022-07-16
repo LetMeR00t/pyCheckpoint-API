@@ -28,22 +28,22 @@ class AddressRange(NetworkObject):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            ip_address_first (str): First IP address in the range. If both IPv4 and IPv6 address ranges are required,
-            use the ipv4-address-first and the ipv6-address-first fields instead.
+            ip_address_first (str, optional): First IP address in the range. If both IPv4 and IPv6 address ranges are required,\
+            use the ipv4-address-first and the ipv6-address-first fields instead.\
             Mandatory if "ipv4_address_first" or "ipv6_address_first" is not set
-            ipv4_address_first (str): First IPv4 address in the range. Mandatory if "ip_address_first" or "ipv6_address_first"
+            ipv4_address_first (str, optional): First IPv4 address in the range. Mandatory if "ip_address_first" or "ipv6_address_first"\
              is not set
-            ipv6_address_first (str): First IPv6 address in the range. Mandatory if "ip_address_first" or "ipv4_address_first"
+            ipv6_address_first (str, optional): First IPv6 address in the range. Mandatory if "ip_address_first" or "ipv4_address_first"\
              is not set
-            ip_address_last (str): 	Last IP address in the range. If both IPv4 and IPv6 address ranges are required,
-            use the ipv4-address-last and the ipv6-address-last fields instead.
+            ip_address_last (str, optional): 	Last IP address in the range. If both IPv4 and IPv6 address ranges are required,\
+            use the ipv4-address-last and the ipv6-address-last fields instead.\
             Mandatory if "ipv4_address_last" or "ipv6_address_last" is not set
-            ipv4_address_last (str): Last IPv4 address in the range. Mandatory if "ip_address_last" or "ipv6_address_last"
+            ipv4_address_last (str, optional): Last IPv4 address in the range. Mandatory if "ip_address_last" or "ipv6_address_last"\
              is not set
-            ipv6_address_last (str): Last IPv6 address in the range. Mandatory if "ip_address_last" or "ipv4_address_last"
+            ipv6_address_last (str, optional): Last IPv6 address in the range. Mandatory if "ip_address_last" or "ipv4_address_last"\
              is not set
-            nat_settings (dict): NAT settings.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            nat_settings (dict, optional): NAT settings.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -117,8 +117,8 @@ class AddressRange(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
@@ -149,24 +149,24 @@ class AddressRange(NetworkObject):
         Create new object.
 
         Args:
-            name (str): Object name. Must be unique in the domain.
-            ip_address_first (str): First IP address in the range. If both IPv4 and IPv6 address ranges are required,
-            use the ipv4-address-first and the ipv6-address-first fields instead.
+            name (str, optional): Object name. Must be unique in the domain.
+            ip_address_first (str, optional): First IP address in the range. If both IPv4 and IPv6 address ranges are required,\
+            use the ipv4-address-first and the ipv6-address-first fields instead.\
             Mandatory if "ipv4_address_first" or "ipv6_address_first" is not set
-            ipv4_address_first (str): First IPv4 address in the range. Mandatory if "ip_address_first" or "ipv6_address_first"
+            ipv4_address_first (str, optional): First IPv4 address in the range. Mandatory if "ip_address_first" or "ipv6_address_first"\
              is not set
-            ipv6_address_first (str): First IPv6 address in the range. Mandatory if "ip_address_first" or "ipv4_address_first"
+            ipv6_address_first (str, optional): First IPv6 address in the range. Mandatory if "ip_address_first" or "ipv4_address_first"\
              is not set
-            ip_address_last (str): 	Last IP address in the range. If both IPv4 and IPv6 address ranges are required,
-            use the ipv4-address-last and the ipv6-address-last fields instead.
+            ip_address_last (str, optional): 	Last IP address in the range. If both IPv4 and IPv6 address ranges are required,\
+            use the ipv4-address-last and the ipv6-address-last fields instead.\
             Mandatory if "ipv4_address_last" or "ipv6_address_last" is not set
-            ipv4_address_last (str): Last IPv4 address in the range. Mandatory if "ip_address_last" or "ipv6_address_last"
+            ipv4_address_last (str, optional): Last IPv4 address in the range. Mandatory if "ip_address_last" or "ipv6_address_last"\
              is not set
-            ipv6_address_last (str): Last IPv6 address in the range. Mandatory if "ip_address_last" or "ipv4_address_last"
+            ipv6_address_last (str, optional): Last IPv6 address in the range. Mandatory if "ip_address_last" or "ipv4_address_last"\
              is not set
-            new_name (str): New name of the object.
-            nat_settings (dict): NAT settings.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            new_name (str, optional): New name of the object.
+            nat_settings (dict, optional): NAT settings.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -185,9 +185,9 @@ class AddressRange(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewall.network_objects.address_range.set(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20",
-            new_name="New Address Range 1",color=Color.GREEN,ip_address_first="192.0.2.1",ip_address_last="192.0.2.10",
-        groups="New Group 1")
+            >>> firewall.network_objects.address_range.set(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20",\
+new_name="New Address Range 1",color=Color.GREEN,ip_address_first="192.0.2.1",ip_address_last="192.0.2.10",\
+groups="New Group 1")
         """
 
         # Main request parameters
@@ -238,8 +238,8 @@ class AddressRange(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
@@ -270,13 +270,13 @@ class AddressRange(NetworkObject):
         Retrieve all objects.
 
         Args:
-            filter_results (str): Search expression to filter objects by.
-            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.
-            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.
+            filter_results (str, optional): Search expression to filter objects by.\
+            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.\
+            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.\
             he search involves both a IP search and a textual search in name, comment, tags etc.
-            limit (int): The maximal number of returned results. Defaults to 50 (between 1 and 500)
-            offset (int): Number of the results to initially skip. Defaults to 0
-            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
+            limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
+            offset (int, optional): Number of the results to initially skip. Defaults to 0
+            order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
         Returns:
             :obj:`Box`: The response from the server

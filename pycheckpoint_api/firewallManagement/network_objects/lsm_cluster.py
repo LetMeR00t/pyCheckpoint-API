@@ -28,12 +28,12 @@ class LSMCluster(NetworkObject):
         Args:
             name (str): Object name. Must be unique in the domain.
             main_ip_address (str): 	Main IP address.
-            name_prefix (str): 	A prefix added to the profile name and creates the LSM cluster name.
-            name_suffix (str): A suffix added to the profile name and creates the LSM cluster name.
-            security_profile (str): LSM profile.
-            interfaces (List[dict]): Interfaces.
-            members (List[dict]): Members.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            name_prefix (str, optional): 	A prefix added to the profile name and creates the LSM cluster name.
+            name_suffix (str, optional): A suffix added to the profile name and creates the LSM cluster name.
+            security_profile (str, optional): LSM profile.
+            interfaces (List[dict], optional): Interfaces.
+            members (List[dict], optional): Members.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -96,8 +96,8 @@ class LSMCluster(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
@@ -123,12 +123,12 @@ class LSMCluster(NetworkObject):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            interfaces (List[dict]): Interfaces.
-            members (List[dict]): Members.
-            new_name (str): New name of the object.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            interfaces (List[dict], optional): Interfaces.
+            members (List[dict], optional): Members.
+            new_name (str, optional): New name of the object.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -187,8 +187,8 @@ class LSMCluster(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
@@ -219,15 +219,15 @@ class LSMCluster(NetworkObject):
         Retrieve all objects.
 
         Args:
-            filter_results (str): Search expression to filter objects by.
-            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.
-            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.
+            filter_results (str, optional): Search expression to filter objects by.\
+            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.\
+            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.\
             he search involves both a IP search and a textual search in name, comment, tags etc.
-            limit (int): The maximal number of returned results. Defaults to 50 (between 1 and 500)
-            offset (int): Number of the results to initially skip. Defaults to 0
-            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
+            limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
+            offset (int, optional): Number of the results to initially skip. Defaults to 0
+            order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
-            show_as_ranges (bool): When true, the group's matched content is displayed as ranges of IP addresses rather
+            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather
             than network objects. Objects that are not represented using IP addresses are presented as objects.
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.
             Defaults to False.

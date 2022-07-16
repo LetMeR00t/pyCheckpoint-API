@@ -27,11 +27,11 @@ class AccessPointName(NetworkObject):
         Args:
             name (str): Object name. Must be unique in the domain.
             apn (str): APN name.
-            enforce_end_user_domain (bool): Enable enforce end user domain.
-            block_traffic_other_end_user_domains (bool): Block MS to MS traffic between this and other APN end user domains.
-            block_traffic_this_end_user_domain (bool): Block MS to MS traffic within this end user domain.
-            end_user_domain (str): End user domain name or UID.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            enforce_end_user_domain (bool, optional): Enable enforce end user domain.
+            block_traffic_other_end_user_domains (bool, optional): Block MS to MS traffic between this and other APN end user domains.
+            block_traffic_this_end_user_domain (bool, optional): Block MS to MS traffic within this end user domain.
+            end_user_domain (str, optional): End user domain name or UID.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -94,8 +94,8 @@ class AccessPointName(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
@@ -126,15 +126,15 @@ class AccessPointName(NetworkObject):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            apn (str): APN name.
-            enforce_end_user_domain (bool): Enable enforce end user domain.
-            block_traffic_other_end_user_domains (bool): Block MS to MS traffic between this and other APN end user domains.
-            block_traffic_this_end_user_domain (bool): Block MS to MS traffic within this end user domain.
-            end_user_domain (str): End user domain name or UID.
-            new_name (str): New name of the object.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            apn (str, optional): APN name.
+            enforce_end_user_domain (bool, optional): Enable enforce end user domain.
+            block_traffic_other_end_user_domains (bool, optional): Block MS to MS traffic between this and other APN end user domains.
+            block_traffic_this_end_user_domain (bool, optional): Block MS to MS traffic within this end user domain.
+            end_user_domain (str, optional): End user domain name or UID.
+            new_name (str, optional): New name of the object.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -153,8 +153,8 @@ class AccessPointName(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewall.network_objects.access_point_name.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
-            new_name="New Access Point Name")
+            >>> firewall.network_objects.access_point_name.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",\
+new_name="New Access Point Name")
         """
 
         # Main request parameters
@@ -203,8 +203,8 @@ class AccessPointName(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value
@@ -235,13 +235,13 @@ class AccessPointName(NetworkObject):
         Retrieve all objects.
 
         Args:
-            filter_results (str): Search expression to filter objects by.
-            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.
-            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.
+            filter_results (str, optional): Search expression to filter objects by.\
+            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.\
+            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.\
             he search involves both a IP search and a textual search in name, comment, tags etc.
-            limit (int): The maximal number of returned results. Defaults to 50 (between 1 and 500)
-            offset (int): Number of the results to initially skip. Defaults to 0
-            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
+            limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
+            offset (int, optional): Number of the results to initially skip. Defaults to 0
+            order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
         Keyword Args:
             **details-level (str, optional):

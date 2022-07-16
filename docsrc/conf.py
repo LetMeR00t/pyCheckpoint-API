@@ -37,6 +37,7 @@ extensions = [
     "sphinx.ext.githubpages",
     "sphinx.ext.napoleon",
     "enum_tools.autoenum",
+    "sphinx_autodoc_typehints",
 ]
 autodoc_typehints = "none"
 add_module_names = False
@@ -69,6 +70,9 @@ html_logo = "logo.png"
 html_theme_options = {
     "sidebar_hide_name": True,
 }
+
+# Example configuration for intersphinx: refer to the Python standard library.
+intersphinx_mapping = {"https://docs.python.org/": None}
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True

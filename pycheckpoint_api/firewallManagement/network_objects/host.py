@@ -27,7 +27,7 @@ class Host(NetworkObject):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            ip_address (str): 	IPv4 or IPv6 address. If both addresses are required use ipv4-address
+            ip_address (str): 	IPv4 or IPv6 address. If both addresses are required use ipv4-address\
             and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
             ipv4_address (str): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
             ipv6_address (str): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
@@ -132,7 +132,7 @@ class Host(NetworkObject):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
-            ip_address (str): IPv4 or IPv6 address. If both addresses are required use ipv4-address
+            ip_address (str): IPv4 or IPv6 address. If both addresses are required use ipv4-address\
             and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
             ipv4_address (str): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
             ipv6_address (str): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
@@ -237,13 +237,13 @@ class Host(NetworkObject):
         Retrieve all objects.
 
         Args:
-            filter_results (str): Search expression to filter objects by.
-            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.
-            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.
+            filter_results (str, optional): Search expression to filter objects by.\
+            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.\
+            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.\
             he search involves both a IP search and a textual search in name, comment, tags etc.
-            limit (int): The maximal number of returned results. Defaults to 50 (between 1 and 500)
-            offset (int): Number of the results to initially skip. Defaults to 0
-            order (List[dict]): Sorts results by the given field. By default the results are sorted in the
+            limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
+            offset (int, optional): Number of the results to initially skip. Defaults to 0
+            order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
         Returns:
             :obj:`Box`: The response from the server

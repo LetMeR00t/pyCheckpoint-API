@@ -10,4 +10,10 @@ This class is used to manage `Network Objects <https://sc1.checkpoint.com/docume
 .. toctree::
     :maxdepth: 1
 
+    access_point_name
+    address_range
+    checkpoint_host
+    dns_domain
+    dynamic_object
+    group_with_exclusion
     host
