@@ -66,7 +66,7 @@ class AddressRange(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.address_range.add(name="New Address Range 1",
+            >>> firewall.network_objects.address_range.add(name="New Address Range 1",
         ip_address_first="192.0.2.1", ip_address_last="192.0.2.10",)
         """
 
@@ -126,7 +126,7 @@ class AddressRange(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.address_range.show(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
+            >>> firewall.network_objects.address_range.show(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
         """
         return self.show_object(endpoint="show-address-range", uid=uid, name=name, **kw)
 
@@ -185,7 +185,7 @@ class AddressRange(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.address_range.set(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20",
+            >>> firewall.network_objects.address_range.set(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20",
             new_name="New Address Range 1",color=Color.GREEN,ip_address_first="192.0.2.1",ip_address_last="192.0.2.10",
         groups="New Group 1")
         """
@@ -252,7 +252,7 @@ class AddressRange(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.address_range.delete(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
+            >>> firewall.network_objects.address_range.delete(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
         """
         return self.delete_object(
             endpoint="delete-address-range", uid=uid, name=name, **kw
@@ -281,7 +281,7 @@ class AddressRange(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.network.shows_address_ranges()
+            >>> firewall.network_objects.network.shows_address_ranges()
         """
         return self.show_objects(
             endpoint="show-address-ranges",

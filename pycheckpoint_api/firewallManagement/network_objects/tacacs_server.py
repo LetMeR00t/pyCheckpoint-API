@@ -53,7 +53,7 @@ class TacacsServer(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.tag.add(name="My object")
+            >>> firewall.network_objects.tag.add(name="My object")
         """
 
         # Main request parameters
@@ -99,7 +99,7 @@ class TacacsServer(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.tacacs_server.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.tacacs_server.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-tacacs-server", uid=uid, name=name, **kw)
 
@@ -150,7 +150,7 @@ class TacacsServer(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.tacacs_server.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            >>> firewall.network_objects.tacacs_server.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New TACACS Server")
         """
 
@@ -210,7 +210,7 @@ class TacacsServer(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.tacacs_server.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.tacacs_server.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-tacacs-server", uid=uid, name=name, **kw
@@ -252,7 +252,7 @@ class TacacsServer(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.tacacs_server.shows_tacacs_servers()
+            >>> firewall.network_objects.tacacs_server.shows_tacacs_servers()
         """
         return self.show_objects(
             endpoint="show-tacacs-servers",

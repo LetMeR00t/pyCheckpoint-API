@@ -38,7 +38,7 @@ class DNSDomain(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.dns_domain.add(name="My object")
+            >>> firewall.network_objects.dns_domain.add(name="My object")
         """
 
         # Main request parameters
@@ -79,7 +79,7 @@ class DNSDomain(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.dns_domain.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.dns_domain.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-dns-domain", uid=uid, name=name, **kw)
 
@@ -119,7 +119,7 @@ class DNSDomain(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.dns_domain.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            >>> firewall.network_objects.dns_domain.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New DNS Domain")
         """
 
@@ -171,7 +171,7 @@ class DNSDomain(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.dns_domain.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.dns_domain.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-dns-domain", uid=uid, name=name, **kw
@@ -213,7 +213,7 @@ class DNSDomain(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.dns_domain.shows_dns_domains()
+            >>> firewall.network_objects.dns_domain.shows_dns_domains()
         """
         return self.show_objects(
             endpoint="show-dns-domains",

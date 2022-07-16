@@ -38,7 +38,7 @@ class NetworkObject(APIEndpoint):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> FirewallManagement.network_objects.<OBJECT_TYPE>.show(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
+            >>> firewall.network_objects.<OBJECT_TYPE>.show(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
 
         """
 
@@ -85,7 +85,7 @@ class NetworkObject(APIEndpoint):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> FirewallManagement.network_objects.<OBJECT_TYPE>.delete(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
+            >>> firewall.network_objects.<OBJECT_TYPE>.delete(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
 
         """
 
@@ -149,7 +149,7 @@ class NetworkObject(APIEndpoint):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> FirewallManagement.network_objects.<OBJECT_TYPE>.shows_objects()
+            >>> firewall.network_objects.<OBJECT_TYPE>.shows_objects()
 
         """
 

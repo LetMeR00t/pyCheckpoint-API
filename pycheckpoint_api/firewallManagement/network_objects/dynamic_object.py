@@ -35,7 +35,7 @@ class DynamicObject(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.group.add(name="My object")
+            >>> firewall.network_objects.group.add(name="My object")
         """
 
         # Main request parameters
@@ -76,7 +76,7 @@ class DynamicObject(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.dynamic-object.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.dynamic-object.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(
             endpoint="show-dynamic-object", uid=uid, name=name, **kw
@@ -118,7 +118,7 @@ class DynamicObject(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.dynamic_object.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            >>> firewall.network_objects.dynamic_object.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="Dynamic_Object_1")
         """
 
@@ -170,7 +170,7 @@ class DynamicObject(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.dynamic_object.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.dynamic_object.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-dynamic-object", uid=uid, name=name, **kw
@@ -213,7 +213,7 @@ class DynamicObject(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.dynamic_object.shows_dynamic_objects()
+            >>> firewall.network_objects.dynamic_object.shows_dynamic_objects()
         """
         return self.show_objects(
             endpoint="show-dynamic-objects",

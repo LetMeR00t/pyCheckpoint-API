@@ -51,7 +51,7 @@ class LSVProfile(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.lsv_profile.add(
+            >>> firewall.network_objects.lsv_profile.add(
         name="New lsv-profile", certificate_authority="dedicated_profile_certificate")
         """
 
@@ -94,7 +94,7 @@ class LSVProfile(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.lsv_profile.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.lsv_profile.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-lsv-profile", uid=uid, name=name, **kw)
 
@@ -136,7 +136,7 @@ class LSVProfile(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.lsv_profile.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            >>> firewall.network_objects.lsv_profile.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New Tag")
         """
 
@@ -194,7 +194,7 @@ class LSVProfile(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.lsv_profile.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.lsv_profile.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-lsv-profile", uid=uid, name=name, **kw
@@ -236,7 +236,7 @@ class LSVProfile(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.lsv_profile.shows_lsv_profiles()
+            >>> firewall.network_objects.lsv_profile.shows_lsv_profiles()
         """
         return self.show_objects(
             endpoint="show-lsv-profiles",

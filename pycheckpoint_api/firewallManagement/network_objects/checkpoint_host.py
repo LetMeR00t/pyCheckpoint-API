@@ -76,7 +76,7 @@ class CheckpointHost(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.checkpoint_host.add(
+            >>> firewall.network_objects.checkpoint_host.add(
         name="secondarylogserver",
         ipv4_address="5.5.5.5",
         management_blades={
@@ -150,7 +150,7 @@ class CheckpointHost(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.checkpoint_host.show(
+            >>> firewall.network_objects.checkpoint_host.show(
                 uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.show_object(
@@ -225,7 +225,7 @@ class CheckpointHost(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.checkpoint_host.set(
+            >>> firewall.network_objects.checkpoint_host.set(
         uid="f50f3810-d16c-4239-88d0-9f37ac581387", ip_address="5.5.5.5")
         """
 
@@ -306,7 +306,7 @@ class CheckpointHost(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.checkpoint_host.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> firewall.network_objects.checkpoint_host.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.delete_object(
             endpoint="delete-checkpoint-host", uid=uid, name=name, **kw
@@ -335,7 +335,7 @@ class CheckpointHost(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.checkpoint_host.show_checkpoint_hosts()
+            >>> firewall.network_objects.checkpoint_host.show_checkpoint_hosts()
         """
         return self.show_objects(
             endpoint="show-checkpoint-hosts",

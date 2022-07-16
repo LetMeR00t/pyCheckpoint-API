@@ -48,7 +48,7 @@ class OPSECApplication(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.opsec_application.add(
+            >>> firewall.network_objects.opsec_application.add(
         name="MyOpsecApplication",
         host="SomeHost",
         cpmi={
@@ -99,7 +99,7 @@ class OPSECApplication(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.opsec_application.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.opsec_application.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(
             endpoint="show-opsec-application", uid=uid, name=name, **kw
@@ -147,7 +147,7 @@ class OPSECApplication(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.tag.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            >>> firewall.network_objects.tag.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New Tag")
         """
 
@@ -205,7 +205,7 @@ class OPSECApplication(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.opsec_application.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.opsec_application.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-opsec-application", uid=uid, name=name, **kw
@@ -247,7 +247,7 @@ class OPSECApplication(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.opsec_application.shows_opsec_applications()
+            >>> firewall.network_objects.opsec_application.shows_opsec_applications()
         """
         return self.show_objects(
             endpoint="show-opsec-applications",

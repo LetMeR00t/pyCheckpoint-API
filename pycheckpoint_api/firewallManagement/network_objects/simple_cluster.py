@@ -101,7 +101,7 @@ class SimpleCluster(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.simple_cluster.add(
+            >>> firewall.network_objects.simple_cluster.add(
         name="cluster1", ip_address="17.23.5.1")
         """
 
@@ -198,7 +198,7 @@ class SimpleCluster(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.simple_cluster.show(
+            >>> firewall.network_objects.simple_cluster.show(
                 uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.show_object(
@@ -278,7 +278,7 @@ class SimpleCluster(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.simple_cluster.set(
+            >>> firewall.network_objects.simple_cluster.set(
         uid="4a5d882a-5568-2c3b-aa78-751ab23d6c11", ip_address="17.23.5.1")
         """
 
@@ -387,7 +387,7 @@ class SimpleCluster(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.simple_cluster.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> firewall.network_objects.simple_cluster.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.delete_object(
             endpoint="delete-simple-cluster", uid=uid, name=name, **kw
@@ -416,7 +416,7 @@ class SimpleCluster(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.simple_cluster.show_simple_clusters()
+            >>> firewall.network_objects.simple_cluster.show_simple_clusters()
         """
         return self.show_objects(
             endpoint="show-simple-clusters",

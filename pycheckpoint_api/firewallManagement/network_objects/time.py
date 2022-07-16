@@ -53,7 +53,7 @@ class Time(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.time.add(name="My object")
+            >>> firewall.network_objects.time.add(name="My object")
         """
 
         # Main request parameters
@@ -102,7 +102,7 @@ class Time(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.time.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> firewall.network_objects.time.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
         return self.show_object(endpoint="show-time", uid=uid, name=name, **kw)
 
@@ -153,7 +153,7 @@ class Time(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.time.set(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",
+            >>> firewall.network_objects.time.set(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",
             new_name="timeObject1")
         """
 
@@ -215,7 +215,7 @@ class Time(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.time.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> firewall.network_objects.time.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
         return self.delete_object(endpoint="delete-time", uid=uid, name=name, **kw)
 
@@ -242,7 +242,7 @@ class Time(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.time.shows_times()
+            >>> firewall.network_objects.time.shows_times()
         """
         return self.show_objects(
             endpoint="show-times",

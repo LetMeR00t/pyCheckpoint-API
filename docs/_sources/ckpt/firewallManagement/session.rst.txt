@@ -1,4 +1,4 @@
-Session
+Session Management
 ==========================
 
 This class is used to manage the session with the API.

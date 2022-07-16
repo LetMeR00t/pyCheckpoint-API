@@ -8,3 +8,9 @@ Those classes are used to interface with the Checkpoint Firewall API in Python
     :glob:
 
     session
+    network_objects/index
+    service_applications
+    access_control_nat
+
+.. automodule:: pycheckpoint_api.firewallManagement
+    :members:

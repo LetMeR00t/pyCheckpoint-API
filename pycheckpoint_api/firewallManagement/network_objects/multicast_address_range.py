@@ -66,7 +66,7 @@ class MulticastAddressRange(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.multicast_address_range.add(name="New Multicast Address Range",
+            >>> firewall.network_objects.multicast_address_range.add(name="New Multicast Address Range",
             ip_address_first="224.0.0.1",ip_address_last="224.0.0.4")
         """
 
@@ -123,7 +123,7 @@ class MulticastAddressRange(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.multicast_address_range.show(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
+            >>> firewall.network_objects.multicast_address_range.show(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
         """
         return self.show_object(
             endpoint="show-multicast-address-range", uid=uid, name=name, **kw
@@ -184,7 +184,7 @@ class MulticastAddressRange(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.multicast_address_range.set(uid="faff3fdf-01b9-4c58-97dc-176c409b5bc1",
+            >>> firewall.network_objects.multicast_address_range.set(uid="faff3fdf-01b9-4c58-97dc-176c409b5bc1",
             new_name="New Multicast Address Range",ip_address_first="224.0.0.1",ip_address_last="224.0.0.4")
         """
 
@@ -255,7 +255,7 @@ class MulticastAddressRange(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.multicast_address_range.delete(
+            >>> firewall.network_objects.multicast_address_range.delete(
                 uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
         """
         return self.delete_object(
@@ -285,7 +285,7 @@ class MulticastAddressRange(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.network.show_multicast_address_ranges()
+            >>> firewall.network_objects.network.show_multicast_address_ranges()
         """
         return self.show_objects(
             endpoint="show-multicast-address-ranges",

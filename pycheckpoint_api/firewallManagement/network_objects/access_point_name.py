@@ -54,7 +54,7 @@ class AccessPointName(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.access_point_name.add(name="My object")
+            >>> firewall.network_objects.access_point_name.add(name="My object")
         """
 
         # Main request parameters
@@ -103,7 +103,7 @@ class AccessPointName(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.access_point_name.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.access_point_name.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(
             endpoint="show-access-point-name", uid=uid, name=name, **kw
@@ -153,7 +153,7 @@ class AccessPointName(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.access_point_name.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            >>> firewall.network_objects.access_point_name.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New Access Point Name")
         """
 
@@ -217,7 +217,7 @@ class AccessPointName(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.access_point_name.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.access_point_name.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-access-point-name", uid=uid, name=name, **kw
@@ -254,7 +254,7 @@ class AccessPointName(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.access_point_name.shows_access_point_names()
+            >>> firewall.network_objects.access_point_name.shows_access_point_names()
         """
         return self.show_objects(
             endpoint="show-access-point-names",

@@ -67,7 +67,7 @@ class Network(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.network.add(name="My object")
+            >>> firewall.network_objects.network.add(name="My object")
         """
 
         # Main request parameters
@@ -126,7 +126,7 @@ class Network(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.network.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> firewall.network_objects.network.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
         return self.show_object(endpoint="show-network", uid=uid, name=name, **kw)
 
@@ -187,7 +187,7 @@ class Network(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.network.set(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",subnet="192.0.2.0",
+            >>> firewall.network_objects.network.set(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",subnet="192.0.2.0",
                 subnet_mask="255.255.255.0")
         """
 
@@ -257,7 +257,7 @@ class Network(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.network.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> firewall.network_objects.network.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
         return self.delete_object(endpoint="delete-network", uid=uid, name=name, **kw)
 
@@ -284,7 +284,7 @@ class Network(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.network.shows_networks()
+            >>> firewall.network_objects.network.shows_networks()
         """
         return self.show_objects(
             endpoint="show-networks",

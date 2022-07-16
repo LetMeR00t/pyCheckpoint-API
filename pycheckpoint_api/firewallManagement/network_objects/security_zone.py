@@ -39,7 +39,7 @@ class SecurityZone(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.security_zone.add(name="My object")
+            >>> firewall.network_objects.security_zone.add(name="My object")
         """
 
         # Main request parameters
@@ -73,7 +73,7 @@ class SecurityZone(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.security_zone.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> firewall.network_objects.security_zone.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
         return self.show_object(endpoint="show-security-zone", uid=uid, name=name, **kw)
 
@@ -111,7 +111,7 @@ class SecurityZone(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.security_zone.set(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",
+            >>> firewall.network_objects.security_zone.set(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",
             subnet="192.0.2.0",subnet_mask="255.255.255.0")
         """
 
@@ -161,7 +161,7 @@ class SecurityZone(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.security_zone.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
+            >>> firewall.network_objects.security_zone.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
         return self.delete_object(
             endpoint="delete-security-zone", uid=uid, name=name, **kw
@@ -190,7 +190,7 @@ class SecurityZone(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.security_zone.shows_security_zones()
+            >>> firewall.network_objects.security_zone.shows_security_zones()
         """
         return self.show_objects(
             endpoint="show-security-zones",

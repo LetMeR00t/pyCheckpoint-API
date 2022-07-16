@@ -52,7 +52,7 @@ class LSMCluster(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.lsm_cluster.add(name="Gaia_gaia_cluster",
+            >>> firewall.network_objects.lsm_cluster.add(name="Gaia_gaia_cluster",
         name_prefix="Gaia_",
         main_ip_address="192.168.8.197",
         )
@@ -105,7 +105,7 @@ class LSMCluster(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.lsm_cluster.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.lsm_cluster.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-lsm-cluster", uid=uid, name=name, **kw)
 
@@ -147,7 +147,7 @@ class LSMCluster(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.lsm_cluster.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            >>> firewall.network_objects.lsm_cluster.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New LSM Cluster")
         """
 
@@ -201,7 +201,7 @@ class LSMCluster(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.lsm_cluster.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.lsm_cluster.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-lsm-cluster", uid=uid, name=name, **kw
@@ -244,7 +244,7 @@ class LSMCluster(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.lsm_cluster.shows_lsm_clusters()
+            >>> firewall.network_objects.lsm_cluster.shows_lsm_clusters()
         """
         return self.show_objects(
             endpoint="show-lsm-clusters",

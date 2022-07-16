@@ -45,7 +45,7 @@ class GroupWithExclusion(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.group_with_exclusion.add(name="DemoGroupWithExclusion",
+            >>> firewall.network_objects.group_with_exclusion.add(name="DemoGroupWithExclusion",
             include="New Group 1",exception="New Group 2")
         """
 
@@ -88,7 +88,7 @@ class GroupWithExclusion(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(
             endpoint="show-group-with-exclusion", uid=uid, name=name, **kw
@@ -133,7 +133,7 @@ class GroupWithExclusion(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.group_with_exclusion.set(
+            >>> firewall.network_objects.group_with_exclusion.set(
                 uid="ed997ff8-6709-4d71-a713-99bf01711cd5", new_name="New Group 3")
         """
 
@@ -187,7 +187,7 @@ class GroupWithExclusion(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.group_with_exclusion.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.group_with_exclusion.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-group-with-exclusion", uid=uid, name=name, **kw
@@ -221,7 +221,7 @@ class GroupWithExclusion(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.group_with_exclusion.show_groups_with_exclusion()
+            >>> firewall.network_objects.group_with_exclusion.show_groups_with_exclusion()
         """
         return self.show_objects(
             endpoint="show-groups-with-exclusion",

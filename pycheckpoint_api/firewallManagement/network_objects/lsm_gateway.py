@@ -50,7 +50,7 @@ class LSMGateway(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.lsm_gateway.add(name="My object")
+            >>> firewall.network_objects.lsm_gateway.add(name="My object")
         """
 
         # Main request parameters
@@ -91,7 +91,7 @@ class LSMGateway(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.lsm_gateway.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.lsm_gateway.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-lsm-gateway", uid=uid, name=name, **kw)
 
@@ -139,7 +139,7 @@ class LSMGateway(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.lsm_gateway.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            >>> firewall.network_objects.lsm_gateway.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New Tag")
         """
 
@@ -197,7 +197,7 @@ class LSMGateway(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.lsm_gateway.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.lsm_gateway.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-lsm-gateway", uid=uid, name=name, **kw
@@ -238,7 +238,7 @@ class LSMGateway(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.lsm_gateway.shows_lsm_gateways()
+            >>> firewall.network_objects.lsm_gateway.shows_lsm_gateways()
         """
         return self.show_objects(
             endpoint="show-lsm-gateways",

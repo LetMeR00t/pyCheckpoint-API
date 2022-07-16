@@ -16,7 +16,7 @@ class NetworkInterface(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.network_interface.abort_get_interfaces(
+            >>> firewall.network_objects.network_interface.abort_get_interfaces(
                 task_id="01234567-89ab-cdef-a930-8c37a59972b3")
         """
         # Main request parameters
@@ -52,7 +52,7 @@ class NetworkInterface(APIEndpoint):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.network_interface.get_interfaces(
+            >>> firewall.network_objects.network_interface.get_interfaces(
                 target_name="gw123")
         """
         # Main request parameters

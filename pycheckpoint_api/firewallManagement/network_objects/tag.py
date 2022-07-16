@@ -35,7 +35,7 @@ class Tag(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.tag.add(name="My object")
+            >>> firewall.network_objects.tag.add(name="My object")
         """
 
         # Main request parameters
@@ -70,7 +70,7 @@ class Tag(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.tag.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.tag.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-tag", uid=uid, name=name, **kw)
 
@@ -108,7 +108,7 @@ class Tag(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.tag.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            >>> firewall.network_objects.tag.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New Tag")
         """
 
@@ -158,7 +158,7 @@ class Tag(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.tag.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.tag.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(endpoint="delete-tag", uid=uid, name=name, **kw)
 
@@ -197,7 +197,7 @@ class Tag(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.tag.shows_tags()
+            >>> firewall.network_objects.tag.shows_tags()
         """
         return self.show_objects(
             endpoint="show-tags",

@@ -50,7 +50,7 @@ class GSNHandoverGroup(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.gsn_handover_group.add(name="My object")
+            >>> firewall.network_objects.gsn_handover_group.add(name="My object")
         """
 
         # Main request parameters
@@ -92,7 +92,7 @@ class GSNHandoverGroup(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.gsn_handover_group.show(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e")
+            >>> firewall.network_objects.gsn_handover_group.show(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e")
         """
 
         # Main request parameters
@@ -151,7 +151,7 @@ class GSNHandoverGroup(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.gsn_handover_group.set(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e",
+            >>> firewall.network_objects.gsn_handover_group.set(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e",
             new_name="gsnhandovergroup")
         """
 
@@ -207,7 +207,7 @@ class GSNHandoverGroup(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.gsn_handover_group.delete(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e")
+            >>> firewall.network_objects.gsn_handover_group.delete(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e")
         """
         return self.delete_object(
             endpoint="delete-gsn-handover-group", uid=uid, name=name, **kw
@@ -236,7 +236,7 @@ class GSNHandoverGroup(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.group.shows_groups()
+            >>> firewall.network_objects.group.shows_groups()
         """
         return self.show_objects(
             endpoint="show-gsn-handover-groups",

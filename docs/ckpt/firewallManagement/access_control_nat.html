@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Session Management" href="session.html" /><link rel="prev" title="Welcome to pyCheckpoint-API’s documentation!" href="../../index.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Helpers" href="../index.html" /><link rel="prev" title="Service &amp; Applications" href="service_applications.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
-        <title>Firewall Management - pyCheckpoint-API 0.6.0 documentation</title>
+        <title>Access Control &amp; NAT - pyCheckpoint-API 0.6.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -158,7 +158,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Firewall Management</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Firewall Management</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="session.html">Session Management</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
 </ul>
 </li>
@@ -171,7 +171,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="service_applications.html">Service &amp; Applications</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="access_control_nat.html">Access Control &amp; NAT</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Access Control &amp; NAT</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -224,117 +224,42 @@
           </label>
         </div>
         <article role="main">
-          <section id="firewall-management">
-<h1>Firewall Management<a class="headerlink" href="#firewall-management" title="Permalink to this heading">#</a></h1>
-<p>Those classes are used to interface with the Checkpoint Firewall API in Python</p>
+          <section id="access-control-nat">
+<h1>Access Control &amp; NAT<a class="headerlink" href="#access-control-nat" title="Permalink to this heading">#</a></h1>
+<p>Those classes are used by this SDK to manage <a class="reference external" href="https://sc1.checkpoint.com/documents/latest/APIs/">Access Control &amp; NAT</a></p>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="session.html">Session Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="network_objects/index.html">Network Objects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="service_applications.html">Service &amp; Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="access_control_nat.html">Access Control &amp; NAT</a></li>
-</ul>
 </div>
-<span class="target" id="module-pycheckpoint_api.firewallManagement"></span><dl class="py class">
-<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.FirewallManagement">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FirewallManagement</span></span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.FirewallManagement" title="Permalink to this definition">#</a></dt>
-<dd><p>A Controller to access Endpoints in the Checkpoint Firewall Management API.
-The ManagementAPI object stores the session token and simplifies access to CRUD options within the Checkpoint firewalls.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.FirewallManagement.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.FirewallManagement.__init__" title="Permalink to this definition">#</a></dt>
-<dd><p>Class constructor</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>**kw</strong> (<em>dict</em>) – Arbitrary keyword arguments for parameters.</p>
-</dd>
-<dt class="field-even">Keyword Arguments</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>**user</strong> (<em>str</em><em>, </em><em>optional</em>) – User name to use to authenticate (instead of <code class="docutils literal notranslate"><span class="pre">api_key</span></code>)</p></li>
-<li><p><strong>**password</strong> (<em>str</em><em>, </em><em>optional</em>) – Password to use to authenticate (instead of <code class="docutils literal notranslate"><span class="pre">api_key</span></code>)</p></li>
-<li><p><strong>**api_key</strong> (<em>str</em><em>, </em><em>optional</em>) – API key to use to authenticate (instead of <code class="docutils literal notranslate"><span class="pre">user</span></code>/<code class="docutils literal notranslate"><span class="pre">password</span></code>)</p></li>
-<li><p><strong>**hostname</strong> (<em>str</em><em>, </em><em>optional</em>) – Hostname used to reach the Firewall Checkpoint</p></li>
-<li><p><strong>**port</strong> (<em>str</em><em>, </em><em>optional</em>) – Port used to reach the Firewall Checkpoint.</p></li>
-<li><p><strong>**version</strong> (<em>str</em><em>, </em><em>optional</em>) – Current API version used by the Firewall Checkpoint</p></li>
-</ul>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span> <span class="o">=</span> <span class="n">FirewallManagement</span><span class="p">(</span><span class="n">hostname</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="mi">443</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;&lt;API_KEY&gt;&quot;</span><span class="p">,</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.8&quot;</span><span class="p">,</span><span class="n">domain</span><span class="o">=</span><span class="s2">&quot;Local Domain&quot;&quot;,ssl_verify=False,)</span>
-</pre></div>
-</div>
+<span class="target" id="module-pycheckpoint_api.firewallManagement.access_control_nat"></span><dl class="py class">
+<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.access_control_nat.AccessControlNAT">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AccessControlNAT</span></span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.access_control_nat.AccessControlNAT" title="Permalink to this definition">#</a></dt>
+<dd><dl class="py property">
+<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.access_control_nat.AccessControlNAT.access_layer">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">access_layer</span></span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.access_control_nat.AccessControlNAT.access_layer" title="Permalink to this definition">#</a></dt>
+<dd><p>The interface object for the objects type “Access Layer” Management.</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.FirewallManagement.access_control_nat">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">access_control_nat</span></span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.FirewallManagement.access_control_nat" title="Permalink to this definition">#</a></dt>
-<dd><p>The interface object for the Access Control &amp; NAT Management.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>an AccessControlNAT object</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="access_control_nat.html#pycheckpoint_api.firewallManagement.access_control_nat.AccessControlNAT" title="pycheckpoint_api.firewallManagement.access_control_nat.AccessControlNAT">AccessControlNAT</a></p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">access_control_nat</span>
-</pre></div>
-</div>
+<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.access_control_nat.AccessControlNAT.access_rule">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">access_rule</span></span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.access_control_nat.AccessControlNAT.access_rule" title="Permalink to this definition">#</a></dt>
+<dd><p>The interface object for the objects type “Access Rule” Management.</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.FirewallManagement.network_objects">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">network_objects</span></span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.FirewallManagement.network_objects" title="Permalink to this definition">#</a></dt>
-<dd><p>The interface object for the Network Objects Management.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>a NetworkObjects object</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="network_objects/index.html#pycheckpoint_api.firewallManagement.network_objects.NetworkObjects" title="pycheckpoint_api.firewallManagement.network_objects.NetworkObjects">NetworkObjects</a></p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">network_objects</span>
-</pre></div>
-</div>
+<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.access_control_nat.AccessControlNAT.access_section">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">access_section</span></span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.access_control_nat.AccessControlNAT.access_section" title="Permalink to this definition">#</a></dt>
+<dd><p>The interface object for the objects type “Access Section” Management.</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.FirewallManagement.service_applications">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">service_applications</span></span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.FirewallManagement.service_applications" title="Permalink to this definition">#</a></dt>
-<dd><p>The interface object for the Service &amp; Applications Management.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>a ServiceApplications object</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="service_applications.html#pycheckpoint_api.firewallManagement.service_applications.ServiceApplications" title="pycheckpoint_api.firewallManagement.service_applications.ServiceApplications">ServiceApplications</a></p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">service_applications</span>
-</pre></div>
-</div>
+<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.access_control_nat.AccessControlNAT.nat_rule">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nat_rule</span></span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.access_control_nat.AccessControlNAT.nat_rule" title="Permalink to this definition">#</a></dt>
+<dd><p>The interface object for the objects type “NAT Rule” Management.</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.FirewallManagement.session">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">session</span></span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.FirewallManagement.session" title="Permalink to this definition">#</a></dt>
-<dd><p>The interface object for the Session Management.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>a Session object</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="session.html#pycheckpoint_api.firewallManagement.session.Session" title="pycheckpoint_api.firewallManagement.session.Session">Session</a></p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">session</span>
-</pre></div>
-</div>
+<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.access_control_nat.AccessControlNAT.nat_section">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nat_section</span></span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.access_control_nat.AccessControlNAT.nat_section" title="Permalink to this definition">#</a></dt>
+<dd><p>The interface object for the objects type “NAT Section” Management.</p>
 </dd></dl>
 
 </dd></dl>
@@ -346,23 +271,23 @@ The ManagementAPI object stores the session token and simplifies access to CRUD 
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="session.html">
+          <a class="next-page" href="../index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Session Management</div>
+                <div class="title">Helpers</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../../index.html">
+          <a class="prev-page" href="service_applications.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Home</div>
+                <div class="title">Service &amp; Applications</div>
                 
               </div>
             </a>

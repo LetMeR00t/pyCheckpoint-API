@@ -11,15 +11,8 @@ from .session import Session
 
 
 class FirewallManagement(APISession):
-    """
-    A Controller to access Endpoints in the Checkpoint Firewall Management API.
+    """A Controller to access Endpoints in the Checkpoint Firewall Management API.
     The ManagementAPI object stores the session token and simplifies access to CRUD options within the Checkpoint firewalls.
-    Attributes:
-        username (str): (Mandatory) The Firewall Management administrator username.
-        password (str): (Mandatory) The Firewall Management administrator password.
-        hostname (str): (Mandatory) The Firewall Management hostname to use
-        port (int): (Mandatory) The Firewall Management port to use.
-        version (int): (Mandatory) The Firewall Management version to use.
     """
 
     _vendor = "Checkpoint"
@@ -31,9 +24,31 @@ class FirewallManagement(APISession):
     _env_base = "CHECKPOINT_FIREWALL"
 
     def __init__(self, **kw):
-        self._username = sanitize_value(
-            field="username", t=str, is_mandatory=False, **kw
-        )
+        """Class constructor
+
+        Args:
+            **kw (dict): Arbitrary keyword arguments for parameters.
+
+        Keyword Args:
+            **user (str, optional)
+                User name to use to authenticate (instead of ``api_key``)
+            **password (str, optional)
+                Password to use to authenticate (instead of ``api_key``)
+            **api_key (str, optional)
+                API key to use to authenticate (instead of ``user``/``password``)
+            **hostname (str, optional)
+                Hostname used to reach the Firewall Checkpoint
+            **port (str, optional)
+                Port used to reach the Firewall Checkpoint.
+            **version (str, optional)
+                Current API version used by the Firewall Checkpoint
+
+        Examples:
+            >>> firewall = FirewallManagement(hostname="localhost",port=443, \
+api_key="<API_KEY>",version="1.8",domain="Local Domain"",ssl_verify=False,)
+
+        """
+        self._user = sanitize_value(field="user", t=str, is_mandatory=False, **kw)
         self._password = sanitize_value(
             field="password", t=str, is_mandatory=False, **kw
         )
@@ -62,21 +77,53 @@ class FirewallManagement(APISession):
         return self.session.logout()
 
     @property
-    def session(self):
-        """The interface object for the Session Management."""
+    def session(self) -> Session:
+        """The interface object for the Session Management.
+
+        Returns:
+            Session: a Session object
+
+        Examples:
+            >>> firewall.session
+
+        """
         return Session(self)
 
     @property
-    def network_objects(self):
-        """The interface object for the Network Objects Management."""
+    def network_objects(self) -> NetworkObjects:
+        """The interface object for the Network Objects Management.
+
+        Returns:
+            NetworkObjects: a NetworkObjects object
+
+        Examples:
+            >>> firewall.network_objects
+
+        """
         return NetworkObjects(self)
 
     @property
-    def service_applications(self):
-        """The interface object for the Service & Applications Management."""
+    def service_applications(self) -> ServiceApplications:
+        """The interface object for the Service & Applications Management.
+
+        Returns:
+            ServiceApplications: a ServiceApplications object
+
+        Examples:
+            >>> firewall.service_applications
+
+        """
         return ServiceApplications(self)
 
     @property
-    def access_control_nat(self):
-        """The interface object for the Access Control & NAT Management."""
+    def access_control_nat(self) -> AccessControlNAT:
+        """The interface object for the Access Control & NAT Management.
+
+        Returns:
+            AccessControlNAT: an AccessControlNAT object
+
+        Examples:
+            >>> firewall.access_control_nat
+
+        """
         return AccessControlNAT(self)

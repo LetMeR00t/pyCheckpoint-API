@@ -42,7 +42,7 @@ class TimeGroup(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.time_group.add(name="My object")
+            >>> firewall.network_objects.time_group.add(name="My object")
         """
 
         # Main request parameters
@@ -79,7 +79,7 @@ class TimeGroup(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.show_object(endpoint="show-time-group", uid=uid, name=name, **kw)
 
@@ -119,7 +119,7 @@ class TimeGroup(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.time_group.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+            >>> firewall.network_objects.time_group.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New Time Group")
         """
 
@@ -171,7 +171,7 @@ class TimeGroup(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.time_group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
+            >>> firewall.network_objects.time_group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
         return self.delete_object(
             endpoint="delete-time-group", uid=uid, name=name, **kw
@@ -213,7 +213,7 @@ class TimeGroup(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.time_group.shows_time_groups()
+            >>> firewall.network_objects.time_group.shows_time_groups()
         """
         return self.show_objects(
             endpoint="show-time-groups",

@@ -195,7 +195,7 @@ class SimpleGateway(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.simple_gateway.show(
+            >>> firewall.network_objects.simple_gateway.show(
                 uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.show_object(
@@ -275,7 +275,7 @@ class SimpleGateway(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.simple_gateway.set(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4",
+            >>> firewall.network_objects.simple_gateway.set(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4",
             ip_address="192.0.2.1")
         """
 
@@ -384,7 +384,7 @@ class SimpleGateway(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.simple_gateway.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> firewall.network_objects.simple_gateway.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.delete_object(
             endpoint="delete-simple-gateway", uid=uid, name=name, **kw
@@ -413,7 +413,7 @@ class SimpleGateway(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.simple_gateway.show_simple_gateways()
+            >>> firewall.network_objects.simple_gateway.show_simple_gateways()
         """
         return self.show_objects(
             endpoint="show-simple-gateways",

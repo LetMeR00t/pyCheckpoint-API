@@ -57,7 +57,7 @@ class Host(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.host.add(name="My object")
+            >>> firewall.network_objects.host.add(name="My object")
         """
 
         # Main request parameters
@@ -108,7 +108,7 @@ class Host(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.host.show(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> firewall.network_objects.host.show(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.show_object(endpoint="show-host", uid=uid, name=name, **kw)
 
@@ -159,7 +159,7 @@ class Host(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> firewallManagement.network_objects.host.set(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4", ip_address="192.0.2.1")
+            >>> firewall.network_objects.host.set(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4", ip_address="192.0.2.1")
         """
 
         # Main request parameters
@@ -221,7 +221,7 @@ class Host(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.host.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            >>> firewall.network_objects.host.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.delete_object(endpoint="delete-host", uid=uid, name=name, **kw)
 
@@ -248,7 +248,7 @@ class Host(NetworkObject):
         Returns:
             :obj:`Box`: The response from the server
         Examples:
-            >>> FirewallManagement.network_objects.host.shows_hosts()
+            >>> firewall.network_objects.host.shows_hosts()
         """
         return self.show_objects(
             endpoint="show-hosts",
