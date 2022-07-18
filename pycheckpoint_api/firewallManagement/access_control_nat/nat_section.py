@@ -8,7 +8,7 @@ from pycheckpoint_api.utils import sanitize_secondary_parameters
 from ..exception import MandatoryFieldMissing
 
 
-class NASSection(APIEndpoint):
+class NATSection(APIEndpoint):
     def add(
         self,
         package: str,
@@ -21,11 +21,12 @@ class NASSection(APIEndpoint):
 
         Args:
             package (str): Name of the package.
-            position (Union[int, str, dict]): Position in the rulebase. If an integer is provided, it will add the rule
-            at the specific position. If a string is provided, it will add the rule at the position mentioned in the
-            valid values ("top" or "bottom"). Otherwise, you can provide a dictionnary to explain more complex position
+            position (Union[int, str, dict]): Position in the rulebase. If an integer is provided, it will add the rule\
+            at the specific position. If a string is provided, it will add the rule at the position mentioned in the\
+            valid values ("top" or "bottom"). Otherwise, you can provide a dictionnary to explain more complex position\
             (see the API documentation).
-            name (str): Section name.
+            name (str, optional): Section name.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -41,9 +42,9 @@ class NASSection(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.nat_section.add(
-        package="standard",
-        position=1,
-        name="New NAT Section 1",)
+            ... package="standard",
+            ... position=1,
+            ... name="New NAT Section 1",)
         """
 
         # Main request parameters
@@ -74,9 +75,9 @@ class NASSection(APIEndpoint):
 
         Args:
             package (str): Name of the package.
-            rule_number (int): Rule number. Mandatory if "uid" or "name" are not set.
-            uid (str): Object unique identifier. Mandatory if "rule_number" or "name" are not set.
-            name (str): Object name. Mandatory if "rule_number" or "uid" are not set.
+            uid (str, optional): Object unique identifier. Mandatory if "rule_number" or "name" are not set.
+            name (str, optional): Object name. Mandatory if "rule_number" or "uid" are not set.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -87,7 +88,8 @@ class NASSection(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.nat_section.show(
-        uid="bb89a652-369a-2884-dd59-f69ea241567cd", package="standard")
+            ... uid="bb89a652-369a-2884-dd59-f69ea241567cd",
+            ... package="standard")
         """
         # Main request parameters
         payload = {"package": package}
@@ -118,10 +120,11 @@ class NASSection(APIEndpoint):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            new_name (str): New name of the object.
             package (str): Name of the package.
-            name (str): Rule name.
+            uid (str, optional): Object unique identifier.
+            new_name (str, optional): New name of the object.
+            name (str, optional): Rule name.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -137,9 +140,9 @@ class NASSection(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.nat_section.set(
-        package="standard",
-        uid="bb89a652-369a-2884-dd59-f69ea241567cd",
-        new_name="New NAT Section 1",)
+            ... package="standard",
+            ... uid="bb89a652-369a-2884-dd59-f69ea241567cd",
+            ... new_name="New NAT Section 1",)
         """
 
         # Main request parameters
@@ -176,9 +179,10 @@ class NASSection(APIEndpoint):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
             package (str): Name of the package.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -189,7 +193,8 @@ class NASSection(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.nat_section.delete(
-        package="standard", uid="bb89a652-369a-2884-dd59-f69ea241567cd")
+            ... package="standard",
+            ... uid="bb89a652-369a-2884-dd59-f69ea241567cd")
         """
         # Main request parameters
         payload = {"package": package}

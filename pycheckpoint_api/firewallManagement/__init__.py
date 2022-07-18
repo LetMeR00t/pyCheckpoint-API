@@ -81,7 +81,7 @@ class FirewallManagement(APISession):
         """The interface object for the Session Management.
 
         Returns:
-            Session: a Session object
+            Session: a Session instance
 
         Examples:
             >>> firewall.session
@@ -94,7 +94,7 @@ class FirewallManagement(APISession):
         """The interface object for the Network Objects Management.
 
         Returns:
-            NetworkObjects: a NetworkObjects object
+            NetworkObjects: a NetworkObjects instance
 
         Examples:
             >>> firewall.network_objects
@@ -107,7 +107,7 @@ class FirewallManagement(APISession):
         """The interface object for the Service & Applications Management.
 
         Returns:
-            ServiceApplications: a ServiceApplications object
+            ServiceApplications: a ServiceApplications instance
 
         Examples:
             >>> firewall.service_applications
@@ -120,7 +120,7 @@ class FirewallManagement(APISession):
         """The interface object for the Access Control & NAT Management.
 
         Returns:
-            AccessControlNAT: an AccessControlNAT object
+            AccessControlNAT: an AccessControlNAT instance
 
         Examples:
             >>> firewall.access_control_nat

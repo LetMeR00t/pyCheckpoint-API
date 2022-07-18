@@ -30,20 +30,21 @@ class NATRule(APIEndpoint):
 
         Args:
             package (str): Name of the package.
-            position (Union[int, str, dict]): Position in the rulebase. If an integer is provided, it will add the rule
-            at the specific position. If a string is provided, it will add the rule at the position mentioned in the
-            valid values ("top" or "bottom"). Otherwise, you can provide a dictionnary to explain more complex position
+            position (Union[int, str, dict]): Position in the rulebase. If an integer is provided, it will add the rule\
+            at the specific position. If a string is provided, it will add the rule at the position mentioned in the\
+            valid values ("top" or "bottom"). Otherwise, you can provide a dictionnary to explain more complex position\
             (see the API documentation).
-            name (str): Rule name.
-            enabled (bool): Enable/Disable the rule.
-            install_on (Union[str, List[str]]): Which Gateways identified by the name or UID to install the policy on.
-            method (str): Nat method. Valid values are "static", "hide", "nat64", "nat46" and "cgnat"
-            original_destination (str): Original destination.
-            original_service (str): Original service.
-            original_source (str): 	Original source.
-            translated_destination (str): Translated destination.
-            translated_service (str): Translated service.
-            translated_source (str): Translated service.
+            name (str, optional): Rule name.
+            enabled (bool, optional): Enable/Disable the rule.
+            install_on (Union[str, List[str]], optional): Which Gateways identified by the name or UID to install the policy on.
+            method (str, optional): Nat method. Valid values are "static", "hide", "nat64", "nat46" and "cgnat"
+            original_destination (str, optional): Original destination.
+            original_service (str, optional): Original service.
+            original_source (str, optional): 	Original source.
+            translated_destination (str, optional): Translated destination.
+            translated_service (str, optional): Translated service.
+            translated_source (str, optional): Translated service.
+
         Keyword Args:
             **comments (str, optional):
                 Comments string.
@@ -61,18 +62,18 @@ class NATRule(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.nat_rule.add(
-        package="standard",
-        position="top",
-        name="New NAT Rule 1",
-        enabled=True,
-        install_on="6c488338-8eec-4103-ad21-cd461ac2c476",
-        method="static",
-        original_destination="Any",
-        original_service="New_TCP_Service_1",
-        original_source="Any",
-        translated_destination="Any",
-        translated_service="New_TCP_Service_1",
-        translated_source="Any",)
+            ... package="standard",
+            ... position="top",
+            ... name="New NAT Rule 1",
+            ... enabled=True,
+            ... install_on="6c488338-8eec-4103-ad21-cd461ac2c476",
+            ... method="static",
+            ... original_destination="Any",
+            ... original_service="New_TCP_Service_1",
+            ... original_source="Any",
+            ... translated_destination="Any",
+            ... translated_service="New_TCP_Service_1",
+            ... translated_source="Any",)
         """
 
         # Main request parameters
@@ -122,10 +123,11 @@ class NATRule(APIEndpoint):
         Retrieve existing object using object name or uid.
 
         Args:
-            layer (str): Layer that the rule belongs to identified by the name or UID.
-            rule_number (int): Rule number. Mandatory if "uid" or "name" are not set.
-            uid (str): Object unique identifier. Mandatory if "rule_number" or "name" are not set.
-            name (str): Object name. Mandatory if "rule_number" or "uid" are not set.
+            package (str): 	Name of the package.
+            rule_number (int, optional): Rule number. Mandatory if "uid" or "name" are not set.
+            uid (str, optional): Object unique identifier. Mandatory if "rule_number" or "name" are not set.
+            name (str, optional): Object name. Mandatory if "rule_number" or "uid" are not set.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -136,8 +138,8 @@ class NATRule(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.nat_rule.show(
-        uid="a5a88521-c996-a256-9625-b5a5d56c39ad",
-        package="standard",)
+            ... uid="a5a88521-c996-a256-9625-b5a5d56c39ad",
+            ... package="standard")
         """
         # Main request parameters
         payload = {"package": package}
@@ -181,24 +183,25 @@ class NATRule(APIEndpoint):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            new_name (str): New name of the object.
-            rule_number (int): 	Rule number.
-            name (str): Rule name.
             package (str): Name of the package.
-            new_position (Union[int, str, dict]): New position in the rulebase. If an integer is provided, it will add the rule
-            at the specific position. If a string is provided, it will add the rule at the position mentioned in the
-            valid values ("top" or "bottom"). Otherwise, you can provide a dictionnary to explain more complex position
+            uid (str, optional): Object unique identifier.
+            new_name (str, optional): New name of the object.
+            rule_number (int, optional): 	Rule number.
+            name (str, optional): Rule name.
+            new_position (Union[int, str, dict], optional): New position in the rulebase. If an integer is provided, it will\
+            add the rule at the specific position. If a string is provided, it will add the rule at the position mentioned\
+            in the valid values ("top" or "bottom"). Otherwise, you can provide a dictionnary to explain more complex position\
             (see the API documentation).
-            enabled (bool): Enable/Disable the rule.
-            install_on (Union[str, List[str]]): Which Gateways identified by the name or UID to install the policy on.
-            method (str): Nat method. Valid values are "static", "hide", "nat64", "nat46" and "cgnat"
-            original_destination (str): Original destination.
-            original_service (str): Original service.
-            original_source (str): 	Original source.
-            translated_destination (str): Translated destination.
-            translated_service (str): Translated service.
-            translated_source (str): Translated service.
+            enabled (bool, optional): Enable/Disable the rule.
+            install_on (Union[str, List[str]], optional): Which Gateways identified by the name or UID to install the policy on.
+            method (str, optional): Nat method. Valid values are "static", "hide", "nat64", "nat46" and "cgnat"
+            original_destination (str, optional): Original destination.
+            original_service (str, optional): Original service.
+            original_source (str, optional): 	Original source.
+            translated_destination (str, optional): Translated destination.
+            translated_service (str, optional): Translated service.
+            translated_source (str, optional): Translated service.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -214,20 +217,20 @@ class NATRule(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.nat_rule.set(
-        uid="a5a88521-c996-a256-9625-b5a5d56c39ad",
-        new_name="New NAT Rule 1",
-        new_position=3,
-        package="standard",
-        position="top",
-        enabled=True,
-        install_on="6c488338-8eec-4103-ad21-cd461ac2c476",
-        method="static",
-        original_destination="Any",
-        original_service="New_TCP_Service_1",
-        original_source="Any",
-        translated_destination="Any",
-        translated_service="New_TCP_Service_1",
-        translated_source="Any",)
+            ... uid="a5a88521-c996-a256-9625-b5a5d56c39ad",
+            ... new_name="New NAT Rule 1",
+            ... new_position=3,
+            ... package="standard",
+            ... position="top",
+            ... enabled=True,
+            ... install_on="6c488338-8eec-4103-ad21-cd461ac2c476",
+            ... method="static",
+            ... original_destination="Any",
+            ... original_service="New_TCP_Service_1",
+            ... original_source="Any",
+            ... translated_destination="Any",
+            ... translated_service="New_TCP_Service_1",
+            ... translated_source="Any")
         """
 
         # Main request parameters
@@ -288,10 +291,11 @@ class NATRule(APIEndpoint):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            rule_number (int): 	Rule number.
             package (str): Name of the package
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            rule_number (int, optional): Rule number.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -302,7 +306,8 @@ class NATRule(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.nat_rule.delete(
-        package="standard", uid="a5a88521-c996-a256-9625-b5a5d56c39ad")
+            ... package="standard",
+            ... uid="a5a88521-c996-a256-9625-b5a5d56c39ad")
         """
         # Main request parameters
         payload = {"package": package}
@@ -346,19 +351,20 @@ class NATRule(APIEndpoint):
 
         Args:
             package (str): Name of the package
-            name (str): Object name. Must be unique in the domain.
-            uid (str): 	Object unique identifier.
-            filter_results (str): Search expression to filter objects by.\
+            name (str, optional): Object name. Must be unique in the domain.
+            uid (str, optional): 	Object unique identifier.
+            filter_results (str, optional): Search expression to filter objects by.\
             The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.\
             The logical operators in the expression ('AND', 'OR') should be provided in capital letters.\
             he search involves both a IP search and a textual search in name, comment, tags etc.
-            filter_settings (str): Sets filter preferences.
-            limit (int): The maximal number of returned results. Defaults to 50 (between 1 and 500)
-            offset (int): Number of the results to initially skip. Defaults to 0
-            order (List[dict]): Sorts results by the given field. By default the results are sorted in the \
+            filter_settings (str, optional): Sets filter preferences.
+            limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
+            offset (int, optional): Number of the results to initially skip. Defaults to 0
+            order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
-            package (str): Name of the package.
-            use_object_dictionnary (bool): N/A
+            package (str, optional): Name of the package.
+            use_object_dictionnary (bool, optional): N/A
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -369,19 +375,20 @@ class NATRule(APIEndpoint):
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
             **dereference-group-members (bool, optional):
                 Indicates whether to dereference "members" field by details level for every object in reply.
+
         Returns:
             :obj:`Box`: The response from the server
             
         Examples:
             >>> firewallManagement.access_control_nat.nat_rule.show_nat_rulebase(
-        package="standard",
-        offset=0,
-        limit=20,
-        order={"ASC": "name"},
-        details_level="standard",
-        use_object_dictionnary=True,
-        filter_results="",
-        filter_settings={},)
+            ... package="standard",
+            ... offset=0,
+            ... limit=20,
+            ... order={"ASC": "name"},
+            ... details_level="standard",
+            ... use_object_dictionnary=True,
+            ... filter_results="",
+            ... filter_settings={},)
         """
         # Main request parameters
         payload = {"package": package}

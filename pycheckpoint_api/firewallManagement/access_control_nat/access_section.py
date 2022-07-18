@@ -21,11 +21,12 @@ class AccessSection(APIEndpoint):
 
         Args:
             layer (str): Layer that the rule belongs to identified by the name or UID.
-            position (Union[int, str, dict]): Position in the rulebase. If an integer is provided, it will add the rule
-            at the specific position. If a string is provided, it will add the rule at the position mentioned in the
-            valid values ("top" or "bottom"). Otherwise, you can provide a dictionnary to explain more complex position
+            position (Union[int, str, dict]): Position in the rulebase. If an integer is provided, it will add the rule\
+            at the specific position. If a string is provided, it will add the rule at the position mentioned in the\
+            valid values ("top" or "bottom"). Otherwise, you can provide a dictionnary to explain more complex position\
             (see the API documentation).
-            name (str): Section name.
+            name (str, optional): Section name.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -41,9 +42,9 @@ class AccessSection(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.access_section.add(
-        layer="Network",
-        position=1,
-        name="New Section 1",)
+            ... layer="Network",
+            ... position=1,
+            ... name="New Section 1",)
         """
 
         # Main request parameters
@@ -74,9 +75,9 @@ class AccessSection(APIEndpoint):
 
         Args:
             layer (str): Layer that the rule belongs to identified by the name or UID.
-            rule_number (int): Rule number. Mandatory if "uid" or "name" are not set.
-            uid (str): Object unique identifier. Mandatory if "rule_number" or "name" are not set.
-            name (str): Object name. Mandatory if "rule_number" or "uid" are not set.
+            uid (str, optional): Object unique identifier. Mandatory if "rule_number" or "name" are not set.
+            name (str, optional): Object name. Mandatory if "rule_number" or "uid" are not set.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -87,7 +88,8 @@ class AccessSection(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.access_section.show(
-        uid="aa5d88e9-a589-abba-1471-5d6988519a26", layer="MyLayer")
+            ... uid="aa5d88e9-a589-abba-1471-5d6988519a26",
+            ... layer="MyLayer")
         """
         # Main request parameters
         payload = {"layer": layer}
@@ -118,10 +120,11 @@ class AccessSection(APIEndpoint):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            new_name (str): New name of the object.
             layer (str): Layer that the rule belongs to identified by the name or UID.
-            name (str): Rule name.
+            uid (str, optional): Object unique identifier.
+            new_name (str, optional): New name of the object.
+            name (str, optional): Rule name.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -137,9 +140,9 @@ class AccessSection(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.access_section.set(
-        layer="Network",
-        uid="aa5d88e9-a589-abba-1471-5d6988519a26",
-        new_name="New Section 1",)
+            ... layer="Network",
+            ... uid="aa5d88e9-a589-abba-1471-5d6988519a26",
+            ... new_name="New Section 1",)
         """
 
         # Main request parameters
@@ -176,9 +179,10 @@ class AccessSection(APIEndpoint):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
             layer (str): Layer that the rule belongs to identified by the name or UID.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -189,7 +193,8 @@ class AccessSection(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.access_section.delete(
-        layer="Network", uid="aa5d88e9-a589-abba-1471-5d6988519a26")
+            ... layer="Network",
+            ... uid="aa5d88e9-a589-abba-1471-5d6988519a26")
         """
         # Main request parameters
         payload = {"layer": layer}

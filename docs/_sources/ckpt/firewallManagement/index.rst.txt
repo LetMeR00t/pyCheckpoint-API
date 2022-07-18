@@ -10,7 +10,7 @@ Those classes are used to interface with the Checkpoint Firewall API in Python
     session
     network_objects/index
     service_applications
-    access_control_nat
+    access_control_nat/index
 
 .. automodule:: pycheckpoint_api.firewallManagement
     :members:

@@ -29,17 +29,17 @@ class AccessLayer(APIEndpoint):
 
         Args:
             name (str): Layer name.
-            add_default_rule (bool): Indicates whether to include a cleanup rule in the new layer.
-            applications_and_url_filtering (bool): Whether to enable Applications & URL Filtering blade on the layer.
-            content_awareness (bool): Whether to enable Content Awareness blade on the layer.
-            detect_using_x_forward_for (bool): Whether to use X-Forward-For HTTP header, which is added by the proxy
+            add_default_rule (bool, optional): Indicates whether to include a cleanup rule in the new layer.
+            applications_and_url_filtering (bool, optional): Whether to enable Applications & URL Filtering blade on the layer.
+            content_awareness (bool, optional): Whether to enable Content Awareness blade on the layer.
+            detect_using_x_forward_for (bool, optional): Whether to use X-Forward-For HTTP header, which is added by the proxy
             server to keep track of the original source IP.
-            firewall (bool): Whether to enable Firewall blade on the layer.
-            implicit_cleanup_action (str): The default "catch-all" action for traffic that does not match any explicit
+            firewall (bool, optional): Whether to enable Firewall blade on the layer.
+            implicit_cleanup_action (str, optional): The default "catch-all" action for traffic that does not match any explicit
             or implied rules in the layer. Valid values are "drop" or "accept"
-            mobile_access (bool): Whether to enable Mobile Access blade on the layer.
-            shared (bool): Whether this layer is shared.
-            tags (Union[str, List[str]]): Collection of tag identifiers.
+            mobile_access (bool, optional): Whether to enable Mobile Access blade on the layer.
+            shared (bool, optional): Whether this layer is shared.
+            tags (Union[str, List[str]], optional): Collection of tag identifiers.
             
         Keyword Args:
             **color (Color, optional):
@@ -60,15 +60,15 @@ class AccessLayer(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.access_layer.add(
-        name="New Layer 1",
-        add_default_rule=True,
-        applications_and_url_filtering=False,
-        content_awareness=False,
-        detect_using_x_forward_for=True,
-        firewall=True,
-        mobile_access=False,
-        shared=False,
-        tags=["t1"],)
+            ... name="New Layer 1",
+            ... add_default_rule=True,
+            ... applications_and_url_filtering=False,
+            ... content_awareness=False,
+            ... detect_using_x_forward_for=True,
+            ... firewall=True,
+            ... mobile_access=False,
+            ... shared=False,
+            ... tags=["t1"])
         """
 
         # Main request parameters
@@ -115,9 +115,8 @@ class AccessLayer(APIEndpoint):
         Retrieve existing object using object name or uid.
 
         Args:
-            rule_number (int): Rule number. Mandatory if "uid" or "name" are not set.
-            uid (str): Object unique identifier. Mandatory if "rule_number" or "name" are not set.
-            name (str): Object name. Mandatory if "rule_number" or "uid" are not set.
+            uid (str, optional): Object unique identifier. Mandatory if "rule_number" or "name" are not set.
+            name (str, optional): Object name. Mandatory if "rule_number" or "uid" are not set.
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -128,7 +127,7 @@ class AccessLayer(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.access_layer.show(
-        uid="81530aad-bc98-4e8f-a62d-079424ddd955")
+            ... uid="81530aad-bc98-4e8f-a62d-079424ddd955")
         """
         # Main request parameters
         payload = {}
@@ -167,20 +166,20 @@ class AccessLayer(APIEndpoint):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            new_name (str): New name of the object.
-            name (str): Rule name.
-            add_default_rule (bool): Indicates whether to include a cleanup rule in the new layer.
-            applications_and_url_filtering (bool): Whether to enable Applications & URL Filtering blade on the layer.
-            content_awareness (bool): Whether to enable Content Awareness blade on the layer.
-            detect_using_x_forward_for (bool): Whether to use X-Forward-For HTTP header, which is added by the proxy
+            uid (str, optional): Object unique identifier.
+            new_name (str, optional): New name of the object.
+            name (str, optional): Rule name.
+            add_default_rule (bool, optional): Indicates whether to include a cleanup rule in the new layer.
+            applications_and_url_filtering (bool, optional): Whether to enable Applications & URL Filtering blade on the layer.
+            content_awareness (bool, optional): Whether to enable Content Awareness blade on the layer.
+            detect_using_x_forward_for (bool, optional): Whether to use X-Forward-For HTTP header, which is added by the proxy
             server to keep track of the original source IP.
-            firewall (bool): Whether to enable Firewall blade on the layer.
-            implicit_cleanup_action (str): The default "catch-all" action for traffic that does not match any explicit
+            firewall (bool, optional): Whether to enable Firewall blade on the layer.
+            implicit_cleanup_action (str, optional): The default "catch-all" action for traffic that does not match any explicit
             or implied rules in the layer. Valid values are "drop" or "accept"
-            mobile_access (bool): Whether to enable Mobile Access blade on the layer.
-            shared (bool): Whether this layer is shared.
-            tags (Union[str, List[str]]): Collection of tag identifiers.
+            mobile_access (bool, optional): Whether to enable Mobile Access blade on the layer.
+            shared (bool, optional): Whether this layer is shared.
+            tags (Union[str, List[str]], optional): Collection of tag identifiers.
             
         Keyword Args:
             **details-level (str, optional):
@@ -197,15 +196,15 @@ class AccessLayer(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.access_layer.set(
-        name="New Layer 1",
-        add_default_rule=True,
-        applications_and_url_filtering=False,
-        content_awareness=False,
-        detect_using_x_forward_for=True,
-        firewall=True,
-        mobile_access=False,
-        shared=False,
-        tags=["t1"],)
+            ... name="New Layer 1",
+            ... add_default_rule=True,
+            ... applications_and_url_filtering=False,
+            ... content_awareness=False,
+            ... detect_using_x_forward_for=True,
+            ... firewall=True,
+            ... mobile_access=False,
+            ... shared=False,
+            ... tags=["t1"])
         """
 
         # Main request parameters
@@ -259,8 +258,8 @@ class AccessLayer(APIEndpoint):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
             
         Keyword Args:
             **details-level (str, optional):
@@ -272,7 +271,8 @@ class AccessLayer(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.access_layer.delete(
-        layer="Network", uid="81530aad-bc98-4e8f-a62d-079424ddd955")
+            ... layer="Network",
+            ... uid="81530aad-bc98-4e8f-a62d-079424ddd955")
         """
         # Main request parameters
         payload = {}
@@ -310,6 +310,7 @@ class AccessLayer(APIEndpoint):
             he search involves both a IP search and a textual search in name, comment, tags etc.
             limit (int): The maximal number of returned results. Defaults to 50 (between 1 and 500)
             offset (int): Number of the results to initially skip. Defaults to 0
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\

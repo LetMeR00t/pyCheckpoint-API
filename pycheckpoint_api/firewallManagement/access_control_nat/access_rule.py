@@ -41,33 +41,33 @@ class AccessRule(APIEndpoint):
 
         Args:
             layer (str): Layer that the rule belongs to identified by the name or UID.
-            position (Union[int, str, dict]): Position in the rulebase. If an integer is provided, it will add the rule
-            at the specific position. If a string is provided, it will add the rule at the position mentioned in the
-            valid values ("top" or "bottom"). Otherwise, you can provide a dictionnary to explain more complex position
+            position (Union[int, str, dict]): Position in the rulebase. If an integer is provided, it will add the rule\
+            at the specific position. If a string is provided, it will add the rule at the position mentioned in the\
+            valid values ("top" or "bottom"). Otherwise, you can provide a dictionnary to explain more complex position\
             (see the API documentation).
-            name (str): Rule name.
-            action (str): "Accept", "Drop", "Ask", "Inform", "Reject", "User Auth", "Client Auth", "Apply Layer".
-            action_settings (dict): Action settings.
-            content (dict): List of processed file types that this rule applies on.
-            content_direction (str): On which direction the file types processing is applied. ("any", "up" or "down")
-            content_negate (bool): True if negate is set for data.
-            custom_fields (dict): Custom fields.
-            destination (Union[str, List[str]]): Collection of Network objects identified by the name or UID.
-            destination_negate (bool): True if negate is set for destination.
-            enabled (bool): Enable/Disable the rule.
-            inline_layer (str): Inline Layer identified by the name or UID. Relevant only if "Action" was set to "Apply Layer".
-            install_on (Union[str, List[str]]): Which Gateways identified by the name or UID to install the policy on.
-            service (Union[str, List[str]]): Collection of Network objects identified by the name or UID.
-            service_negate (bool): True if negate is set for service.
-            service_resource (str): Resource of the service identified by the name or UID. When a service-resource exists,
+            name (str, optional): Rule name.
+            action (str, optional): "Accept", "Drop", "Ask", "Inform", "Reject", "User Auth", "Client Auth", "Apply Layer".
+            action_settings (dict, optional): Action settings.
+            content (dict, optional): List of processed file types that this rule applies on.
+            content_direction (str, optional): On which direction the file types processing is applied. ("any", "up" or "down")
+            content_negate (bool, optional): True if negate is set for data.
+            custom_fields (dict, optional): Custom fields.
+            destination (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
+            destination_negate (bool, optional): True if negate is set for destination.
+            enabled (bool, optional): Enable/Disable the rule.
+            inline_layer (str, optional): Inline Layer identified by the name or UID. Relevant only if "Action" was set to "Apply Layer".
+            install_on (Union[str, List[str]], optional): Which Gateways identified by the name or UID to install the policy on.
+            service (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
+            service_negate (bool, optional): True if negate is set for service.
+            service_resource (str, optional): Resource of the service identified by the name or UID. When a service-resource exists,\
             the service parameter should contains exactly one service element.
-            source (Union[str, List[str]]): Collection of Network objects identified by the name or UID.
-            source_negate (bool): True if negate is set for source.
-            time (Union[str, List[str]]): List of time objects. For example: "Weekend", "Off-Work", "Every-Day". Default
+            source (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
+            source_negate (bool, optional): True if negate is set for source.
+            time (Union[str, List[str]], optional): List of time objects. For example: "Weekend", "Off-Work", "Every-Day". Default\
             is Any.
-            track (dict): Track Settings.
-            user_check (dict): User check settings.
-            vpn (Union[str, dict, List[dict]]): Communities or Directional. See the API documentation for more information
+            track (dict, optional): Track Settings.
+            user_check (dict, optional): User check settings.
+            vpn (Union[str, dict, List[dict]], optional): Communities or Directional. See the API documentation for more information
         Keyword Args:
             **comments (str, optional):
                 Comments string.
@@ -85,29 +85,29 @@ class AccessRule(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.access_rule.add(
-        layer="Network",
-        position=1,
-        name="Rule 1",
-        action="Drop",
-        action_settings={"enable-identity-captive-portal": False},
-        content={},
-        content_direction="any",
-        content_negate=False,
-        custom_fields={"field-1": "", "field-2": "", "field-3": ""},
-        destination="Any",
-        destination_negate=False,
-        enabled=True,
-        inline_layer="Inline",
-        install_on="",
-        service="smtp",
-        service_negate=False,
-        service_resource="",
-        source="Any",
-        source_negate=False,
-        time=[{"uid": "aa785d6d-7785-aad5-36a3-ab2d74c966ee"}],
-        track="",
-        user_check="",
-        vpn={"community": ["MyIntranet"]},)
+            ... layer="Network",
+            ... position=1,
+            ... name="Rule 1",
+            ... action="Drop",
+            ... action_settings={"enable-identity-captive-portal": False},
+            ... content={},
+            ... content_direction="any",
+            ... content_negate=False,
+            ... custom_fields={"field-1": "", "field-2": "", "field-3": ""},
+            ... destination="Any",
+            ... destination_negate=False,
+            ... enabled=True,
+            ... inline_layer="Inline",
+            ... install_on="",
+            ... service="smtp",
+            ... service_negate=False,
+            ... service_resource="",
+            ... source="Any",
+            ... source_negate=False,
+            ... time=[{"uid": "aa785d6d-7785-aad5-36a3-ab2d74c966ee"}],
+            ... track="",
+            ... user_check="",
+            ... vpn={"community": ["MyIntranet"]},)
         """
 
         # Main request parameters
@@ -183,10 +183,10 @@ class AccessRule(APIEndpoint):
 
         Args:
             layer (str): Layer that the rule belongs to identified by the name or UID.
-            rule_number (int): Rule number. Mandatory if "uid" or "name" are not set.
-            uid (str): Object unique identifier. Mandatory if "rule_number" or "name" are not set.
-            name (str): Object name. Mandatory if "rule_number" or "uid" are not set.
-            show_as_ranges (bool): When true, the source, destination and services & applications parameters
+            rule_number (int, optional): Rule number. Mandatory if "uid" or "name" are not set.
+            uid (str, optional): Object unique identifier. Mandatory if "rule_number" or "name" are not set.
+            name (str, optional): Object name. Mandatory if "rule_number" or "uid" are not set.
+            show_as_ranges (bool, optional): When true, the source, destination and services & applications parameters
             are displayed as ranges of IP addresses and port numbers rather than network objects.
             Objects that are not represented using IP addresses or port numbers are presented as objects.
             In addition, the response of each rule does not contain the parameters: source, source-negate,
@@ -195,8 +195,8 @@ class AccessRule(APIEndpoint):
             Note: Requesting to show rules as ranges is limited up to 20 rules per request, otherwise an
             error is returned. If you wish to request more rules, use the offset and limit parameters to
             limit your request.
-            show_hits (bool): N/A
-            hits_settings (bool): N/A
+            show_hits (bool, optional): N/A
+            hits_settings (bool, optional): N/A
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -207,11 +207,11 @@ class AccessRule(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.access_rule.show(
-        uid="1df8a4b0-fa8b-428b-b649-626b74bf7f81",
-        layer="MyLayer",
-        show_as_ranges=False,
-        show_hits=True,
-        hits_settings="",)
+            ... uid="1df8a4b0-fa8b-428b-b649-626b74bf7f81",
+            ... layer="MyLayer",
+            ... show_as_ranges=False,
+            ... show_hits=True,
+            ... hits_settings="",)
         """
         # Main request parameters
         payload = {"layer": layer}
@@ -273,36 +273,36 @@ class AccessRule(APIEndpoint):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            new_name (str): New name of the object.
             layer (str): Layer that the rule belongs to identified by the name or UID.
-            position (Union[int, str, dict]): Position in the rulebase. If an integer is provided, it will add the rule
-            at the specific position. If a string is provided, it will add the rule at the position mentioned in the
-            valid values ("top" or "bottom"). Otherwise, you can provide a dictionnary to explain more complex position
+            uid (str, optional): Object unique identifier.
+            new_name (str, optional): New name of the object.
+            position (Union[int, str, dict], optional): Position in the rulebase. If an integer is provided, it will add the rule\
+            at the specific position. If a string is provided, it will add the rule at the position mentioned in the\
+            valid values ("top" or "bottom"). Otherwise, you can provide a dictionnary to explain more complex position\
             (see the API documentation).
-            name (str): Rule name.
-            action (str): "Accept", "Drop", "Ask", "Inform", "Reject", "User Auth", "Client Auth", "Apply Layer".
-            action_settings (dict): Action settings.
-            content (dict): List of processed file types that this rule applies on.
-            content_direction (str): On which direction the file types processing is applied. ("any", "up" or "down")
-            content_negate (bool): True if negate is set for data.
-            custom_fields (dict): Custom fields.
-            destination (Union[str, List[str]]): Collection of Network objects identified by the name or UID.
-            destination_negate (bool): True if negate is set for destination.
-            enabled (bool): Enable/Disable the rule.
-            inline_layer (str): Inline Layer identified by the name or UID. Relevant only if "Action" was set to "Apply Layer".
-            install_on (Union[str, List[str]]): Which Gateways identified by the name or UID to install the policy on.
-            service (Union[str, List[str]]): Collection of Network objects identified by the name or UID.
-            service_negate (bool): True if negate is set for service.
-            service_resource (str): Resource of the service identified by the name or UID. When a service-resource exists,
+            name (str, optional): Rule name.
+            action (str, optional): "Accept", "Drop", "Ask", "Inform", "Reject", "User Auth", "Client Auth", "Apply Layer".
+            action_settings (dict, optional): Action settings.
+            content (dict, optional): List of processed file types that this rule applies on.
+            content_direction (str, optional): On which direction the file types processing is applied. ("any", "up" or "down")
+            content_negate (bool, optional): True if negate is set for data.
+            custom_fields (dict, optional): Custom fields.
+            destination (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
+            destination_negate (bool, optional): True if negate is set for destination.
+            enabled (bool, optional): Enable/Disable the rule.
+            inline_layer (str, optional): Inline Layer identified by the name or UID. Relevant only if "Action" was set to "Apply Layer".
+            install_on (Union[str, List[str]], optional): Which Gateways identified by the name or UID to install the policy on.
+            service (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
+            service_negate (bool, optional): True if negate is set for service.
+            service_resource (str, optional): Resource of the service identified by the name or UID. When a service-resource exists,\
             the service parameter should contains exactly one service element.
-            source (Union[str, List[str]]): Collection of Network objects identified by the name or UID.
-            source_negate (bool): True if negate is set for source.
-            time (Union[str, List[str]]): List of time objects. For example: "Weekend", "Off-Work", "Every-Day". Default
+            source (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
+            source_negate (bool, optional): True if negate is set for source.
+            time (Union[str, List[str]], optional): List of time objects. For example: "Weekend", "Off-Work", "Every-Day". Default\
             is Any.
-            track (dict): Track Settings.
-            user_check (dict): User check settings.
-            vpn (Union[str, dict, List[dict]]): Communities or Directional. See the API documentation for more information
+            track (dict, optional): Track Settings.
+            user_check (dict, optional): User check settings.
+            vpn (Union[str, dict, List[dict]], optional): Communities or Directional. See the API documentation for more information
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -318,30 +318,30 @@ class AccessRule(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.access_rule.set(
-        uid="1df8a4b0-fa8b-428b-b649-626b74bf7f81",
-        new_name="Rule 1",
-        new_position=3,
-        layer="Network",
-        action="Drop",
-        action_settings={"enable-identity-captive-portal": False},
-        content={},
-        content_direction="any",
-        content_negate=False,
-        custom_fields={"field-1": "", "field-2": "", "field-3": ""},
-        destination="Any",
-        destination_negate=False,
-        enabled=True,
-        inline_layer="Inline",
-        install_on="Policy Targets",
-        service="smtp",
-        service_negate=False,
-        service_resource="",
-        source="Any",
-        source_negate=False,
-        time=[{"uid": "aa785d6d-7785-aad5-36a3-ab2d74c966ee"}],
-        track="",
-        user_check="",
-        vpn={"community": ["MyIntranet"]},)
+            ... uid="1df8a4b0-fa8b-428b-b649-626b74bf7f81",
+            ... new_name="Rule 1",
+            ... new_position=3,
+            ... layer="Network",
+            ... action="Drop",
+            ... action_settings={"enable-identity-captive-portal": False},
+            ... content={},
+            ... content_direction="any",
+            ... content_negate=False,
+            ... custom_fields={"field-1": "", "field-2": "", "field-3": ""},
+            ... destination="Any",
+            ... destination_negate=False,
+            ... enabled=True,
+            ... inline_layer="Inline",
+            ... install_on="Policy Targets",
+            ... service="smtp",
+            ... service_negate=False,
+            ... service_resource="",
+            ... source="Any",
+            ... source_negate=False,
+            ... time=[{"uid": "aa785d6d-7785-aad5-36a3-ab2d74c966ee"}],
+            ... track="",
+            ... user_check="",
+            ... vpn={"community": ["MyIntranet"]},)
         """
 
         # Main request parameters
@@ -424,10 +424,10 @@ class AccessRule(APIEndpoint):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            rule_number (int): 	Rule number.
             layer (str): Layer that the rule belongs to identified by the name or UID.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            rule_number (int, optional): Rule number.
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -438,7 +438,8 @@ class AccessRule(APIEndpoint):
             
         Examples:
             >>> firewallManagement.access_control_nat.access_rule.delete(
-        layer="Network", uid="1df8a4b0-fa8b-428b-b649-626b74bf7f81")
+            ... layer="Network",
+            ... uid="1df8a4b0-fa8b-428b-b649-626b74bf7f81")
         """
         # Main request parameters
         payload = {"layer": layer}
@@ -484,28 +485,28 @@ class AccessRule(APIEndpoint):
         to filter out only those rules that match a search criteria.
 
         Args:
-            name (str): Object name. Must be unique in the domain.
-            uid (str): 	Object unique identifier.
-            filter_results (str): Search expression to filter objects by.\
+            name (str, optional): Object name. Must be unique in the domain.
+            uid (str, optional): 	Object unique identifier.
+            filter_results (str, optional): Search expression to filter objects by.\
             The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.\
             The logical operators in the expression ('AND', 'OR') should be provided in capital letters.\
             he search involves both a IP search and a textual search in name, comment, tags etc.
-            filter_settings (str): Sets filter preferences.
-            limit (int): The maximal number of returned results. Defaults to 50 (between 1 and 500)
-            offset (int): Number of the results to initially skip. Defaults to 0
-            order (List[dict]): Sorts results by the given field. By default the results are sorted in the \
+            filter_settings (str, optional): Sets filter preferences.
+            limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
+            offset (int, optional): Number of the results to initially skip. Defaults to 0
+            order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
-            package (str): Name of the package.
-            show_as_ranges (bool): When true, the source, destination and services & applications parameters are displayed
+            package (str, optional): Name of the package.
+            show_as_ranges (bool, optional): When true, the source, destination and services & applications parameters are displayed
             as ranges of IP addresses and port numbers rather than network objects. Objects that are not represented using
             IP addresses or port numbers are presented as objects. In addition, the response of each rule does not contain
             the parameters: source, source-negate, destination, destination-negate, service and service-negate, but instead
             it contains the parameters: source-ranges, destination-ranges and service-ranges.
             Note: Requesting to show rules as ranges is limited up to 20 rules per request, otherwise an error is returned.
             If you wish to request more rules, use the offset and limit parameters to limit your request.
-            show_hits (bool): N/A
-            use_object_dictionnary (bool): N/A
-            hits_settings (dict): N/A
+            show_hits (bool, optional): N/A
+            use_object_dictionnary (bool, optional): N/A
+            hits_settings (dict, optional): N/A
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
