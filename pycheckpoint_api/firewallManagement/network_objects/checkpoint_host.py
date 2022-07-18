@@ -53,6 +53,7 @@ class CheckpointHost(NetworkObject):
             send_logs_to_backup_server (Union[str, List[str]], optional): Backup server(s) to send logs to.
             send_logs_to_server (Union[str, List[str]], optional): Server(s) to send logs to.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -73,11 +74,13 @@ class CheckpointHost(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
-            >>> firewall.network_objects.checkpoint_host.add(name="secondarylogserver",\
-ipv4_address="5.5.5.5",management_blades={"network-policy-management": True,\
+            >>> firewall.network_objects.checkpoint_host.add(name="secondarylogserver",
+            ... ipv4_address="5.5.5.5",management_blades={"network-policy-management": True,\
 "logging-and-status": True,})
         """
 
@@ -139,12 +142,15 @@ ipv4_address="5.5.5.5",management_blades={"network-policy-management": True,\
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.checkpoint_host.show(
                 uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
@@ -203,6 +209,7 @@ ipv4_address="5.5.5.5",management_blades={"network-policy-management": True,\
             send_logs_to_backup_server (Union[str, List[str]], optional): Backup server(s) to send logs to.
             send_logs_to_server (Union[str, List[str]], optional): Server(s) to send logs to.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -218,11 +225,13 @@ ipv4_address="5.5.5.5",management_blades={"network-policy-management": True,\
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
-            >>> firewall.network_objects.checkpoint_host.set(uid="f50f3810-d16c-4239-88d0-9f37ac581387", \
-ip_address="5.5.5.5")
+            >>> firewall.network_objects.checkpoint_host.set(uid="f50f3810-d16c-4239-88d0-9f37ac581387", 
+            ... ip_address="5.5.5.5")
         """
 
         # Main request parameters
@@ -290,6 +299,7 @@ ip_address="5.5.5.5")
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -299,8 +309,10 @@ ip_address="5.5.5.5")
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.checkpoint_host.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
@@ -327,9 +339,11 @@ ip_address="5.5.5.5")
             limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
-            descending order by the session publish time.
+                       descending order by the session publish time.
+            
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.checkpoint_host.show_checkpoint_hosts()
         """

@@ -12,9 +12,10 @@ class NetworkInterface(APIEndpoint):
 
         Args:
             task_id (str): get-interfaces task UID.
-            force_cleanup (bool): Forcefully abort the "get-interfaces" task.
+            force_cleanup (bool, optional): Forcefully abort the "get-interfaces" task.
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.network_interface.abort_get_interfaces(
                 task_id="01234567-89ab-cdef-a930-8c37a59972b3")
@@ -41,19 +42,20 @@ class NetworkInterface(APIEndpoint):
         Security Gateway or Cluster Member object. 2) Security Gateway or Cluster Members must be up and running.
 
         Args:
-            target_uid (str): Target unique identifier.
-            target_name (str): Target name.
-            group_interfaces_by_subnet (bool): Specify whether to group the cluster interfaces by a subnet.
+            target_uid (str, optional): Target unique identifier.
+            target_name (str, optional): Target name.
+            group_interfaces_by_subnet (bool, optional): Specify whether to group the cluster interfaces by a subnet.\
             Otherwise, group the cluster interfaces by their names.
-            use_defined_by_routes (bool): Specify whether to configure the topology "Defined by Routes" where applicable.
+            use_defined_by_routes (bool, optional): Specify whether to configure the topology "Defined by Routes" where applicable.\
             Otherwise, configure the topology to "This Network" as default for internal interfaces.
-            with_topology (bool): Specify whether to fetch the interfaces with their topology.
+            with_topology (bool, optional): Specify whether to fetch the interfaces with their topology.\
             Otherwise, the Management Server fetches the interfaces without their topology.
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.network_interface.get_interfaces(
-                target_name="gw123")
+            ... target_name="gw123")
         """
         # Main request parameters
         payload = {}

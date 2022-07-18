@@ -44,8 +44,8 @@ class FirewallManagement(APISession):
                 Current API version used by the Firewall Checkpoint
 
         Examples:
-            >>> firewall = FirewallManagement(hostname="localhost",port=443, \
-api_key="<API_KEY>",version="1.8",domain="Local Domain"",ssl_verify=False,)
+            >>> firewall = FirewallManagement(hostname="localhost",port=443,
+            ... api_key="<API_KEY>",version="1.8",domain="Local Domain"",ssl_verify=False,)
 
         """
         self._user = sanitize_value(field="user", t=str, is_mandatory=False, **kw)

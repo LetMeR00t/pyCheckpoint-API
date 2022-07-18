@@ -32,8 +32,8 @@ def sanitize_value(
         :obj:`Any`: the value for the given field if all checks passed
 
     Examples:
-        >>> sanitize_value(field="field1", t=str, is_mandatory=False, \
-default=None, {"field1": "value1"})
+        >>> sanitize_value(field="field1", t=str, is_mandatory=False,
+            ... default=None, {"field1": "value1"})
         "value1"
 
         >>> sanitize_value(field="field1", t=int, is_mandatory=False, default=None, {"field1": "value1"})

@@ -55,8 +55,10 @@ class NATRule(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.nat_rule.add(
         package="standard",
@@ -128,8 +130,10 @@ class NATRule(APIEndpoint):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.nat_rule.show(
         uid="a5a88521-c996-a256-9625-b5a5d56c39ad",
@@ -204,8 +208,10 @@ class NATRule(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.nat_rule.set(
         uid="a5a88521-c996-a256-9625-b5a5d56c39ad",
@@ -290,8 +296,10 @@ class NATRule(APIEndpoint):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.nat_rule.delete(
         package="standard", uid="a5a88521-c996-a256-9625-b5a5d56c39ad")
@@ -363,6 +371,7 @@ class NATRule(APIEndpoint):
                 Indicates whether to dereference "members" field by details level for every object in reply.
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.nat_rule.show_nat_rulebase(
         package="standard",

@@ -35,8 +35,10 @@ class AccessSection(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.access_section.add(
         layer="Network",
@@ -79,8 +81,10 @@ class AccessSection(APIEndpoint):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.access_section.show(
         uid="aa5d88e9-a589-abba-1471-5d6988519a26", layer="MyLayer")
@@ -127,8 +131,10 @@ class AccessSection(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.access_section.set(
         layer="Network",
@@ -177,8 +183,10 @@ class AccessSection(APIEndpoint):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.access_section.delete(
         layer="Network", uid="aa5d88e9-a589-abba-1471-5d6988519a26")

@@ -34,6 +34,7 @@ class LSMCluster(NetworkObject):
             interfaces (List[dict], optional): Interfaces.
             members (List[dict], optional): Members.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -49,13 +50,14 @@ class LSMCluster(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.lsm_cluster.add(name="Gaia_gaia_cluster",
-        name_prefix="Gaia_",
-        main_ip_address="192.168.8.197",
-        )
+            ... name_prefix="Gaia_",
+            ... main_ip_address="192.168.8.197")
         """
 
         # Main request parameters
@@ -98,12 +100,15 @@ class LSMCluster(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.lsm_cluster.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -129,6 +134,7 @@ class LSMCluster(NetworkObject):
             members (List[dict], optional): Members.
             new_name (str, optional): New name of the object.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -144,8 +150,10 @@ class LSMCluster(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.lsm_cluster.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New LSM Cluster")
@@ -189,6 +197,7 @@ class LSMCluster(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -198,8 +207,10 @@ class LSMCluster(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.lsm_cluster.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -231,6 +242,7 @@ class LSMCluster(NetworkObject):
             than network objects. Objects that are not represented using IP addresses are presented as objects.
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.
             Defaults to False.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -243,6 +255,7 @@ class LSMCluster(NetworkObject):
                 Indicates whether to calculate and show "groups" field for every object in reply.
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.lsm_cluster.shows_lsm_clusters()
         """

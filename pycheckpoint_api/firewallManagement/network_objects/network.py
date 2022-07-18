@@ -30,21 +30,22 @@ class Network(NetworkObject):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            subnet (str): IPv4 or IPv6 network address. If both addresses are required use subnet4 and
+            subnet (str, optional): IPv4 or IPv6 network address. If both addresses are required use subnet4 and\
              subnet6 fields explicitly. Mandatory if "subnet4" or "subnet6" is not set
-            subnet4 (str): IPv4 network address. Mandatory if "subnet" or "subnet6" is not set
-            subnet6 (str): IPv6 network address. Mandatory if "subnet" or "subnet4" is not set
-            mask_length (int): IPv4 or IPv6 network mask length. If both masks are required use mask-length4
-            and mask-length6 fields explicitly. Instead of IPv4 mask length it is possible to specify IPv4
+            subnet4 (str, optional): IPv4 network address. Mandatory if "subnet" or "subnet6" is not set
+            subnet6 (str, optional): IPv6 network address. Mandatory if "subnet" or "subnet4" is not set
+            mask_length (int, optional): IPv4 or IPv6 network mask length. If both masks are required use mask-length4\
+            and mask-length6 fields explicitly. Instead of IPv4 mask length it is possible to specify IPv4\
             mask itself in subnet-mask field. Mandatory if "mask_length4" or "mask_length6" or "subnet_mask" is not set
-            mask_length4 (int): IPv4 network mask length.
+            mask_length4 (int, optional): IPv4 network mask length.\
             Mandatory if "mask_length" or "mask_length4" or "subnet_mask" is not set
-            mask_length6 (int): IPv6 network mask length.
+            mask_length6 (int, optional): IPv6 network mask length.\
             Mandatory if "mask_length" or "mask_length6" or "subnet_mask" is not set
-            subnet_mask (str): IPv4 network mask. Mandatory if "mask_length" or "mask_length4" or "mask_length6" is not set
-            nat_settings (dict): NAT settings.
-            tags (Union(str,List[str])): Collection of tag identifiers.
-            broadcast (str): Allow broadcast address inclusion.
+            subnet_mask (str, optional): IPv4 network mask. Mandatory if "mask_length" or "mask_length4" or "mask_length6" \
+            is not set
+            nat_settings (dict, optional): NAT settings.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            broadcast (str, optional): Allow broadcast address inclusion.
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -64,8 +65,10 @@ class Network(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.network.add(name="My object")
         """
@@ -117,14 +120,17 @@ class Network(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.network.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
@@ -153,22 +159,23 @@ class Network(NetworkObject):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name. Must be unique in the domain.
-            subnet (str): IPv4 or IPv6 network address. If both addresses are required use subnet4 and
+            subnet (str): IPv4 or IPv6 network address. If both addresses are required use subnet4 and\
              subnet6 fields explicitly. Mandatory if "subnet4" or "subnet6" is not set
             subnet4 (str): IPv4 network address. Mandatory if "subnet" or "subnet6" is not set
             subnet6 (str): IPv6 network address. Mandatory if "subnet" or "subnet4" is not set
-            mask_length (int): IPv4 or IPv6 network mask length. If both masks are required use mask-length4
-            and mask-length6 fields explicitly. Instead of IPv4 mask length it is possible to specify IPv4
+            mask_length (int): IPv4 or IPv6 network mask length. If both masks are required use mask-length4\
+            and mask-length6 fields explicitly. Instead of IPv4 mask length it is possible to specify IPv4\
             mask itself in subnet-mask field. Mandatory if "mask_length4" or "mask_length6" or "subnet_mask" is not set
-            mask_length4 (int): IPv4 network mask length.
+            mask_length4 (int): IPv4 network mask length.\
             Mandatory if "mask_length" or "mask_length4" or "subnet_mask" is not set
-            mask_length6 (int): IPv6 network mask length.
+            mask_length6 (int): IPv6 network mask length.\
             Mandatory if "mask_length" or "mask_length6" or "subnet_mask" is not set
             subnet_mask (str): IPv4 network mask. Mandatory if "mask_length" or "mask_length4" or "mask_length6" is not set
             new_name (str): New name of the object.
             nat_settings (dict): NAT settings.
             tags (Union(str,List[str])): Collection of tag identifiers.
             broadcast (str): Allow broadcast address inclusion.
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -184,8 +191,10 @@ class Network(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.network.set(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",subnet="192.0.2.0",
                 subnet_mask="255.255.255.0")
@@ -243,8 +252,9 @@ class Network(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -254,8 +264,10 @@ class Network(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.network.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
@@ -280,9 +292,11 @@ class Network(NetworkObject):
             limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
-            descending order by the session publish time.
+                       descending order by the session publish time.
+            
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.network.shows_networks()
         """

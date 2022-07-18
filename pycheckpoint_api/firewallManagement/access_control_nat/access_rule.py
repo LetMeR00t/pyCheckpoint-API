@@ -79,8 +79,10 @@ class AccessRule(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.access_rule.add(
         layer="Network",
@@ -199,8 +201,10 @@ class AccessRule(APIEndpoint):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.access_rule.show(
         uid="1df8a4b0-fa8b-428b-b649-626b74bf7f81",
@@ -308,8 +312,10 @@ class AccessRule(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.access_rule.set(
         uid="1df8a4b0-fa8b-428b-b649-626b74bf7f81",
@@ -426,8 +432,10 @@ class AccessRule(APIEndpoint):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.access_rule.delete(
         layer="Network", uid="1df8a4b0-fa8b-428b-b649-626b74bf7f81")
@@ -508,6 +516,7 @@ class AccessRule(APIEndpoint):
                 Indicates whether to dereference "members" field by details level for every object in reply.
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>>
         """

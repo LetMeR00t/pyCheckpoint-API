@@ -27,6 +27,7 @@ class GroupWithExclusion(NetworkObject):
             a special keyword in Python
             include (str): Name or UID of an object which the group includes.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -42,11 +43,13 @@ class GroupWithExclusion(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
-            >>> firewall.network_objects.group_with_exclusion.add(name="DemoGroupWithExclusion",\
-include="New Group 1",exception="New Group 2")
+            >>> firewall.network_objects.group_with_exclusion.add(name="DemoGroupWithExclusion",
+            ... include="New Group 1",exception="New Group 2")
         """
 
         # Main request parameters
@@ -80,13 +83,16 @@ include="New Group 1",exception="New Group 2")
             show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
             than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
-            Defaults to False.
+                        Defaults to False.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -115,6 +121,7 @@ include="New Group 1",exception="New Group 2")
             include (str, optional): Name or UID of an object which the group includes.
             new_name (str, optional): New name of the object.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -130,11 +137,13 @@ include="New Group 1",exception="New Group 2")
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
-            >>> firewall.network_objects.group_with_exclusion.set(\
-uid="ed997ff8-6709-4d71-a713-99bf01711cd5", new_name="New Group 3")
+            >>> firewall.network_objects.group_with_exclusion.set(
+            ... uid="ed997ff8-6709-4d71-a713-99bf01711cd5", new_name="New Group 3")
         """
 
         # Main request parameters
@@ -175,6 +184,7 @@ uid="ed997ff8-6709-4d71-a713-99bf01711cd5", new_name="New Group 3")
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -184,8 +194,10 @@ uid="ed997ff8-6709-4d71-a713-99bf01711cd5", new_name="New Group 3")
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.group_with_exclusion.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -220,6 +232,7 @@ uid="ed997ff8-6709-4d71-a713-99bf01711cd5", new_name="New Group 3")
             Defaults to False.
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.group_with_exclusion.show_groups_with_exclusion()
         """

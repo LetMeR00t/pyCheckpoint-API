@@ -37,7 +37,8 @@ class ApplicationSite(NetworkObject):
             description (str): 	A description for the application.
             tags (Union(str,List[str])): Collection of tag identifiers.
             urls_defined_as_regular_expression (bool): States whether the URL is defined as a Regular Expression or not.
-            Defaults to False.
+                        Defaults to False.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -53,8 +54,10 @@ class ApplicationSite(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>>  firewallManagement.service_applications.application_site.add(
         name="New Application Site 1",
@@ -143,12 +146,15 @@ class ApplicationSite(NetworkObject):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> FirewallManagement.service_applications.application_site.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -202,8 +208,10 @@ class ApplicationSite(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.service_applications.application_site.set(
         name="New Application Site 1",
@@ -260,6 +268,7 @@ class ApplicationSite(NetworkObject):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -269,8 +278,10 @@ class ApplicationSite(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> FirewallManagement.service_applications.application_site.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -301,7 +312,8 @@ class ApplicationSite(NetworkObject):
             show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
             than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
-            Defaults to False.
+                        Defaults to False.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -314,6 +326,7 @@ class ApplicationSite(NetworkObject):
                 Indicates whether to calculate and show "groups" field for every object in reply.
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> FirewallManagement.service_applications.application_site.shows_application_sites()
         """

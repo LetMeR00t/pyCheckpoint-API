@@ -28,6 +28,7 @@ class ServiceCompoundTCP(NetworkObject):
             even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.
             If you change this property, the change will not affect open connections, but only future connections.
             tags (Union(str,List[str])): Collection of tag identifiers.
+            
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -47,8 +48,10 @@ class ServiceCompoundTCP(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.service_applications.service_compound_tcp.add(
         name="mycompoundtcp",
@@ -90,12 +93,15 @@ class ServiceCompoundTCP(NetworkObject):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.service_applications.service_compound_tcp.set(
         uid="66333250-0680-46c3-a894-ebe1fef657f4",
@@ -130,6 +136,7 @@ class ServiceCompoundTCP(NetworkObject):
             even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.
             If you change this property, the change will not affect open connections, but only future connections.
             tags (Union(str,List[str])): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -145,8 +152,10 @@ class ServiceCompoundTCP(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.service_applications.service_compound_tcp.set(
         uid="1f0f2270-b297-4400-afa4-d9f56a1cb407",
@@ -196,6 +205,7 @@ class ServiceCompoundTCP(NetworkObject):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -205,8 +215,10 @@ class ServiceCompoundTCP(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> FirewallManagement.service_applications.service_compound_tcp.delete(
                 uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
@@ -238,7 +250,8 @@ class ServiceCompoundTCP(NetworkObject):
             show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
             than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
-            Defaults to False.
+                        Defaults to False.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -251,6 +264,7 @@ class ServiceCompoundTCP(NetworkObject):
                 Indicates whether to calculate and show "groups" field for every object in reply.
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> FirewallManagement.service_applications.service_compound_tcp.show_services_compound_tcp()
         """

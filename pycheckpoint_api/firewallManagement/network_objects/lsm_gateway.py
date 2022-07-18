@@ -26,12 +26,13 @@ class LSMGateway(NetworkObject):
         Args:
             name (str): Object name. Must be unique in the domain.
             security_profile (str):	LSM profile.
-            provisioning_settings (dict): Provisioning settings.
-            provisioning_state (str): Provisioning state. By default the state is 'manual'- enable provisioning
+            provisioning_settings (dict, optional): Provisioning settings.
+            provisioning_state (str, optional): Provisioning state. By default the state is 'manual'- enable provisioning
             but not attach to profile. If 'using-profile' state is provided a provisioning profile must be
             provided in provisioning-settings.
-            sic (dict): Secure Internal Communication.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            sic (dict, optional): Secure Internal Communication.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -47,8 +48,10 @@ class LSMGateway(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.lsm_gateway.add(name="My object")
         """
@@ -82,14 +85,17 @@ class LSMGateway(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.lsm_gateway.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -111,16 +117,17 @@ class LSMGateway(NetworkObject):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            security_profile (str):	LSM profile.
-            provisioning_settings (dict): Provisioning settings.
-            provisioning_state (str): Provisioning state. By default the state is 'manual'- enable provisioning
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            security_profile (str, optional):	LSM profile.
+            provisioning_settings (dict, optional): Provisioning settings.
+            provisioning_state (str, optional): Provisioning state. By default the state is 'manual'- enable provisioning
             but not attach to profile. If 'using-profile' state is provided a provisioning profile must be
             provided in provisioning-settings.
-            sic (dict): Secure Internal Communication.
-            new_name (str): New name of the object.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            sic (dict, optional): Secure Internal Communication.
+            new_name (str, optional): New name of the object.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -136,11 +143,13 @@ class LSMGateway(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.lsm_gateway.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
-            new_name="New Tag")
+            ... new_name="New Tag")
         """
 
         # Main request parameters
@@ -183,8 +192,9 @@ class LSMGateway(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -194,8 +204,10 @@ class LSMGateway(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.lsm_gateway.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -226,7 +238,8 @@ class LSMGateway(NetworkObject):
             show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
             than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
-            Defaults to False.
+                        Defaults to False.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -235,8 +248,10 @@ class LSMGateway(NetworkObject):
                 Indicates which domains to process the commands on. It cannot be used with the details-level full,
                 must be run from the System Domain only and with ignore-warnings true.
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
+
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.lsm_gateway.shows_lsm_gateways()
         """

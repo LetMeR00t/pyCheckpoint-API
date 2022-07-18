@@ -17,5 +17,21 @@ This class is used to manage `Network Objects <https://sc1.checkpoint.com/docume
     dynamic_object
     group
     group_with_exclusion
-    gsn-handover-group
+    gsn_handover_group
     host
+    lsm_cluster
+    lsm_gateway
+    lsv_profile
+    multicast_address_range
+    network
+    network_interface
+    opsec_application
+    security_zone
+    simple_cluster
+    simple_gateway
+    tacacs_group
+    tacacs_server
+    tag
+    time
+    time_group
+    wildcard

@@ -49,38 +49,38 @@ class SimpleCluster(NetworkObject):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            ip_address (str): 	IPv4 or IPv6 address. If both addresses are required use ipv4-address
+            ip_address (str, optional): 	IPv4 or IPv6 address. If both addresses are required use ipv4-address
             and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
-            ipv4_address (str): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
-            ipv6_address (str): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
-            anti_bot (bool): Anti-Bot blade enabled.
-            anti_virus (bool): Anti-Virus blade enabled.
-            application_control (bool): Application Control blade enabled.
-            cluster_mode (str): Cluster mode.
-            content_awareness (bool): Content Awareness blade enabled.
-            data_awareness (bool): Data Awareness blade enabled.
-            firewall (bool): Firewall blade enabled.
-            firewall_settings (dict): N/A
-            hardware (str): Cluster platform hardware.
-            interfaces (List[dict]): Network interfaces.
-            ips (bool): Intrusion Prevention System blade enabled.
-            members (List[dict]): Cluster members list. Only new cluster member can be added.
+            ipv4_address (str, optional): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
+            ipv6_address (str, optional): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
+            anti_bot (bool, optional): Anti-Bot blade enabled.
+            anti_virus (bool, optional): Anti-Virus blade enabled.
+            application_control (bool, optional): Application Control blade enabled.
+            cluster_mode (str, optional): Cluster mode.
+            content_awareness (bool, optional): Content Awareness blade enabled.
+            data_awareness (bool, optional): Data Awareness blade enabled.
+            firewall (bool, optional): Firewall blade enabled.
+            firewall_settings (dict, optional): N/A
+            hardware (str, optional): Cluster platform hardware.
+            interfaces (List[dict], optional): Network interfaces.
+            ips (bool, optional): Intrusion Prevention System blade enabled.
+            members (List[dict], optional): Cluster members list. Only new cluster member can be added.
             Adding existing gateway is not supported.
-            os_name (str): Gateway platform operating system.
-            platform_portal_settings (dict): Platform portal settings.
-            send_alerts_to_server (Union[str, List[str]]): Server(s) to send alerts to.
-            send_logs_to_backup_server (Union[str, List[str]]): Backup server(s) to send logs to.
-            send_logs_to_server (Union[str, List[str]]): Server(s) to send logs to.
-            tags (Union(str,List[str])): Collection of tag identifiers.
-            threat_emulation (bool): Threat Emulation blade enabled.
-            threat_extraction (bool): Threat Extraction blade enabled.
-            threat_prevention_mode (str): The mode of Threat Prevention to use. When using Autonomous Threat Prevention,
+            os_name (str, optional): Gateway platform operating system.
+            platform_portal_settings (dict, optional): Platform portal settings.
+            send_alerts_to_server (Union[str, List[str]], optional): Server(s) to send alerts to.
+            send_logs_to_backup_server (Union[str, List[str]], optional): Backup server(s) to send logs to.
+            send_logs_to_server (Union[str, List[str]], optional): Server(s) to send logs to.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            threat_emulation (bool, optional): Threat Emulation blade enabled.
+            threat_extraction (bool, optional): Threat Extraction blade enabled.
+            threat_prevention_mode (str, optional): The mode of Threat Prevention to use. When using Autonomous Threat Prevention,
             disabling the Threat Prevention blades is not allowed.
-            url_filtering (bool): URL Filtering blade enabled.
-            usercheck_portal_settings (dict): UserCheck portal settings.
-            version (str): Gateway platform version.
-            vpn (bool): VPN blade enabled.
-            vpn_settings (dict): Gateway VPN settings.
+            url_filtering (bool, optional): URL Filtering blade enabled.
+            usercheck_portal_settings (dict, optional): UserCheck portal settings.
+            version (str, optional): Gateway platform version.
+            vpn (bool, optional): VPN blade enabled.
+            vpn_settings (dict, optional): Gateway VPN settings.
         Keyword Args:
             **show-portals-certificate (bool, optional):
                 Indicates whether to show the portals certificate value in the reply.
@@ -98,11 +98,14 @@ class SimpleCluster(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.simple_cluster.add(
-        name="cluster1", ip_address="17.23.5.1")
+            ... name="cluster1",
+            ... ip_address="17.23.5.1")
         """
 
         # Main request parameters
@@ -189,17 +192,20 @@ class SimpleCluster(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.simple_cluster.show(
-                uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
+            ... uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
         return self.show_object(
             endpoint="show-simple-cluster",
@@ -251,15 +257,39 @@ class SimpleCluster(NetworkObject):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
-            ip_address (str): IPv4 or IPv6 address. If both addresses are required use ipv4-address
-            and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
-            ipv4_address (str): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
-            ipv6_address (str): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
-            interfaces (Union[dict,List[dict]]): Host interfaces.
-            nat_settings (dict): NAT settings.
             new_name (str): New name of the object.
-            tags (Union(str,List[str])): Collection of tag identifiers.
-            host_servers (dict): Servers Configuration.
+            ip_address (str, optional): 	IPv4 or IPv6 address. If both addresses are required use ipv4-address
+            and ipv6-address fields explicitly. Mandatory if "ipv4_address" or "ipv6_address" is not set
+            ipv4_address (str, optional): IPv4 address. Mandatory if "ipv_address" or "ipv6_address" is not set
+            ipv6_address (str, optional): IPv6 address. Mandatory if "ipv_address" or "ipv4_address" is not set
+            anti_bot (bool, optional): Anti-Bot blade enabled.
+            anti_virus (bool, optional): Anti-Virus blade enabled.
+            application_control (bool, optional): Application Control blade enabled.
+            cluster_mode (str, optional): Cluster mode.
+            content_awareness (bool, optional): Content Awareness blade enabled.
+            data_awareness (bool, optional): Data Awareness blade enabled.
+            firewall (bool, optional): Firewall blade enabled.
+            firewall_settings (dict, optional): N/A
+            hardware (str, optional): Cluster platform hardware.
+            interfaces (List[dict], optional): Network interfaces.
+            ips (bool, optional): Intrusion Prevention System blade enabled.
+            members (List[dict], optional): Cluster members list. Only new cluster member can be added.
+            Adding existing gateway is not supported.
+            os_name (str, optional): Gateway platform operating system.
+            platform_portal_settings (dict, optional): Platform portal settings.
+            send_alerts_to_server (Union[str, List[str]], optional): Server(s) to send alerts to.
+            send_logs_to_backup_server (Union[str, List[str]], optional): Backup server(s) to send logs to.
+            send_logs_to_server (Union[str, List[str]], optional): Server(s) to send logs to.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            threat_emulation (bool, optional): Threat Emulation blade enabled.
+            threat_extraction (bool, optional): Threat Extraction blade enabled.
+            threat_prevention_mode (str, optional): The mode of Threat Prevention to use. When using Autonomous Threat Prevention,
+            disabling the Threat Prevention blades is not allowed.
+            url_filtering (bool, optional): URL Filtering blade enabled.
+            usercheck_portal_settings (dict, optional): UserCheck portal settings.
+            version (str, optional): Gateway platform version.
+            vpn (bool, optional): VPN blade enabled.
+            vpn_settings (dict, optional): Gateway VPN settings.
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -275,11 +305,14 @@ class SimpleCluster(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.simple_cluster.set(
-        uid="4a5d882a-5568-2c3b-aa78-751ab23d6c11", ip_address="17.23.5.1")
+            ... uid="4a5d882a-5568-2c3b-aa78-751ab23d6c11",
+            ... ip_address="17.23.5.1")
         """
 
         # Main request parameters
@@ -375,6 +408,7 @@ class SimpleCluster(NetworkObject):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -384,8 +418,10 @@ class SimpleCluster(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.simple_cluster.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
@@ -413,8 +449,10 @@ class SimpleCluster(NetworkObject):
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
+            
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.simple_cluster.show_simple_clusters()
         """

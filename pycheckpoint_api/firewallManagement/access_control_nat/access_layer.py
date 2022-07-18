@@ -40,6 +40,7 @@ class AccessLayer(APIEndpoint):
             mobile_access (bool): Whether to enable Mobile Access blade on the layer.
             shared (bool): Whether this layer is shared.
             tags (Union[str, List[str]]): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -53,8 +54,10 @@ class AccessLayer(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.access_layer.add(
         name="New Layer 1",
@@ -119,8 +122,10 @@ class AccessLayer(APIEndpoint):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.access_layer.show(
         uid="81530aad-bc98-4e8f-a62d-079424ddd955")
@@ -176,6 +181,7 @@ class AccessLayer(APIEndpoint):
             mobile_access (bool): Whether to enable Mobile Access blade on the layer.
             shared (bool): Whether this layer is shared.
             tags (Union[str, List[str]]): Collection of tag identifiers.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -185,8 +191,10 @@ class AccessLayer(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.access_layer.set(
         name="New Layer 1",
@@ -253,12 +261,15 @@ class AccessLayer(APIEndpoint):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.access_layer.delete(
         layer="Network", uid="81530aad-bc98-4e8f-a62d-079424ddd955")
@@ -307,8 +318,10 @@ class AccessLayer(APIEndpoint):
                 Indicates which domains to process the commands on. It cannot be used with the details-level full,
                 must be run from the System Domain only and with ignore-warnings true.
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.access_layer.show_access_layers()
         """

@@ -20,6 +20,7 @@ class DNSDomain(NetworkObject):
             name (str): Object name. Must be unique in the domain.
             is_sub_domain (bool, optional): Whether to match sub-domains in addition to the domain itself.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -35,8 +36,10 @@ class DNSDomain(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.dns_domain.add(name="My object")
         """
@@ -71,13 +74,16 @@ class DNSDomain(NetworkObject):
             show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
             than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
-            Defaults to False.
+                        Defaults to False.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.dns_domain.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -101,6 +107,7 @@ class DNSDomain(NetworkObject):
             is_sub_domain (bool, optional): Whether to match sub-domains in addition to the domain itself.
             new_name (str, optional): New name of the object.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -116,8 +123,10 @@ class DNSDomain(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.dns_domain.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New DNS Domain")
@@ -159,6 +168,7 @@ class DNSDomain(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -168,8 +178,10 @@ class DNSDomain(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.dns_domain.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -201,7 +213,8 @@ class DNSDomain(NetworkObject):
             show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
             than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
-            Defaults to False.
+                        Defaults to False.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -210,8 +223,10 @@ class DNSDomain(NetworkObject):
                 Indicates which domains to process the commands on. It cannot be used with the details-level full,
                 must be run from the System Domain only and with ignore-warnings true.
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.dns_domain.shows_dns_domains()
         """

@@ -44,6 +44,7 @@ class AddressRange(NetworkObject):
              is not set
             nat_settings (dict, optional): NAT settings.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -63,8 +64,10 @@ class AddressRange(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.address_range.add(name="New Address Range 1",
         ip_address_first="192.0.2.1", ip_address_last="192.0.2.10",)
@@ -119,12 +122,15 @@ class AddressRange(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.address_range.show(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
         """
@@ -167,6 +173,7 @@ class AddressRange(NetworkObject):
             new_name (str, optional): New name of the object.
             nat_settings (dict, optional): NAT settings.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -182,12 +189,14 @@ class AddressRange(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
-            >>> firewall.network_objects.address_range.set(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20",\
-new_name="New Address Range 1",color=Color.GREEN,ip_address_first="192.0.2.1",ip_address_last="192.0.2.10",\
-groups="New Group 1")
+            >>> firewall.network_objects.address_range.set(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20",
+            ... new_name="New Address Range 1",color=Color.GREEN,ip_address_first="192.0.2.1",ip_address_last="192.0.2.10",
+            ... nroups="New Group 1")
         """
 
         # Main request parameters
@@ -240,6 +249,7 @@ groups="New Group 1")
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -249,8 +259,10 @@ groups="New Group 1")
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.address_range.delete(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
         """
@@ -277,9 +289,11 @@ groups="New Group 1")
             limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
-            descending order by the session publish time.
+                       descending order by the session publish time.
+            
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.network.shows_address_ranges()
         """

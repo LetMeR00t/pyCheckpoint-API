@@ -79,8 +79,10 @@ class ServiceOther(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.service_applications.service_other.add(
         name="New_Service_1",
@@ -143,12 +145,15 @@ class ServiceOther(NetworkObject):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> FirewallManagement.service_applications.service_other.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -223,8 +228,10 @@ class ServiceOther(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.service_applications.service_other.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New Service TCP")
@@ -288,6 +295,7 @@ class ServiceOther(NetworkObject):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -297,8 +305,10 @@ class ServiceOther(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> FirewallManagement.service_applications.service_other.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -329,7 +339,8 @@ class ServiceOther(NetworkObject):
             show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
             than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
-            Defaults to False.
+                        Defaults to False.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -342,6 +353,7 @@ class ServiceOther(NetworkObject):
                 Indicates whether to calculate and show "groups" field for every object in reply.
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> FirewallManagement.service_applications.service_other.shows_services_other()
         """

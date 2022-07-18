@@ -24,6 +24,7 @@ class ApplicationSiteCategory(NetworkObject):
             name (str): Object name. Must be unique in the domain.
             description (str): N/A
             tags (Union(str,List[str])): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -39,8 +40,10 @@ class ApplicationSiteCategory(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.group.add(name="My object")
         """
@@ -77,13 +80,16 @@ class ApplicationSiteCategory(NetworkObject):
             show_as_ranges (bool): When true, the group's matched content is displayed as ranges of IP addresses rather
             than network objects. Objects that are not represented using IP addresses are presented as objects.
             The 'description' parameter is omitted from the response and instead the 'ranges' parameter is displayed.
-            Defaults to False.
+                        Defaults to False.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -109,6 +115,7 @@ class ApplicationSiteCategory(NetworkObject):
             description (str): N/A
             new_name (str): New name of the object.
             tags (Union(str,List[str])): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -124,8 +131,10 @@ class ApplicationSiteCategory(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.group.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",new_name="New Group 3")
         """
@@ -166,6 +175,7 @@ class ApplicationSiteCategory(NetworkObject):
         Args:
             uid (str): Object unique identifier.
             name (str): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -175,8 +185,10 @@ class ApplicationSiteCategory(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -210,6 +222,7 @@ class ApplicationSiteCategory(NetworkObject):
             Defaults to False.
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.group.shows_groups()
         """

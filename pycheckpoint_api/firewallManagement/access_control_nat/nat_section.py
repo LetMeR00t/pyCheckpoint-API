@@ -35,8 +35,10 @@ class NASSection(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.nat_section.add(
         package="standard",
@@ -79,8 +81,10 @@ class NASSection(APIEndpoint):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.nat_section.show(
         uid="bb89a652-369a-2884-dd59-f69ea241567cd", package="standard")
@@ -127,8 +131,10 @@ class NASSection(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.nat_section.set(
         package="standard",
@@ -177,8 +183,10 @@ class NASSection(APIEndpoint):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewallManagement.access_control_nat.nat_section.delete(
         package="standard", uid="bb89a652-369a-2884-dd59-f69ea241567cd")

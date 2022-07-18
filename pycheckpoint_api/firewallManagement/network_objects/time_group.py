@@ -22,8 +22,9 @@ class TimeGroup(NetworkObject):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            members (Union[str, List[str]]): Collection of Network objects identified by the name or UID.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            members (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -39,8 +40,10 @@ class TimeGroup(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.time_group.add(name="My object")
         """
@@ -70,14 +73,17 @@ class TimeGroup(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -96,11 +102,12 @@ class TimeGroup(NetworkObject):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            members (Union[dict, str, List[str]]): Collection of Network objects identified by the name or UID.
-            new_name (str): New name of the object.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            members (Union[dict, str, List[str]], optional): Collection of Network objects identified by the name or UID.
+            new_name (str, optional): New name of the object.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -116,8 +123,10 @@ class TimeGroup(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.time_group.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New Time Group")
@@ -157,8 +166,9 @@ class TimeGroup(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -168,8 +178,10 @@ class TimeGroup(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.time_group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -202,6 +214,7 @@ class TimeGroup(NetworkObject):
             than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
             Defaults to False.
+            
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -210,8 +223,10 @@ class TimeGroup(NetworkObject):
                 Indicates which domains to process the commands on. It cannot be used with the details-level full,
                 must be run from the System Domain only and with ignore-warnings true.
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
+                
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.time_group.shows_time_groups()
         """

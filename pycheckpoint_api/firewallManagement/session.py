@@ -123,6 +123,7 @@ class Session(APIEndpoint):
                 the one you currently use. Defaults to None.
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> FirewallManagement.session.discard(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
 
@@ -160,6 +161,7 @@ class Session(APIEndpoint):
 
         Returns:
             :obj:`Response`: The response from the server
+
         Examples:
             >>> FirewallManagement.session.keepalive()
         """
