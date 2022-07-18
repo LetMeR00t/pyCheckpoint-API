@@ -33,9 +33,9 @@ class GroupWithExclusion(NetworkObject):
             **comments (str, optional):
                 Comments string.
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,List[str])):
+            **groups (Union(str,List[str]), optional):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
@@ -83,7 +83,7 @@ include="New Group 1",exception="New Group 2")
             Defaults to False.
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
         Returns:
             :obj:`Box`: The response from the server
@@ -121,9 +121,9 @@ include="New Group 1",exception="New Group 2")
             **comments (str, optional):
                 Comments string.
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,List[str])):
+            **groups (Union(str,List[str]), optional):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
@@ -177,7 +177,7 @@ uid="ed997ff8-6709-4d71-a713-99bf01711cd5", new_name="New Group 3")
             name (str, optional): Object name.
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False

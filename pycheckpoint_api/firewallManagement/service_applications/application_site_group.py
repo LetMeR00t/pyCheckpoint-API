@@ -30,9 +30,9 @@ class ApplicationSiteGroup(NetworkObject):
             **comments (str, optional):
                 Comments string.
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,List[str])):
+            **groups (Union(str,List[str]), optional):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
@@ -88,7 +88,7 @@ class ApplicationSiteGroup(NetworkObject):
             Defaults to False.
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
         Returns:
             :obj:`Box`: The response from the server
@@ -124,9 +124,9 @@ class ApplicationSiteGroup(NetworkObject):
             **comments (str, optional):
                 Comments string.
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,List[str])):
+            **groups (Union(str,List[str]), optional):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
@@ -182,7 +182,7 @@ class ApplicationSiteGroup(NetworkObject):
             name (str): Object name.
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
@@ -224,7 +224,7 @@ class ApplicationSiteGroup(NetworkObject):
             Defaults to False.
             Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **domains-to-process (List[str], optional):
                 Indicates which domains to process the commands on. It cannot be used with the details-level full,

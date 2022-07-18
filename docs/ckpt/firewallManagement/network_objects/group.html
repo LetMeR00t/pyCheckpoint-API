@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Service &amp; Applications" href="../service_applications.html" /><link rel="prev" title="Group with Exclusion" href="group_with_exclusion.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Group with Exclusion" href="group_with_exclusion.html" /><link rel="prev" title="Dynamic Object" href="dynamic_object.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
-        <title>Host - pyCheckpoint-API 0.6.0 documentation</title>
+        <title>Group - pyCheckpoint-API 0.6.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -178,13 +178,13 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="dynamic_object.html">Dynamic Object</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="group.html">Group</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l3 current has-children current-page"><a class="current reference internal" href="#">Group</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="group_with_exclusion.html">Group with Exclusion</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3 current has-children current-page"><a class="current reference internal" href="#">Host</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l3 has-children"><a class="reference internal" href="host.html">Host</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -245,36 +245,28 @@
           </label>
         </div>
         <article role="main">
-          <section id="host">
-<h1>Host<a class="headerlink" href="#host" title="Permalink to this heading">#</a></h1>
-<p>This class is used to manage <a class="reference external" href="https://sc1.checkpoint.com/documents/latest/APIs/#cli/add-host">Host</a></p>
+          <section id="group">
+<h1>Group<a class="headerlink" href="#group" title="Permalink to this heading">#</a></h1>
+<p>This class is used to manage <a class="reference external" href="https://sc1.checkpoint.com/documents/latest/APIs/#cli/add-group">Group</a></p>
 <div class="toctree-wrapper compound">
 </div>
-<span class="target" id="module-pycheckpoint_api.firewallManagement.network_objects.host"></span><dl class="py class">
-<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.network_objects.host.Host">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Host</span></span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.network_objects.host.Host" title="Permalink to this definition">#</a></dt>
+<span class="target" id="module-pycheckpoint_api.firewallManagement.network_objects.group"></span><dl class="py class">
+<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.network_objects.group.Group">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Group</span></span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.network_objects.group.Group" title="Permalink to this definition">#</a></dt>
 <dd><dl class="py method">
-<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.network_objects.host.Host.add">
-<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip_address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipv4_address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipv6_address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interfaces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nat_settings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host_servers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.network_objects.host.Host.add" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.network_objects.group.Group.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">members</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.network_objects.group.Group.add" title="Permalink to this definition">#</a></dt>
 <dd><p>Create new object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Object name. Must be unique in the domain.</p></li>
-<li><p><strong>ip_address</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – IPv4 or IPv6 address. If both addresses are required use ipv4-address            and ipv6-address fields explicitly. Mandatory if “ipv4_address” or “ipv6_address” is not set</p></li>
-<li><p><strong>ipv4_address</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – IPv4 address. Mandatory if “ipv_address” or “ipv6_address” is not set</p></li>
-<li><p><strong>ipv6_address</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – IPv6 address. Mandatory if “ipv_address” or “ipv4_address” is not set</p></li>
-<li><p><strong>interfaces</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>,</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>]</em><em>]</em>) – Host interfaces.</p></li>
-<li><p><strong>nat_settings</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – NAT settings.</p></li>
-<li><p><strong>tags</strong> (<em>Union</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>,</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>)</em>) – Collection of tag identifiers.</p></li>
-<li><p><strong>host_servers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – Servers Configuration.</p></li>
+<li><p><strong>members</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>]</em><em>, </em><em>optional</em>) – Collection of Network objects identified by the name or UID.</p></li>
+<li><p><strong>tags</strong> (<em>Union</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>,</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>)</em><em>, </em><em>optional</em>) – Collection of tag identifiers.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>**set-if-exists</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – If another object with the same identifier already exists, it will be updated.
-The command behaviour will be the same as if originally a set command was called.
-Pay attention that original object’s fields will be overwritten by the fields provided in the request payload!</p></li>
 <li><p><strong>**color</strong> (<a class="reference internal" href="../../models.html#pycheckpoint_api.models.Color" title="pycheckpoint_api.models.Color"><em>Color</em></a><em>, </em><em>optional</em>) – Color of the object. Should be one of existing colors.</p></li>
 <li><p><strong>**comments</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Comments string.</p></li>
 <li><p><strong>**details-level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p></li>
@@ -292,20 +284,20 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">network_objects</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;My object&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">network_objects</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;My object&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.network_objects.host.Host.delete">
-<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.network_objects.host.Host.delete" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.network_objects.group.Group.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.network_objects.group.Group.delete" title="Permalink to this definition">#</a></dt>
 <dd><p>Delete existing object using object name or uid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Object unique identifier.</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Object name.</p></li>
+<li><p><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Object unique identifier.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Object name.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
@@ -324,28 +316,23 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">network_objects</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">uid</span><span class="o">=</span><span class="s2">&quot;9423d36f-2d66-4754-b9e2-e7f4493756d4&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">network_objects</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">uid</span><span class="o">=</span><span class="s2">&quot;ed997ff8-6709-4d71-a713-99bf01711cd5&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.network_objects.host.Host.set">
-<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip_address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipv4_address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipv6_address</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interfaces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nat_settings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host_servers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.network_objects.host.Host.set" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.network_objects.group.Group.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">members</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.network_objects.group.Group.set" title="Permalink to this definition">#</a></dt>
 <dd><p>Edit existing object using object name or uid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Object unique identifier.</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Object name.</p></li>
-<li><p><strong>ip_address</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – IPv4 or IPv6 address. If both addresses are required use ipv4-address            and ipv6-address fields explicitly. Mandatory if “ipv4_address” or “ipv6_address” is not set</p></li>
-<li><p><strong>ipv4_address</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – IPv4 address. Mandatory if “ipv_address” or “ipv6_address” is not set</p></li>
-<li><p><strong>ipv6_address</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – IPv6 address. Mandatory if “ipv_address” or “ipv4_address” is not set</p></li>
-<li><p><strong>interfaces</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>,</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>]</em><em>]</em>) – Host interfaces.</p></li>
-<li><p><strong>nat_settings</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – NAT settings.</p></li>
-<li><p><strong>new_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – New name of the object.</p></li>
-<li><p><strong>tags</strong> (<em>Union</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>,</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>)</em>) – Collection of tag identifiers.</p></li>
-<li><p><strong>host_servers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – Servers Configuration.</p></li>
+<li><p><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Object unique identifier.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Object name.</p></li>
+<li><p><strong>members</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>]</em><em>, </em><em>optional</em>) – Collection of Network objects identified by the name or UID.</p></li>
+<li><p><strong>new_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – New name of the object.</p></li>
+<li><p><strong>tags</strong> (<em>Union</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>,</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>)</em><em>, </em><em>optional</em>) – Collection of tag identifiers.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
@@ -367,20 +354,21 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">network_objects</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">uid</span><span class="o">=</span><span class="s2">&quot;9423d36f-2d66-4754-b9e2-e7f4493756d4&quot;</span><span class="p">,</span> <span class="n">ip_address</span><span class="o">=</span><span class="s2">&quot;192.0.2.1&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">network_objects</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">uid</span><span class="o">=</span><span class="s2">&quot;ed997ff8-6709-4d71-a713-99bf01711cd5&quot;</span><span class="p">,</span><span class="n">new_name</span><span class="o">=</span><span class="s2">&quot;New Group 3&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.network_objects.host.Host.show">
-<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.network_objects.host.Host.show" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.network_objects.group.Group.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_as_ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.network_objects.group.Group.show" title="Permalink to this definition">#</a></dt>
 <dd><p>Retrieve existing object using object name or uid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Object unique identifier.</p></li>
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Object name.</p></li>
+<li><p><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Object unique identifier.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Object name.</p></li>
+<li><p><strong>show_as_ranges</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – When true, the group’s matched content is displayed as ranges of IP addresses rather            than network objects. Objects that are not represented using IP addresses are presented as objects.            The ‘members’ parameter is omitted from the response and instead the ‘ranges’ parameter is displayed.            Defaults to False.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
@@ -394,14 +382,14 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">network_objects</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">uid</span><span class="o">=</span><span class="s2">&quot;9423d36f-2d66-4754-b9e2-e7f4493756d4&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">network_objects</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">uid</span><span class="o">=</span><span class="s2">&quot;ed997ff8-6709-4d71-a713-99bf01711cd5&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.network_objects.host.Host.show_hosts">
-<span class="sig-name descname"><span class="pre">show_hosts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.network_objects.host.Host.show_hosts" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.network_objects.group.Group.show_groups">
+<span class="sig-name descname"><span class="pre">show_groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_as_ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.network_objects.group.Group.show_groups" title="Permalink to this definition">#</a></dt>
 <dd><p>Retrieve all objects.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -410,6 +398,7 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 <li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The maximal number of returned results. Defaults to 50 (between 1 and 500)</p></li>
 <li><p><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Number of the results to initially skip. Defaults to 0</p></li>
 <li><p><strong>order</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>]</em><em>, </em><em>optional</em>) – Sorts results by the given field. By default the results are sorted in the             descending order by the session publish time.</p></li>
+<li><p><strong>show_as_ranges</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – When true, the group’s matched content is displayed as ranges of IP addresses rather            than network objects. Objects that are not represented using IP addresses are presented as objects.            The ‘members’ parameter is omitted from the response and instead the ‘ranges’ parameter is displayed.            Defaults to False.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -420,7 +409,7 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">network_objects</span><span class="o">.</span><span class="n">host</span><span class="o">.</span><span class="n">shows_hosts</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">network_objects</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">shows_groups</span><span class="p">()</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -434,23 +423,23 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../service_applications.html">
+          <a class="next-page" href="group_with_exclusion.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Service &amp; Applications</div>
+                <div class="title">Group with Exclusion</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="group_with_exclusion.html">
+          <a class="prev-page" href="dynamic_object.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Group with Exclusion</div>
+                <div class="title">Dynamic Object</div>
                 
               </div>
             </a>

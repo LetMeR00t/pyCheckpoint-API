@@ -24,10 +24,11 @@ class GSNHandoverGroup(NetworkObject):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            enforce_gtp (bool): Enable enforce GTP signal packet rate limit from this group.
-            gtp_rate (int): Limit of the GTP rate in PDU/sec.
-            members (Union[str, List[str]]): Collection of Network objects identified by the name or UID.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            enforce_gtp (bool, optional): Enable enforce GTP signal packet rate limit from this group.
+            gtp_rate (int, optional): Limit of the GTP rate in PDU/sec.
+            members (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
+
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -38,17 +39,19 @@ class GSNHandoverGroup(NetworkObject):
             **comments (str, optional):
                 Comments string.
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,List[str])):
+            **groups (Union(str,List[str]), optional):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.gsn_handover_group.add(name="My object")
         """
@@ -83,14 +86,17 @@ class GSNHandoverGroup(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.gsn_handover_group.show(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e")
         """
@@ -108,8 +114,9 @@ class GSNHandoverGroup(NetworkObject):
         secondary_parameters = {"details-level": str}
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
-        return self._post("show-gsn-handover-group", json=payload)
-        return self.show_object(endpoint="show-group", uid=uid, name=name, **kw)
+        return self.show_object(
+            endpoint="show-gsn-handover-group", uid=uid, name=name, **kw
+        )
 
     def set(
         self,
@@ -126,30 +133,33 @@ class GSNHandoverGroup(NetworkObject):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            enforce_gtp (bool): Enable enforce GTP signal packet rate limit from this group.
-            gtp_rate (int): Limit of the GTP rate in PDU/sec.
-            members (Union[dict, str, List[str]]): Collection of Network objects identified by the name or UID.
-            new_name (str): New name of the object.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            enforce_gtp (bool, optional): Enable enforce GTP signal packet rate limit from this group.
+            gtp_rate (int, optional): Limit of the GTP rate in PDU/sec.
+            members (Union[dict, str, List[str]], optional): Collection of Network objects identified by the name or UID.
+            new_name (str, optional): New name of the object.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
             **comments (str, optional):
                 Comments string.
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,List[str])):
+            **groups (Union(str,List[str]), optional):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.gsn_handover_group.set(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e",
             new_name="gsnhandovergroup")
@@ -193,19 +203,22 @@ class GSNHandoverGroup(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.gsn_handover_group.delete(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e")
         """
@@ -233,8 +246,10 @@ class GSNHandoverGroup(NetworkObject):
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
+
         Returns:
             :obj:`Box`: The response from the server
+            
         Examples:
             >>> firewall.network_objects.group.shows_groups()
         """

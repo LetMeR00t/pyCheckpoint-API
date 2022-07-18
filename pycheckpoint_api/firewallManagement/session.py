@@ -409,7 +409,7 @@ class Session(APIEndpoint):
 
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
 
         Returns:
@@ -518,7 +518,7 @@ class Session(APIEndpoint):
 
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
 
         Returns:

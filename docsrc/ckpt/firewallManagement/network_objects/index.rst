@@ -15,5 +15,7 @@ This class is used to manage `Network Objects <https://sc1.checkpoint.com/docume
     checkpoint_host
     dns_domain
     dynamic_object
+    group
     group_with_exclusion
+    gsn-handover-group
     host

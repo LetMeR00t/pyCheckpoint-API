@@ -64,9 +64,9 @@ class CheckpointHost(NetworkObject):
             **comments (str, optional):
                 Comments string.
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,List[str])):
+            **groups (Union(str,List[str]), optional):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
@@ -141,7 +141,7 @@ ipv4_address="5.5.5.5",management_blades={"network-policy-management": True,\
             name (str, optional): Object name.
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
         Returns:
             :obj:`Box`: The response from the server
@@ -209,9 +209,9 @@ ipv4_address="5.5.5.5",management_blades={"network-policy-management": True,\
             **comments (str, optional):
                 Comments string.
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **groups (Union(str,List[str])):
+            **groups (Union(str,List[str]), optional):
                 Collection of group identifiers.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
@@ -292,7 +292,7 @@ ip_address="5.5.5.5")
             name (str, optional): Object name.
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False

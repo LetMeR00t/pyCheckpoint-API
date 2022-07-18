@@ -28,7 +28,7 @@ class AccessSection(APIEndpoint):
             name (str): Section name.
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
@@ -77,7 +77,7 @@ class AccessSection(APIEndpoint):
             name (str): Object name. Mandatory if "rule_number" or "uid" are not set.
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
         Returns:
             :obj:`Box`: The response from the server
@@ -120,7 +120,7 @@ class AccessSection(APIEndpoint):
             name (str): Rule name.
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
@@ -175,7 +175,7 @@ class AccessSection(APIEndpoint):
             layer (str): Layer that the rule belongs to identified by the name or UID.
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
         Returns:
             :obj:`Box`: The response from the server

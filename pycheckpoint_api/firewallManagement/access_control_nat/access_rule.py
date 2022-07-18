@@ -72,7 +72,7 @@ class AccessRule(APIEndpoint):
             **comments (str, optional):
                 Comments string.
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
@@ -197,7 +197,7 @@ class AccessRule(APIEndpoint):
             hits_settings (bool): N/A
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
         Returns:
             :obj:`Box`: The response from the server
@@ -301,7 +301,7 @@ class AccessRule(APIEndpoint):
             vpn (Union[str, dict, List[dict]]): Communities or Directional. See the API documentation for more information
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **ignore-warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
@@ -424,7 +424,7 @@ class AccessRule(APIEndpoint):
             layer (str): Layer that the rule belongs to identified by the name or UID.
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
         Returns:
             :obj:`Box`: The response from the server
@@ -500,7 +500,7 @@ class AccessRule(APIEndpoint):
             hits_settings (dict): N/A
         Keyword Args:
             **details-level (str, optional):
-                The level of detail for some of the fields in the response can vary from showing only the UID value
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **show-membership (bool, optional):
                 Indicates whether to calculate and show "groups" field for every object in reply.
