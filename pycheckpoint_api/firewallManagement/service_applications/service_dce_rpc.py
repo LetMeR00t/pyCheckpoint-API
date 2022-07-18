@@ -23,11 +23,11 @@ class ServiceDCERPC(NetworkObject):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            interface_uuid (str): Network interface UUID.
-            keep_connections_open_after_policy_installation (bool): Keep connections open after policy has been installed
+            interface_uuid (str, optional): Network interface UUID.
+            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been installed
             even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.
             If you change this property, the change will not affect open connections, but only future connections.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
             
         Keyword Args:
             **set-if-exists (bool, optional):
@@ -53,7 +53,11 @@ class ServiceDCERPC(NetworkObject):
             :obj:`Box`: The response from the server
             
         Examples:
-            >>>
+            >>> firewallManagement.service_applications.service_dce_rpc.add(
+            ... name="New_DCE-RPC_Service_1",
+            ... interface_uuid="97aeb460-9aea-11d5-bd16-0090272ccb30",
+            ... keep_connections_open_after_policy_installation=False,
+            ... tags=["t1"])
         """
 
         # Main request parameters
@@ -87,8 +91,8 @@ class ServiceDCERPC(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
             
         Keyword Args:
             **details-level (str, optional):
@@ -119,14 +123,14 @@ class ServiceDCERPC(NetworkObject):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            new_name (str): New name of the object.
-            interface_uuid (str): Network interface UUID.
-            keep_connections_open_after_policy_installation (bool): Keep connections open after policy has been installed
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            new_name (str, optional): New name of the object.
+            interface_uuid (str, optional): Network interface UUID.
+            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been installed
             even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.
             If you change this property, the change will not affect open connections, but only future connections.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
             
         Keyword Args:
             **color (Color, optional):
@@ -149,7 +153,7 @@ class ServiceDCERPC(NetworkObject):
             
         Examples:
             >>> firewallManagement.service_applications.service_dce_rpc.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
-            new_name="New Service TCP")
+            ... new_name="New Service TCP")
         """
 
         # Main request parameters
@@ -190,8 +194,8 @@ class ServiceDCERPC(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
             
         Keyword Args:
             **details-level (str, optional):
@@ -236,7 +240,7 @@ class ServiceDCERPC(NetworkObject):
             show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
             than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
-                        Defaults to False.
+            Defaults to False.
             
         Keyword Args:
             **details-level (str, optional):

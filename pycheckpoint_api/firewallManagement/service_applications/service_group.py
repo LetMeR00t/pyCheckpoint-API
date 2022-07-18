@@ -22,8 +22,8 @@ class ServiceGroup(NetworkObject):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            members (Union[str, List[str]]): Collection of Service objects identified by the name or UID.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            members (Union[str, List[str]], optional): Collection of Service objects identified by the name or UID.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
             
         Keyword Args:
             **color (Color, optional):
@@ -46,9 +46,9 @@ class ServiceGroup(NetworkObject):
             
         Examples:
             >>> firewallManagement.service_applications.service_group.add(
-        name="New Service Group 3",
-        members=["New Host 1", "My Test Host 3"],
-        tags=["t1"],)
+            ... name="New Service Group 3",
+            ... members=["New Host 1", "My Test Host 3"],
+            ... tags=["t1"])
         """
 
         # Main request parameters
@@ -78,9 +78,9 @@ class ServiceGroup(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            show_as_ranges (bool, optional, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
             than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
                         Defaults to False.
@@ -111,11 +111,11 @@ class ServiceGroup(NetworkObject):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            members (Union[dict, str, List[str]]): Collection of Network objects identified by the name or UID.
-            new_name (str): New name of the object.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            members (Union[dict, str, List[str]], optional): Collection of Network objects identified by the name or UID.
+            new_name (str, optional): New name of the object.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
             
         Keyword Args:
             **color (Color, optional):
@@ -138,11 +138,11 @@ class ServiceGroup(NetworkObject):
             
         Examples:
             >>> firewallManagement.service_applications.service_group.set(
-        uid="dce67d0d-5efe-4808-b22d-2eb99e24c70d",
-        new_name="New Service Group 3",
-        members=["https"],
-        groups=["My Service Group1", "My Service Group2"],
-        tags=["t1"],)
+            ... uid="dce67d0d-5efe-4808-b22d-2eb99e24c70d",
+            ... new_name="New Service Group 3",
+            ... members=["https"],
+            ... groups=["My Service Group1", "My Service Group2"],
+            ... tags=["t1"])
         """
 
         # Main request parameters
@@ -179,8 +179,8 @@ class ServiceGroup(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
             
         Keyword Args:
             **details-level (str, optional):
@@ -227,6 +227,7 @@ class ServiceGroup(NetworkObject):
             than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
             Defaults to False.
+            
         Returns:
             :obj:`Box`: The response from the server
             

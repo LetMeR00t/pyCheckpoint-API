@@ -29,21 +29,21 @@ class ServiceSCTP(NetworkObject):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            port (str): The number of the port used to provide this service.
+            port (str): The number of the port used to provide this service.\
             To specify a port range, place a hyphen between the lowest and highest port numbers, for example 44-55.
-            aggressive_aging (dict): Sets short (aggressive) timeouts for idle connections.
-            keep_connections_open_after_policy_installation (bool): Keep connections open after policy has been installed
-            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.
+            aggressive_aging (dict, optional): Sets short (aggressive) timeouts for idle connections.
+            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been installed\
+            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.\
             If you change this property, the change will not affect open connections, but only future connections.
-            match_for_any (bool): Indicates whether this service is used when 'Any' is set as the rule's service and there are
+            match_for_any (bool, optional): Indicates whether this service is used when 'Any' is set as the rule's service and there are\
             several service objects with the same source port and protocol.
-            session_timeout (int): Time (in seconds) before the session times out.
-            source_port (str): Port number for the client side service. If specified, only those Source port Numbers will be
+            session_timeout (int, optional): Time (in seconds) before the session times out.
+            source_port (str, optional): Port number for the client side service. If specified, only those Source port Numbers will be\
             Accepted, Dropped, or Rejected during packet inspection. Otherwise, the source port is not inspected.
-            sync_connections_on_cluster (bool): Enables state-synchronized High Availability or Load Sharing on a ClusterXL
+            sync_connections_on_cluster (bool, optional): Enables state-synchronized High Availability or Load Sharing on a ClusterXL\
             or OPSEC-certified cluster.
-            tags (Union(str,List[str])): Collection of tag identifiers.
-            use_default_session_timeout (bool): Use default virtual session timeout.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            use_default_session_timeout (bool, optional): Use default virtual session timeout.
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -69,13 +69,13 @@ class ServiceSCTP(NetworkObject):
             
         Examples:
             >>> firewallManagement.service_applications.service_sctp.add(
-        name="New_SCTP_Service_1",
-        port=5669,
-        keep_connections_open_after_policy_installation=False,
-        session_timeout=0,
-        match_for_any=True,
-        sync_connections_on_cluster=True,
-        aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False})
+            ... name="New_SCTP_Service_1",
+            ... port=5669,
+            ... keep_connections_open_after_policy_installation=False,
+            ... session_timeout=0,
+            ... match_for_any=True,
+            ... sync_connections_on_cluster=True,
+            ... aggressive_aging={"enable": True, "timeout": 360, "use-default-timeout": False})
         """
 
         # Main request parameters
@@ -119,8 +119,8 @@ class ServiceSCTP(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
             
         Keyword Args:
             **details-level (str, optional):
@@ -155,24 +155,24 @@ class ServiceSCTP(NetworkObject):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            new_name (str): New name of the object.
-            name (str): Object name. Must be unique in the domain.
-            port (str): The number of the port used to provide this service.
+            uid (str, optional): Object unique identifier.
+            new_name (str, optional): New name of the object.
+            name (str, optional): Object name. Must be unique in the domain.
+            port (str, optional): The number of the port used to provide this service.\
             To specify a port range, place a hyphen between the lowest and highest port numbers, for example 44-55.
-            aggressive_aging (dict): Sets short (aggressive) timeouts for idle connections.
-            keep_connections_open_after_policy_installation (bool): Keep connections open after policy has been installed
-            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.
+            aggressive_aging (dict, optional): Sets short (aggressive) timeouts for idle connections.
+            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been installed\
+            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.\
             If you change this property, the change will not affect open connections, but only future connections.
-            match_for_any (bool): Indicates whether this service is used when 'Any' is set as the rule's service and there are
+            match_for_any (bool, optional): Indicates whether this service is used when 'Any' is set as the rule's service and there are\
             several service objects with the same source port and protocol.
-            session_timeout (int): Time (in seconds) before the session times out.
-            source_port (str): Port number for the client side service. If specified, only those Source port Numbers will be
+            session_timeout (int, optional): Time (in seconds) before the session times out.
+            source_port (str, optional): Port number for the client side service. If specified, only those Source port Numbers will be\
             Accepted, Dropped, or Rejected during packet inspection. Otherwise, the source port is not inspected.
-            sync_connections_on_cluster (bool): Enables state-synchronized High Availability or Load Sharing on a ClusterXL
+            sync_connections_on_cluster (bool, optional): Enables state-synchronized High Availability or Load Sharing on a ClusterXL\
             or OPSEC-certified cluster.
-            tags (Union(str,List[str])): Collection of tag identifiers.
-            use_default_session_timeout (bool): Use default virtual session timeout.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
+            use_default_session_timeout (bool, optional): Use default virtual session timeout.
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -194,7 +194,7 @@ class ServiceSCTP(NetworkObject):
             
         Examples:
             >>> firewallManagement.service_applications.service_sctp.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
-            new_name="New Service TCP")
+            ... new_name="New Service TCP")
         """
 
         # Main request parameters
@@ -247,8 +247,8 @@ class ServiceSCTP(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
             
         Keyword Args:
             **details-level (str, optional):
@@ -293,7 +293,7 @@ class ServiceSCTP(NetworkObject):
             show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
             than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
-                        Defaults to False.
+            Defaults to False.
             
         Keyword Args:
             **details-level (str, optional):
@@ -305,6 +305,7 @@ class ServiceSCTP(NetworkObject):
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
             **show-membership (bool, optional):
                 Indicates whether to calculate and show "groups" field for every object in reply.
+
         Returns:
             :obj:`Box`: The response from the server
             

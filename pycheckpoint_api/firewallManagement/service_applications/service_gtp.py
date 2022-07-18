@@ -35,23 +35,23 @@ class ServiceGTP(NetworkObject):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            version (str): GTP version
-            access_point_name (dict): Match by Access Point Name.
-            allow_usage_of_static_ip (bool): Allow usage of static IP addresses.
-            apply_access_policy_on_user_traffic (dict): Apply Access Policy on user traffic.
-            cs_fallback_and_srvcc (bool): CS Fallback and SRVCC (Relevant for V2 only). Defaults to True.
-            imsi_prefix (dict): Match by IMSI prefix.
-            interface_profile (dict): Match only message types relevant to the given GTP interface.
+            version (str, optional): GTP version
+            access_point_name (dict, optional): Match by Access Point Name.
+            allow_usage_of_static_ip (bool, optional): Allow usage of static IP addresses.
+            apply_access_policy_on_user_traffic (dict, optional): Apply Access Policy on user traffic.
+            cs_fallback_and_srvcc (bool, optional): CS Fallback and SRVCC (Relevant for V2 only). Defaults to True.
+            imsi_prefix (dict, optional): Match by IMSI prefix.
+            interface_profile (dict, optional): Match only message types relevant to the given GTP interface.
             Relevant only for GTP V1 or V2.
-            ldap_group (dict): Match by an LDAP Group.
-            ms_isdn (dict): Match by an MS-ISDN.
-            restoration_and_recovery (bool): Restoration and Recovery (Relevant for V2 only).
-            reverse_service (bool): Accept PDUs from the GGSN/PGW to the SGSN/SGW on a previously established PDP context,
+            ldap_group (dict, optional): Match by an LDAP Group.
+            ms_isdn (dict, optional): Match by an MS-ISDN.
+            restoration_and_recovery (bool, optional): Restoration and Recovery (Relevant for V2 only).
+            reverse_service (bool, optional): Accept PDUs from the GGSN/PGW to the SGSN/SGW on a previously established PDP context,
             even if different ports are used.
-            selection_mode (dict): Match by a selection mode.
-            radio_access_technology (dict): Match by Radio Access Technology.
-            trace_management (bool): Trace Management (Relevant for V2 only).
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            selection_mode (dict, optional): Match by a selection mode.
+            radio_access_technology (dict, optional): Match by Radio Access Technology.
+            trace_management (bool, optional): Trace Management (Relevant for V2 only).
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
             
         Keyword Args:
             **color (Color, optional):
@@ -74,46 +74,46 @@ class ServiceGTP(NetworkObject):
             
         Examples:
             >>> firewallManagement.service_applications.service_gtp.add(
-        name="New_gtp_Service_1",
-        version="v2",
-        access_point_name={"enable": False},
-        allow_usage_of_static_ip=True,
-        apply_access_policy_on_user_traffic={
-            "enable": False,
-            "add-imsi-field-to-log": False,
-        },
-        cs_fallback_and_srvcc=False,
-        imsi_prefix={"enable": True, "prefix": "313460000000001"},
-        interface_profile={
-            "profile": {
-                "uid": "b458696d-8967-469c-91cc-c6162c14cb27",
-                "name": "Any",
-                "type": "GTPInterfaceProfile",
-                "domain": {
-                    "uid": "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
-                    "name": "Check Point Data",
-                    "domain-type": "data domain",
-                },
-            }
-        },
-        ldap_group={"enable": False, "according-to": "MS-ISDN"},
-        ms_isdn={"enable": False, "ms-isdn": "1"},
-        radio_access_technology={
-            "utran": False,
-            "geran": False,
-            "wlan": False,
-            "gan": False,
-            "hspa-evolution": False,
-            "eutran": False,
-            "virtual": False,
-            "nb-iot": False,
-            "other-types-range": {"enable": False, "types": ""},
-        },
-        restoration_and_recovery=False,
-        reverse_service=False,
-        selection_mode={"enable": True, "mode": 2},
-        trace_management=True,
-        tags=["t1"],)
+            ... name="New_gtp_Service_1",
+            ... version="v2",
+            ... access_point_name={"enable": False},
+            ... allow_usage_of_static_ip=True,
+            ... apply_access_policy_on_user_traffic={
+            ...     "enable": False,
+            ...     "add-imsi-field-to-log": False,
+            ... },
+            ... cs_fallback_and_srvcc=False,
+            ... imsi_prefix={"enable": True, "prefix": "313460000000001"},
+            ... interface_profile={
+            ...     "profile": {
+            ...         "uid": "b458696d-8967-469c-91cc-c6162c14cb27",
+            ...         "name": "Any",
+            ...         "type": "GTPInterfaceProfile",
+            ...         "domain": {
+            ...             "uid": "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+            ...             "name": "Check Point Data",
+            ...             "domain-type": "data domain",
+            ...         },
+            ...     }
+            ... },
+            ... ldap_group={"enable": False, "according-to": "MS-ISDN"},
+            ... ms_isdn={"enable": False, "ms-isdn": "1"},
+            ... radio_access_technology={
+            ...     "utran": False,
+            ...     "geran": False,
+            ...     "wlan": False,
+            ...     "gan": False,
+            ...     "hspa-evolution": False,
+            ...     "eutran": False,
+            ...     "virtual": False,
+            ...     "nb-iot": False,
+            ...     "other-types-range": {"enable": False, "types": ""},
+            ... },
+            ... restoration_and_recovery=False,
+            ... reverse_service=False,
+            ... selection_mode={"enable": True, "mode": 2},
+            ... trace_management=True,
+            ... tags=["t1"],)
         """
 
         # Main request parameters
@@ -170,8 +170,8 @@ class ServiceGTP(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
             
         Keyword Args:
             **details-level (str, optional):
@@ -212,26 +212,26 @@ class ServiceGTP(NetworkObject):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            new_name (str): New name of the object.
-            version (str): GTP version
-            access_point_name (dict): Match by Access Point Name.
-            allow_usage_of_static_ip (bool): Allow usage of static IP addresses.
-            apply_access_policy_on_user_traffic (dict): Apply Access Policy on user traffic.
-            cs_fallback_and_srvcc (bool): CS Fallback and SRVCC (Relevant for V2 only). Defaults to True.
-            imsi_prefix (dict): Match by IMSI prefix.
-            interface_profile (dict): Match only message types relevant to the given GTP interface.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            new_name (str, optional): New name of the object.
+            version (str, optional): GTP version
+            access_point_name (dict, optional): Match by Access Point Name.
+            allow_usage_of_static_ip (bool, optional): Allow usage of static IP addresses.
+            apply_access_policy_on_user_traffic (dict, optional): Apply Access Policy on user traffic.
+            cs_fallback_and_srvcc (bool, optional): CS Fallback and SRVCC (Relevant for V2 only). Defaults to True.
+            imsi_prefix (dict, optional): Match by IMSI prefix.
+            interface_profile (dict, optional): Match only message types relevant to the given GTP interface.
             Relevant only for GTP V1 or V2.
-            ldap_group (dict): Match by an LDAP Group.
-            ms_isdn (dict): Match by an MS-ISDN.
-            restoration_and_recovery (bool): Restoration and Recovery (Relevant for V2 only).
-            reverse_service (bool): Accept PDUs from the GGSN/PGW to the SGSN/SGW on a previously established PDP context,
+            ldap_group (dict, optional): Match by an LDAP Group.
+            ms_isdn (dict, optional): Match by an MS-ISDN.
+            restoration_and_recovery (bool, optional): Restoration and Recovery (Relevant for V2 only).
+            reverse_service (bool, optional): Accept PDUs from the GGSN/PGW to the SGSN/SGW on a previously established PDP context,
             even if different ports are used.
-            selection_mode (dict): Match by a selection mode.
-            radio_access_technology (dict): Match by Radio Access Technology.
-            trace_management (bool): Trace Management (Relevant for V2 only).
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            selection_mode (dict, optional): Match by a selection mode.
+            radio_access_technology (dict, optional): Match by Radio Access Technology.
+            trace_management (bool, optional): Trace Management (Relevant for V2 only).
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
             
         Keyword Args:
             **color (Color, optional):
@@ -254,47 +254,47 @@ class ServiceGTP(NetworkObject):
             
         Examples:
             >>> firewallManagement.service_applications.service_gtp.set(
-        uid="70e390d7-b070-4d6e-b8d7-53b7f6cc7fe6",
-        new_name="New_gtp_Service_1",
-        version="v2",
-        access_point_name={"enable": False},
-        allow_usage_of_static_ip=True,
-        apply_access_policy_on_user_traffic={
-            "enable": False,
-            "add-imsi-field-to-log": False,
-        },
-        cs_fallback_and_srvcc=False,
-        imsi_prefix={"enable": True, "prefix": "313460000000001"},
-        interface_profile={
-            "profile": {
-                "uid": "b458696d-8967-469c-91cc-c6162c14cb27",
-                "name": "Any",
-                "type": "GTPInterfaceProfile",
-                "domain": {
-                    "uid": "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
-                    "name": "Check Point Data",
-                    "domain-type": "data domain",
-                },
-            }
-        },
-        ldap_group={"enable": False, "according-to": "MS-ISDN"},
-        ms_isdn={"enable": False, "ms-isdn": "1"},
-        radio_access_technology={
-            "utran": False,
-            "geran": False,
-            "wlan": False,
-            "gan": False,
-            "hspa-evolution": False,
-            "eutran": False,
-            "virtual": False,
-            "nb-iot": False,
-            "other-types-range": {"enable": False, "types": ""},
-        },
-        restoration_and_recovery=False,
-        reverse_service=False,
-        selection_mode={"enable": True, "mode": 2},
-        trace_management=True,
-        tags=["t1"],)
+            ... uid="70e390d7-b070-4d6e-b8d7-53b7f6cc7fe6",
+            ... new_name="New_gtp_Service_1",
+            ... version="v2",
+            ... access_point_name={"enable": False},
+            ... allow_usage_of_static_ip=True,
+            ... apply_access_policy_on_user_traffic={
+            ...     "enable": False,
+            ...     "add-imsi-field-to-log": False,
+            ... },
+            ... cs_fallback_and_srvcc=False,
+            ... imsi_prefix={"enable": True, "prefix": "313460000000001"},
+            ... interface_profile={
+            ...     "profile": {
+            ...         "uid": "b458696d-8967-469c-91cc-c6162c14cb27",
+            ...         "name": "Any",
+            ...         "type": "GTPInterfaceProfile",
+            ...         "domain": {
+            ...             "uid": "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+            ...             "name": "Check Point Data",
+            ...             "domain-type": "data domain",
+            ...         },
+            ...     }
+            ... },
+            ... ldap_group={"enable": False, "according-to": "MS-ISDN"},
+            ... ms_isdn={"enable": False, "ms-isdn": "1"},
+            ... radio_access_technology={
+            ...     "utran": False,
+            ...     "geran": False,
+            ...     "wlan": False,
+            ...     "gan": False,
+            ...     "hspa-evolution": False,
+            ...     "eutran": False,
+            ...     "virtual": False,
+            ...     "nb-iot": False,
+            ...     "other-types-range": {"enable": False, "types": ""},
+            ... },
+            ... restoration_and_recovery=False,
+            ... reverse_service=False,
+            ... selection_mode={"enable": True, "mode": 2},
+            ... trace_management=True,
+            ... tags=["t1"])
         """
 
         # Main request parameters
@@ -359,8 +359,8 @@ class ServiceGTP(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
             
         Keyword Args:
             **details-level (str, optional):
@@ -405,7 +405,7 @@ class ServiceGTP(NetworkObject):
             show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
             than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
-                        Defaults to False.
+            Defaults to False.
             
         Keyword Args:
             **details-level (str, optional):

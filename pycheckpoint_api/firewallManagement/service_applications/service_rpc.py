@@ -23,11 +23,11 @@ class ServiceRPC(NetworkObject):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            program_number (int): N/A
-            keep_connections_open_after_policy_installation (bool): Keep connections open after policy has been installed
-            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.
+            program_number (int, optional): N/A
+            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been installed\
+            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.\
             If you change this property, the change will not affect open connections, but only future connections.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
             
         Keyword Args:
             **set-if-exists (bool, optional):
@@ -54,10 +54,10 @@ class ServiceRPC(NetworkObject):
             
         Examples:
             >>> firewallManagement.service_applications.service_rpc.add(
-        name="New_RPC_Service_2",
-        program_number="5669",
-        keep_connections_open_after_policy_installation=False,
-        tags=["t1"],)
+            ... name="New_RPC_Service_2",
+            ... program_number="5669",
+            ... keep_connections_open_after_policy_installation=False,
+            ... tags=["t1"])
         """
 
         # Main request parameters
@@ -91,8 +91,8 @@ class ServiceRPC(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
             
         Keyword Args:
             **details-level (str, optional):
@@ -104,11 +104,11 @@ class ServiceRPC(NetworkObject):
             
         Examples:
             >>> firewallManagement.service_applications.service_rpc.set(
-        uid="66333250-0680-46c3-a894-ebe1fef657f4",
-        new_name="New_RPC_Service_2",
-        program_number="5669",
-        keep_connections_open_after_policy_installation=False,
-        tags=["t1"],)
+            ... uid="66333250-0680-46c3-a894-ebe1fef657f4",
+            ... new_name="New_RPC_Service_2",
+            ... program_number="5669",
+            ... keep_connections_open_after_policy_installation=False,
+            ... tags=["t1"])
         """
         return self.show_object(endpoint="show-service-rpc", uid=uid, name=name, **kw)
 
@@ -126,14 +126,14 @@ class ServiceRPC(NetworkObject):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            new_name (str): New name of the object.
-            program_number (int): N/A
-            keep_connections_open_after_policy_installation (bool): Keep connections open after policy has been installed
-            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            new_name (str, optional): New name of the object.
+            program_number (int, optional): N/A
+            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been installed\
+            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.\
             If you change this property, the change will not affect open connections, but only future connections.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
             
         Keyword Args:
             **color (Color, optional):
@@ -197,8 +197,8 @@ class ServiceRPC(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
             
         Keyword Args:
             **details-level (str, optional):
@@ -243,7 +243,7 @@ class ServiceRPC(NetworkObject):
             show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
             than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
-                        Defaults to False.
+            Defaults to False.
             
         Keyword Args:
             **details-level (str, optional):
