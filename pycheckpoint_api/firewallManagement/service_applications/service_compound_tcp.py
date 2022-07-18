@@ -23,11 +23,11 @@ class ServiceCompoundTCP(NetworkObject):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            compound_service (str): Compound service type.
-            keep_connections_open_after_policy_installation (bool): Keep connections open after policy has been installed
-            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.
+            compound_service (str, optional): Compound service type.
+            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been installed\
+            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.\
             If you change this property, the change will not affect open connections, but only future connections.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
             
         Keyword Args:
             **set-if-exists (bool, optional):
@@ -54,10 +54,10 @@ class ServiceCompoundTCP(NetworkObject):
             
         Examples:
             >>> firewallManagement.service_applications.service_compound_tcp.add(
-        name="mycompoundtcp",
-        compound_service="pointcast",
-        keep_connections_open_after_policy_installation=False,
-        tags=["t1"],)
+            ... name="mycompoundtcp",
+            ... compound_service="pointcast",
+            ... keep_connections_open_after_policy_installation=False,
+            ... tags=["t1"])
         """
 
         # Main request parameters
@@ -91,8 +91,8 @@ class ServiceCompoundTCP(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
             
         Keyword Args:
             **details-level (str, optional):
@@ -104,11 +104,11 @@ class ServiceCompoundTCP(NetworkObject):
             
         Examples:
             >>> firewallManagement.service_applications.service_compound_tcp.set(
-        uid="66333250-0680-46c3-a894-ebe1fef657f4",
-        new_name="New_RPC_Service_2",
-        program_number="5669",
-        keep_connections_open_after_policy_installation=False,
-        tags=["t1"],)
+            ... uid="66333250-0680-46c3-a894-ebe1fef657f4",
+            ... new_name="New_RPC_Service_2",
+            ... program_number="5669",
+            ... keep_connections_open_after_policy_installation=False,
+            ... tags=["t1"])
         """
         return self.show_object(
             endpoint="show-service-compound-tcp", uid=uid, name=name, **kw
@@ -128,14 +128,14 @@ class ServiceCompoundTCP(NetworkObject):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            new_name (str): New name of the object.
-            compound_service (str): Compound service type.
-            keep_connections_open_after_policy_installation (bool): Keep connections open after policy has been installed
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            new_name (str, optional): New name of the object.
+            compound_service (str, optional): Compound service type.
+            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been installed
             even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.
             If you change this property, the change will not affect open connections, but only future connections.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
             
         Keyword Args:
             **color (Color, optional):
@@ -158,11 +158,11 @@ class ServiceCompoundTCP(NetworkObject):
             
         Examples:
             >>> firewallManagement.service_applications.service_compound_tcp.set(
-        uid="1f0f2270-b297-4400-afa4-d9f56a1cb407",
-        new_name="mycompoundtcp",
-        compound_service="pointcast",
-        keep_connections_open_after_policy_installation=False,
-        tags=["t1"],)
+            ... uid="1f0f2270-b297-4400-afa4-d9f56a1cb407",
+            ... new_name="mycompoundtcp",
+            ... compound_service="pointcast",
+            ... keep_connections_open_after_policy_installation=False,
+            ... tags=["t1"])
         """
 
         # Main request parameters
@@ -203,8 +203,8 @@ class ServiceCompoundTCP(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
             
         Keyword Args:
             **details-level (str, optional):
@@ -250,15 +250,15 @@ class ServiceCompoundTCP(NetworkObject):
             show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
             than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
-                        Defaults to False.
+            Defaults to False.
             
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **domains-to-process (List[str], optional):
-                Indicates which domains to process the commands on. It cannot be used with the details-level full,
-                must be run from the System Domain only and with ignore-warnings true.
+                Indicates which domains to process the commands on. It cannot be used with the details-level full,\
+                must be run from the System Domain only and with ignore-warnings true.\
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
             **show-membership (bool, optional):
                 Indicates whether to calculate and show "groups" field for every object in reply.

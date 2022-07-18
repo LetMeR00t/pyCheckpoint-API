@@ -197,7 +197,7 @@ class NATRule(APIEndpoint):
             method (str, optional): Nat method. Valid values are "static", "hide", "nat64", "nat46" and "cgnat"
             original_destination (str, optional): Original destination.
             original_service (str, optional): Original service.
-            original_source (str, optional): 	Original source.
+            original_source (str, optional): Original source.
             translated_destination (str, optional): Translated destination.
             translated_service (str, optional): Translated service.
             translated_source (str, optional): Translated service.
@@ -370,8 +370,8 @@ class NATRule(APIEndpoint):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **domains-to-process (List[str], optional):
-                Indicates which domains to process the commands on. It cannot be used with the details-level full,
-                must be run from the System Domain only and with ignore-warnings true.
+                Indicates which domains to process the commands on. It cannot be used with the details-level full,\
+                must be run from the System Domain only and with ignore-warnings true.\
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
             **dereference-group-members (bool, optional):
                 Indicates whether to dereference "members" field by details level for every object in reply.

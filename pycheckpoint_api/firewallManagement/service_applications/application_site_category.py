@@ -22,8 +22,8 @@ class ApplicationSiteCategory(NetworkObject):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            description (str): N/A
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            description (str, optional): N/A
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
             
         Keyword Args:
             **color (Color, optional):
@@ -75,12 +75,12 @@ class ApplicationSiteCategory(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            show_as_ranges (bool): When true, the group's matched content is displayed as ranges of IP addresses rather
-            than network objects. Objects that are not represented using IP addresses are presented as objects.
-            The 'description' parameter is omitted from the response and instead the 'ranges' parameter is displayed.
-                        Defaults to False.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
+            than network objects. Objects that are not represented using IP addresses are presented as objects.\
+            The 'description' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
+            Defaults to False.
             
         Keyword Args:
             **details-level (str, optional):
@@ -110,11 +110,11 @@ class ApplicationSiteCategory(NetworkObject):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            description (str): N/A
-            new_name (str): New name of the object.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            description (str, optional): N/A
+            new_name (str, optional): New name of the object.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
             
         Keyword Args:
             **color (Color, optional):
@@ -173,8 +173,8 @@ class ApplicationSiteCategory(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
             
         Keyword Args:
             **details-level (str, optional):
@@ -216,10 +216,11 @@ class ApplicationSiteCategory(NetworkObject):
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
-            show_as_ranges (bool): When true, the group's matched content is displayed as ranges of IP addresses rather
-            than network objects. Objects that are not represented using IP addresses are presented as objects.
-            The 'description' parameter is omitted from the response and instead the 'ranges' parameter is displayed.
+            show_as_ranges (bool): When true, the group's matched content is displayed as ranges of IP addresses rather\
+            than network objects. Objects that are not represented using IP addresses are presented as objects.\
+            The 'description' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
             Defaults to False.
+            
         Returns:
             :obj:`Box`: The response from the server
             

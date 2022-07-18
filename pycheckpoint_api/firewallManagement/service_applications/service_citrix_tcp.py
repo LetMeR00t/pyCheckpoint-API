@@ -22,8 +22,8 @@ class ServiceCitrixTCP(NetworkObject):
 
         Args:
             name (str): Object name. Must be unique in the domain.
-            application (str): Citrix application name.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            application (str, optional): Citrix application name.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
             
         Keyword Args:
             **color (Color, optional):
@@ -46,9 +46,9 @@ class ServiceCitrixTCP(NetworkObject):
             
         Examples:
             >>> firewallManagement.service_applications.service_citrix_tcp.add(
-        name="mycitrixtcp",
-        application="My Citrix Application",
-        tags=["t1"],)
+            ... name="mycitrixtcp",
+            ... application="My Citrix Application",
+            ... tags=["t1"])
         """
 
         # Main request parameters
@@ -76,8 +76,8 @@ class ServiceCitrixTCP(NetworkObject):
         Retrieve existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
             
         Keyword Args:
             **details-level (str, optional):
@@ -107,11 +107,11 @@ class ServiceCitrixTCP(NetworkObject):
         Edit existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
-            application (str): Citrix application name.
-            new_name (str): New name of the object.
-            tags (Union(str,List[str])): Collection of tag identifiers.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
+            application (str, optional): Citrix application name.
+            new_name (str, optional): New name of the object.
+            tags (Union(str,List[str]), optional): Collection of tag identifiers.
             
         Keyword Args:
             **color (Color, optional):
@@ -134,10 +134,10 @@ class ServiceCitrixTCP(NetworkObject):
             
         Examples:
             >>> firewallManagement.service_applications.service_citrix_tcp.set(
-        uid="3464de87-7e4c-4dde-8b67-89cf2f46c32c",
-        new_name="mycitrixtcp",
-        application="My Citrix Application",
-        tags=["t1"],)
+            ... uid="3464de87-7e4c-4dde-8b67-89cf2f46c32c",
+            ... new_name="mycitrixtcp",
+            ... application="My Citrix Application",
+            ... tags=["t1"])
         """
 
         # Main request parameters
@@ -174,8 +174,8 @@ class ServiceCitrixTCP(NetworkObject):
         Delete existing object using object name or uid.
 
         Args:
-            uid (str): Object unique identifier.
-            name (str): Object name.
+            uid (str, optional): Object unique identifier.
+            name (str, optional): Object name.
             
         Keyword Args:
             **details-level (str, optional):
@@ -217,7 +217,7 @@ class ServiceCitrixTCP(NetworkObject):
             limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
-                       descending order by the session publish time.
+            descending order by the session publish time.
             
         Returns:
             :obj:`Box`: The response from the server
