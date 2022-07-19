@@ -12,7 +12,7 @@ class Policy(APIEndpoint):
         """The interface object for the Policy Package Management.
 
         Returns:
-            Policy: a Policy Package instance
+            PolicyPackage: a Policy Package instance
 
         Examples:
             >>> firewall.policy.package
