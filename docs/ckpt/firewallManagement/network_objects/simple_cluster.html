@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Simple Gateway" href="simple_gateway.html" /><link rel="prev" title="Security Zone" href="security_zone.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
-        <title>Simple Cluster - pyCheckpoint-API 0.6.0 documentation</title>
+        <title>Simple Cluster - pyCheckpoint-API 0.7.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../index.html"><div class="brand">pyCheckpoint-API 0.6.0 documentation</div></a>
+      <a href="../../../index.html"><div class="brand">pyCheckpoint-API 0.7.0 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -397,8 +397,7 @@
 <li><p><strong>tags</strong> (<em>Union</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>,</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>)</em><em>, </em><em>optional</em>) – Collection of tag identifiers.</p></li>
 <li><p><strong>threat_emulation</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Threat Emulation blade enabled.</p></li>
 <li><p><strong>threat_extraction</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Threat Extraction blade enabled.</p></li>
-<li><p><strong>threat_prevention_mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The mode of Threat Prevention to use. When using Autonomous Threat Prevention,</p></li>
-<li><p><strong>allowed.</strong> (<em>disabling the Threat Prevention blades is not</em>) – </p></li>
+<li><p><strong>threat_prevention_mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The mode of Threat Prevention to use. When using Autonomous Threat            Prevention, disabling the Threat Prevention blades is not allowed.</p></li>
 <li><p><strong>url_filtering</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – URL Filtering blade enabled.</p></li>
 <li><p><strong>usercheck_portal_settings</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – UserCheck portal settings.</p></li>
 <li><p><strong>version</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Gateway platform version.</p></li>
@@ -500,7 +499,8 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 <li><p><strong>tags</strong> (<em>Union</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>,</em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>)</em><em>, </em><em>optional</em>) – Collection of tag identifiers.</p></li>
 <li><p><strong>threat_emulation</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Threat Emulation blade enabled.</p></li>
 <li><p><strong>threat_extraction</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Threat Extraction blade enabled.</p></li>
-<li><p><strong>threat_prevention_mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The mode of Threat Prevention to use. When using Autonomous Threat Prevention,</p></li>
+<li><p><strong>threat_prevention_mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The mode of Threat Prevention to use. When using Autonomous Threat</p></li>
+<li><p><strong>Prevention</strong> – </p></li>
 <li><p><strong>allowed.</strong> (<em>disabling the Threat Prevention blades is not</em>) – </p></li>
 <li><p><strong>url_filtering</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – URL Filtering blade enabled.</p></li>
 <li><p><strong>usercheck_portal_settings</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – UserCheck portal settings.</p></li>

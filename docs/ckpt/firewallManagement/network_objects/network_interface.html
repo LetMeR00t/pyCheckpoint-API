@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="OPSEC Application" href="opsec_application.html" /><link rel="prev" title="Network" href="network.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
-        <title>Network Interface - pyCheckpoint-API 0.6.0 documentation</title>
+        <title>Network Interface - pyCheckpoint-API 0.7.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../index.html"><div class="brand">pyCheckpoint-API 0.6.0 documentation</div></a>
+      <a href="../../../index.html"><div class="brand">pyCheckpoint-API 0.7.0 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -402,8 +402,7 @@ Security Gateway or Cluster Member object. 2) Security Gateway or Cluster Member
 <li><p><strong>target_uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Target unique identifier.</p></li>
 <li><p><strong>target_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Target name.</p></li>
 <li><p><strong>group_interfaces_by_subnet</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Specify whether to group the cluster interfaces by a subnet.            Otherwise, group the cluster interfaces by their names.</p></li>
-<li><p><strong>use_defined_by_routes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Specify whether to configure the topology “Defined by Routes” where applicable.            Otherwise, configure the topology to “This Network” as default for internal interfaces.</p></li>
-<li><p><strong>with_topology</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Specify whether to fetch the interfaces with their topology.            Otherwise, the Management Server fetches the interfaces without their topology.</p></li>
+<li><p><strong>use_defined_by_routes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Specify whether to configure the topology “Defined by Routes” where            applicable. Otherwise, configure the topology to “This Network” as default for internal interfaces.            with_topology (bool, optional): Specify whether to fetch the interfaces with their topology.            Otherwise, the Management Server fetches the interfaces without their topology.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

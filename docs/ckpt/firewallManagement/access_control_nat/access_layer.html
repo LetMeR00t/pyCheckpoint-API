@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Access Rule" href="access_rule.html" /><link rel="prev" title="Access Control &amp; NAT" href="index.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
-        <title>Access Layer - pyCheckpoint-API 0.6.0 documentation</title>
+        <title>Access Layer - pyCheckpoint-API 0.7.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../index.html"><div class="brand">pyCheckpoint-API 0.6.0 documentation</div></a>
+      <a href="../../../index.html"><div class="brand">pyCheckpoint-API 0.7.0 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -378,8 +378,7 @@
 <li><p><strong>detect_using_x_forward_for</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to use X-Forward-For HTTP header, which is added by the proxy</p></li>
 <li><p><strong>IP.</strong> (<em>server to keep track of the original source</em>) – </p></li>
 <li><p><strong>firewall</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to enable Firewall blade on the layer.</p></li>
-<li><p><strong>implicit_cleanup_action</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The default “catch-all” action for traffic that does not match any explicit</p></li>
-<li><p><strong>&quot;accept&quot;</strong> (<em>or implied rules in the layer. Valid values are &quot;drop&quot; or</em>) – </p></li>
+<li><p><strong>implicit_cleanup_action</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The default “catch-all” action for traffic that does not match any            explicit or implied rules in the layer. Valid values are “drop” or “accept”</p></li>
 <li><p><strong>mobile_access</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to enable Mobile Access blade on the layer.</p></li>
 <li><p><strong>shared</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether this layer is shared.</p></li>
 <li><p><strong>tags</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>]</em><em>, </em><em>optional</em>) – Collection of tag identifiers.</p></li>
@@ -462,8 +461,7 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 <li><p><strong>detect_using_x_forward_for</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to use X-Forward-For HTTP header, which is added by the proxy</p></li>
 <li><p><strong>IP.</strong> (<em>server to keep track of the original source</em>) – </p></li>
 <li><p><strong>firewall</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to enable Firewall blade on the layer.</p></li>
-<li><p><strong>implicit_cleanup_action</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The default “catch-all” action for traffic that does not match any explicit</p></li>
-<li><p><strong>&quot;accept&quot;</strong> (<em>or implied rules in the layer. Valid values are &quot;drop&quot; or</em>) – </p></li>
+<li><p><strong>implicit_cleanup_action</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The default “catch-all” action for traffic that does not match any            explicit or implied rules in the layer. Valid values are “drop” or “accept”</p></li>
 <li><p><strong>mobile_access</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to enable Mobile Access blade on the layer.</p></li>
 <li><p><strong>shared</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether this layer is shared.</p></li>
 <li><p><strong>tags</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>]</em><em>, </em><em>optional</em>) – Collection of tag identifiers.</p></li>
