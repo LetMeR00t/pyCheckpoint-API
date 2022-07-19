@@ -4,15 +4,17 @@
 {{#args}}
     {{var}} ({{typePlaceholder}}): {{descriptionPlaceholder}}
 {{/args}}{{/argsExist}}
-{{#kwargsExist}}{{#kwargs}}                       
-    {{var}} ({{typePlaceholder}}, optional): {{descriptionPlaceholder}}. Defaults to {{&default}}
+{{#kwargsExist}}{{#kwargs}}
+    {{var}} ({{typePlaceholder}}, optional): {{descriptionPlaceholder}} Defaults to {{&default}}
 {{/kwargs}}
     **kw (dict, optional): Arbitrary keyword arguments for secondary parameters.
 {{/kwargsExist}}
-Keyword Args:                   
-    **_var_ (_type_, optional)            
-        _description_      
+
+Keyword Args:
+    **_var_ (_type_, optional)
+        _description_ 
 {{#exceptionsExist}}
+
 Raises:
 {{#exceptions}}
     {{type}}: {{descriptionPlaceholder}}
@@ -21,7 +23,7 @@ Raises:
 {{#returnsExist}}
 
 Returns:
-{{#returns}}                    
+{{#returns}}
     {{typePlaceholder}}: {{descriptionPlaceholder}}
 {{/returns}}
 {{/returnsExist}}

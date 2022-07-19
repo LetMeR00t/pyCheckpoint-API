@@ -94,7 +94,7 @@ Here is the list of endpoints that are currently supported by this SDK and base 
 -  🔴 VSX
 -  🔴 Threat Prevention
 -  🔴 HTTPS Inspection
--  🔴 Policy
+-  🟢 Policy
 -  🔴 Multi-Domain
 -  🔴 Migration
 -  🔴 SmartTasks

@@ -7,6 +7,7 @@ from pycheckpoint_api.utils import sanitize_value
 from .access_control_nat import AccessControlNAT
 from .misc import MISC
 from .network_objects import NetworkObjects
+from .policy import Policy
 from .service_applications import ServiceApplications
 from .session import Session
 
@@ -129,6 +130,19 @@ class FirewallManagement(APISession):
 
         """
         return AccessControlNAT(self)
+
+    @property
+    def policy(self) -> Policy:
+        """The interface object for the Policy Management.
+
+        Returns:
+            Policy: a Policy instance
+
+        Examples:
+            >>> firewall.policy
+
+        """
+        return Policy(self)
 
     @property
     def misc(self) -> MISC:
