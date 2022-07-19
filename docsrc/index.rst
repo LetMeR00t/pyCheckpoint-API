@@ -15,7 +15,7 @@ pyCheckpoint-API SDK - Library Reference
 
 pyCheckpoint-API is an SDK that provides a uniform and easy-to-use interface for each of the Checkpoint Firewall product API versions.
 
-This SDK is not affiliated with, nor supported by Checkpoint in any way.
+.. warning:: This SDK is not affiliated with, nor supported by Checkpoint in any way.
 
 Overview
 --------------
