@@ -119,10 +119,6 @@ Here is the list of endpoints that are currently supported by this SDK and base 
 -  🔴 Logs
 -  🔴 Misc.
 
-API Documentation
-^^^^^^^^^^^^^^^^^^
-This documentation is describing how the library is interfaced with the Checkpoint Management API
-
 User Documentation
 ^^^^^^^^^^^^^^^^^^^
 

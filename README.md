@@ -103,10 +103,27 @@ Here is the list of endpoints that are currently supported by this SDK and base 
 -  🔴 High Availability
 -  🔴 Manage & Settings
 -  🔴 Logs
--  🔴 Misc.
-
-### API Documentation
-TODO
+-  🟡 Misc.
+   -  🔴 add-objects-batch
+   -  🔴 set-objects-batch
+   -  🔴 delete-objects-batch
+   -  🔴 cme-api
+   -  🔴 gaia-api
+   -  🔴 export
+   -  🔴 show-changes
+   -  🔴 show-api-versions
+   -  🔴 put-file
+   -  🔴 where-used
+   -  🔴 run-script
+   -  🔴 show-unused-objects
+   -  🔴 show-gateways-and-servers
+   -  🔴 show-layer-structure
+   -  🔴 show-validations
+   -  🔴 show-commands
+   -  🔴 install-database
+   -  🔴 Task
+   -  🔴 Object
+   -  🟢 generic-objects (rulebaseaction)
 
 ### User Documentation
 TODO

@@ -5,6 +5,7 @@ from pycheckpoint_api import __version__
 from pycheckpoint_api.utils import sanitize_value
 
 from .access_control_nat import AccessControlNAT
+from .misc import MISC
 from .network_objects import NetworkObjects
 from .service_applications import ServiceApplications
 from .session import Session
@@ -128,3 +129,16 @@ class FirewallManagement(APISession):
 
         """
         return AccessControlNAT(self)
+
+    @property
+    def misc(self) -> MISC:
+        """The interface object for the MISC (Miscellaneous) Management.
+
+        Returns:
+            MISC: a MISC instance
+
+        Examples:
+            >>> firewall.misc
+
+        """
+        return MISC(self)
