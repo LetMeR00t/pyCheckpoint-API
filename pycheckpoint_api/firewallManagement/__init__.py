@@ -29,6 +29,7 @@ class FirewallManagement(APISession):
         Args:
             **kw (dict): Arbitrary keyword arguments for parameters.
 
+
         Keyword Args:
             **user (str, optional)
                 User name to use to authenticate (instead of ``api_key``)

@@ -32,7 +32,7 @@ class Wildcard(NetworkObject):
             ipv6_address (str, optional): IPv6 address.
             ipv6_mask_wildcard (str, optional): IPv6 mask wildcard.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
-            
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -48,10 +48,9 @@ class Wildcard(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.wildcard.add(name="My object")
         """
@@ -90,15 +89,14 @@ class Wildcard(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.wildcard.show(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
@@ -132,6 +130,7 @@ class Wildcard(NetworkObject):
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             host_servers (dict, optional): Servers Configuration.
 
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -147,10 +146,9 @@ class Wildcard(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.wildcard.set(name="My object")
         """
@@ -198,7 +196,7 @@ class Wildcard(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -208,10 +206,9 @@ class Wildcard(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.wildcard.delete(uid="d8a5e4dd-2a93-4847-aaa8-d5d33a695da5")
         """
@@ -236,11 +233,10 @@ class Wildcard(NetworkObject):
             limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
-            descending order by the session publish time.
-            
+                        descending order by the session publish time.
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.wildcard.shows_wildcards()
         """

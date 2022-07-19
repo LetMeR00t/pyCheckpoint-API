@@ -46,6 +46,7 @@ class Network(NetworkObject):
             nat_settings (dict, optional): NAT settings.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             broadcast (str, optional): Allow broadcast address inclusion.
+
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -65,10 +66,9 @@ class Network(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.network.add(name="My object")
         """
@@ -122,15 +122,14 @@ class Network(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.network.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
@@ -176,6 +175,7 @@ class Network(NetworkObject):
             tags (Union(str,List[str])): Collection of tag identifiers.
             broadcast (str): Allow broadcast address inclusion.
 
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -191,10 +191,9 @@ class Network(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.network.set(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",subnet="192.0.2.0",
                 subnet_mask="255.255.255.0")
@@ -254,7 +253,7 @@ class Network(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -264,10 +263,9 @@ class Network(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.network.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
@@ -292,11 +290,10 @@ class Network(NetworkObject):
             limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
-                       descending order by the session publish time.
-            
+            descending order by the session publish time.
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.network.shows_networks()
         """

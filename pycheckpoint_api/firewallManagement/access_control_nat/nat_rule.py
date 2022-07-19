@@ -36,7 +36,7 @@ class NATRule(APIEndpoint):
             (see the API documentation).
             name (str, optional): Rule name.
             enabled (bool, optional): Enable/Disable the rule.
-            install_on (Union[str, List[str]], optional): Which Gateways identified by the name or UID to install the policy on.
+            install_on (Union[str, List[str]], optional): Which Gateways identified by the name or UID to install the policy on
             method (str, optional): Nat method. Valid values are "static", "hide", "nat64", "nat46" and "cgnat"
             original_destination (str, optional): Original destination.
             original_service (str, optional): Original service.
@@ -44,6 +44,7 @@ class NATRule(APIEndpoint):
             translated_destination (str, optional): Translated destination.
             translated_service (str, optional): Translated service.
             translated_source (str, optional): Translated service.
+
 
         Keyword Args:
             **comments (str, optional):
@@ -56,10 +57,10 @@ class NATRule(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.nat_rule.add(
             ... package="standard",
@@ -128,14 +129,15 @@ class NATRule(APIEndpoint):
             uid (str, optional): Object unique identifier. Mandatory if "rule_number" or "name" are not set.
             name (str, optional): Object name. Mandatory if "rule_number" or "uid" are not set.
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.nat_rule.show(
             ... uid="a5a88521-c996-a256-9625-b5a5d56c39ad",
@@ -193,7 +195,7 @@ class NATRule(APIEndpoint):
             in the valid values ("top" or "bottom"). Otherwise, you can provide a dictionnary to explain more complex position\
             (see the API documentation).
             enabled (bool, optional): Enable/Disable the rule.
-            install_on (Union[str, List[str]], optional): Which Gateways identified by the name or UID to install the policy on.
+            install_on (Union[str, List[str]], optional): Which Gateways identified by the name or UID to install the policy on
             method (str, optional): Nat method. Valid values are "static", "hide", "nat64", "nat46" and "cgnat"
             original_destination (str, optional): Original destination.
             original_service (str, optional): Original service.
@@ -201,6 +203,7 @@ class NATRule(APIEndpoint):
             translated_destination (str, optional): Translated destination.
             translated_service (str, optional): Translated service.
             translated_source (str, optional): Translated service.
+
 
         Keyword Args:
             **details-level (str, optional):
@@ -211,10 +214,10 @@ class NATRule(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.nat_rule.set(
             ... uid="a5a88521-c996-a256-9625-b5a5d56c39ad",
@@ -295,15 +298,15 @@ class NATRule(APIEndpoint):
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
             rule_number (int, optional): Rule number.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.nat_rule.delete(
             ... package="standard",
@@ -365,6 +368,7 @@ class NATRule(APIEndpoint):
             package (str, optional): Name of the package.
             use_object_dictionnary (bool, optional): N/A
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -376,9 +380,10 @@ class NATRule(APIEndpoint):
             **dereference-group-members (bool, optional):
                 Indicates whether to dereference "members" field by details level for every object in reply.
 
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.nat_rule.show_nat_rulebase(
             ... package="standard",

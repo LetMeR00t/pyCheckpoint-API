@@ -17,7 +17,7 @@ class SecurityZone(NetworkObject):
         Args:
             name (str): Object name. Must be unique in the domain.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
-            
+
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -37,10 +37,9 @@ class SecurityZone(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.security_zone.add(name="My object")
         """
@@ -70,6 +69,7 @@ class SecurityZone(NetworkObject):
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -77,7 +77,6 @@ class SecurityZone(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.security_zone.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
@@ -99,7 +98,7 @@ class SecurityZone(NetworkObject):
             name (str, optional): Object name. Must be unique in the domain.
             new_name (str, optional): New name of the object.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
-            
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -115,10 +114,9 @@ class SecurityZone(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.security_zone.set(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",
             subnet="192.0.2.0",subnet_mask="255.255.255.0")
@@ -159,6 +157,7 @@ class SecurityZone(NetworkObject):
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -168,10 +167,9 @@ class SecurityZone(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.security_zone.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
@@ -202,7 +200,6 @@ class SecurityZone(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.security_zone.shows_security_zones()
         """

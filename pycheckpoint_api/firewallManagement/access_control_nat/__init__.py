@@ -12,8 +12,10 @@ class AccessControlNAT(APIEndpoint):
     def access_rule(self) -> AccessRule:
         """The interface object for the objects type "Access Rule" Management.
 
+
         Returns:
             AccessRule: an Access Rule instance
+
 
         Examples:
             >>> firewall.access_control_nat.access_rule
@@ -25,8 +27,10 @@ class AccessControlNAT(APIEndpoint):
     def access_section(self) -> AccessSection:
         """The interface object for the objects type "Access Section" Management.
 
+
         Returns:
             AccessSection: an Access Section instance
+
 
         Examples:
             >>> firewall.access_control_nat.access_section
@@ -38,8 +42,10 @@ class AccessControlNAT(APIEndpoint):
     def access_layer(self) -> AccessLayer:
         """The interface object for the objects type "Access Layer" Management.
 
+
         Returns:
             AccessLayer: an Access Layer section
+
 
         Examples:
             >>> firewall.access_control_nat.access_layer
@@ -51,8 +57,10 @@ class AccessControlNAT(APIEndpoint):
     def nat_rule(self) -> NATRule:
         """The interface object for the objects type "NAT Rule" Management.
 
+
         Returns:
             NATRule: a NAT Rule instance
+
 
         Examples:
             >>> firewall.access_control_nat.nat_rule
@@ -64,8 +72,10 @@ class AccessControlNAT(APIEndpoint):
     def nat_section(self) -> NATSection:
         """The interface object for the objects type "NAT Section" Management.
 
+
         Returns:
             NATSection: a NAT Section instance
+
 
         Examples:
             >>> firewall.access_control_nat.nat_section

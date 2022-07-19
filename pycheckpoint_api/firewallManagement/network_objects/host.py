@@ -36,6 +36,7 @@ class Host(NetworkObject):
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             host_servers (dict, optional): Servers Configuration.
 
+
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -58,7 +59,6 @@ class Host(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
-
         Examples:
             >>> firewall.network_objects.host.add(name="My object")
         """
@@ -105,6 +105,7 @@ class Host(NetworkObject):
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -112,7 +113,6 @@ class Host(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
-
         Examples:
             >>> firewall.network_objects.host.show(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
@@ -148,6 +148,7 @@ class Host(NetworkObject):
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             host_servers (dict, optional): Servers Configuration.
 
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -166,7 +167,6 @@ class Host(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
-
         Examples:
             >>> firewall.network_objects.host.set(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4", ip_address="192.0.2.1")
         """
@@ -219,6 +219,7 @@ class Host(NetworkObject):
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -231,7 +232,6 @@ class Host(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
-
         Examples:
             >>> firewall.network_objects.host.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
@@ -260,7 +260,6 @@ class Host(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.host.shows_hosts()
         """

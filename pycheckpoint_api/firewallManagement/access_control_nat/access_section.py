@@ -27,6 +27,7 @@ class AccessSection(APIEndpoint):
             (see the API documentation).
             name (str, optional): Section name.
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -36,10 +37,10 @@ class AccessSection(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.access_section.add(
             ... layer="Network",
@@ -78,14 +79,15 @@ class AccessSection(APIEndpoint):
             uid (str, optional): Object unique identifier. Mandatory if "rule_number" or "name" are not set.
             name (str, optional): Object name. Mandatory if "rule_number" or "uid" are not set.
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.access_section.show(
             ... uid="aa5d88e9-a589-abba-1471-5d6988519a26",
@@ -125,6 +127,7 @@ class AccessSection(APIEndpoint):
             new_name (str, optional): New name of the object.
             name (str, optional): Rule name.
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -134,10 +137,10 @@ class AccessSection(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.access_section.set(
             ... layer="Network",
@@ -183,14 +186,15 @@ class AccessSection(APIEndpoint):
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.access_section.delete(
             ... layer="Network",

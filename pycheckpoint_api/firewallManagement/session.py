@@ -15,7 +15,7 @@ class Session(APIEndpoint):
     ) -> Box:
         """Creates a Firewall Management authentication session. You should authenticate using either a \
         username/password or by using an API key.
-        
+
         Args:
             user (str, optional): Username of admin user for the authentication session. If set, you must specify\
             ``password`` too. Defaults to None
@@ -24,8 +24,9 @@ class Session(APIEndpoint):
             api_key (str, optional): An API key used to authenticate instead of a user/password.\ You must enter\
             either a ``user``/``password`` or an ``api_key``. Defaults to None
             **kw (dict, optional): Arbitrary keyword arguments for secondary parameters.
-        
-        Keyword Args:                   
+
+
+        Keyword Args:
             **continue-last-session (bool, optional):
                 When 'continue-last-session' is set to 'True', the new session would continue where the last session\
                  was stopped. This option is available when the administrator has only one session that can be continued.\
@@ -43,13 +44,15 @@ class Session(APIEndpoint):
             **session-name (str, optional):
                 Session unique name.
             **session-timeout (int, optional):
-                Session expiration timeout in seconds. Default 600 seconds. 
+                Session expiration timeout in seconds. Default 600 seconds.
         Raises:
             MandatoryFieldMissing: The value is not given as a keyword parameter and it's mandatory
-        
+
+
         Returns:
             :obj:`Box`: The response from the server
-        
+
+
         Examples:
             >>> FirewallManagement.session.login(username='admin@example.com',\
  password='MyInsecurePassword')
@@ -85,6 +88,7 @@ class Session(APIEndpoint):
     def logout(self) -> Box:
         """Ends an authentication session.
 
+
         Returns:
             :obj:`Box`: The response from the server
 
@@ -96,17 +100,19 @@ class Session(APIEndpoint):
 
     def publish(self, uid: str = None) -> Box:
         """All the changes done by this user will be seen by all users only after publish is called.
-        
+
         Args:
             uid (str, optional): Session unique identifier. Specify it to publish a different session\
                 than the one you currently use.. Defaults to None
-        
+
+
         Returns:
             :obj:`Box`: The response from the server
-        
+
+
         Examples:
             >>> FirewallManagement.session.publish(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
-        
+
         """
 
         payload = {}
@@ -121,9 +127,10 @@ class Session(APIEndpoint):
         Args:
             uid (str, optional): Session unique identifier. Specify it to publish a different session than\
                 the one you currently use. Defaults to None.
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> FirewallManagement.session.discard(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
 
@@ -143,6 +150,7 @@ class Session(APIEndpoint):
             discard (bool, optional): Discard all changes committed during the session.\
                 Defaults to False.
 
+
         Returns:
             :obj:`Box`: The response from the server
 
@@ -159,6 +167,7 @@ class Session(APIEndpoint):
     def keepalive(self) -> Box:
         """Keep the session valid/alive.
 
+
         Returns:
             :obj:`Response`: The response from the server
 
@@ -173,6 +182,7 @@ class Session(APIEndpoint):
         Args:
             to_session (str, optional): Session unique identifier. Specify the session id you would like to revert\
             your database to.. Defaults to None
+
 
         Returns:
             :obj:`Box`: The response from the server
@@ -194,6 +204,7 @@ class Session(APIEndpoint):
         Args:
             to_session (str): Session unique identifier. Specify the session id you would like to revert your database to.
 
+
         Returns:
             :obj:`Box`: The response from the server
 
@@ -214,6 +225,7 @@ class Session(APIEndpoint):
         Args:
             domain (str): Domain identified by the name or UID.
 
+
         Returns:
             :obj:`Box`: The response from the server
 
@@ -232,6 +244,7 @@ class Session(APIEndpoint):
 
         Args:
             uid (str, optional): Session unique identifier. Defaults to None.
+
 
         Returns:
             :obj:`Box`: The response from the server
@@ -260,6 +273,7 @@ class Session(APIEndpoint):
             new_name (str, optional): New name of the object. Defaults to None.
             tags (List[str], optional): Collection of tag identifiers. Defaults to None.
 
+
         Keyword Args:
             **color (string, optional):
                 Color of the object. Should be one of existing colors.
@@ -273,6 +287,7 @@ class Session(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to "False"
+
 
         Returns:
             :obj:`Box`: The response from the server
@@ -307,23 +322,25 @@ class Session(APIEndpoint):
     ) -> Box:
         """Permanently deletes all data which belongs to the published sessions not selected for preservation.\
         This operation is irreversible.
-        
+
         Args:
             number_of_sessions_to_preserve (int, optional): The number of newest sessions to preserve, by the \
                 sessions's publish date. Required if ``preserve_to_date`` is not set. Defaults to None
             preserve_to_date (str, optional): The date until which sessions are preserved, by the sessions's\
                 publish date. ISO 8601. If timezone isn't specified in the input, the Management server's\
                 timezone is used. Required if ``number_of_sessions_to_preserve`` is not set. Defaults to None
-   
+
         Raises:
             MandatoryFieldMissing: The value is not given as a keyword parameter and it's mandatory
-        
+
+
         Returns:
             :obj:`Box`: The response from the server
-        
+
+
         Examples:
             >>> FirewallManagement.session.purge_published_sessions(number_of_sessions_to_preserve=1)
-        
+
         """
 
         payload = {}
@@ -347,6 +364,7 @@ class Session(APIEndpoint):
             uid (str): Session unique identifier. It should belong to the current administrator.\
  Switching to the sessions opened in SmartConsole is not supported.
 
+
         Returns:
             :obj:`Box`: The response from the server
 
@@ -368,6 +386,7 @@ class Session(APIEndpoint):
             uid (str): Session unique identifier.
             disconnect-active-session (bool): Allows taking over of an active session,\
                 currently executed by another administrator. Defaults to False
+
 
         Returns:
             :obj:`Box`: The response from the server
@@ -414,6 +433,7 @@ class Session(APIEndpoint):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
 
+
         Returns:
             :obj:`Box`: The response from the server
 
@@ -449,6 +469,7 @@ class Session(APIEndpoint):
         Args:
             uid (str, optional): Session unique identifier. Defaults to None
 
+
         Returns:
             :obj:`Box`: The response from the server
 
@@ -463,6 +484,7 @@ class Session(APIEndpoint):
 
     def show_last_published_session(self) -> Box:
         """Shows the last published session.
+
 
         Returns:
             :obj:`Box`: The response from the server
@@ -484,6 +506,7 @@ class Session(APIEndpoint):
             **details-level (string, optional):
                 The level of detail for some of the fields in the response can vary from showing only
                 the UID value of the object to a fully detailed representation of the object.
+
 
         Returns:
             :obj:`Box`: The response from the server
@@ -522,6 +545,7 @@ class Session(APIEndpoint):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+
 
         Returns:
             :obj:`Box`: The response from the server
@@ -576,6 +600,7 @@ class Session(APIEndpoint):
             scheduling (dict, optional): When to purge sessions that do not meet the "keep" criteria.\
             Note: when the automatic purge feature is enabled, this field must be set. Defaults to None
 
+
         Returns:
             :obj:`Box`: The response from the server
 
@@ -600,6 +625,7 @@ class Session(APIEndpoint):
 
     def show_automatic_purge(self) -> Box:
         """Show Automatic Purge.
+
 
         Returns:
             :obj:`Box`: The response from the server

@@ -13,6 +13,7 @@ class NetworkInterface(APIEndpoint):
         Args:
             task_id (str): get-interfaces task UID.
             force_cleanup (bool, optional): Forcefully abort the "get-interfaces" task.
+
         Returns:
             :obj:`Box`: The response from the server
 
@@ -46,10 +47,11 @@ class NetworkInterface(APIEndpoint):
             target_name (str, optional): Target name.
             group_interfaces_by_subnet (bool, optional): Specify whether to group the cluster interfaces by a subnet.\
             Otherwise, group the cluster interfaces by their names.
-            use_defined_by_routes (bool, optional): Specify whether to configure the topology "Defined by Routes" where applicable.\
-            Otherwise, configure the topology to "This Network" as default for internal interfaces.
+            use_defined_by_routes (bool, optional): Specify whether to configure the topology "Defined by Routes" where\
+            applicable. Otherwise, configure the topology to "This Network" as default for internal interfaces.\
             with_topology (bool, optional): Specify whether to fetch the interfaces with their topology.\
             Otherwise, the Management Server fetches the interfaces without their topology.
+
         Returns:
             :obj:`Box`: The response from the server
 

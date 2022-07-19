@@ -46,13 +46,13 @@ class ServiceGTP(NetworkObject):
             ldap_group (dict, optional): Match by an LDAP Group.
             ms_isdn (dict, optional): Match by an MS-ISDN.
             restoration_and_recovery (bool, optional): Restoration and Recovery (Relevant for V2 only).
-            reverse_service (bool, optional): Accept PDUs from the GGSN/PGW to the SGSN/SGW on a previously established PDP context,
-            even if different ports are used.
+            reverse_service (bool, optional): Accept PDUs from the GGSN/PGW to the SGSN/SGW on a previously established \
+            PDP context, even if different ports are used.
             selection_mode (dict, optional): Match by a selection mode.
             radio_access_technology (dict, optional): Match by Radio Access Technology.
             trace_management (bool, optional): Trace Management (Relevant for V2 only).
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
-            
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -68,10 +68,10 @@ class ServiceGTP(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.service_applications.service_gtp.add(
             ... name="New_gtp_Service_1",
@@ -172,15 +172,15 @@ class ServiceGTP(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> FirewallManagement.service_applications.service_gtp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -226,13 +226,13 @@ class ServiceGTP(NetworkObject):
             ldap_group (dict, optional): Match by an LDAP Group.
             ms_isdn (dict, optional): Match by an MS-ISDN.
             restoration_and_recovery (bool, optional): Restoration and Recovery (Relevant for V2 only).
-            reverse_service (bool, optional): Accept PDUs from the GGSN/PGW to the SGSN/SGW on a previously established PDP context,
-            even if different ports are used.
+            reverse_service (bool, optional): Accept PDUs from the GGSN/PGW to the SGSN/SGW on a previously established \
+            PDP context, even if different ports are used.
             selection_mode (dict, optional): Match by a selection mode.
             radio_access_technology (dict, optional): Match by Radio Access Technology.
             trace_management (bool, optional): Trace Management (Relevant for V2 only).
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
-            
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -248,10 +248,10 @@ class ServiceGTP(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.service_applications.service_gtp.set(
             ... uid="70e390d7-b070-4d6e-b8d7-53b7f6cc7fe6",
@@ -361,7 +361,7 @@ class ServiceGTP(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -371,10 +371,10 @@ class ServiceGTP(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> FirewallManagement.service_applications.service_gtp.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -402,11 +402,11 @@ class ServiceGTP(NetworkObject):
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
-            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
-            than network objects. Objects that are not represented using IP addresses are presented as objects.\
+            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses \
+            rather than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
             Defaults to False.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -415,10 +415,10 @@ class ServiceGTP(NetworkObject):
                 Indicates which domains to process the commands on. It cannot be used with the details-level full,\
                 must be run from the System Domain only and with ignore-warnings true.\
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> FirewallManagement.service_applications.service_gtp.show_services_gtp()
         """

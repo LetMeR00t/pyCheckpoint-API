@@ -29,6 +29,7 @@ class GSNHandoverGroup(NetworkObject):
             members (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
 
+
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -51,7 +52,6 @@ class GSNHandoverGroup(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
-
         Examples:
             >>> firewall.network_objects.gsn_handover_group.add(name="My object")
         """
@@ -89,6 +89,7 @@ class GSNHandoverGroup(NetworkObject):
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -96,7 +97,6 @@ class GSNHandoverGroup(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
-
         Examples:
             >>> firewall.network_objects.gsn_handover_group.show(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e")
         """
@@ -141,6 +141,7 @@ class GSNHandoverGroup(NetworkObject):
             new_name (str, optional): New name of the object.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
 
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -159,7 +160,6 @@ class GSNHandoverGroup(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
-
         Examples:
             >>> firewall.network_objects.gsn_handover_group.set(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e",
             new_name="gsnhandovergroup")
@@ -206,6 +206,7 @@ class GSNHandoverGroup(NetworkObject):
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -218,7 +219,6 @@ class GSNHandoverGroup(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
-
         Examples:
             >>> firewall.network_objects.gsn_handover_group.delete(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e")
         """
@@ -249,7 +249,6 @@ class GSNHandoverGroup(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.group.shows_groups()
         """

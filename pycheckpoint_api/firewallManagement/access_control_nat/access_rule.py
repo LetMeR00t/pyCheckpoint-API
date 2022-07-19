@@ -55,19 +55,22 @@ class AccessRule(APIEndpoint):
             destination (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
             destination_negate (bool, optional): True if negate is set for destination.
             enabled (bool, optional): Enable/Disable the rule.
-            inline_layer (str, optional): Inline Layer identified by the name or UID. Relevant only if "Action" was set to "Apply Layer".
-            install_on (Union[str, List[str]], optional): Which Gateways identified by the name or UID to install the policy on.
+            inline_layer (str, optional): Inline Layer identified by the name or UID. Relevant only if "Action" was set to
+            "Apply Layer".
+            install_on (Union[str, List[str]], optional): Which Gateways identified by the name or UID to install the policy on
             service (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
             service_negate (bool, optional): True if negate is set for service.
-            service_resource (str, optional): Resource of the service identified by the name or UID. When a service-resource exists,\
-            the service parameter should contains exactly one service element.
+            service_resource (str, optional): Resource of the service identified by the name or UID. When a service-resource\
+            exists, the service parameter should contains exactly one service element.
             source (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
             source_negate (bool, optional): True if negate is set for source.
-            time (Union[str, List[str]], optional): List of time objects. For example: "Weekend", "Off-Work", "Every-Day". Default\
-            is Any.
+            time (Union[str, List[str]], optional): List of time objects. For example: "Weekend", "Off-Work", "Every-Day".\
+            Default is Any.
             track (dict, optional): Track Settings.
             user_check (dict, optional): User check settings.
-            vpn (Union[str, dict, List[dict]], optional): Communities or Directional. See the API documentation for more information
+            vpn (Union[str, dict, List[dict]], optional): Communities or Directional. See the API documentation for more\
+            information
+
         Keyword Args:
             **comments (str, optional):
                 Comments string.
@@ -79,10 +82,10 @@ class AccessRule(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.access_rule.add(
             ... layer="Network",
@@ -197,14 +200,15 @@ class AccessRule(APIEndpoint):
             limit your request.
             show_hits (bool, optional): N/A
             hits_settings (bool, optional): N/A
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.access_rule.show(
             ... uid="1df8a4b0-fa8b-428b-b649-626b74bf7f81",
@@ -276,8 +280,8 @@ class AccessRule(APIEndpoint):
             layer (str): Layer that the rule belongs to identified by the name or UID.
             uid (str, optional): Object unique identifier.
             new_name (str, optional): New name of the object.
-            position (Union[int, str, dict], optional): Position in the rulebase. If an integer is provided, it will add the rule\
-            at the specific position. If a string is provided, it will add the rule at the position mentioned in the\
+            position (Union[int, str, dict], optional): Position in the rulebase. If an integer is provided, it will add the\
+            rule at the specific position. If a string is provided, it will add the rule at the position mentioned in the\
             valid values ("top" or "bottom"). Otherwise, you can provide a dictionnary to explain more complex position\
             (see the API documentation).
             name (str, optional): Rule name.
@@ -290,19 +294,22 @@ class AccessRule(APIEndpoint):
             destination (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
             destination_negate (bool, optional): True if negate is set for destination.
             enabled (bool, optional): Enable/Disable the rule.
-            inline_layer (str, optional): Inline Layer identified by the name or UID. Relevant only if "Action" was set to "Apply Layer".
-            install_on (Union[str, List[str]], optional): Which Gateways identified by the name or UID to install the policy on.
+            inline_layer (str, optional): Inline Layer identified by the name or UID. Relevant only if "Action" was set to\
+            "Apply Layer".
+            install_on (Union[str, List[str]], optional): Which Gateways identified by the name or UID to install the policy on
             service (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
             service_negate (bool, optional): True if negate is set for service.
-            service_resource (str, optional): Resource of the service identified by the name or UID. When a service-resource exists,\
-            the service parameter should contains exactly one service element.
+            service_resource (str, optional): Resource of the service identified by the name or UID. When a service-resource\
+            exists, the service parameter should contains exactly one service element.
             source (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
             source_negate (bool, optional): True if negate is set for source.
-            time (Union[str, List[str]], optional): List of time objects. For example: "Weekend", "Off-Work", "Every-Day". Default\
-            is Any.
+            time (Union[str, List[str]], optional): List of time objects. For example: "Weekend", "Off-Work", "Every-Day".\
+            Default is Any.
             track (dict, optional): Track Settings.
             user_check (dict, optional): User check settings.
-            vpn (Union[str, dict, List[dict]], optional): Communities or Directional. See the API documentation for more information
+            vpn (Union[str, dict, List[dict]], optional): Communities or Directional. See the API documentation for more\
+            information
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -312,10 +319,10 @@ class AccessRule(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.access_rule.set(
             ... uid="1df8a4b0-fa8b-428b-b649-626b74bf7f81",
@@ -428,14 +435,15 @@ class AccessRule(APIEndpoint):
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
             rule_number (int, optional): Rule number.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.access_rule.delete(
             ... layer="Network",
@@ -497,16 +505,17 @@ class AccessRule(APIEndpoint):
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
             package (str, optional): Name of the package.
-            show_as_ranges (bool, optional): When true, the source, destination and services & applications parameters are displayed
-            as ranges of IP addresses and port numbers rather than network objects. Objects that are not represented using
-            IP addresses or port numbers are presented as objects. In addition, the response of each rule does not contain
-            the parameters: source, source-negate, destination, destination-negate, service and service-negate, but instead
-            it contains the parameters: source-ranges, destination-ranges and service-ranges.
-            Note: Requesting to show rules as ranges is limited up to 20 rules per request, otherwise an error is returned.
+            show_as_ranges (bool, optional): When true, the source, destination and services & applications parameters are\
+            displayed as ranges of IP addresses and port numbers rather than network objects. Objects that are not represented\
+            using IP addresses or port numbers are presented as objects. In addition, the response of each rule does not\
+            contain the parameters: source, source-negate, destination, destination-negate, service and service-negate,\
+            but instead it contains the parameters: source-ranges, destination-ranges and service-ranges.\
+            Note: Requesting to show rules as ranges is limited up to 20 rules per request, otherwise an error is returned.\
             If you wish to request more rules, use the offset and limit parameters to limit your request.
             show_hits (bool, optional): N/A
             use_object_dictionnary (bool, optional): N/A
             hits_settings (dict, optional): N/A
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -515,9 +524,10 @@ class AccessRule(APIEndpoint):
                 Indicates whether to calculate and show "groups" field for every object in reply.
             **dereference-group-members (bool, optional):
                 Indicates whether to dereference "members" field by details level for every object in reply.
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>>
         """

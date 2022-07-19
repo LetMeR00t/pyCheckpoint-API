@@ -32,18 +32,20 @@ class ServiceSCTP(NetworkObject):
             port (str): The number of the port used to provide this service.\
             To specify a port range, place a hyphen between the lowest and highest port numbers, for example 44-55.
             aggressive_aging (dict, optional): Sets short (aggressive) timeouts for idle connections.
-            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been installed\
-            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.\
-            If you change this property, the change will not affect open connections, but only future connections.
-            match_for_any (bool, optional): Indicates whether this service is used when 'Any' is set as the rule's service and there are\
-            several service objects with the same source port and protocol.
+            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been\
+            installed even if they are not allowed under the new policy. This overrides the settings in the Connection\
+            Persistence page. If you change this property, the change will not affect open connections, but only future\
+            connections.
+            match_for_any (bool, optional): Indicates whether this service is used when 'Any' is set as the rule's service\
+            and there are several service objects with the same source port and protocol.
             session_timeout (int, optional): Time (in seconds) before the session times out.
-            source_port (str, optional): Port number for the client side service. If specified, only those Source port Numbers will be\
-            Accepted, Dropped, or Rejected during packet inspection. Otherwise, the source port is not inspected.
-            sync_connections_on_cluster (bool, optional): Enables state-synchronized High Availability or Load Sharing on a ClusterXL\
-            or OPSEC-certified cluster.
+            source_port (str, optional): Port number for the client side service. If specified, only those Source port Numbers\
+            will be Accepted, Dropped, or Rejected during packet inspection. Otherwise, the source port is not inspected.
+            sync_connections_on_cluster (bool, optional): Enables state-synchronized High Availability or Load Sharing on\
+            a ClusterXL or OPSEC-certified cluster.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             use_default_session_timeout (bool, optional): Use default virtual session timeout.
+
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -63,10 +65,10 @@ class ServiceSCTP(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.service_applications.service_sctp.add(
             ... name="New_SCTP_Service_1",
@@ -121,15 +123,15 @@ class ServiceSCTP(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> FirewallManagement.service_applications.service_sctp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -161,18 +163,20 @@ class ServiceSCTP(NetworkObject):
             port (str, optional): The number of the port used to provide this service.\
             To specify a port range, place a hyphen between the lowest and highest port numbers, for example 44-55.
             aggressive_aging (dict, optional): Sets short (aggressive) timeouts for idle connections.
-            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been installed\
-            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.\
-            If you change this property, the change will not affect open connections, but only future connections.
-            match_for_any (bool, optional): Indicates whether this service is used when 'Any' is set as the rule's service and there are\
-            several service objects with the same source port and protocol.
+            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been
+            installed even if they are not allowed under the new policy. This overrides the settings in the Connection\
+            Persistence page. If you change this property, the change will not affect open connections, but only future\
+            connections.
+            match_for_any (bool, optional): Indicates whether this service is used when 'Any' is set as the rule's service and\
+            there are several service objects with the same source port and protocol.
             session_timeout (int, optional): Time (in seconds) before the session times out.
-            source_port (str, optional): Port number for the client side service. If specified, only those Source port Numbers will be\
-            Accepted, Dropped, or Rejected during packet inspection. Otherwise, the source port is not inspected.
-            sync_connections_on_cluster (bool, optional): Enables state-synchronized High Availability or Load Sharing on a ClusterXL\
-            or OPSEC-certified cluster.
+            source_port (str, optional): Port number for the client side service. If specified, only those Source port Numbers\
+            will be Accepted, Dropped, or Rejected during packet inspection. Otherwise, the source port is not inspected.\
+            sync_connections_on_cluster (bool, optional): Enables state-synchronized High Availability or Load Sharing\
+            on a ClusterXL or OPSEC-certified cluster.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             use_default_session_timeout (bool, optional): Use default virtual session timeout.
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -188,10 +192,10 @@ class ServiceSCTP(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.service_applications.service_sctp.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             ... new_name="New Service TCP")
@@ -249,7 +253,7 @@ class ServiceSCTP(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -259,10 +263,10 @@ class ServiceSCTP(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> FirewallManagement.service_applications.service_sctp.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -290,11 +294,11 @@ class ServiceSCTP(NetworkObject):
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
-            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
-            than network objects. Objects that are not represented using IP addresses are presented as objects.\
+            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses\
+            rather than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
             Defaults to False.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -306,9 +310,10 @@ class ServiceSCTP(NetworkObject):
             **show-membership (bool, optional):
                 Indicates whether to calculate and show "groups" field for every object in reply.
 
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> FirewallManagement.service_applications.service_sctp.shows_services_sctp()
         """

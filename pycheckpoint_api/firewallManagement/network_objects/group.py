@@ -25,6 +25,7 @@ class Group(NetworkObject):
             members (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
 
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -77,15 +78,17 @@ class Group(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
-            than network objects. Objects that are not represented using IP addresses are presented as objects.\
+            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses \
+            rather than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
             Defaults to False.
+
 
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
+
 
         Returns:
             :obj:`Box`: The response from the server
@@ -113,6 +116,7 @@ class Group(NetworkObject):
             members (Union[dict, str, List[str]], optional): Collection of Network objects identified by the name or UID.
             new_name (str, optional): New name of the object.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
+
 
         Keyword Args:
             **color (Color, optional):
@@ -174,6 +178,7 @@ class Group(NetworkObject):
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -213,14 +218,15 @@ class Group(NetworkObject):
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
-            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
-            than network objects. Objects that are not represented using IP addresses are presented as objects.\
+            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses \
+            rather than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
             Defaults to False.
 
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewall.network_objects.group.shows_groups()
         """

@@ -27,6 +27,7 @@ class NATSection(APIEndpoint):
             (see the API documentation).
             name (str, optional): Section name.
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -36,10 +37,10 @@ class NATSection(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.nat_section.add(
             ... package="standard",
@@ -78,14 +79,15 @@ class NATSection(APIEndpoint):
             uid (str, optional): Object unique identifier. Mandatory if "rule_number" or "name" are not set.
             name (str, optional): Object name. Mandatory if "rule_number" or "uid" are not set.
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.nat_section.show(
             ... uid="bb89a652-369a-2884-dd59-f69ea241567cd",
@@ -125,6 +127,7 @@ class NATSection(APIEndpoint):
             new_name (str, optional): New name of the object.
             name (str, optional): Rule name.
 
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -134,10 +137,10 @@ class NATSection(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.nat_section.set(
             ... package="standard",
@@ -182,15 +185,15 @@ class NATSection(APIEndpoint):
             package (str): Name of the package.
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.access_control_nat.nat_section.delete(
             ... package="standard",

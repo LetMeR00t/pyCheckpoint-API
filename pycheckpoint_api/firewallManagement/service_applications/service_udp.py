@@ -35,29 +35,34 @@ class ServiceUDP(NetworkObject):
             name (str): Object name. Must be unique in the domain.
             acccept_replies (bool, optional): N/A
             aggressive_aging (dict, optional): Sets short (aggressive) timeouts for idle connections.
-            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been installed\
-            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.\
-            If you change this property, the change will not affect open connections, but only future connections.
-            match_by_protocol_signature (bool, optional): A value of true enables matching by the selected protocol's signature -\
-            the signature identifies the protocol as genuine. Select this option to limit the port to the specified protocol.\
-            If the selected protocol does not support matching by signature, this field cannot be set to true.
-            match_for_any (bool, optional): Indicates whether this service is used when 'Any' is set as the rule's service and there are\
-            several service objects with the same source port and protocol.
-            override_default_settings (bool, optional): Indicates whether this service is a Data Domain service which has been overridden
+            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been \
+            installed even if they are not allowed under the new policy. This overrides the settings in the Connection \
+            Persistence page. If you change this property, the change will not affect open connections, but only future \
+            connections.
+            match_by_protocol_signature (bool, optional): A value of true enables matching by the selected protocol's \
+            signature - the signature identifies the protocol as genuine. Select this option to limit the port to the \
+            specified protocol. If the selected protocol does not support matching by signature, this field cannot \
+            be set to true.
+            match_for_any (bool, optional): Indicates whether this service is used when 'Any' is set as the rule's service \
+            and there are several service objects with the same source port and protocol.
+            override_default_settings (bool, optional): Indicates whether this service is a Data Domain service which \
+            has been overridden
             port (str, optional): The number of the port used to provide this service.\
             To specify a port range, place a hyphen between the lowest and highest port numbers, for example 44-55.
-            protocol (str, optional): Select the protocol type associated with the service, and by implication, the management server\
-            (if any) that enforces Content Security and Authentication for the service.\
+            protocol (str, optional): Select the protocol type associated with the service, and by implication, \
+            the management server (if any) that enforces Content Security and Authentication for the service.\
             Selecting a Protocol Type invokes the specific protocol handlers for each protocol type,\
             thus enabling higher level of security by parsing the protocol, and higher level of connectivity\
             by tracking dynamic actions (such as opening of ports).
             session_timeout (int, optional): Time (in seconds) before the session times out.
-            source_port (str, optional): Port number for the client side service. If specified, only those Source port Numbers will be\
-            Accepted, Dropped, or Rejected during packet inspection. Otherwise, the source port is not inspected.
-            sync_connections_on_cluster (bool, optional): Enables state-synchronized High Availability or Load Sharing on a ClusterXL\
-            or OPSEC-certified cluster.
+            source_port (str, optional): Port number for the client side service. If specified, only those Source port \
+            Numbers will be Accepted, Dropped, or Rejected during packet inspection. Otherwise, the source port is not \
+            inspected.
+            sync_connections_on_cluster (bool, optional): Enables state-synchronized High Availability or Load Sharing \
+            on a ClusterXL or OPSEC-certified cluster.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             use_default_session_timeout (bool, optional): Use default virtual session timeout.
+
 
         Keyword Args:
             **set-if-exists (bool, optional):
@@ -78,10 +83,10 @@ class ServiceUDP(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.service_applications.service_udp.add(
             ... name="New_UDP_Service_1",
@@ -146,15 +151,15 @@ class ServiceUDP(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> FirewallManagement.service_applications.service_udp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -189,29 +194,34 @@ class ServiceUDP(NetworkObject):
             new_name (str, optional): New name of the object.
             acccept_replies (bool, optional): N/A
             aggressive_aging (dict, optional): Sets short (aggressive) timeouts for idle connections.
-            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been installed\
-            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.\
-            If you change this property, the change will not affect open connections, but only future connections.
-            match_by_protocol_signature (bool, optional): A value of true enables matching by the selected protocol's signature -\
-            the signature identifies the protocol as genuine. Select this option to limit the port to the specified protocol.\
-            If the selected protocol does not support matching by signature, this field cannot be set to true.
-            match_for_any (bool, optional): Indicates whether this service is used when 'Any' is set as the rule's service and there are\
-            several service objects with the same source port and protocol.
-            override_default_settings (bool, optional): Indicates whether this service is a Data Domain service which has been overridden
+            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been \
+            installed even if they are not allowed under the new policy. This overrides the settings in the Connection \
+            Persistence page. If you change this property, the change will not affect open connections, but only future \
+            connections.
+            match_by_protocol_signature (bool, optional): A value of true enables matching by the selected protocol's \
+            signature - the signature identifies the protocol as genuine. Select this option to limit the port to the \
+            specified protocol. If the selected protocol does not support matching by signature, this field cannot \
+            be set to true.
+            match_for_any (bool, optional): Indicates whether this service is used when 'Any' is set as the rule's service \
+            and there are several service objects with the same source port and protocol.
+            override_default_settings (bool, optional): Indicates whether this service is a Data Domain service which \
+            has been overridden
             port (str, optional): The number of the port used to provide this service.\
             To specify a port range, place a hyphen between the lowest and highest port numbers, for example 44-55.
-            protocol (str, optional): Select the protocol type associated with the service, and by implication, the management server\
-            (if any) that enforces Content Security and Authentication for the service.\
+            protocol (str, optional): Select the protocol type associated with the service, and by implication, \
+            the management server (if any) that enforces Content Security and Authentication for the service.\
             Selecting a Protocol Type invokes the specific protocol handlers for each protocol type,\
             thus enabling higher level of security by parsing the protocol, and higher level of connectivity\
             by tracking dynamic actions (such as opening of ports).
             session_timeout (int, optional): Time (in seconds) before the session times out.
-            source_port (str, optional): Port number for the client side service. If specified, only those Source port Numbers will be\
-            Accepted, Dropped, or Rejected during packet inspection. Otherwise, the source port is not inspected.
-            sync_connections_on_cluster (bool, optional): Enables state-synchronized High Availability or Load Sharing on a ClusterXL\
-            or OPSEC-certified cluster.
+            source_port (str, optional): Port number for the client side service. If specified, only those Source port \
+            Numbers will be Accepted, Dropped, or Rejected during packet inspection. Otherwise, the source port is not \
+            inspected.
+            sync_connections_on_cluster (bool, optional): Enables state-synchronized High Availability or Load Sharing \
+            on a ClusterXL or OPSEC-certified cluster.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             use_default_session_timeout (bool, optional): Use default virtual session timeout.
+
 
         Keyword Args:
             **color (Color, optional):
@@ -228,10 +238,10 @@ class ServiceUDP(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.service_applications.service_udp.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             ... new_name="New Service TCP")
@@ -297,7 +307,7 @@ class ServiceUDP(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -307,10 +317,10 @@ class ServiceUDP(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> FirewallManagement.service_applications.service_udp.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -338,11 +348,11 @@ class ServiceUDP(NetworkObject):
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
-            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
-            than network objects. Objects that are not represented using IP addresses are presented as objects.\
+            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses \
+            rather than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
             Defaults to False.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -353,9 +363,10 @@ class ServiceUDP(NetworkObject):
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
             **show-membership (bool, optional):
                 Indicates whether to calculate and show "groups" field for every object in reply.
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> FirewallManagement.service_applications.service_udp.shows_services_udp()
         """

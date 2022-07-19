@@ -31,10 +31,12 @@ class Time(NetworkObject):
             end_never (bool, optional): End never.
             hours_ranges (List[dict], optional): Hours recurrence. Note: Each gateway may interpret this time differently
             according to its time zone.
-            start (dict, optional): Starting time. Note: Each gateway may interpret this time differently according to its time zone.
+            start (dict, optional): Starting time. Note: Each gateway may interpret this time differently according to its \
+            time zone.
             start_now (bool, optional): Start immediately.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             recurrence (dict, optional): Days recurrence.
+
 
         Keyword Args:
             **color (Color, optional):
@@ -51,10 +53,10 @@ class Time(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewall.network_objects.time.add(name="My object")
         """
@@ -98,15 +100,15 @@ class Time(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewall.network_objects.time.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
@@ -136,11 +138,13 @@ class Time(NetworkObject):
             end_never (bool, optional): End never.
             hours_ranges (List[dict], optional): Hours recurrence. Note: Each gateway may interpret this time differently
             according to its time zone.
-            start (dict, optional): Starting time. Note: Each gateway may interpret this time differently according to its time zone.
+            start (dict, optional): Starting time. Note: Each gateway may interpret this time differently according to its \
+            time zone.
             start_now (bool, optional): Start immediately.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             recurrence (dict, optional): Days recurrence.
             new_name (str, optional): New name of the object.
+
 
         Keyword Args:
             **color (Color, optional):
@@ -157,10 +161,10 @@ class Time(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewall.network_objects.time.set(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",
             ... new_name="timeObject1")
@@ -212,7 +216,7 @@ class Time(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -222,10 +226,10 @@ class Time(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewall.network_objects.time.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
@@ -250,11 +254,11 @@ class Time(NetworkObject):
             limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
-            descending order by the session publish time.
-            
+                        descending order by the session publish time.
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewall.network_objects.time.shows_times()
         """

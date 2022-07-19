@@ -33,6 +33,7 @@ class LSVProfile(NetworkObject):
             will be restricted or not, according to allowed-ip-addresses field.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             vpn_domain (dict, optional): peers' VPN Domain properties.
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -48,10 +49,9 @@ class LSVProfile(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.lsv_profile.add(
             ... name="New lsv-profile",
@@ -90,15 +90,14 @@ class LSVProfile(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.lsv_profile.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -124,7 +123,7 @@ class LSVProfile(NetworkObject):
             name (str, optional): Object name.
             new_name (str, optional): New name of the object.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
-            
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -140,10 +139,9 @@ class LSVProfile(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.lsv_profile.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             ... new_name="New Tag")
@@ -191,7 +189,7 @@ class LSVProfile(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -201,10 +199,9 @@ class LSVProfile(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.lsv_profile.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -233,11 +230,11 @@ class LSVProfile(NetworkObject):
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
-            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
-            than network objects. Objects that are not represented using IP addresses are presented as objects.\
+            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses\
+            rather than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
-                        Defaults to False.
-            
+            Defaults to False.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -246,10 +243,9 @@ class LSVProfile(NetworkObject):
                 Indicates which domains to process the commands on. It cannot be used with the details-level full,\
                 must be run from the System Domain only and with ignore-warnings true.\
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
         Examples:
             >>> firewall.network_objects.lsv_profile.shows_lsv_profiles()
         """

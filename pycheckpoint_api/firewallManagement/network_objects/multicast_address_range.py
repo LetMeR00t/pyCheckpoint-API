@@ -35,16 +35,16 @@ class MulticastAddressRange(NetworkObject):
             and ipv6-address fields explicitly.
             ipv4_address (str, optional): IPv4 address.
             ipv6_address (str, optional): IPv6 address.
-            ip_address_first (str, optional): First IP address in the range. If both IPv4 and IPv6 address ranges are required,\
-            use the ipv4-address-first and the ipv6-address-first fields instead.
+            ip_address_first (str, optional): First IP address in the range. If both IPv4 and IPv6 address ranges are required\
+            ,use the ipv4-address-first and the ipv6-address-first fields instead.
             ipv4_address_first (str, optional): First IPv4 address in the range.
             ipv6_address_first (str, optional): First IPv6 address in the range.
-            ip_address_last (str, optional): 	Last IP address in the range. If both IPv4 and IPv6 address ranges are required,\
-            use the ipv4-address-last and the ipv6-address-last fields instead.
+            ip_address_last (str, optional): 	Last IP address in the range. If both IPv4 and IPv6 address ranges are required\
+            ,use the ipv4-address-last and the ipv6-address-last fields instead.
             ipv4_address_last (str, optional): Last IPv4 address in the range.
             ipv6_address_last (str, optional): Last IPv6 address in the range.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
-            
+
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -64,10 +64,10 @@ class MulticastAddressRange(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewall.network_objects.multicast_address_range.add(name="New Multicast Address Range",
             ... ip_address_first="224.0.0.1",
@@ -120,15 +120,15 @@ class MulticastAddressRange(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewall.network_objects.multicast_address_range.show(uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
         """
@@ -163,17 +163,17 @@ class MulticastAddressRange(NetworkObject):
             and ipv6-address fields explicitly.
             ipv4_address (str, optional): IPv4 address.
             ipv6_address (str, optional): IPv6 address.
-            ip_address_first (str, optional): First IP address in the range. If both IPv4 and IPv6 address ranges are required,\
-            use the ipv4-address-first and the ipv6-address-first fields instead.
+            ip_address_first (str, optional): First IP address in the range. If both IPv4 and IPv6 address ranges are required\
+            ,use the ipv4-address-first and the ipv6-address-first fields instead.
             ipv4_address_first (str, optional): First IPv4 address in the range.
             ipv6_address_first (str, optional): First IPv6 address in the range.
-            ip_address_last (str, optional): 	Last IP address in the range. If both IPv4 and IPv6 address ranges are required,\
-            use the ipv4-address-last and the ipv6-address-last fields instead.
+            ip_address_last (str, optional): 	Last IP address in the range. If both IPv4 and IPv6 address ranges are required\
+            ,use the ipv4-address-last and the ipv6-address-last fields instead.
             ipv4_address_last (str, optional): Last IPv4 address in the range.
             ipv6_address_last (str, optional): Last IPv6 address in the range.
             new_name (str, optional): New name of the object.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
-            
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -189,10 +189,10 @@ class MulticastAddressRange(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewall.network_objects.multicast_address_range.set(uid="faff3fdf-01b9-4c58-97dc-176c409b5bc1",
             ... new_name="New Multicast Address Range",
@@ -255,7 +255,7 @@ class MulticastAddressRange(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -265,10 +265,10 @@ class MulticastAddressRange(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewall.network_objects.multicast_address_range.delete(
             ... uid="196e93a9-b90b-4ab1-baa6-124e7289aa20")
@@ -298,9 +298,10 @@ class MulticastAddressRange(NetworkObject):
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
 
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewall.network_objects.network.show_multicast_address_ranges()
         """

@@ -26,11 +26,12 @@ class ServiceICMP6(NetworkObject):
             name (str): Object name. Must be unique in the domain.
             icmp6_code (int, optional): As listed in: RFC 792.
             icmp6_type (int, optional): As listed in: RFC 792.
-            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been installed\
-            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.\
+            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been\
+            installed even if they are not allowed under the new policy. This overrides the settings in the Connection\
+            Persistence page.\
             If you change this property, the change will not affect open connections, but only future connections.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
-            
+
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -50,10 +51,10 @@ class ServiceICMP6(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.service_applications.service_icmp6.add(
             ... name="Icmp2",
@@ -100,15 +101,15 @@ class ServiceICMP6(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> FirewallManagement.service_applications.service_icmp6.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -134,11 +135,12 @@ class ServiceICMP6(NetworkObject):
             new_name (str, optional): New name of the object.
             icmp6_code (int, optional): As listed in: RFC 792.
             icmp6_type (int, optional): As listed in: RFC 792.
-            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been installed\
-            even if they are not allowed under the new policy. This overrides the settings in the Connection Persistence page.\
-            If you change this property, the change will not affect open connections, but only future connections.
+            keep_connections_open_after_policy_installation (bool, optional): Keep connections open after policy has been\
+            installed even if they are not allowed under the new policy. This overrides the settings in the Connection\
+            Persistence page. If you change this property, the change will not affect open connections, but only\
+            future connections.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
-            
+
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -154,10 +156,10 @@ class ServiceICMP6(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> firewallManagement.service_applications.service_icmp6.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             ... new_name="New Service TCP")
@@ -205,7 +207,7 @@ class ServiceICMP6(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -215,10 +217,10 @@ class ServiceICMP6(NetworkObject):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
-                
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> FirewallManagement.service_applications.service_icmp6.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -246,11 +248,11 @@ class ServiceICMP6(NetworkObject):
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
-            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses rather\
-            than network objects. Objects that are not represented using IP addresses are presented as objects.\
+            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses
+            rather than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
-            Defaults to False.
-            
+                        Defaults to False.
+
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -261,9 +263,10 @@ class ServiceICMP6(NetworkObject):
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
             **show-membership (bool, optional):
                 Indicates whether to calculate and show "groups" field for every object in reply.
+
         Returns:
             :obj:`Box`: The response from the server
-            
+
         Examples:
             >>> FirewallManagement.service_applications.service_icmp6.shows_services_icmp6()
         """
