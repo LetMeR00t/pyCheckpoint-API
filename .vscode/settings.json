@@ -14,4 +14,5 @@
     ],
     "python.terminal.activateEnvInCurrentTerminal": true,
     "autoDocstring.docstringFormat": "google",
+    "esbonio.sphinx.confDir": "",
 }

@@ -3,6 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta content="pyCheckpoint-API is an SDK that provides a simple and uniform interface with the existing Checkpoint API references." lang="en" name="description" xml:lang="en" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Firewall Management" href="ckpt/firewallManagement/index.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
@@ -156,7 +157,7 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+  <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ckpt/firewallManagement/index.html">Firewall Management</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="ckpt/firewallManagement/session.html">Session Management</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
@@ -356,32 +357,171 @@
           </label>
         </div>
         <article role="main">
-          <section id="welcome-to-pycheckpoint-api-s-documentation">
-<h1>Welcome to pyCheckpoint-API’s documentation!<a class="headerlink" href="#welcome-to-pycheckpoint-api-s-documentation" title="Permalink to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ckpt/firewallManagement/index.html">Firewall Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ckpt/firewallManagement/session.html">Session Management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ckpt/firewallManagement/network_objects/index.html">Network Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ckpt/firewallManagement/service_applications/index.html">Service &amp; Applications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ckpt/firewallManagement/access_control_nat/index.html">Access Control &amp; NAT</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ckpt/index.html">Helpers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ckpt/abstract_objects.html">Abstract Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ckpt/models.html">Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ckpt/utils.html">Utils</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ckpt/exception.html">Exceptions</a></li>
-</ul>
-</li>
-</ul>
+          <div class="toctree-wrapper compound">
 </div>
-<p>## Overview
-Checkpoint firewalls solution are now using a well detailed API. This SDK simplifies software development using the Checkpoint Firewall API in Python.</p>
-<p>This SDK is based on the [Checkpoint official API documentation](<a class="reference external" href="https://sc1.checkpoint.com/documents/latest/APIs/#introduction~v1.8%20">https://sc1.checkpoint.com/documents/latest/APIs/#introduction~v1.8%20</a>).</p>
-<p>This SDK leverages the [RESTfly framework](<a class="reference external" href="https://restfly.readthedocs.io/en/latest/index.html">https://restfly.readthedocs.io/en/latest/index.html</a>) developed by Steve McGrath.</p>
-<p>This SDK implementation was largely inspired from the [pyZscaler](<a class="reference external" href="https://github.com/mitchos/pyZscaler">https://github.com/mitchos/pyZscaler</a>) SDK development.</p>
+<section id="pycheckpoint-api-sdk-library-reference">
+<h1>pyCheckpoint-API SDK - Library Reference<a class="headerlink" href="#pycheckpoint-api-sdk-library-reference" title="Permalink to this heading">#</a></h1>
+<p>pyCheckpoint-API is an SDK that provides a uniform and easy-to-use interface for each of the Checkpoint Firewall product API versions.</p>
+<p>This SDK is not affiliated with, nor supported by Checkpoint in any way.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>Checkpoint firewalls solution are now using a well detailed API. This SDK simplifies software development using the Checkpoint Firewall API in Python.</p>
+<p>This SDK is based on the <a class="reference external" href="https://sc1.checkpoint.com/documents/latest/APIs/#introduction~v1.8%20">Checkpoint official API documentation</a>.</p>
+<p>This SDK leverages the <a class="reference external" href="https://restfly.readthedocs.io/en/latest/index.html">RESTfly framework</a> developed by Steve McGrath.</p>
+<p>This SDK implementation was largely inspired from the <a class="reference external" href="https://github.com/mitchos/pyZscaler">pyZscaler</a> SDK development.</p>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Simplified authentication with Checkpoint API versions.</p></li>
+<li><p>Uniform interaction with the Checkpoint API versions.</p></li>
+<li><p>Uses <a class="reference external" href="https://github.com/cdgriffith/Box/wiki">python-box</a> to add dot notation access to json data structures.</p></li>
+<li><p>Various quality of life enhancements for object CRUD methods.</p></li>
+</ul>
+</section>
+<section id="products">
+<h2>Products<a class="headerlink" href="#products" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.checkpoint.com/">Checkpoint</a> Firewall</p></li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
+<p>The most recent version can be installed from pypi as per below.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install pycheckpoint-api
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">#</a></h2>
+<p>Before you can interact with the Checkpoint API, you may need to generate API keys directly in the management interface or use a classic username/password at each connection.</p>
+<p>Once you have the requirements and you have installed pyCheckpoint-API, you’re ready to go.</p>
+<section id="quick-examples">
+<h3>Quick Examples<a class="headerlink" href="#quick-examples" title="Permalink to this heading">#</a></h3>
+<section id="api-login-logout">
+<h4>API login/logout<a class="headerlink" href="#api-login-logout" title="Permalink to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pycheckpoint_api.firewallManagement</span> <span class="kn">import</span> <span class="n">FirewallManagement</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="c1"># Please note that, as it&#39;s an example, we enabled the SSL verify to False to avoid having SSL certificate issues.</span>
+<span class="c1"># However, it&#39;s highly recommanded to use certificates with know certificate authorities.</span>
+<span class="c1"># If you want to use an API key instead, remove the &#39;user&#39; and &#39;password&#39; fields and use the &#39;api_key&#39; field.</span>
+<span class="k">with</span> <span class="n">FirewallManagement</span><span class="p">(</span>
+   <span class="n">hostname</span><span class="o">=</span><span class="s1">&#39;HOSTNAME&#39;</span><span class="p">,</span>
+   <span class="n">port</span><span class="o">=</span><span class="s1">&#39;PORT&#39;</span><span class="p">,</span>
+   <span class="n">user</span><span class="o">=</span><span class="s1">&#39;USER&#39;</span><span class="p">,</span>
+   <span class="n">password</span><span class="o">=</span><span class="s1">&#39;PASSWORD&#39;</span><span class="p">,</span>
+   <span class="n">version</span><span class="o">=</span><span class="s1">&#39;VERSION&#39;</span><span class="p">,</span>
+   <span class="n">domain</span><span class="o">=</span><span class="s1">&#39;DOMAIN&#39;</span><span class="p">,</span>
+   <span class="n">ssl_verify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="k">as</span> <span class="n">api</span><span class="p">:</span>
+
+   <span class="n">pprint</span><span class="p">(</span>
+     <span class="s2">&quot;Connection is successfull, we have a token: &quot;</span>
+     <span class="o">+</span> <span class="n">api</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;X-chkp-sid&quot;</span><span class="p">]</span>
+   <span class="p">)</span>
+
+<span class="c1"># Since we are out of the previous block, the API has been disconnected</span>
+<span class="n">pprint</span><span class="p">(</span><span class="s2">&quot;Logout is successfull&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
+<section id="web-api-coverage">
+<h3>Web API Coverage<a class="headerlink" href="#web-api-coverage" title="Permalink to this heading">#</a></h3>
+<p>Legend:</p>
+<ul class="simple">
+<li><p>🟢 means “Fully covered”</p></li>
+<li><p>🟡 means “Partially covered”</p></li>
+<li><p>🔴 means “Not covered yet”</p></li>
+</ul>
+<p>Here is the list of endpoints that are currently supported by this SDK and base on the <a class="reference external" href="https://sc1.checkpoint.com/documents/latest/APIs/#introduction~v1.8%20">Checkpoint official API reference</a>.:</p>
+<ul class="simple">
+<li><p>🟢 Session Management</p></li>
+<li><p>🟢 Network Objects</p></li>
+<li><p>🔴 Compliance</p></li>
+<li><p>🔴 Gaia Best Practice</p></li>
+<li><p>🔴 Data Center</p></li>
+<li><p>🔴 Azure Active Directory</p></li>
+<li><p>🔴 Updatable Objects</p></li>
+<li><p>🟢 Service &amp; Applications</p></li>
+<li><p>🟢 Access Control &amp; NAT</p></li>
+<li><p>🔴 VPN</p></li>
+<li><p>🔴 VSX</p></li>
+<li><p>🔴 Threat Prevention</p></li>
+<li><p>🔴 HTTPS Inspection</p></li>
+<li><p>🔴 Policy</p></li>
+<li><p>🔴 Multi-Domain</p></li>
+<li><p>🔴 Migration</p></li>
+<li><p>🔴 SmartTasks</p></li>
+<li><p>🔴 Package Deployment</p></li>
+<li><p>🔴 Users</p></li>
+<li><p>🔴 High Availability</p></li>
+<li><p>🔴 Manage &amp; Settings</p></li>
+<li><p>🔴 Logs</p></li>
+<li><p>🔴 Misc.</p></li>
+</ul>
+</section>
+<section id="api-documentation">
+<h3>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this heading">#</a></h3>
+<p>This documentation is describing how the library is interfaced with the Checkpoint Management API</p>
+</section>
+<section id="user-documentation">
+<h3>User Documentation<a class="headerlink" href="#user-documentation" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="is-it-tested">
+<h2>Is It Tested?<a class="headerlink" href="#is-it-tested" title="Permalink to this heading">#</a></h2>
+<p>Yes! pyCheckpoint-API has a complete test suite that fully covers all implemented methods</p>
+</section>
+<section id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading">#</a></h2>
+<p>Contributions to pyCheckpoint-API are absolutely welcome.</p>
+<p>Please see the <a class="reference external" href="https://github.com/LetMeR00t/pyCheckpoint-API/blob/main/CONTRIBUTING.md">Contribution Guidelines</a> for more information.</p>
+<p><a class="reference external" href="https://python-poetry.org/docs/">Poetry</a> is currently being used for builds and management. You’ll want to have poetry installed and available in your environment.</p>
+<p>Once Poetry is installed, you can create and validate your development environment using those commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry install
+<span class="gp">#</span><span class="c1"># this is installing the package using poetry</span>
+
+<span class="gp">$ </span>poetry build
+<span class="gp">#</span><span class="c1"># this is building the package locally (not required)</span>
+
+<span class="gp">$ </span>poetry shell
+<span class="gp">#</span><span class="c1"># this is usind the dedicated virtual environment for development</span>
+
+<span class="gp">$ </span>pytest
+<span class="gp">#</span><span class="c1"># Run the tests</span>
+</pre></div>
+</div>
+<p>You should then see the output of pytest results with all tests passed.</p>
+</section>
+<section id="issues">
+<h2>Issues<a class="headerlink" href="#issues" title="Permalink to this heading">#</a></h2>
+<p>Please feel free to open an issue using <a class="reference external" href="https://github.com/LetMeR00t/pyCheckpoint-API/issues">Github Issues</a> if you run into any problems using pyCheckpoint-API.</p>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading">#</a></h2>
+<p>MIT License</p>
+<p>Copyright (c) 2022 LmR</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+</section>
 </section>
 
         </article>
