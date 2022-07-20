@@ -80,6 +80,10 @@ Legend:
 -  🟡 means "Partially covered"
 -  🔴 means "Not covered yet"
 
+> **Why not all features from the list below are not yet implemented ?**: As you might understand, it takes time to implement every feature of the Checkpoint API (code + tests + docs). If you are very interested in some features below, please raise an issue and ask for those and they will be implemented in priority.
+
+
+
 Here is the list of endpoints that are currently supported by this SDK and base on the [Checkpoint official API reference](https://sc1.checkpoint.com/documents/latest/APIs/#introduction~v1.8%20).:
 -  🟢 Session Management
 -  🟢 Network Objects
