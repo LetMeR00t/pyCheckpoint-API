@@ -141,13 +141,19 @@ Please see the [Contribution Guidelines](https://github.com/LetMeR00t/pyCheckpoi
 
 Once Poetry is installed, you can create and validate your development environment using those commands:
 
-   $ poetry install
-   ...
-   $ poetry build
-   ...
-   $ poetry shell
-   ...
-   $ pytest
+```sh
+poetry install
+# this is installing the package using poetry
+
+poetry build
+# this is building the package locally (not required)
+   
+poetry shell
+# this is usind the dedicated virtual environment for development
+   
+$ pytest
+# Run the tests
+```
 
 You should then see the output of pytest results with all tests passed.
 
