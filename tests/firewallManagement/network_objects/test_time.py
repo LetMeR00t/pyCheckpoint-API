@@ -1,4 +1,7 @@
+import pytest
 import responses
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -12,7 +15,41 @@ def test_add_time(firewallManagement, resp_time):
     )
 
     resp = firewallManagement.network_objects.time.add(
-        name="timeObject1", start_now="true"
+        name="timeObject1",
+        start_now="true",
+        end={"date": "24-Nov-2014", "time": "21:22"},
+        end_never=False,
+        hours_ranges=[
+            {"from": "00:00", "to": "00:00", "enabled": True, "index": 1},
+            {"from": "00:00", "to": "00:00", "enabled": False, "index": 2},
+        ],
+        recurrence={
+            "pattern": "Daily",
+            "month": "Any",
+            "weekdays": ["Sun", "Mon"],
+            "days": ["1"],
+        },
+    )
+
+    assert resp.uid == "aa785d6d-7785-aad5-36a3-ab2d74c966ee"
+    assert resp.name == "timeObject1"
+    assert resp.start_now is True
+
+    resp = firewallManagement.network_objects.time.add(
+        name="timeObject1",
+        start={"date": "24-Nov-2014", "time": "21:22"},
+        end_never=True,
+        hours_ranges=[
+            {"from": "00:00", "to": "00:00", "enabled": True, "index": 1},
+            {"from": "00:00", "to": "00:00", "enabled": False, "index": 2},
+        ],
+        recurrence={
+            "pattern": "Daily",
+            "month": "Any",
+            "weekdays": ["Sun", "Mon"],
+            "days": ["1"],
+        },
+        tags="t1",
     )
 
     assert resp.uid == "aa785d6d-7785-aad5-36a3-ab2d74c966ee"
@@ -50,12 +87,52 @@ def test_set_time(firewallManagement, resp_time):
     )
 
     resp = firewallManagement.network_objects.time.set(
-        uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7", new_name="timeObject1"
+        uid="d5e8d56f-2d77-4824-a5d2-c4a7885dd4a7",
+        new_name="timeObject1",
+        start_now=True,
+        end={"date": "24-Nov-2014", "time": "21:22"},
+        end_never=False,
+        hours_ranges=[
+            {"from": "00:00", "to": "00:00", "enabled": True, "index": 1},
+            {"from": "00:00", "to": "00:00", "enabled": False, "index": 2},
+        ],
+        recurrence={
+            "pattern": "Daily",
+            "month": "Any",
+            "weekdays": ["Sun", "Mon"],
+            "days": ["1"],
+        },
     )
 
     assert resp.uid == "aa785d6d-7785-aad5-36a3-ab2d74c966ee"
     assert resp.name == "timeObject1"
     assert resp.start_now is True
+
+    resp = firewallManagement.network_objects.time.set(
+        name="timeObject1 Old",
+        new_name="timeObject1",
+        start={"date": "24-Nov-2014", "time": "21:22"},
+        end_never=True,
+        hours_ranges=[
+            {"from": "00:00", "to": "00:00", "enabled": True, "index": 1},
+            {"from": "00:00", "to": "00:00", "enabled": False, "index": 2},
+        ],
+        recurrence={
+            "pattern": "Daily",
+            "month": "Any",
+            "weekdays": ["Sun", "Mon"],
+            "days": ["1"],
+        },
+        tags="t1",
+    )
+
+    assert resp.uid == "aa785d6d-7785-aad5-36a3-ab2d74c966ee"
+    assert resp.name == "timeObject1"
+    assert resp.start_now is True
+
+    # Missing name or UID information
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.time.set()
 
 
 @responses.activate

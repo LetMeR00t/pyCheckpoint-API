@@ -100,20 +100,6 @@ class GSNHandoverGroup(NetworkObject):
         Examples:
             >>> firewall.network_objects.gsn_handover_group.show(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e")
         """
-
-        # Main request parameters
-        payload = {}
-        if uid is not None:
-            payload["uid"] = uid
-        elif name is not None:
-            payload["name"] = name
-        else:
-            raise MandatoryFieldMissing("uid or name")
-
-        # Secondary parameters
-        secondary_parameters = {"details-level": str}
-        payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
-
         return self.show_object(
             endpoint="show-gsn-handover-group", uid=uid, name=name, **kw
         )

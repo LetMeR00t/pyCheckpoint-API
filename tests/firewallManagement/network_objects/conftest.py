@@ -1423,6 +1423,22 @@ def fixture_resp_time():
             "weekdays": ["Sun", "Mon"],
             "days": ["1"],
         },
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
     }
 
 

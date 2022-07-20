@@ -1,4 +1,7 @@
+import pytest
 import responses
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -12,7 +15,11 @@ def test_add_gsn_handover_group(firewallManagement, resp_gsn_handover_group):
     )
 
     resp = firewallManagement.network_objects.gsn_handover_group.add(
-        name="gsnhandovergroup"
+        name="gsnhandovergroup",
+        enforce_gtp=True,
+        gtp_rate=2048,
+        members="All_Internet",
+        tags="t1",
     )
 
     assert resp.uid == "f140a9d1-4167-456a-931d-abdaa4c8aa7e"
@@ -36,6 +43,13 @@ def test_show_gsn_handover_group(firewallManagement, resp_gsn_handover_group):
     assert resp.uid == "f140a9d1-4167-456a-931d-abdaa4c8aa7e"
     assert resp.name == "gsnhandovergroup"
 
+    resp = firewallManagement.network_objects.gsn_handover_group.show(
+        name="gsnhandovergroup"
+    )
+
+    assert resp.uid == "f140a9d1-4167-456a-931d-abdaa4c8aa7e"
+    assert resp.name == "gsnhandovergroup"
+
 
 @responses.activate
 def test_set_gsn_handover_group(firewallManagement, resp_gsn_handover_group):
@@ -48,11 +62,28 @@ def test_set_gsn_handover_group(firewallManagement, resp_gsn_handover_group):
     )
 
     resp = firewallManagement.network_objects.gsn_handover_group.set(
-        uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e", new_name="gsnhandovergroup"
+        uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e",
+        new_name="gsnhandovergroup",
+        enforce_gtp=True,
+        gtp_rate=2048,
+        members="All_Internet",
+        tags="t1",
     )
 
     assert resp.uid == "f140a9d1-4167-456a-931d-abdaa4c8aa7e"
     assert resp.name == "gsnhandovergroup"
+
+    resp = firewallManagement.network_objects.gsn_handover_group.set(
+        name="gsnhandovergroup Old",
+        new_name="gsnhandovergroup",
+    )
+
+    assert resp.uid == "f140a9d1-4167-456a-931d-abdaa4c8aa7e"
+    assert resp.name == "gsnhandovergroup"
+
+    # Missing name or UID information
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.gsn_handover_group.set()
 
 
 @responses.activate
