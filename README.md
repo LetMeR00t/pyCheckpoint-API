@@ -151,7 +151,7 @@ poetry build
 poetry shell
 # this is usind the dedicated virtual environment for development
    
-$ pytest
+pytest
 # Run the tests
 ```
 
