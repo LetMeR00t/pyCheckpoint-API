@@ -1,4 +1,7 @@
+import pytest
 import responses
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -12,7 +15,10 @@ def test_add_group_with_exclusion(firewallManagement, resp_group_with_exclusion)
     )
 
     resp = firewallManagement.network_objects.group_with_exclusion.add(
-        name="DemoGroupWithExclusion", include="New Group 1", exception="New Group 2"
+        name="DemoGroupWithExclusion",
+        include="New Group 1",
+        exception="New Group 2",
+        tags=["t1"],
     )
 
     assert resp.uid == "dce451da-c9c7-46a9-bdb5-8fc953a6f172"
@@ -48,11 +54,26 @@ def test_set_group_with_exclusion(firewallManagement, resp_group_with_exclusion)
     )
 
     resp = firewallManagement.network_objects.group_with_exclusion.set(
-        uid="ed997ff8-6709-4d71-a713-99bf01711cd5", new_name="New Group 3"
+        uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
+        new_name="New Group 3",
+        include="New Group 1",
+        exception="New Group 2",
+        tags=["t1"],
     )
 
     assert resp.uid == "dce451da-c9c7-46a9-bdb5-8fc953a6f172"
     assert resp.name == "DemoGroupWithExclusion"
+
+    resp = firewallManagement.network_objects.group_with_exclusion.set(
+        name="Old Group 3", new_name="New Group 3"
+    )
+
+    assert resp.uid == "dce451da-c9c7-46a9-bdb5-8fc953a6f172"
+    assert resp.name == "DemoGroupWithExclusion"
+
+    # Missing name or UID information
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.group_with_exclusion.set()
 
 
 @responses.activate

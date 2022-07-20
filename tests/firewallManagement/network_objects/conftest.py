@@ -191,8 +191,8 @@ def fixture_resp_network_ipv6():
     }
 
 
-@pytest.fixture(name="resp_wildcard")
-def fixture_resp_wildcard():
+@pytest.fixture(name="resp_wildcard_ipv4")
+def fixture_resp_wildcard_ipv4():
     return {
         "uid": "d8a5e4dd-2a93-4847-aaa8-d5d33a695da5",
         "folder": {
@@ -244,6 +244,62 @@ def fixture_resp_wildcard():
         "ipv4-mask-wildcard": "0.0.0.128",
         "ipv6-address": "",
         "ipv6-mask-wildcard": "",
+    }
+
+
+@pytest.fixture(name="resp_wildcard_ipv6")
+def fixture_resp_wildcard_ipv6():
+    return {
+        "uid": "d8a5e4dd-2a93-4847-aaa8-d5d33a695da5",
+        "folder": {
+            "uid": "feb54da1-c5e2-4e83-a3ed-d0601ba5ccb9",
+            "name": "/Global Objects",
+        },
+        "domain": {
+            "domain-type": "local domain",
+            "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+            "name": "SMC User",
+        },
+        "meta-info": {
+            "lock": "unlocked",
+            "validation-state": "ok",
+            "read-only": False,
+            "last-modify-time": {
+                "posix": 1429440561055,
+                "iso-8601": "2015-04-19T13:49+0300",
+            },
+            "last-modifier": "aa",
+            "creation-time": {
+                "posix": 1429440561055,
+                "iso-8601": "2015-04-19T13:49+0300",
+            },
+            "creator": "aa",
+        },
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
+        "name": "New Wildcard 6",
+        "comments": "",
+        "color": "black",
+        "icon": "Objects/wildcard",
+        "groups": [],
+        "ipv4-address": "",
+        "ipv4-mask-wildcard": "",
+        "ipv6-address": "2001:db8::",
+        "ipv6-mask-wildcard": "64",
     }
 
 
@@ -1402,6 +1458,22 @@ def fixture_resp_security_zone():
         "type": "security-zone",
         "name": "SZone1",
         "uid": "cecd7d2e-c5bb-40d2-bd34-7afe8c37a062",
+        "tags": [
+            {
+                "folder": {
+                    "uid": "a25a7783-9adb-4a65-9850-b97ee7860530",
+                    "name": "/Global Objects",
+                },
+                "domain": {
+                    "domain-type": "local domain",
+                    "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                    "name": "SMC User",
+                },
+                "type": "tag",
+                "name": "tag1",
+                "uid": "687715ca-674b-4642-981b-b6243fde04c0",
+            }
+        ],
     }
 
 

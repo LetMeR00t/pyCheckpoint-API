@@ -1,4 +1,7 @@
+import pytest
 import responses
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -11,7 +14,9 @@ def test_add_security_zone(firewallManagement, resp_security_zone):
         status=200,
     )
 
-    resp = firewallManagement.network_objects.security_zone.add(name="SZone1")
+    resp = firewallManagement.network_objects.security_zone.add(
+        name="SZone1", tags=["t1"]
+    )
 
     assert resp.uid == "cecd7d2e-c5bb-40d2-bd34-7afe8c37a062"
     assert resp.name == "SZone1"
@@ -46,11 +51,22 @@ def test_set_security_zone(firewallManagement, resp_security_zone):
     )
 
     resp = firewallManagement.network_objects.security_zone.set(
-        uid="cecd7d2e-c5bb-40d2-bd34-7afe8c37a062", new_name="SZone1"
+        uid="cecd7d2e-c5bb-40d2-bd34-7afe8c37a062", new_name="SZone1", tags=["t1"]
     )
 
     assert resp.uid == "cecd7d2e-c5bb-40d2-bd34-7afe8c37a062"
     assert resp.name == "SZone1"
+
+    resp = firewallManagement.network_objects.security_zone.set(
+        name="Old SZone1", new_name="SZone1"
+    )
+
+    assert resp.uid == "cecd7d2e-c5bb-40d2-bd34-7afe8c37a062"
+    assert resp.name == "SZone1"
+
+    # Missing name or UID information
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.security_zone.set()
 
 
 @responses.activate

@@ -12,7 +12,6 @@ from ..exception import MandatoryFieldMissing
 class LSMCluster(NetworkObject):
     def add(
         self,
-        name: str,
         main_ip_address: str,
         name_prefix: str = None,
         name_suffix: str = None,
@@ -26,9 +25,8 @@ class LSMCluster(NetworkObject):
         Create new object.
 
         Args:
-            name (str): Object name. Must be unique in the domain.
             main_ip_address (str): 	Main IP address.
-            name_prefix (str, optional): 	A prefix added to the profile name and creates the LSM cluster name.
+            name_prefix (str, optional): A prefix added to the profile name and creates the LSM cluster name.
             name_suffix (str, optional): A suffix added to the profile name and creates the LSM cluster name.
             security_profile (str, optional): LSM profile.
             interfaces (List[dict], optional): Interfaces.
@@ -62,7 +60,6 @@ class LSMCluster(NetworkObject):
 
         # Main request parameters
         payload = {
-            "name": name,
             "main-ip-address": main_ip_address,
             "security-profile": security_profile,
         }

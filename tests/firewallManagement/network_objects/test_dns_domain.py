@@ -1,4 +1,7 @@
+import pytest
 import responses
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -12,7 +15,7 @@ def test_add_dns_domain(firewallManagement, resp_dns_domain):
     )
 
     resp = firewallManagement.network_objects.dns_domain.add(
-        name=".www.example.com", is_sub_domain=False
+        name=".www.example.com", is_sub_domain=False, tags=["t1"]
     )
 
     assert resp.uid == "ea6b168b-87d8-4ab6-9a8c-89c422dbde88"
@@ -48,11 +51,26 @@ def test_set_dns_domain(firewallManagement, resp_dns_domain):
     )
 
     resp = firewallManagement.network_objects.dns_domain.set(
-        uid="ea6b168b-87d8-4ab6-9a8c-89c422dbde88", new_name=".www.example.com"
+        uid="ea6b168b-87d8-4ab6-9a8c-89c422dbde88",
+        new_name=".www.example.com",
+        is_sub_domain=False,
+        tags=["t1"],
     )
 
     assert resp.uid == "ea6b168b-87d8-4ab6-9a8c-89c422dbde88"
     assert resp.name == ".www.example.com"
+
+    resp = firewallManagement.network_objects.dns_domain.set(
+        name=".example.com",
+        new_name=".www.example.com",
+    )
+
+    assert resp.uid == "ea6b168b-87d8-4ab6-9a8c-89c422dbde88"
+    assert resp.name == ".www.example.com"
+
+    # Missing name or UID information
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.dns_domain.set()
 
 
 @responses.activate

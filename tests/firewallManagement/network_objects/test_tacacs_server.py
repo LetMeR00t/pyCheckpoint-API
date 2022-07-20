@@ -1,4 +1,7 @@
+import pytest
 import responses
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -18,6 +21,26 @@ def test_add_tacacs_server(firewallManagement, resp_tacacs_server):
     assert resp.uid == "c9d1de16-407a-42bc-a28d-3b9d7f933766"
     assert resp.name == "tacacs7"
     assert resp.server.name == "h1"
+
+    resp = firewallManagement.network_objects.tacacs_server.add(
+        name="tacacs7",
+        server="h1",
+        server_type="TACACS+",
+        secret_key="abcdef12345!",
+        tags=["t1"],
+    )
+
+    assert resp.uid == "c9d1de16-407a-42bc-a28d-3b9d7f933766"
+    assert resp.name == "tacacs7"
+    assert resp.server.name == "h1"
+
+    # Missing secret key for TACACS+
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.tacacs_server.add(
+            name="tacacs7",
+            server="d700e8d5-d010-4f37-ab14-f78f5a26426c",
+            server_type="TACACS+",
+        )
 
 
 @responses.activate
@@ -50,10 +73,24 @@ def test_set_tacacs_server(firewallManagement, resp_tacacs_server):
     )
 
     resp = firewallManagement.network_objects.tacacs_server.set(
-        name="tacacs server",
+        uid="c9d1de16-407a-42bc-a28d-3b9d7f933766",
         priority="5",
         encryption="true",
         secret_key="**secret**",
+        server="d700e8d5-d010-4f37-ab14-f78f5a26426c",
+        server_type="TACACS+",
+        tags=["t1"],
+    )
+
+    assert resp.uid == "c9d1de16-407a-42bc-a28d-3b9d7f933766"
+    assert resp.name == "tacacs7"
+    assert resp.server.name == "h1"
+
+    resp = firewallManagement.network_objects.tacacs_server.set(
+        name="old tacacs server",
+        new_name="tacacs server",
+        priority="5",
+        encryption="true",
         server="d700e8d5-d010-4f37-ab14-f78f5a26426c",
         server_type="TACACS",
     )
@@ -61,6 +98,20 @@ def test_set_tacacs_server(firewallManagement, resp_tacacs_server):
     assert resp.uid == "c9d1de16-407a-42bc-a28d-3b9d7f933766"
     assert resp.name == "tacacs7"
     assert resp.server.name == "h1"
+
+    # Missing name or UID information
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.tacacs_server.set(
+            server="d700e8d5-d010-4f37-ab14-f78f5a26426c"
+        )
+
+    # Missing secret key for TACACS+
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.tacacs_server.set(
+            name="tacacs7",
+            server="d700e8d5-d010-4f37-ab14-f78f5a26426c",
+            server_type="TACACS+",
+        )
 
 
 @responses.activate

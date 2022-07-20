@@ -1,4 +1,7 @@
+import pytest
 import responses
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -12,7 +15,7 @@ def test_add_tacacs_group(firewallManagement, resp_tacacs_group):
     )
 
     resp = firewallManagement.network_objects.tacacs_group.add(
-        name="New tacacs_group 4"
+        name="New tacacs_group 4", members=["tacacs7"], tags=["t1"]
     )
 
     assert resp.uid == "dd857ad5-a354-3991-cddc-58dc5ae69f65"
@@ -48,11 +51,25 @@ def test_set_tacacs_group(firewallManagement, resp_tacacs_group):
     )
 
     resp = firewallManagement.network_objects.tacacs_group.set(
-        uid="dd857ad5-a354-3991-cddc-58dc5ae69f65", new_name="New TACACS Group 3"
+        uid="dd857ad5-a354-3991-cddc-58dc5ae69f65",
+        new_name="New TACACS Group 3",
+        members=["tacacs7"],
+        tags=["t1"],
     )
 
     assert resp.uid == "dd857ad5-a354-3991-cddc-58dc5ae69f65"
     assert resp.name == "New TACACS Group 3"
+
+    resp = firewallManagement.network_objects.tacacs_group.set(
+        name="Old TACACS Group 3", new_name="New TACACS Group 3"
+    )
+
+    assert resp.uid == "dd857ad5-a354-3991-cddc-58dc5ae69f65"
+    assert resp.name == "New TACACS Group 3"
+
+    # Missing name or UID information
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.tacacs_group.set()
 
 
 @responses.activate

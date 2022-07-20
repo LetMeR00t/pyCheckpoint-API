@@ -1,4 +1,7 @@
+import pytest
 import responses
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -12,7 +15,7 @@ def test_add_dynamic_object(firewallManagement, resp_dynamic_object):
     )
 
     resp = firewallManagement.network_objects.dynamic_object.add(
-        name="Dynamic_Object_1", comments="My Dynamic Object 1"
+        name="Dynamic_Object_1", comments="My Dynamic Object 1", tags=["t1"]
     )
 
     assert resp.uid == "c5a7f50c-a951-45be-8b82-48441c9f48de"
@@ -48,11 +51,24 @@ def test_set_dynamic_object(firewallManagement, resp_dynamic_object):
     )
 
     resp = firewallManagement.network_objects.dynamic_object.set(
-        uid="c5a7f50c-a951-45be-8b82-48441c9f48de", new_name="Dynamic_Object_1"
+        uid="c5a7f50c-a951-45be-8b82-48441c9f48de",
+        new_name="Dynamic_Object_1",
+        tags=["t1"],
     )
 
     assert resp.uid == "c5a7f50c-a951-45be-8b82-48441c9f48de"
     assert resp.name == "Dynamic_Object_1"
+
+    resp = firewallManagement.network_objects.dynamic_object.set(
+        name="Old Dynamic_Object_1", new_name="Dynamic_Object_1"
+    )
+
+    assert resp.uid == "c5a7f50c-a951-45be-8b82-48441c9f48de"
+    assert resp.name == "Dynamic_Object_1"
+
+    # Missing name or UID information
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.dynamic_object.set()
 
 
 @responses.activate

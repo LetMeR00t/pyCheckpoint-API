@@ -92,7 +92,6 @@ class DynamicObject(NetworkObject):
         self,
         uid: str = None,
         name: str = None,
-        members: Union[dict, str, List[str]] = None,
         new_name: str = None,
         tags: Union[str, List[str]] = None,
         **kw,
@@ -103,7 +102,6 @@ class DynamicObject(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-            members (Union[dict, str, List[str]], optional): Collection of Network objects identified by the name or UID.
             new_name (str, optional): New name of the object.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
 
@@ -140,8 +138,6 @@ class DynamicObject(NetworkObject):
         else:
             raise MandatoryFieldMissing("uid or name")
 
-        if members is not None:
-            payload["members"] = members
         if new_name is not None:
             payload["new-name"] = new_name
         if tags is not None:

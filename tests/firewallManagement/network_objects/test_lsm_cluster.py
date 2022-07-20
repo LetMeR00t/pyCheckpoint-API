@@ -1,4 +1,7 @@
+import pytest
 import responses
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -12,7 +15,6 @@ def test_add_lsm_cluster(firewallManagement, resp_lsm_cluster):
     )
 
     resp = firewallManagement.network_objects.lsm_cluster.add(
-        name="Gaia_gaia_cluster",
         name_prefix="Gaia_",
         main_ip_address="192.168.8.197",
         security_profile="gaia_cluster",
@@ -41,10 +43,53 @@ def test_add_lsm_cluster(firewallManagement, resp_lsm_cluster):
                 "sic": {"ip-address": "192.168.8.202", "one-time-password": "aaaa"},
             },
         ],
+        tags=["t1"],
     )
 
     assert resp.uid == "d1c363bc-c4c6-4903-9426-495d800b47ae"
     assert resp.name == "Gaia_gaia_cluster"
+
+    resp = firewallManagement.network_objects.lsm_cluster.add(
+        name_suffix="_cluster",
+        main_ip_address="192.168.8.197",
+        security_profile="gaia_cluster",
+        interfaces=[
+            {
+                "name": "eth0",
+                "new-name": "WAN",
+                "member-network-override": "192.168.8.0",
+                "ip-address-override": "192.168.8.197",
+            },
+            {
+                "name": "eth1",
+                "new-name": "LAN1",
+                "member-network-override": "10.8.197.0",
+                "ip-address-override": "10.8.197.1",
+            },
+            {"name": "eth2", "member-network-override": "10.10.10.0"},
+        ],
+        members=[
+            {
+                "name": "Gaia_gw1",
+                "sic": {"ip-address": "192.168.8.200", "one-time-password": "aaaa"},
+            },
+            {
+                "name": "Gaia_gw2",
+                "sic": {"ip-address": "192.168.8.202", "one-time-password": "aaaa"},
+            },
+        ],
+        tags=["t1"],
+    )
+
+    assert resp.uid == "d1c363bc-c4c6-4903-9426-495d800b47ae"
+    assert resp.name == "Gaia_gaia_cluster"
+
+    # Missing name prefix or suffit
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.lsm_cluster.add(
+            main_ip_address="192.168.8.197",
+            security_profile="gaia_cluster",
+        )
 
 
 @responses.activate
@@ -76,11 +121,49 @@ def test_set_lsm_cluster(firewallManagement, resp_lsm_cluster):
     )
 
     resp = firewallManagement.network_objects.lsm_cluster.set(
-        uid="d1c363bc-c4c6-4903-9426-495d800b47ae", new_name="Gaia_gaia_cluster"
+        uid="d1c363bc-c4c6-4903-9426-495d800b47ae",
+        new_name="Gaia_gaia_cluster",
+        interfaces=[
+            {
+                "name": "eth0",
+                "new-name": "WAN",
+                "member-network-override": "192.168.8.0",
+                "ip-address-override": "192.168.8.197",
+            },
+            {
+                "name": "eth1",
+                "new-name": "LAN1",
+                "member-network-override": "10.8.197.0",
+                "ip-address-override": "10.8.197.1",
+            },
+            {"name": "eth2", "member-network-override": "10.10.10.0"},
+        ],
+        members=[
+            {
+                "name": "Gaia_gw1",
+                "sic": {"ip-address": "192.168.8.200", "one-time-password": "aaaa"},
+            },
+            {
+                "name": "Gaia_gw2",
+                "sic": {"ip-address": "192.168.8.202", "one-time-password": "aaaa"},
+            },
+        ],
+        tags=["t1"],
     )
 
     assert resp.uid == "d1c363bc-c4c6-4903-9426-495d800b47ae"
     assert resp.name == "Gaia_gaia_cluster"
+
+    resp = firewallManagement.network_objects.lsm_cluster.set(
+        name="Gaia_gaia_cluster old", new_name="Gaia_gaia_cluster"
+    )
+
+    assert resp.uid == "d1c363bc-c4c6-4903-9426-495d800b47ae"
+    assert resp.name == "Gaia_gaia_cluster"
+
+    # Missing name or UID
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.lsm_cluster.set()
 
 
 @responses.activate

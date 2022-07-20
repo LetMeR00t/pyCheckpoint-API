@@ -14,7 +14,7 @@ class TacacsServer(NetworkObject):
         self,
         name: str,
         server: str,
-        secret_key: str = False,
+        secret_key: str = None,
         encryption: bool = False,
         priority: int = 1,
         server_type: str = "TACACS",
@@ -52,6 +52,9 @@ class TacacsServer(NetworkObject):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
 
+        Raises:
+            MandatoryFieldMissing: The value is not given as a keyword parameter and it's mandatory
+
         Returns:
             :obj:`Box`: The response from the server
 
@@ -62,8 +65,10 @@ class TacacsServer(NetworkObject):
         # Main request parameters
         payload = {"name": name, "server": server}
 
-        if server_type == "TACACS+":
+        if server_type == "TACACS+" and secret_key is not None:
             payload["secret-key"] = secret_key
+        elif server_type == "TACACS+" and secret_key is None:
+            raise MandatoryFieldMissing("secret_key (TACACS+)")
         if encryption is not None:
             payload["encryption"] = encryption
         if priority is not None:
@@ -114,7 +119,7 @@ class TacacsServer(NetworkObject):
         server: str,
         uid: str = None,
         name: str = None,
-        secret_key: str = False,
+        secret_key: str = None,
         encryption: bool = False,
         priority: int = 1,
         server_type: str = "TACACS",
@@ -155,6 +160,9 @@ class TacacsServer(NetworkObject):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
 
+        Raises:
+            MandatoryFieldMissing: The value is not given as a keyword parameter and it's mandatory
+
         Returns:
             :obj:`Box`: The response from the server
 
@@ -172,8 +180,10 @@ class TacacsServer(NetworkObject):
         else:
             raise MandatoryFieldMissing("uid or name")
 
-        if server_type == "TACACS+":
+        if server_type == "TACACS+" and secret_key is not None:
             payload["secret-key"] = secret_key
+        elif server_type == "TACACS+" and secret_key is None:
+            raise MandatoryFieldMissing("secret_key (TACACS+)")
         if encryption is not None:
             payload["encryption"] = encryption
         if priority is not None:

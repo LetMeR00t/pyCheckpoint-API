@@ -1,4 +1,7 @@
+import pytest
 import responses
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -21,6 +24,7 @@ def test_add_opsec_application(firewallManagement, resp_opsec_application):
         },
         lea={"enabled": "false"},
         one_time_password="SomePassword",
+        tags=["t1"],
     )
 
     assert resp.uid == "1741bb6c-3b19-456c-a635-b96c8456a0e8"
@@ -56,11 +60,32 @@ def test_set_opsec_application(firewallManagement, resp_opsec_application):
     )
 
     resp = firewallManagement.network_objects.opsec_application.set(
-        uid="1741bb6c-3b19-456c-a635-b96c8456a0e8", new_name="MyOpsecApplication"
+        uid="1741bb6c-3b19-456c-a635-b96c8456a0e8",
+        new_name="MyOpsecApplication",
+        host="SomeHost",
+        cpmi={
+            "enabled": "true",
+            "use-administrator-credentials": "false",
+            "administrator-profile": "Super User",
+        },
+        lea={"enabled": "false"},
+        one_time_password="SomePassword",
+        tags=["t1"],
     )
 
     assert resp.uid == "1741bb6c-3b19-456c-a635-b96c8456a0e8"
     assert resp.name == "MyOpsecApplication"
+
+    resp = firewallManagement.network_objects.opsec_application.set(
+        name="MyOpsecApplication Old", new_name="MyOpsecApplication"
+    )
+
+    assert resp.uid == "1741bb6c-3b19-456c-a635-b96c8456a0e8"
+    assert resp.name == "MyOpsecApplication"
+
+    # Missing name or UID information
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.opsec_application.set()
 
 
 @responses.activate

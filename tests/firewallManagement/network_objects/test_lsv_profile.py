@@ -1,4 +1,7 @@
+import pytest
 import responses
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -12,7 +15,12 @@ def test_add_lsv_profile(firewallManagement, resp_lsv_profile):
     )
 
     resp = firewallManagement.network_objects.lsv_profile.add(
-        name="New lsv-profile", certificate_authority="dedicated_profile_certificate"
+        name="New lsv-profile",
+        certificate_authority="dedicated_profile_certificate",
+        allowed_ip_addresses=[],
+        restrict_allowed_addresses=False,
+        tags=["t1"],
+        vpn_domain={"limit-peer-domain-size": False, "max-allowed-addresses": 256},
     )
 
     assert resp.uid == "160de00a-c8b8-4cb4-ae4b-8623d0e6f8b6"
@@ -48,11 +56,29 @@ def test_set_lsv_profile(firewallManagement, resp_lsv_profile):
     )
 
     resp = firewallManagement.network_objects.lsv_profile.set(
-        uid="160de00a-c8b8-4cb4-ae4b-8623d0e6f8b6", new_name="New lsv-profile"
+        uid="160de00a-c8b8-4cb4-ae4b-8623d0e6f8b6",
+        new_name="New lsv-profile",
+        certificate_authority="dedicated_profile_certificate",
+        allowed_ip_addresses=[],
+        restrict_allowed_addresses=False,
+        tags=["t1"],
+        vpn_domain={"limit-peer-domain-size": False, "max-allowed-addresses": 256},
     )
 
     assert resp.uid == "160de00a-c8b8-4cb4-ae4b-8623d0e6f8b6"
     assert resp.name == "New lsv-profile"
+
+    resp = firewallManagement.network_objects.lsv_profile.set(
+        name="Old lsv-profile",
+        new_name="New lsv-profile",
+    )
+
+    assert resp.uid == "160de00a-c8b8-4cb4-ae4b-8623d0e6f8b6"
+    assert resp.name == "New lsv-profile"
+
+    # Missing name or UID information
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.lsv_profile.set()
 
 
 @responses.activate

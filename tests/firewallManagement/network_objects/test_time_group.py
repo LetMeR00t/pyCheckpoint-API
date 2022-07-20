@@ -1,4 +1,7 @@
+import pytest
 import responses
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -11,7 +14,9 @@ def test_add_time_group(firewallManagement, resp_time_group):
         status=200,
     )
 
-    resp = firewallManagement.network_objects.time_group.add(name="New Group 4")
+    resp = firewallManagement.network_objects.time_group.add(
+        name="New Group 4", members=[], tags=["t1"]
+    )
 
     assert resp.uid == "d5878541-abbd-ad58-d23a-01a12352abc6"
     assert resp.name == "New Time Group"
@@ -46,11 +51,26 @@ def test_set_time_group(firewallManagement, resp_time_group):
     )
 
     resp = firewallManagement.network_objects.time_group.set(
-        uid="d5878541-abbd-ad58-d23a-01a12352abc6", new_name="New Time Group"
+        uid="d5878541-abbd-ad58-d23a-01a12352abc6",
+        new_name="New Time Group",
+        members=[],
+        tags=["t1"],
     )
 
     assert resp.uid == "d5878541-abbd-ad58-d23a-01a12352abc6"
     assert resp.name == "New Time Group"
+
+    resp = firewallManagement.network_objects.time_group.set(
+        name="Old Time Group",
+        new_name="New Time Group",
+    )
+
+    assert resp.uid == "d5878541-abbd-ad58-d23a-01a12352abc6"
+    assert resp.name == "New Time Group"
+
+    # Missing name or UID information
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.time_group.set()
 
 
 @responses.activate

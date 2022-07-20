@@ -15,6 +15,9 @@ def test_install_policy(firewallManagement, resp_task):
         access=True,
         threat_prevention=True,
         targets=["corporate-gateway"],
+        qos=False,
+        desktop_security=False,
+        revision="the most recent revision",
     )
 
     assert resp.task_id == "01234567-89ab-cdef-a930-8c37a59972b3"

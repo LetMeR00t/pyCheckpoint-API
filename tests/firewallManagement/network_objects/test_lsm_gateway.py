@@ -1,4 +1,7 @@
+import pytest
 import responses
+
+from pycheckpoint_api.firewallManagement.exception import MandatoryFieldMissing
 
 
 @responses.activate
@@ -17,6 +20,7 @@ def test_add_lsm_gateway(firewallManagement, resp_lsm_gateway):
         sic={"ip-address": "1.2.3.4", "one-time-password": "aaaa"},
         provisioning_state="using-profile",
         provisioning_settings={"provisioning-profile": "prv_profile"},
+        tags=["t1"],
     )
 
     assert resp.uid == "f3b6df08-d973-4f16-8cfb-1f9562c6d120"
@@ -52,11 +56,28 @@ def test_set_lsm_gateway(firewallManagement, resp_lsm_gateway):
     )
 
     resp = firewallManagement.network_objects.lsm_gateway.set(
-        uid="f3b6df08-d973-4f16-8cfb-1f9562c6d120", new_name="lsm_gateway"
+        uid="f3b6df08-d973-4f16-8cfb-1f9562c6d120",
+        new_name="lsm_gateway",
+        security_profile="lsm_profile",
+        sic={"ip-address": "1.2.3.4", "one-time-password": "aaaa"},
+        provisioning_state="using-profile",
+        provisioning_settings={"provisioning-profile": "prv_profile"},
+        tags=["t1"],
     )
 
     assert resp.uid == "f3b6df08-d973-4f16-8cfb-1f9562c6d120"
     assert resp.name == "lsm_gateway"
+
+    resp = firewallManagement.network_objects.lsm_gateway.set(
+        name="lsm_gateway old", new_name="lsm_gateway"
+    )
+
+    assert resp.uid == "f3b6df08-d973-4f16-8cfb-1f9562c6d120"
+    assert resp.name == "lsm_gateway"
+
+    # Missing name or UID information
+    with pytest.raises(MandatoryFieldMissing):
+        firewallManagement.network_objects.lsm_gateway.set()
 
 
 @responses.activate
