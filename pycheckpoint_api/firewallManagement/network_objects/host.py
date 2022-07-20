@@ -59,6 +59,7 @@ class Host(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.host.add(name="My object")
         """
@@ -113,6 +114,7 @@ class Host(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.host.show(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
@@ -167,6 +169,7 @@ class Host(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.host.set(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4", ip_address="192.0.2.1")
         """
@@ -232,6 +235,7 @@ class Host(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.host.delete(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
@@ -260,6 +264,7 @@ class Host(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.host.shows_hosts()
         """

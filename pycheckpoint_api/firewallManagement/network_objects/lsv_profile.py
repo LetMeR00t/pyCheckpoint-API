@@ -52,6 +52,7 @@ class LSVProfile(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.lsv_profile.add(
             ... name="New lsv-profile",
@@ -98,6 +99,7 @@ class LSVProfile(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.lsv_profile.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -142,6 +144,7 @@ class LSVProfile(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.lsv_profile.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             ... new_name="New Tag")
@@ -202,6 +205,7 @@ class LSVProfile(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.lsv_profile.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -246,6 +250,7 @@ class LSVProfile(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.lsv_profile.shows_lsv_profiles()
         """

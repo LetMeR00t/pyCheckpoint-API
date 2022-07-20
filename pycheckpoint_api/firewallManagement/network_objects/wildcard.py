@@ -51,6 +51,7 @@ class Wildcard(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.wildcard.add(name="My object")
         """
@@ -97,6 +98,7 @@ class Wildcard(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.wildcard.show(uid="9423d36f-2d66-4754-b9e2-e7f4493756d4")
         """
@@ -149,6 +151,7 @@ class Wildcard(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.wildcard.set(name="My object")
         """
@@ -209,6 +212,7 @@ class Wildcard(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.wildcard.delete(uid="d8a5e4dd-2a93-4847-aaa8-d5d33a695da5")
         """
@@ -237,6 +241,7 @@ class Wildcard(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.wildcard.shows_wildcards()
         """

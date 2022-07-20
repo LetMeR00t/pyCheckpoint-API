@@ -40,6 +40,7 @@ class SecurityZone(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.security_zone.add(name="My object")
         """
@@ -77,6 +78,7 @@ class SecurityZone(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.security_zone.show(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
@@ -117,6 +119,7 @@ class SecurityZone(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.security_zone.set(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7",
             subnet="192.0.2.0",subnet_mask="255.255.255.0")
@@ -170,6 +173,7 @@ class SecurityZone(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.security_zone.delete(uid="d5e8d56f-2d77-4824-a5d2-c4s7885dd4z7")
         """
@@ -200,6 +204,7 @@ class SecurityZone(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.security_zone.shows_security_zones()
         """

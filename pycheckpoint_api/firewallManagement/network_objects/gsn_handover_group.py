@@ -52,6 +52,7 @@ class GSNHandoverGroup(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.gsn_handover_group.add(name="My object")
         """
@@ -97,6 +98,7 @@ class GSNHandoverGroup(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.gsn_handover_group.show(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e")
         """
@@ -146,6 +148,7 @@ class GSNHandoverGroup(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.gsn_handover_group.set(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e",
             new_name="gsnhandovergroup")
@@ -205,6 +208,7 @@ class GSNHandoverGroup(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.gsn_handover_group.delete(uid="f140a9d1-4167-456a-931d-abdaa4c8aa7e")
         """
@@ -235,6 +239,7 @@ class GSNHandoverGroup(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.group.shows_groups()
         """

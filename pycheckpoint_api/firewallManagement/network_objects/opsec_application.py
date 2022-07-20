@@ -49,6 +49,7 @@ class OPSECApplication(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.opsec_application.add(
             ... name="MyOpsecApplication",
@@ -102,6 +103,7 @@ class OPSECApplication(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.opsec_application.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -152,6 +154,7 @@ class OPSECApplication(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.tag.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             ... new_name="New Tag")
@@ -212,6 +215,7 @@ class OPSECApplication(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.opsec_application.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -256,6 +260,7 @@ class OPSECApplication(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.opsec_application.shows_opsec_applications()
         """

@@ -43,6 +43,7 @@ class ServiceCitrixTCP(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewallManagement.service_applications.service_citrix_tcp.add(
             ... name="mycitrixtcp",
@@ -85,6 +86,7 @@ class ServiceCitrixTCP(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> FirewallManagement.service_applications.service_citrix_tcp.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -129,6 +131,7 @@ class ServiceCitrixTCP(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewallManagement.service_applications.service_citrix_tcp.set(
             ... uid="3464de87-7e4c-4dde-8b67-89cf2f46c32c",
@@ -186,6 +189,7 @@ class ServiceCitrixTCP(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> FirewallManagement.service_applications.service_citrix_tcp.delete(
                 uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
@@ -217,6 +221,7 @@ class ServiceCitrixTCP(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> FirewallManagement.service_applications.service_citrix_tcp.show_services_citrix_tcp()
         """

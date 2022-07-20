@@ -43,6 +43,7 @@ class TimeGroup(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.time_group.add(name="My object")
         """
@@ -82,6 +83,7 @@ class TimeGroup(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.group.show(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -124,6 +126,7 @@ class TimeGroup(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.time_group.set(uid="ed997ff8-6709-4d71-a713-99bf01711cd5",
             new_name="New Time Group")
@@ -178,6 +181,7 @@ class TimeGroup(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.time_group.delete(uid="ed997ff8-6709-4d71-a713-99bf01711cd5")
         """
@@ -222,6 +226,7 @@ class TimeGroup(NetworkObject):
 
         Returns:
             :obj:`Box`: The response from the server
+
         Examples:
             >>> firewall.network_objects.time_group.shows_time_groups()
         """
