@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""This script is used to login to the Checkpoint API and then logout
+   No action is performed
+"""
+
 import logging
 
 import restfly
