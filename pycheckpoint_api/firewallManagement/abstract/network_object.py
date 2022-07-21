@@ -1,4 +1,5 @@
 import logging
+import time
 from typing import List
 
 from box import Box
@@ -284,6 +285,9 @@ class NetworkObject(APIEndpoint):
         """
         all_objects = None
 
+        # Get a timer
+        timer_start = time.time()
+
         # Made a first request to determine the total number of objects
         resp = self.show_partial_objects(
             endpoint=endpoint,
@@ -318,7 +322,7 @@ class NetworkObject(APIEndpoint):
             + str(number_requests)
             + " (limit set to "
             + str(limit)
-            + "/request) exported..."
+            + "/request) exported... (offset:0)"
         )
 
         for i in range(1, number_requests):
@@ -326,7 +330,7 @@ class NetworkObject(APIEndpoint):
                 endpoint=endpoint,
                 filter_results=filter_results,
                 limit=limit,
-                offset=i,
+                offset=i * limit,
                 order=order,
                 show_as_ranges=show_as_ranges,
                 extra_secondary_parameters=extra_secondary_parameters,
@@ -341,12 +345,38 @@ class NetworkObject(APIEndpoint):
                 + str(number_requests)
                 + " (limit set to "
                 + str(limit)
-                + "/request) exported..."
+                + "/request) exported... (offset:"
+                + str(i)
+                + ")"
             )
 
             all_objects.objects += resp.objects
 
         # Finalize the output
-        all_objects.to = all_objects.total - 1
+        all_objects.to = all_objects.total
+
+        # End timer
+        timer_diff = time.time() - timer_start
+
+        timer_text = ""
+
+        if round(timer_diff % 60) != 0:
+            timer_text = (
+                str(int(timer_diff / 60)) + "min " + str(round(timer_diff % 60)) + "s)"
+            )
+        else:
+            timer_text = "<1s"
+
+        logger.info(
+            endpoint
+            + " - Total: "
+            + str(resp.total)
+            + " - Number of requests done: "
+            + str(number_requests)
+            + " (limit set to "
+            + str(limit)
+            + "/request) - Done in "
+            + timer_text
+        )
 
         return all_objects
