@@ -190,8 +190,16 @@ def test_show_hosts(firewallManagement, resp_from_to_objects):
         status=200,
     )
 
+    # Show partial hosts
     resp = firewallManagement.network_objects.host.show_hosts(
         filter_results="host_", order={"ASC": "name"}
+    )
+
+    assert isinstance(resp.total, int)
+
+    # Show all hosts
+    resp = firewallManagement.network_objects.host.show_hosts(
+        filter_results="host_", order={"ASC": "name"}, show_all=True, limit=5
     )
 
     assert isinstance(resp.total, int)

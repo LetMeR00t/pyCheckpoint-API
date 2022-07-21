@@ -62,15 +62,19 @@ def fixture_resp_session():
 
 @pytest.fixture(name="resp_from_to_objects")
 def fixture_resp_from_to_objects():
-    # Not all parameters from the response are tested here
+    # Not all parameters from the response are tested here, the example is highly simplified here
     return {
         "from": 1,
-        "to": 3,
-        "total": 3,
+        "to": 7,
+        "total": 7,
         "objects": [
             "01f83a11-179a-405a-971a-50c58368f415",
             "27aabb7e-263a-4161-b822-0e0078c72e06",
             "2b486864-1356-4b66-ae6b-6eda09821955",
+            "dd857ad5-a354-3991-cddc-58dc5ae69f65",
+            "c9d1de16-407a-42bc-a28d-3b9d7f933766",
+            "160de00a-c8b8-4cb4-ae4b-8623d0e6f8b6",
+            "1741bb6c-3b19-456c-a635-b96c8456a0e8",
         ],
     }
 

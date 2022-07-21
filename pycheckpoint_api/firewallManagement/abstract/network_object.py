@@ -1,3 +1,4 @@
+import logging
 from typing import List
 
 from box import Box
@@ -6,6 +7,8 @@ from restfly.endpoint import APIEndpoint
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 
 from ..exception import MandatoryFieldMissing
+
+logger = logging.getLogger(__name__)
 
 
 class NetworkObject(APIEndpoint):
@@ -112,6 +115,7 @@ class NetworkObject(APIEndpoint):
     def show_objects(
         self,
         endpoint: str,
+        show_all: bool = False,
         filter_results: str = None,
         limit: int = 50,
         offset: int = 0,
@@ -121,10 +125,12 @@ class NetworkObject(APIEndpoint):
         **kw
     ) -> Box:
         """
-        Retrieve all objects.
+        Retrieve objects.
 
         Args:
             endpoint (str): Endpoint to reach to show the objects
+            show_all (bool, optional): Indicates if you want to shown all objects or not. If yes, `offset `will be ignored.\
+            Defaults to False
             filter_results (str, optional): Search expression to filter objects by. Defaults to None
             The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.
             The logical operators in the expression ('AND', 'OR') should be provided in capital letters.
@@ -146,15 +152,73 @@ class NetworkObject(APIEndpoint):
                 must be run from the System Domain only and with ignore-warnings true.\
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
 
-
         Returns:
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.<OBJECT_TYPE>.shows_objects()
+            >>> firewall.network_objects.<OBJECT_TYPE>.show_<OBJECT_TYPE>s()
 
         """
+        if show_all:
+            return self.show_all_objects(
+                endpoint=endpoint,
+                filter_results=filter_results,
+                limit=limit,
+                order=order,
+                show_as_ranges=show_as_ranges,
+                extra_secondary_parameters=extra_secondary_parameters,
+                **kw
+            )
+        else:
+            return self.show_partial_objects(
+                endpoint=endpoint,
+                filter_results=filter_results,
+                limit=limit,
+                offset=offset,
+                order=order,
+                show_as_ranges=show_as_ranges,
+                extra_secondary_parameters=extra_secondary_parameters,
+                **kw
+            )
 
+    def show_partial_objects(
+        self,
+        endpoint: str,
+        filter_results: str = None,
+        limit: int = 50,
+        offset: int = 0,
+        order: List[dict] = None,
+        show_as_ranges: bool = None,
+        extra_secondary_parameters: dict = None,
+        **kw
+    ) -> Box:
+        """Retrieve partially objects
+
+        Args:
+            endpoint (str): _description_
+            filter_results (str, optional): _description_ Defaults to None
+            limit (int, optional): _description_ Defaults to 50
+            order (List[dict], optional): _description_ Defaults to None
+            show_as_ranges (bool, optional): _description_ Defaults to None
+            extra_secondary_parameters (dict, optional): _description_ Defaults to None
+            **kw (dict, optional): Arbitrary keyword arguments for secondary parameters.
+
+        Keyword Args:
+            **details-level (str, optional):
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
+                of the object to a fully detailed representation of the object.
+            **domains-to-process (List[str], optional):
+                Indicates which domains to process the commands on. It cannot be used with the details-level full,\
+                must be run from the System Domain only and with ignore-warnings true.\
+                Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
+
+        Returns:
+            obj:`Box`: The response from the server
+
+        Examples:
+            >>> firewall.network_objects.<OBJECT_TYPE>.show_partial_<OBJECT_TYPE>s()
+
+        """
         # Main request parameters
         payload = {}
         if filter_results is not None:
@@ -180,3 +244,109 @@ class NetworkObject(APIEndpoint):
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
         return self._post(endpoint, json=payload)
+
+    def show_all_objects(
+        self,
+        endpoint: str,
+        filter_results: str = None,
+        limit: int = 50,
+        order: List[dict] = None,
+        show_as_ranges: bool = None,
+        extra_secondary_parameters: dict = None,
+        **kw
+    ) -> Box:
+        """Retrieve all objects
+
+        Args:
+            endpoint (str): _description_
+            filter_results (str, optional): _description_ Defaults to None
+            limit (int, optional): _description_ Defaults to 50
+            order (List[dict], optional): _description_ Defaults to None
+            show_as_ranges (bool, optional): _description_ Defaults to None
+            extra_secondary_parameters (dict, optional): _description_ Defaults to None
+            **kw (dict, optional): Arbitrary keyword arguments for secondary parameters.
+
+        Keyword Args:
+            **details-level (str, optional):
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
+                of the object to a fully detailed representation of the object.
+            **domains-to-process (List[str], optional):
+                Indicates which domains to process the commands on. It cannot be used with the details-level full,\
+                must be run from the System Domain only and with ignore-warnings true.\
+                Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
+
+        Returns:
+            obj:`Box`: The response from the server
+
+        Examples:
+            >>> firewall.network_objects.<OBJECT_TYPE>.show_all_<OBJECT_TYPE>s()
+
+        """
+        all_objects = None
+
+        # Made a first request to determine the total number of objects
+        resp = self.show_partial_objects(
+            endpoint=endpoint,
+            filter_results=filter_results,
+            limit=limit,
+            offset=0,
+            order=order,
+            show_as_ranges=show_as_ranges,
+            extra_secondary_parameters=extra_secondary_parameters,
+            **kw
+        )
+
+        # Add the first results
+        all_objects = resp
+
+        # Evaluate the number of requests to be done
+        number_requests = int(resp.total / limit) + 1
+
+        logger.info(
+            endpoint
+            + " - Total: "
+            + str(resp.total)
+            + " - Number of requests to do: "
+            + str(number_requests)
+            + " (limit set to "
+            + str(limit)
+            + "/request) - In progress..."
+        )
+        logger.debug(
+            endpoint
+            + " - 1/"
+            + str(number_requests)
+            + " (limit set to "
+            + str(limit)
+            + "/request) exported..."
+        )
+
+        for i in range(1, number_requests):
+            resp = self.show_partial_objects(
+                endpoint=endpoint,
+                filter_results=filter_results,
+                limit=limit,
+                offset=i,
+                order=order,
+                show_as_ranges=show_as_ranges,
+                extra_secondary_parameters=extra_secondary_parameters,
+                **kw
+            )
+
+            logger.debug(
+                endpoint
+                + " - "
+                + str(i + 1)
+                + "/"
+                + str(number_requests)
+                + " (limit set to "
+                + str(limit)
+                + "/request) exported..."
+            )
+
+            all_objects.objects += resp.objects
+
+        # Finalize the output
+        all_objects.to = all_objects.total - 1
+
+        return all_objects
