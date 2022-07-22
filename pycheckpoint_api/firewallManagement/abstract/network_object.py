@@ -124,22 +124,21 @@ class NetworkObject(APIEndpoint):
         extra_secondary_parameters: dict = None,
         **kw
     ) -> Box:
-        """
-        Retrieve objects.
+        """Retrieve objects.
 
         Args:
             endpoint (str): Endpoint to reach to show the objects
-            show_all (bool, optional): Indicates if you want to shown all objects or not. If yes, `offset `will be ignored.\
+            show_all (bool, optional): Indicates if you want to shown all objects or not. If yes, `offset` will be ignored.\
             Defaults to False
-            filter_results (str, optional): Search expression to filter objects by. Defaults to None
-            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.
-            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.
+            filter_results (str, optional): Search expression to filter objects by. Defaults to None\
+            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.\
+            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.\
             he search involves both a IP search and a textual search in name, comment, tags etc.
             limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
             offset (int, optional): Number of the results to initially skip. Defaults to 0
-            order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the
+            order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the\
             descending order by the session publish time. Defaults to None
-            extra_secondary_parameters (dict, optional): Any additional secondary parameter need to be add in the request
+            extra_secondary_parameters (dict, optional): Any additional secondary parameter need to be add in the request\
             Defaults to None
             **kw (dict, optional): Arbitrary keyword arguments for secondary parameters.
 
