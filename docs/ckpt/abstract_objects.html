@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Models" href="models.html" /><link rel="prev" title="Helpers" href="index.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
-        <title>Abstract Objects - pyCheckpoint-API 0.7.0 documentation</title>
+        <title>Abstract Objects - pyCheckpoint-API 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">pyCheckpoint-API 0.7.0 documentation</div></a>
+      <a href="../index.html"><div class="brand">pyCheckpoint-API 1.0.0 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -411,6 +411,41 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.abstract.network_object.NetworkObject.show_all_objects">
+<span class="sig-name descname"><span class="pre">show_all_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">endpoint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_as_ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_secondary_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.abstract.network_object.NetworkObject.show_all_objects" title="Permalink to this definition">#</a></dt>
+<dd><p>Retrieve all objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>endpoint</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – _description_</p></li>
+<li><p><strong>filter_results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – _description_ Defaults to None</p></li>
+<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – _description_ Defaults to 50</p></li>
+<li><p><strong>order</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>]</em><em>, </em><em>optional</em>) – _description_ Defaults to None</p></li>
+<li><p><strong>show_as_ranges</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – _description_ Defaults to None</p></li>
+<li><p><strong>extra_secondary_parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – _description_ Defaults to None</p></li>
+<li><p><strong>**kw</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Arbitrary keyword arguments for secondary parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>**details-level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p></li>
+<li><p><strong>**domains-to-process</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>, </em><em>optional</em>) – Indicates which domains to process the commands on. It cannot be used with the details-level full,                must be run from the System Domain only and with ignore-warnings true.                Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><cite>Box</cite>: The response from the server</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>obj</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">network_objects</span><span class="o">.&lt;</span><span class="n">OBJECT_TYPE</span><span class="o">&gt;.</span><span class="n">show_all_</span><span class="o">&lt;</span><span class="n">OBJECT_TYPE</span><span class="o">&gt;</span><span class="n">s</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.abstract.network_object.NetworkObject.show_object">
 <span class="sig-name descname"><span class="pre">show_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">endpoint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_secondary_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.abstract.network_object.NetworkObject.show_object" title="Permalink to this definition">#</a></dt>
 <dd><p>Retrieve existing object using object name or uid.</p>
@@ -442,24 +477,18 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.abstract.network_object.NetworkObject.show_objects">
-<span class="sig-name descname"><span class="pre">show_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">endpoint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_as_ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_secondary_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.abstract.network_object.NetworkObject.show_objects" title="Permalink to this definition">#</a></dt>
-<dd><p>Retrieve all objects.</p>
+<span class="sig-name descname"><span class="pre">show_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">endpoint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_as_ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_secondary_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.abstract.network_object.NetworkObject.show_objects" title="Permalink to this definition">#</a></dt>
+<dd><p>Retrieve objects.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>endpoint</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Endpoint to reach to show the objects</p></li>
-<li><p><strong>filter_results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Search expression to filter objects by. Defaults to None</p></li>
-<li><p><strong>Explorer.</strong> (<em>The provided text should be exactly the same as it would be given in SmartConsole Object</em>) – </p></li>
-<li><p><strong>expression</strong> (<em>The logical operators in the</em>) – </p></li>
-<li><p><strong>name</strong> (<em>he search involves both a IP search and a textual search in</em>) – </p></li>
-<li><p><strong>comment</strong> – </p></li>
-<li><p><strong>etc.</strong> (<em>tags</em>) – </p></li>
+<li><p><strong>show_all</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Indicates if you want to shown all objects or not. If yes, <cite>offset</cite> will be ignored.            Defaults to False</p></li>
+<li><p><strong>filter_results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Search expression to filter objects by. Defaults to None            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.            The logical operators in the expression (‘AND’, ‘OR’) should be provided in capital letters.            he search involves both a IP search and a textual search in name, comment, tags etc.</p></li>
 <li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The maximal number of returned results. Defaults to 50 (between 1 and 500)</p></li>
 <li><p><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Number of the results to initially skip. Defaults to 0</p></li>
-<li><p><strong>order</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>]</em><em>, </em><em>optional</em>) – Sorts results by the given field. By default the results are sorted in the</p></li>
-<li><p><strong>None</strong> (<em>Defaults to</em>) – </p></li>
-<li><p><strong>extra_secondary_parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Any additional secondary parameter need to be add in the request</p></li>
-<li><p><strong>None</strong> – </p></li>
+<li><p><strong>order</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>]</em><em>, </em><em>optional</em>) – Sorts results by the given field. By default the results are sorted in the            descending order by the session publish time. Defaults to None</p></li>
+<li><p><strong>extra_secondary_parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Any additional secondary parameter need to be add in the request            Defaults to None</p></li>
 <li><p><strong>**kw</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Arbitrary keyword arguments for secondary parameters.</p></li>
 </ul>
 </dd>
@@ -477,7 +506,42 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">network_objects</span><span class="o">.&lt;</span><span class="n">OBJECT_TYPE</span><span class="o">&gt;.</span><span class="n">shows_objects</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">network_objects</span><span class="o">.&lt;</span><span class="n">OBJECT_TYPE</span><span class="o">&gt;.</span><span class="n">show_</span><span class="o">&lt;</span><span class="n">OBJECT_TYPE</span><span class="o">&gt;</span><span class="n">s</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycheckpoint_api.firewallManagement.abstract.network_object.NetworkObject.show_partial_objects">
+<span class="sig-name descname"><span class="pre">show_partial_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">endpoint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_as_ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_secondary_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.firewallManagement.abstract.network_object.NetworkObject.show_partial_objects" title="Permalink to this definition">#</a></dt>
+<dd><p>Retrieve partially objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>endpoint</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – _description_</p></li>
+<li><p><strong>filter_results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – _description_ Defaults to None</p></li>
+<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – _description_ Defaults to 50</p></li>
+<li><p><strong>order</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>]</em><em>, </em><em>optional</em>) – _description_ Defaults to None</p></li>
+<li><p><strong>show_as_ranges</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – _description_ Defaults to None</p></li>
+<li><p><strong>extra_secondary_parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – _description_ Defaults to None</p></li>
+<li><p><strong>**kw</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Arbitrary keyword arguments for secondary parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>**details-level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p></li>
+<li><p><strong>**domains-to-process</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>, </em><em>optional</em>) – Indicates which domains to process the commands on. It cannot be used with the details-level full,                must be run from the System Domain only and with ignore-warnings true.                Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><cite>Box</cite>: The response from the server</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>obj</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span><span class="o">.</span><span class="n">network_objects</span><span class="o">.&lt;</span><span class="n">OBJECT_TYPE</span><span class="o">&gt;.</span><span class="n">show_partial_</span><span class="o">&lt;</span><span class="n">OBJECT_TYPE</span><span class="o">&gt;</span><span class="n">s</span><span class="p">()</span>
 </pre></div>
 </div>
 </dd></dl>
