@@ -215,7 +215,6 @@ class ServiceTCP(NetworkObject):
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             use_default_session_timeout (bool, optional): Use default virtual session timeout.
 
-
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -354,7 +353,6 @@ class ServiceTCP(NetworkObject):
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
             **show-membership (bool, optional):
                 Indicates whether to calculate and show "groups" field for every object in reply.
-
 
         Returns:
             :obj:`Box`: The response from the server

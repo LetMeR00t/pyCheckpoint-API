@@ -298,7 +298,6 @@ class MulticastAddressRange(NetworkObject):
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
 
-
         Returns:
             :obj:`Box`: The response from the server
 

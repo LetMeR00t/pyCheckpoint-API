@@ -131,7 +131,6 @@ try:
             + "s"
         )
 
-
 except restfly.errors.BadRequestError as e:
     print(e)
     for p in dir(e.response.request):

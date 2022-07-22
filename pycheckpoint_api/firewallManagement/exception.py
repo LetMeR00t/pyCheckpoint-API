@@ -13,7 +13,6 @@ class MandatoryFieldMissing(Exception):
             message (str, optional): Custom string to show when the exception occurs.
             ... Defaults to "This field has no value provided whereas it's mandatory"
 
-
         Examples:
             >>> raise MandatoryFieldMissing("uid or name")
 
@@ -42,7 +41,6 @@ class WrongType(Exception):
             expected_type (str): Expected type
             message (str, optional): Custom string to show when the exception occurs.
             ... Defaults to "This value has not the expected type"
-
 
         Examples:
             >>> raise WrongType(value="value1", expected_type=int)

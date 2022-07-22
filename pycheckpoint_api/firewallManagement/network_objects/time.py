@@ -37,7 +37,6 @@ class Time(NetworkObject):
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             recurrence (dict, optional): Days recurrence.
 
-
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -144,7 +143,6 @@ class Time(NetworkObject):
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             recurrence (dict, optional): Days recurrence.
             new_name (str, optional): New name of the object.
-
 
         Keyword Args:
             **color (Color, optional):

@@ -25,7 +25,6 @@ class Session(APIEndpoint):
             either a ``user``/``password`` or an ``api_key``. Defaults to None
             **kw (dict, optional): Arbitrary keyword arguments for secondary parameters.
 
-
         Keyword Args:
             **continue-last-session (bool, optional):
                 When 'continue-last-session' is set to 'True', the new session would continue where the last session\
@@ -48,10 +47,8 @@ class Session(APIEndpoint):
         Raises:
             MandatoryFieldMissing: The value is not given as a keyword parameter and it's mandatory
 
-
         Returns:
             :obj:`Box`: The response from the server
-
 
         Examples:
             >>> FirewallManagement.session.login(username='admin@example.com',\
@@ -88,7 +85,6 @@ class Session(APIEndpoint):
     def logout(self) -> Box:
         """Ends an authentication session.
 
-
         Returns:
             :obj:`Box`: The response from the server
 
@@ -105,10 +101,8 @@ class Session(APIEndpoint):
             uid (str, optional): Session unique identifier. Specify it to publish a different session\
                 than the one you currently use.. Defaults to None
 
-
         Returns:
             :obj:`Box`: The response from the server
-
 
         Examples:
             >>> FirewallManagement.session.publish(uid="7a13a360-9b24-40d7-acd3-5b50247be33e")
@@ -150,7 +144,6 @@ class Session(APIEndpoint):
             discard (bool, optional): Discard all changes committed during the session.\
                 Defaults to False.
 
-
         Returns:
             :obj:`Box`: The response from the server
 
@@ -167,7 +160,6 @@ class Session(APIEndpoint):
     def keepalive(self) -> Box:
         """Keep the session valid/alive.
 
-
         Returns:
             :obj:`Response`: The response from the server
 
@@ -182,7 +174,6 @@ class Session(APIEndpoint):
         Args:
             to_session (str, optional): Session unique identifier. Specify the session id you would like to revert\
             your database to.. Defaults to None
-
 
         Returns:
             :obj:`Box`: The response from the server
@@ -204,7 +195,6 @@ class Session(APIEndpoint):
         Args:
             to_session (str): Session unique identifier. Specify the session id you would like to revert your database to.
 
-
         Returns:
             :obj:`Box`: The response from the server
 
@@ -225,7 +215,6 @@ class Session(APIEndpoint):
         Args:
             domain (str): Domain identified by the name or UID.
 
-
         Returns:
             :obj:`Box`: The response from the server
 
@@ -244,7 +233,6 @@ class Session(APIEndpoint):
 
         Args:
             uid (str, optional): Session unique identifier. Defaults to None.
-
 
         Returns:
             :obj:`Box`: The response from the server
@@ -273,7 +261,6 @@ class Session(APIEndpoint):
             new_name (str, optional): New name of the object. Defaults to None.
             tags (List[str], optional): Collection of tag identifiers. Defaults to None.
 
-
         Keyword Args:
             **color (string, optional):
                 Color of the object. Should be one of existing colors.
@@ -287,7 +274,6 @@ class Session(APIEndpoint):
             **ignore-errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
                 If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to "False"
-
 
         Returns:
             :obj:`Box`: The response from the server
@@ -333,10 +319,8 @@ class Session(APIEndpoint):
         Raises:
             MandatoryFieldMissing: The value is not given as a keyword parameter and it's mandatory
 
-
         Returns:
             :obj:`Box`: The response from the server
-
 
         Examples:
             >>> FirewallManagement.session.purge_published_sessions(number_of_sessions_to_preserve=1)
@@ -364,7 +348,6 @@ class Session(APIEndpoint):
             uid (str): Session unique identifier. It should belong to the current administrator.\
  Switching to the sessions opened in SmartConsole is not supported.
 
-
         Returns:
             :obj:`Box`: The response from the server
 
@@ -386,7 +369,6 @@ class Session(APIEndpoint):
             uid (str): Session unique identifier.
             disconnect-active-session (bool): Allows taking over of an active session,\
                 currently executed by another administrator. Defaults to False
-
 
         Returns:
             :obj:`Box`: The response from the server
@@ -433,7 +415,6 @@ class Session(APIEndpoint):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
 
-
         Returns:
             :obj:`Box`: The response from the server
 
@@ -469,7 +450,6 @@ class Session(APIEndpoint):
         Args:
             uid (str, optional): Session unique identifier. Defaults to None
 
-
         Returns:
             :obj:`Box`: The response from the server
 
@@ -484,7 +464,6 @@ class Session(APIEndpoint):
 
     def show_last_published_session(self) -> Box:
         """Shows the last published session.
-
 
         Returns:
             :obj:`Box`: The response from the server
@@ -506,7 +485,6 @@ class Session(APIEndpoint):
             **details-level (string, optional):
                 The level of detail for some of the fields in the response can vary from showing only
                 the UID value of the object to a fully detailed representation of the object.
-
 
         Returns:
             :obj:`Box`: The response from the server
@@ -545,7 +523,6 @@ class Session(APIEndpoint):
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-
 
         Returns:
             :obj:`Box`: The response from the server
@@ -600,7 +577,6 @@ class Session(APIEndpoint):
             scheduling (dict, optional): When to purge sessions that do not meet the "keep" criteria.\
             Note: when the automatic purge feature is enabled, this field must be set. Defaults to None
 
-
         Returns:
             :obj:`Box`: The response from the server
 
@@ -625,7 +601,6 @@ class Session(APIEndpoint):
 
     def show_automatic_purge(self) -> Box:
         """Show Automatic Purge.
-
 
         Returns:
             :obj:`Box`: The response from the server

@@ -63,7 +63,6 @@ class ServiceUDP(NetworkObject):
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             use_default_session_timeout (bool, optional): Use default virtual session timeout.
 
-
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.\
@@ -221,7 +220,6 @@ class ServiceUDP(NetworkObject):
             on a ClusterXL or OPSEC-certified cluster.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             use_default_session_timeout (bool, optional): Use default virtual session timeout.
-
 
         Keyword Args:
             **color (Color, optional):

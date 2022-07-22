@@ -177,7 +177,6 @@ class Network(NetworkObject):
             tags (Union(str,List[str])): Collection of tag identifiers.
             broadcast (str): Allow broadcast address inclusion.
 
-
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.

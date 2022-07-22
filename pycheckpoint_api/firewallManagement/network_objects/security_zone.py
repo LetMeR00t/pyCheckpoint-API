@@ -70,7 +70,6 @@ class SecurityZone(NetworkObject):
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
 
-
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -159,7 +158,6 @@ class SecurityZone(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-
 
         Keyword Args:
             **details-level (str, optional):

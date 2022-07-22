@@ -45,7 +45,6 @@ class NATRule(APIEndpoint):
             translated_service (str, optional): Translated service.
             translated_source (str, optional): Translated service.
 
-
         Keyword Args:
             **comments (str, optional):
                 Comments string.
@@ -129,7 +128,6 @@ class NATRule(APIEndpoint):
             uid (str, optional): Object unique identifier. Mandatory if "rule_number" or "name" are not set.
             name (str, optional): Object name. Mandatory if "rule_number" or "uid" are not set.
 
-
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -203,7 +201,6 @@ class NATRule(APIEndpoint):
             translated_destination (str, optional): Translated destination.
             translated_service (str, optional): Translated service.
             translated_source (str, optional): Translated service.
-
 
         Keyword Args:
             **details-level (str, optional):
@@ -368,7 +365,6 @@ class NATRule(APIEndpoint):
             package (str, optional): Name of the package.
             use_object_dictionnary (bool, optional): N/A
 
-
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -379,7 +375,6 @@ class NATRule(APIEndpoint):
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
             **dereference-group-members (bool, optional):
                 Indicates whether to dereference "members" field by details level for every object in reply.
-
 
         Returns:
             :obj:`Box`: The response from the server

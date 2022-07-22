@@ -25,7 +25,6 @@ class Group(NetworkObject):
             members (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
 
-
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
@@ -83,12 +82,10 @@ class Group(NetworkObject):
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
             Defaults to False.
 
-
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-
 
         Returns:
             :obj:`Box`: The response from the server
@@ -116,7 +113,6 @@ class Group(NetworkObject):
             members (Union[dict, str, List[str]], optional): Collection of Network objects identified by the name or UID.
             new_name (str, optional): New name of the object.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
-
 
         Keyword Args:
             **color (Color, optional):
@@ -178,7 +174,6 @@ class Group(NetworkObject):
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
 
-
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -222,7 +217,6 @@ class Group(NetworkObject):
             rather than network objects. Objects that are not represented using IP addresses are presented as objects.\
             The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
             Defaults to False.
-
 
         Returns:
             :obj:`Box`: The response from the server

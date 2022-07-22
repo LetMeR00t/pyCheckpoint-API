@@ -249,7 +249,6 @@ class LSMGateway(NetworkObject):
                 must be run from the System Domain only and with ignore-warnings true.\
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
 
-
         Returns:
             :obj:`Box`: The response from the server
 

@@ -27,7 +27,6 @@ class NATSection(APIEndpoint):
             (see the API documentation).
             name (str, optional): Section name.
 
-
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -79,7 +78,6 @@ class NATSection(APIEndpoint):
             uid (str, optional): Object unique identifier. Mandatory if "rule_number" or "name" are not set.
             name (str, optional): Object name. Mandatory if "rule_number" or "uid" are not set.
 
-
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -126,7 +124,6 @@ class NATSection(APIEndpoint):
             uid (str, optional): Object unique identifier.
             new_name (str, optional): New name of the object.
             name (str, optional): Rule name.
-
 
         Keyword Args:
             **details-level (str, optional):

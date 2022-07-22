@@ -29,7 +29,6 @@ class GSNHandoverGroup(NetworkObject):
             members (Union[str, List[str]], optional): Collection of Network objects identified by the name or UID.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
 
-
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -90,7 +89,6 @@ class GSNHandoverGroup(NetworkObject):
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
 
-
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -128,7 +126,6 @@ class GSNHandoverGroup(NetworkObject):
             members (Union[dict, str, List[str]], optional): Collection of Network objects identified by the name or UID.
             new_name (str, optional): New name of the object.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
-
 
         Keyword Args:
             **color (Color, optional):
@@ -194,7 +191,6 @@ class GSNHandoverGroup(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-
 
         Keyword Args:
             **details-level (str, optional):

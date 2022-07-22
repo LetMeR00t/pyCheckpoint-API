@@ -312,7 +312,6 @@ class AccessLayer(APIEndpoint):
             limit (int): The maximal number of returned results. Defaults to 50 (between 1 and 500)
             offset (int): Number of the results to initially skip. Defaults to 0
 
-
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\

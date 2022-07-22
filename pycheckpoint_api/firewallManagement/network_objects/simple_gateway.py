@@ -81,7 +81,6 @@ class SimpleGateway(NetworkObject):
             vpn (bool, optional): VPN blade enabled.
             vpn_settings (dict, optional): Gateway VPN settings.
 
-
         Keyword Args:
             **show-portals-certificate (bool, optional):
                 Indicates whether to show the portals certificate value in the reply.
@@ -288,7 +287,6 @@ class SimpleGateway(NetworkObject):
             version (str, optional): Gateway platform version.
             vpn (bool, optional): VPN blade enabled.
             vpn_settings (dict, optional): Gateway VPN settings.
-
 
         Keyword Args:
             **color (Color, optional):

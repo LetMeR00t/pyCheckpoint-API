@@ -327,7 +327,6 @@ class ApplicationSite(NetworkObject):
             **show-membership (bool, optional):
                 Indicates whether to calculate and show "groups" field for every object in reply.
 
-
         Returns:
             :obj:`Box`: The response from the server
 

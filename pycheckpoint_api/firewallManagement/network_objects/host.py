@@ -36,7 +36,6 @@ class Host(NetworkObject):
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             host_servers (dict, optional): Servers Configuration.
 
-
         Keyword Args:
             **set-if-exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
@@ -106,7 +105,6 @@ class Host(NetworkObject):
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
 
-
         Keyword Args:
             **details-level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
@@ -149,7 +147,6 @@ class Host(NetworkObject):
             new_name (str, optional): New name of the object.
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             host_servers (dict, optional): Servers Configuration.
-
 
         Keyword Args:
             **color (Color, optional):
@@ -221,7 +218,6 @@ class Host(NetworkObject):
         Args:
             uid (str, optional): Object unique identifier.
             name (str, optional): Object name.
-
 
         Keyword Args:
             **details-level (str, optional):

@@ -132,7 +132,6 @@ class Wildcard(NetworkObject):
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
             host_servers (dict, optional): Servers Configuration.
 
-
         Keyword Args:
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
