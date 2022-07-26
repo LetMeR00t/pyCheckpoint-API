@@ -222,7 +222,7 @@ class TacacsGroup(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.tacacs_group.shows_tacacs_groups()
+            >>> firewall.network_objects.tacacs_group.show_tacacs_groups()
         """
         return self.show_objects(
             endpoint="show-tacacs-groups",

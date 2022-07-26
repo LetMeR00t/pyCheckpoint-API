@@ -224,7 +224,7 @@ class DynamicObject(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.dynamic_object.shows_dynamic_objects()
+            >>> firewall.network_objects.dynamic_object.show_dynamic_objects()
         """
         return self.show_objects(
             endpoint="show-dynamic-objects",

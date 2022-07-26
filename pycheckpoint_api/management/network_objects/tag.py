@@ -212,7 +212,7 @@ class Tag(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.tag.shows_tags()
+            >>> firewall.network_objects.tag.show_tags()
         """
         return self.show_objects(
             endpoint="show-tags",

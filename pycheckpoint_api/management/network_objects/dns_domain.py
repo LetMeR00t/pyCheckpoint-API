@@ -228,7 +228,7 @@ class DNSDomain(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.dns_domain.shows_dns_domains()
+            >>> firewall.network_objects.dns_domain.show_dns_domains()
         """
         return self.show_objects(
             endpoint="show-dns-domains",

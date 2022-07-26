@@ -314,7 +314,7 @@ class ServiceSCTP(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> Management.service_applications.service_sctp.shows_services_sctp()
+            >>> Management.service_applications.service_sctp.show_services_sctp()
         """
         return self.show_objects(
             endpoint="show-services-sctp",

@@ -252,7 +252,7 @@ class LSVProfile(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.lsv_profile.shows_lsv_profiles()
+            >>> firewall.network_objects.lsv_profile.show_lsv_profiles()
         """
         return self.show_objects(
             endpoint="show-lsv-profiles",

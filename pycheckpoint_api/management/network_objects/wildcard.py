@@ -242,7 +242,7 @@ class Wildcard(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.wildcard.shows_wildcards()
+            >>> firewall.network_objects.wildcard.show_wildcards()
         """
         return self.show_objects(
             endpoint="show-wildcards",

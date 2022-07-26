@@ -204,7 +204,7 @@ class SecurityZone(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.security_zone.shows_security_zones()
+            >>> firewall.network_objects.security_zone.show_security_zones()
         """
         return self.show_objects(
             endpoint="show-security-zones",

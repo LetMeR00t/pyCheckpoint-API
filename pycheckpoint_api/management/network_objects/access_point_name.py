@@ -271,7 +271,7 @@ class AccessPointName(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.access_point_name.shows_access_point_names()
+            >>> firewall.network_objects.access_point_name.show_access_point_names()
         """
         return self.show_objects(
             endpoint="show-access-point-names",

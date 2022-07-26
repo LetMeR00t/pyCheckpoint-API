@@ -331,7 +331,7 @@ class ApplicationSite(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> Management.service_applications.application_site.shows_application_sites()
+            >>> Management.service_applications.application_site.show_application_sites()
         """
         return self.show_objects(
             endpoint="show-application-sites",

@@ -295,7 +295,7 @@ class AddressRange(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.network.shows_address_ranges()
+            >>> firewall.network_objects.network.show_address_ranges()
         """
         return self.show_objects(
             endpoint="show-address-ranges",

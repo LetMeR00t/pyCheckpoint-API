@@ -268,7 +268,7 @@ class ServiceICMP6(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> Management.service_applications.service_icmp6.shows_services_icmp6()
+            >>> Management.service_applications.service_icmp6.show_services_icmp6()
         """
         return self.show_objects(
             endpoint="show-services-icmp6",

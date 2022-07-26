@@ -253,7 +253,7 @@ class LSMGateway(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.lsm_gateway.shows_lsm_gateways()
+            >>> firewall.network_objects.lsm_gateway.show_lsm_gateways()
         """
         return self.show_objects(
             endpoint="show-lsm-gateways",

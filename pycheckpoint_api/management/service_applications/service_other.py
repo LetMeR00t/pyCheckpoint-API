@@ -364,7 +364,7 @@ class ServiceOther(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> Management.service_applications.service_other.shows_services_other()
+            >>> Management.service_applications.service_other.show_services_other()
         """
         return self.show_objects(
             endpoint="show-services-other",

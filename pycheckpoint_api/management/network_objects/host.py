@@ -262,7 +262,7 @@ class Host(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.host.shows_hosts()
+            >>> firewall.network_objects.host.show_hosts()
         """
         return self.show_objects(
             endpoint="show-hosts",

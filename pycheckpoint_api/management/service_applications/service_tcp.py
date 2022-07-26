@@ -358,7 +358,7 @@ class ServiceTCP(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> Management.service_applications.service_tcp.shows_services_tcp()
+            >>> Management.service_applications.service_tcp.show_services_tcp()
         """
         return self.show_objects(
             endpoint="show-services-tcp",

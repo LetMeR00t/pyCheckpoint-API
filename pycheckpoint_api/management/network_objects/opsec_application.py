@@ -262,7 +262,7 @@ class OPSECApplication(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.opsec_application.shows_opsec_applications()
+            >>> firewall.network_objects.opsec_application.show_opsec_applications()
         """
         return self.show_objects(
             endpoint="show-opsec-applications",

@@ -366,7 +366,7 @@ class ServiceUDP(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> Management.service_applications.service_udp.shows_services_udp()
+            >>> Management.service_applications.service_udp.show_services_udp()
         """
         return self.show_objects(
             endpoint="show-services-udp",

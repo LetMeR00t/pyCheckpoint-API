@@ -277,7 +277,7 @@ class TacacsServer(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.tacacs_server.shows_tacacs_servers()
+            >>> firewall.network_objects.tacacs_server.show_tacacs_servers()
         """
         return self.show_objects(
             endpoint="show-tacacs-servers",

@@ -228,7 +228,7 @@ class TimeGroup(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.time_group.shows_time_groups()
+            >>> firewall.network_objects.time_group.show_time_groups()
         """
         return self.show_objects(
             endpoint="show-time-groups",

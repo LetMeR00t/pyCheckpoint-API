@@ -255,7 +255,7 @@ class LSMCluster(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.lsm_cluster.shows_lsm_clusters()
+            >>> firewall.network_objects.lsm_cluster.show_lsm_clusters()
         """
         return self.show_objects(
             endpoint="show-lsm-clusters",

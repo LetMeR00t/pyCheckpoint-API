@@ -232,7 +232,7 @@ class ServiceGroup(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> Management.service_applications.service_group.shows_service_groups()
+            >>> Management.service_applications.service_group.show_service_groups()
         """
         return self.show_objects(
             endpoint="show-service-groups",

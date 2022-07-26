@@ -222,7 +222,7 @@ class Group(NetworkObject):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> firewall.network_objects.group.shows_groups()
+            >>> firewall.network_objects.group.show_groups()
         """
         return self.show_objects(
             endpoint="show-groups",
