@@ -12,7 +12,7 @@ import time
 
 import restfly
 
-from pycheckpoint_api.firewallManagement import FirewallManagement
+from pycheckpoint_api.management import Management
 
 # Setup the logger configuration. If you have any trouble, turn the logging mode to logging.DEBUG
 logging.basicConfig(
@@ -40,7 +40,7 @@ try:
     # However, it's highly recommanded to use certificates with know certificate authorities.
     logger.info("Trying to login to the API...")
 
-    with FirewallManagement(
+    with Management(
         hostname=HOSTNAME,
         port=PORT,
         user=USER,

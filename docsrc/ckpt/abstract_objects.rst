@@ -5,5 +5,5 @@ Abstract Objects
     :maxdepth: 1
     :glob:
 
-.. automodule:: pycheckpoint_api.firewallManagement.abstract.network_object
+.. automodule:: pycheckpoint_api.management.abstract.network_object
     :members:

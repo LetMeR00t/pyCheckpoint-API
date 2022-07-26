@@ -5,5 +5,5 @@ Exceptions
     :maxdepth: 1
     :glob:
 
-.. automodule:: pycheckpoint_api.firewallManagement.exception
+.. automodule:: pycheckpoint_api.management.exception
     :members:

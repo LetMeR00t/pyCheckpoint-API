@@ -7,7 +7,7 @@
    :hidden:
    :caption: Contents
 
-   ckpt/firewallManagement/index
+   ckpt/management/index
    ckpt/index
 
 pyCheckpoint-API SDK - Library Reference
@@ -58,13 +58,13 @@ API login/logout
 """"""""""""""""""
 .. code-block:: python
 
-   from pycheckpoint_api.firewallManagement import FirewallManagement
+   from pycheckpoint_api.management import Management
    from pprint import pprint
 
    # Please note that, as it's an example, we enabled the SSL verify to False to avoid having SSL certificate issues.
    # However, it's highly recommanded to use certificates with know certificate authorities.
    # If you want to use an API key instead, remove the 'user' and 'password' fields and use the 'api_key' field.
-   with FirewallManagement(
+   with Management(
       hostname='HOSTNAME',
       port='PORT',
       user='USER',

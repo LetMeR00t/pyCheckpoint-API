@@ -2,10 +2,7 @@ from typing import List, Union
 
 import pytest
 
-from pycheckpoint_api.firewallManagement.exception import (
-    MandatoryFieldMissing,
-    WrongType,
-)
+from pycheckpoint_api.management.exception import MandatoryFieldMissing, WrongType
 from pycheckpoint_api.utils import sanitize_secondary_parameters, sanitize_value
 
 

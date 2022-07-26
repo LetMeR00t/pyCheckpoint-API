@@ -6,10 +6,7 @@ if sys.version_info > (3, 8):
 else:
     from typing import Union, List, Dict, Any
 
-from pycheckpoint_api.firewallManagement.exception import (
-    MandatoryFieldMissing,
-    WrongType,
-)
+from pycheckpoint_api.management.exception import MandatoryFieldMissing, WrongType
 
 
 def sanitize_value(
