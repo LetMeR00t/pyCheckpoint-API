@@ -51,6 +51,6 @@ try:
 
     logger.info("Logout is successfull")
 except restfly.errors.BadRequestError as e:
-    print(e)
+    logger.info(e)
     for p in dir(e.response.request):
-        print(p, getattr(e.response.request, p))
+        logger.debug(p, getattr(e.response.request, p))
