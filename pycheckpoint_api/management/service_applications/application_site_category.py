@@ -30,16 +30,16 @@ class ApplicationSiteCategory(NetworkObject):
                 Color of the object. Should be one of existing colors.
             **comments (str, optional):
                 Comments string.
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **groups (Union(str,List[str]), optional):
                 Collection of group identifiers.
-            **ignore-warnings (bool, optional):
+            **ignore_warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
-            **ignore-errors (bool, optional):
+            **ignore_errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False
 
         Returns:
             :obj:`Box`: The response from the server
@@ -59,10 +59,10 @@ class ApplicationSiteCategory(NetworkObject):
         secondary_parameters = {
             "color": Color,
             "comments": str,
-            "details-level": str,
+            "details_level": str,
             "groups": Union[str, List[str]],
-            "ignore-warnings": bool,
-            "ignore-errors": bool,
+            "ignore_warnings": bool,
+            "ignore_errors": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -83,7 +83,7 @@ class ApplicationSiteCategory(NetworkObject):
             Defaults to False.
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
 
@@ -121,16 +121,16 @@ class ApplicationSiteCategory(NetworkObject):
                 Color of the object. Should be one of existing colors.
             **comments (str, optional):
                 Comments string.
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **groups (Union(str,List[str]), optional):
                 Collection of group identifiers.
-            **ignore-warnings (bool, optional):
+            **ignore_warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
-            **ignore-errors (bool, optional):
+            **ignore_errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False
 
         Returns:
             :obj:`Box`: The response from the server
@@ -159,10 +159,10 @@ class ApplicationSiteCategory(NetworkObject):
         secondary_parameters = {
             "color": Color,
             "comments": str,
-            "details-level": str,
+            "details_level": str,
             "groups": Union[str, List[str]],
-            "ignore-warnings": bool,
-            "ignore-errors": bool,
+            "ignore_warnings": bool,
+            "ignore_errors": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -177,14 +177,14 @@ class ApplicationSiteCategory(NetworkObject):
             name (str, optional): Object name.
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **ignore-warnings (bool, optional):
+            **ignore_warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
-            **ignore-errors (bool, optional):
+            **ignore_errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False
 
         Returns:
             :obj:`Box`: The response from the server

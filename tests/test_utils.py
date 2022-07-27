@@ -77,8 +77,8 @@ def test_sanitize_secondary_parameters():
     assert result == kw
 
     # Normal use case, avoiding unused/unexpected information
-    d = {"field1": str}
-    kw = {"field1": "value1", "field2": "value2"}
+    d = {"field1_subname": str}
+    kw = {"field1_subname": "value1", "field2": "value2"}
     result = sanitize_secondary_parameters(d=d, **kw)
 
-    assert result == {"field1": "value1"}
+    assert result == {"field1-subname": "value1"}

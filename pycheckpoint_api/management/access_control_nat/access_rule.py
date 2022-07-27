@@ -74,14 +74,14 @@ class AccessRule(APIEndpoint):
         Keyword Args:
             **comments (str, optional):
                 Comments string.
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **ignore-warnings (bool, optional):
+            **ignore_warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
-            **ignore-errors (bool, optional):
+            **ignore_errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False
 
         Returns:
             :obj:`Box`: The response from the server
@@ -162,9 +162,9 @@ class AccessRule(APIEndpoint):
         # Secondary parameters
         secondary_parameters = {
             "comments": str,
-            "details-level": str,
-            "ignore-warnings": bool,
-            "ignore-errors": bool,
+            "details_level": str,
+            "ignore_warnings": bool,
+            "ignore_errors": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -202,7 +202,7 @@ class AccessRule(APIEndpoint):
             hits_settings (bool, optional): N/A
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
 
@@ -237,7 +237,7 @@ class AccessRule(APIEndpoint):
             payload["hits-settings"] = hits_settings
 
         # Secondary parameters
-        secondary_parameters = {"details-level": str}
+        secondary_parameters = {"details_level": str}
 
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -311,14 +311,14 @@ class AccessRule(APIEndpoint):
             information
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **ignore-warnings (bool, optional):
+            **ignore_warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
-            **ignore-errors (bool, optional):
+            **ignore_errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False
 
         Returns:
             :obj:`Box`: The response from the server
@@ -411,9 +411,9 @@ class AccessRule(APIEndpoint):
         # Secondary parameters
         secondary_parameters = {
             "comments": str,
-            "details-level": str,
-            "ignore-warnings": bool,
-            "ignore-errors": bool,
+            "details_level": str,
+            "ignore_warnings": bool,
+            "ignore_errors": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -437,7 +437,7 @@ class AccessRule(APIEndpoint):
             rule_number (int, optional): Rule number.
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
 
@@ -463,7 +463,7 @@ class AccessRule(APIEndpoint):
 
         # Secondary parameters
         secondary_parameters = {
-            "details-level": str,
+            "details_level": str,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -517,12 +517,12 @@ class AccessRule(APIEndpoint):
             hits_settings (dict, optional): N/A
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **show-membership (bool, optional):
+            **show_membership (bool, optional):
                 Indicates whether to calculate and show "groups" field for every object in reply.
-            **dereference-group-members (bool, optional):
+            **dereference_group_members (bool, optional):
                 Indicates whether to dereference "members" field by details level for every object in reply.
 
         Returns:
@@ -563,9 +563,9 @@ class AccessRule(APIEndpoint):
 
         # Secondary parameters
         secondary_parameters = {
-            "dereference-group-members": bool,
-            "details-level": str,
-            "show-membership": bool,
+            "dereference_group_members": bool,
+            "details_level": str,
+            "show_membership": bool,
         }
 
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))

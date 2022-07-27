@@ -84,14 +84,14 @@ def sanitize_secondary_parameters(d: dict, **kw) -> dict:
         >>> sanitize_secondary_parameters(d=d, **kw)
         {"field1": "value1"}
 
-        >>> d = {"field1": str}
-        >>> kw = {"field1": "value1", "field2": "value2"}
+        >>> d = {"field1_subname": str}
+        >>> kw = {"field1_subname": "value1", "field2": "value2"}
         >>> sanitize_secondary_parameters(d=d, **kw)
-        {"field1": "value1"}
+        {"field1-subname": "value1"}
     """
     payload = {}
     for field, field_type in d.items():
         value = sanitize_value(field=field, t=field_type, is_mandatory=False, **kw)
         if value is not None:
-            payload[field] = value
+            payload[field.replace("_", "-")] = value
     return payload

@@ -28,14 +28,14 @@ class NATSection(APIEndpoint):
             name (str, optional): Section name.
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **ignore-warnings (bool, optional):
+            **ignore_warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
-            **ignore-errors (bool, optional):
+            **ignore_errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False
 
         Returns:
             :obj:`Box`: The response from the server
@@ -55,9 +55,9 @@ class NATSection(APIEndpoint):
 
         # Secondary parameters
         secondary_parameters = {
-            "details-level": str,
-            "ignore-warnings": bool,
-            "ignore-errors": bool,
+            "details_level": str,
+            "ignore_warnings": bool,
+            "ignore_errors": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -79,7 +79,7 @@ class NATSection(APIEndpoint):
             name (str, optional): Object name. Mandatory if "rule_number" or "uid" are not set.
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
 
@@ -102,7 +102,7 @@ class NATSection(APIEndpoint):
             raise MandatoryFieldMissing("uid or name")
 
         # Secondary parameters
-        secondary_parameters = {"details-level": str}
+        secondary_parameters = {"details_level": str}
 
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -126,14 +126,14 @@ class NATSection(APIEndpoint):
             name (str, optional): Rule name.
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **ignore-warnings (bool, optional):
+            **ignore_warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
-            **ignore-errors (bool, optional):
+            **ignore_errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False
 
         Returns:
             :obj:`Box`: The response from the server
@@ -160,9 +160,9 @@ class NATSection(APIEndpoint):
 
         # Secondary parameters
         secondary_parameters = {
-            "details-level": str,
-            "ignore-warnings": bool,
-            "ignore-errors": bool,
+            "details_level": str,
+            "ignore_warnings": bool,
+            "ignore_errors": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -184,7 +184,7 @@ class NATSection(APIEndpoint):
             name (str, optional): Object name.
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
 
@@ -208,7 +208,7 @@ class NATSection(APIEndpoint):
 
         # Secondary parameters
         secondary_parameters = {
-            "details-level": str,
+            "details_level": str,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 

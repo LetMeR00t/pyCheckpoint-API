@@ -48,14 +48,14 @@ class NATRule(APIEndpoint):
         Keyword Args:
             **comments (str, optional):
                 Comments string.
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **ignore-warnings (bool, optional):
+            **ignore_warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
-            **ignore-errors (bool, optional):
+            **ignore_errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False
 
         Returns:
             :obj:`Box`: The response from the server
@@ -103,9 +103,9 @@ class NATRule(APIEndpoint):
         # Secondary parameters
         secondary_parameters = {
             "comments": str,
-            "details-level": str,
-            "ignore-warnings": bool,
-            "ignore-errors": bool,
+            "details_level": str,
+            "ignore_warnings": bool,
+            "ignore_errors": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -129,7 +129,7 @@ class NATRule(APIEndpoint):
             name (str, optional): Object name. Mandatory if "rule_number" or "uid" are not set.
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
 
@@ -154,7 +154,7 @@ class NATRule(APIEndpoint):
             raise MandatoryFieldMissing("uid or name or rule_number")
 
         # Secondary parameters
-        secondary_parameters = {"details-level": str}
+        secondary_parameters = {"details_level": str}
 
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -203,14 +203,14 @@ class NATRule(APIEndpoint):
             translated_source (str, optional): Translated service.
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **ignore-warnings (bool, optional):
+            **ignore_warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
-            **ignore-errors (bool, optional):
+            **ignore_errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False
 
         Returns:
             :obj:`Box`: The response from the server
@@ -271,9 +271,9 @@ class NATRule(APIEndpoint):
         # Secondary parameters
         secondary_parameters = {
             "comments": str,
-            "details-level": str,
-            "ignore-warnings": bool,
-            "ignore-errors": bool,
+            "details_level": str,
+            "ignore_warnings": bool,
+            "ignore_errors": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -297,7 +297,7 @@ class NATRule(APIEndpoint):
             rule_number (int, optional): Rule number.
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
 
@@ -323,7 +323,7 @@ class NATRule(APIEndpoint):
 
         # Secondary parameters
         secondary_parameters = {
-            "details-level": str,
+            "details_level": str,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -366,14 +366,14 @@ class NATRule(APIEndpoint):
             use_object_dictionnary (bool, optional): N/A
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **domains-to-process (List[str], optional):
-                Indicates which domains to process the commands on. It cannot be used with the details-level full,\
-                must be run from the System Domain only and with ignore-warnings true.\
+            **domains_to_process (List[str], optional):
+                Indicates which domains to process the commands on. It cannot be used with the details_level full,\
+                must be run from the System Domain only and with ignore_warnings true.\
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
-            **dereference-group-members (bool, optional):
+            **dereference_group_members (bool, optional):
                 Indicates whether to dereference "members" field by details level for every object in reply.
 
         Returns:
@@ -408,9 +408,9 @@ class NATRule(APIEndpoint):
 
         # Secondary parameters
         secondary_parameters = {
-            "dereference-group-members": bool,
-            "details-level": str,
-            "domains-to-process": List[str],
+            "dereference_group_members": bool,
+            "details_level": str,
+            "domains_to_process": List[str],
         }
 
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))

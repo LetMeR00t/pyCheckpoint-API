@@ -41,16 +41,16 @@ class ServiceICMP6(NetworkObject):
                 Color of the object. Should be one of existing colors.
             **comments (str, optional):
                 Comments string.
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **groups (Union(str,List[str]), optional):
                 Collection of group identifiers.
-            **ignore-warnings (bool, optional):
+            **ignore_warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
-            **ignore-errors (bool, optional):
+            **ignore_errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False
 
         Returns:
             :obj:`Box`: The response from the server
@@ -85,10 +85,10 @@ class ServiceICMP6(NetworkObject):
             "set-if-exists": bool,
             "color": Color,
             "comments": str,
-            "details-level": str,
+            "details_level": str,
             "groups": Union[str, List[str]],
-            "ignore-warnings": bool,
-            "ignore-errors": bool,
+            "ignore_warnings": bool,
+            "ignore_errors": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -103,7 +103,7 @@ class ServiceICMP6(NetworkObject):
             name (str, optional): Object name.
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
 
@@ -146,16 +146,16 @@ class ServiceICMP6(NetworkObject):
                 Color of the object. Should be one of existing colors.
             **comments (str, optional):
                 Comments string.
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **groups (Union(str,List[str]), optional):
                 Collection of group identifiers.
-            **ignore-warnings (bool, optional):
+            **ignore_warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
-            **ignore-errors (bool, optional):
+            **ignore_errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False
 
         Returns:
             :obj:`Box`: The response from the server
@@ -191,10 +191,10 @@ class ServiceICMP6(NetworkObject):
         secondary_parameters = {
             "color": Color,
             "comments": str,
-            "details-level": str,
+            "details_level": str,
             "groups": Union[str, List[str]],
-            "ignore-warnings": bool,
-            "ignore-errors": bool,
+            "ignore_warnings": bool,
+            "ignore_errors": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -209,14 +209,14 @@ class ServiceICMP6(NetworkObject):
             name (str, optional): Object name.
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **ignore-warnings (bool, optional):
+            **ignore_warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
-            **ignore-errors (bool, optional):
+            **ignore_errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False
 
         Returns:
             :obj:`Box`: The response from the server
@@ -254,14 +254,14 @@ class ServiceICMP6(NetworkObject):
                         Defaults to False.
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **domains-to-process (List[str], optional):
-                Indicates which domains to process the commands on. It cannot be used with the details-level full,\
-                must be run from the System Domain only and with ignore-warnings true.\
+            **domains_to_process (List[str], optional):
+                Indicates which domains to process the commands on. It cannot be used with the details_level full,\
+                must be run from the System Domain only and with ignore_warnings true.\
                 Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
-            **show-membership (bool, optional):
+            **show_membership (bool, optional):
                 Indicates whether to calculate and show "groups" field for every object in reply.
 
         Returns:
@@ -277,8 +277,8 @@ class ServiceICMP6(NetworkObject):
             offset=offset,
             order=order,
             extra_secondary_parameters={
-                "show-membership": bool,
-                "domains-to-process": List[str],
+                "show_membership": bool,
+                "domains_to_process": List[str],
             },
             **kw
         )

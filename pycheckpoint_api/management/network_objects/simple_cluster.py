@@ -83,22 +83,22 @@ class SimpleCluster(NetworkObject):
             vpn_settings (dict, optional): Gateway VPN settings.
 
         Keyword Args:
-            **show-portals-certificate (bool, optional):
+            **show_portals_certificate (bool, optional):
                 Indicates whether to show the portals certificate value in the reply.
             **color (Color, optional):
                 Color of the object. Should be one of existing colors.
             **comments (str, optional):
                 Comments string.
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **groups (Union(str,List[str]), optional):
                 Collection of group identifiers.
-            **ignore-warnings (bool, optional):
+            **ignore_warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
-            **ignore-errors (bool, optional):
+            **ignore_errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False
 
         Returns:
             :obj:`Box`: The response from the server
@@ -177,12 +177,12 @@ class SimpleCluster(NetworkObject):
 
         # Secondary parameters
         secondary_parameters = {
-            "show-portals-certificate": bool,
+            "show_portals_certificate": bool,
             "color": Color,
             "comments": str,
-            "details-level": str,
+            "details_level": str,
             "groups": Union[str, List[str]],
-            "ignore-warnings": bool,
+            "ignore_warnings": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -197,7 +197,7 @@ class SimpleCluster(NetworkObject):
             name (str, optional): Object name.
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
 
@@ -212,7 +212,7 @@ class SimpleCluster(NetworkObject):
             endpoint="show-simple-cluster",
             uid=uid,
             name=name,
-            extra_secondary_parameters={"show-portals-certificate": bool},
+            extra_secondary_parameters={"show_portals_certificate": bool},
             **kw,
         )
 
@@ -297,16 +297,16 @@ class SimpleCluster(NetworkObject):
                 Color of the object. Should be one of existing colors.
             **comments (str, optional):
                 Comments string.
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
             **groups (Union(str,List[str]), optional):
                 Collection of group identifiers.
-            **ignore-warnings (bool, optional):
+            **ignore_warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
-            **ignore-errors (bool, optional):
+            **ignore_errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False
 
         Returns:
             :obj:`Box`: The response from the server
@@ -392,12 +392,12 @@ class SimpleCluster(NetworkObject):
 
         # Secondary parameters
         secondary_parameters = {
-            "show-portals-certificate": bool,
+            "show_portals_certificate": bool,
             "color": Color,
             "comments": str,
-            "details-level": str,
+            "details_level": str,
             "groups": Union[str, List[str]],
-            "ignore-warnings": bool,
+            "ignore_warnings": bool,
         }
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
@@ -412,14 +412,14 @@ class SimpleCluster(NetworkObject):
             name (str): Object name.
 
         Keyword Args:
-            **details-level (str, optional):
+            **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **ignore-warnings (bool, optional):
+            **ignore_warnings (bool, optional):
                 Apply changes ignoring warnings. Defaults to False
-            **ignore-errors (bool, optional):
+            **ignore_errors (bool, optional):
                 Apply changes ignoring errors. You won't be able to publish such a changes.
-                If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False
+                If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False
 
         Returns:
             :obj:`Box`: The response from the server
@@ -464,6 +464,6 @@ class SimpleCluster(NetworkObject):
             limit=limit,
             offset=offset,
             order=order,
-            extra_secondary_parameters={"show-membership": bool},
+            extra_secondary_parameters={"show_membership": bool},
             **kw,
         )
