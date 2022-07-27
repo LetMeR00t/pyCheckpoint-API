@@ -51,8 +51,14 @@ class Session(APIEndpoint):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> Management.session.login(username='admin@example.com',\
- password='MyInsecurePassword')
+            >>> Management.session.login(
+            ... hostname="127.0.0.1",
+            ... port=443,
+            ... user="test@example.com",
+            ... password="hunter2",
+            ... domain="MyDomain",
+            ... version="1.5",
+            ... ssl_verify=False)
         """
 
         # Main request parameters
