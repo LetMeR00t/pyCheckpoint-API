@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Models" href="models.html" /><link rel="prev" title="Helpers" href="index.html" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+    <meta name="generator" content="sphinx-5.1.0, furo 2022.06.21"/>
         <title>Abstract Objects - pyCheckpoint-API 1.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
@@ -391,10 +391,10 @@
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>**details-level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p></li>
-<li><p><strong>**ignore-warnings</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Apply changes ignoring warnings. Defaults to False</p></li>
-<li><p><strong>**ignore-errors</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Apply changes ignoring errors. You won’t be able to publish such a changes.
-If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to False</p></li>
+<li><p><strong>**details_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p></li>
+<li><p><strong>**ignore_warnings</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Apply changes ignoring warnings. Defaults to False</p></li>
+<li><p><strong>**ignore_errors</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Apply changes ignoring errors. You won’t be able to publish such a changes.
+If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to False</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns</dt>
@@ -428,8 +428,8 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>**details-level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p></li>
-<li><p><strong>**domains-to-process</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>, </em><em>optional</em>) – Indicates which domains to process the commands on. It cannot be used with the details-level full,                must be run from the System Domain only and with ignore-warnings true.                Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.</p></li>
+<li><p><strong>**details_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p></li>
+<li><p><strong>**domains_to_process</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>, </em><em>optional</em>) – Indicates which domains to process the commands on. It cannot be used with the details_level full,                must be run from the System Domain only and with ignore_warnings true.                Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns</dt>
@@ -460,7 +460,7 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 </ul>
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
-<dd class="field-even"><p><strong>**details-level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p>
+<dd class="field-even"><p><strong>**details_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The response from the server</p>
@@ -494,8 +494,8 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>**details-level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p></li>
-<li><p><strong>**domains-to-process</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>, </em><em>optional</em>) – Indicates which domains to process the commands on. It cannot be used with the details-level full,                must be run from the System Domain only and with ignore-warnings true.                Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.</p></li>
+<li><p><strong>**details_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p></li>
+<li><p><strong>**domains_to_process</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>, </em><em>optional</em>) – Indicates which domains to process the commands on. It cannot be used with the details_level full,                must be run from the System Domain only and with ignore_warnings true.                Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns</dt>
@@ -518,19 +518,19 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>endpoint</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – _description_</p></li>
-<li><p><strong>filter_results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – _description_ Defaults to None</p></li>
-<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – _description_ Defaults to 50</p></li>
-<li><p><strong>order</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>]</em><em>, </em><em>optional</em>) – _description_ Defaults to None</p></li>
-<li><p><strong>show_as_ranges</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – _description_ Defaults to None</p></li>
-<li><p><strong>extra_secondary_parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – _description_ Defaults to None</p></li>
+<li><p><strong>endpoint</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Endpoint to reach to show the objects</p></li>
+<li><p><strong>filter_results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Search expression to filter objects by. Defaults to None            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.            The logical operators in the expression (‘AND’, ‘OR’) should be provided in capital letters.            he search involves both a IP search and a textual search in name, comment, tags etc.</p></li>
+<li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The maximal number of returned results. Defaults to 50 (between 1 and 500)</p></li>
+<li><p><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Number of the results to initially skip. Defaults to 0</p></li>
+<li><p><strong>order</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>]</em><em>, </em><em>optional</em>) – Sorts results by the given field. By default the results are sorted in the            descending order by the session publish time. Defaults to None</p></li>
+<li><p><strong>extra_secondary_parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Any additional secondary parameter need to be add in the request            Defaults to None</p></li>
 <li><p><strong>**kw</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Arbitrary keyword arguments for secondary parameters.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>**details-level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p></li>
-<li><p><strong>**domains-to-process</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>, </em><em>optional</em>) – Indicates which domains to process the commands on. It cannot be used with the details-level full,                must be run from the System Domain only and with ignore-warnings true.                Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.</p></li>
+<li><p><strong>**details_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p></li>
+<li><p><strong>**domains_to_process</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>, </em><em>optional</em>) – Indicates which domains to process the commands on. It cannot be used with the details_level full,                must be run from the System Domain only and with ignore_warnings true.                Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns</dt>

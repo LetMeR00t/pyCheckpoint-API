@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Session Management" href="session.html" /><link rel="prev" title="pyCheckpoint-API SDK - Library Reference" href="../../index.html" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+    <meta name="generator" content="sphinx-5.1.0, furo 2022.06.21"/>
         <title>Management - pyCheckpoint-API 1.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
@@ -406,8 +406,14 @@ The ManagementAPI object stores the session token and simplifies access to CRUD 
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firewall</span> <span class="o">=</span> <span class="n">Management</span><span class="p">(</span><span class="n">hostname</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="mi">443</span><span class="p">,</span>
-<span class="gp">... </span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;&lt;API_KEY&gt;&quot;</span><span class="p">,</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.8&quot;</span><span class="p">,</span><span class="n">domain</span><span class="o">=</span><span class="s2">&quot;Local Domain&quot;&quot;,ssl_verify=False,)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Management</span><span class="p">(</span>
+<span class="gp">... </span><span class="n">hostname</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">port</span><span class="o">=</span><span class="mi">443</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;test@example.com&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;hunter2&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">domain</span><span class="o">=</span><span class="s2">&quot;MyDomain&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.5&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">ssl_verify</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>

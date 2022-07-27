@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Network Objects" href="network_objects/index.html" /><link rel="prev" title="Management" href="index.html" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+    <meta name="generator" content="sphinx-5.1.0, furo 2022.06.21"/>
         <title>Session Management - pyCheckpoint-API 1.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
@@ -496,7 +496,14 @@
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Management</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;admin@example.com&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;MyInsecurePassword&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Management</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">login</span><span class="p">(</span>
+<span class="gp">... </span><span class="n">hostname</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">port</span><span class="o">=</span><span class="mi">443</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;test@example.com&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;hunter2&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">domain</span><span class="o">=</span><span class="s2">&quot;MyDomain&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.5&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="n">ssl_verify</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -653,7 +660,7 @@ This command will permanently delete all of the data which        belongs to the
 </ul>
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
-<dd class="field-even"><p><strong>**details-level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p>
+<dd class="field-even"><p><strong>**details_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The response from the server</p>
@@ -684,11 +691,11 @@ This command will permanently delete all of the data which        belongs to the
 <dd class="field-even"><ul class="simple">
 <li><p><strong>**color</strong> (<a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.10)"><em>string</em></a><em>, </em><em>optional</em>) – Color of the object. Should be one of existing colors.</p></li>
 <li><p><strong>**comments</strong> (<a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.10)"><em>string</em></a><em>, </em><em>optional</em>) – Comments string.</p></li>
-<li><p><strong>**details-level</strong> (<a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.10)"><em>string</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only
+<li><p><strong>**details_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.10)"><em>string</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only
 the UID value of the object to a fully detailed representation of the object.</p></li>
-<li><p><strong>**ignore-warnings</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Apply changes ignoring warnings. Defaults to “False”</p></li>
-<li><p><strong>**ignore-errors</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Apply changes ignoring errors. You won’t be able to publish such a changes.
-If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to “False”</p></li>
+<li><p><strong>**ignore_warnings</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Apply changes ignoring warnings. Defaults to “False”</p></li>
+<li><p><strong>**ignore_errors</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Apply changes ignoring errors. You won’t be able to publish such a changes.
+If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to “False”</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns</dt>
@@ -749,7 +756,7 @@ If ignore-warnings flag was omitted - warnings will also be ignored. Defaults to
 <dd class="field-odd"><p><strong>**kw</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Arbitrary keyword arguments for secondary parameters.</p>
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
-<dd class="field-even"><p><strong>**details-level</strong> (<a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.10)"><em>string</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only
+<dd class="field-even"><p><strong>**details_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.10)"><em>string</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only
 the UID value of the object to a fully detailed representation of the object.</p>
 </dd>
 <dt class="field-odd">Returns</dt>
@@ -802,7 +809,7 @@ the UID value of the object to a fully detailed representation of the object.</p
 </ul>
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
-<dd class="field-even"><p><strong>**details-level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p>
+<dd class="field-even"><p><strong>**details_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The response from the server</p>
