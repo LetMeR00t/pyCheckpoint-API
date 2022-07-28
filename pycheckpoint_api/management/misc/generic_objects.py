@@ -18,4 +18,4 @@ class GenericObjects(APIEndpoint):
         # Main request parameters
         payload = {"class-name": "com.checkpoint.objects.rulebase.RulebaseAction"}
 
-        return self._post("generic-objects", json=payload)
+        return self._post("show-generic-objects", json=payload)

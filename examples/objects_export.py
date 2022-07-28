@@ -119,6 +119,10 @@ try:
         ).objects
         logger.info("Service TCP recovered: " + str(len(services_tcp)))
 
+        # Get all generic-objects
+        generic_objects = firewall.misc.generic_objects.get_rulebaseactions().objects
+        logger.info("Generic objects recovered: " + str(len(generic_objects)))
+
         # End timer
         timer = time.time() - start
 
