@@ -365,7 +365,7 @@ class NetworkObject(APIEndpoint):
 
         if round(timer_diff % 60) != 0:
             timer_text = (
-                str(int(timer_diff / 60)) + "min " + str(round(timer_diff % 60)) + "s)"
+                str(int(timer_diff / 60)) + "min " + str(round(timer_diff % 60)) + "s"
             )  # pragma: no cover
         else:
             timer_text = "<1s"
