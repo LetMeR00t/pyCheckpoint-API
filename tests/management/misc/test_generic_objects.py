@@ -5,7 +5,7 @@ import responses
 def test_get_rulebaseactions(management, resp_from_to_objects):
     responses.add(
         responses.POST,
-        url="https://127.0.0.1:443/web_api/v1.5/generic-objects",
+        url="https://127.0.0.1:443/web_api/v1.5/show-generic-objects",
         json=resp_from_to_objects,
         status=200,
     )
