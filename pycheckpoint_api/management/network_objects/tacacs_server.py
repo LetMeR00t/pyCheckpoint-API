@@ -259,10 +259,6 @@ class TacacsServer(NetworkObject):
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
-            show_as_ranges (bool, optional): When true, the group's matched content is displayed as ranges of IP addresses \
-            rather than network objects. Objects that are not represented using IP addresses are presented as objects.\
-            The 'members' parameter is omitted from the response and instead the 'ranges' parameter is displayed.\
-            Defaults to False.
 
         Keyword Args:
             **details_level (str, optional):
@@ -285,7 +281,6 @@ class TacacsServer(NetworkObject):
             limit=limit,
             offset=offset,
             order=order,
-            show_as_ranges=show_as_ranges,
             extra_secondary_parameters={"domains_to_process": List[str]},
             **kw
         )
