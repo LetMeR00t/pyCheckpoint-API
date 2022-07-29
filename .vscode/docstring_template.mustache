@@ -4,7 +4,8 @@
 {{#args}}
     {{var}} ({{typePlaceholder}}): {{descriptionPlaceholder}}
 {{/args}}{{/argsExist}}
-{{#kwargsExist}}{{#kwargs}}
+{{#kwargsExist}}Args:
+{{#kwargs}}
     {{var}} ({{typePlaceholder}}, optional): {{descriptionPlaceholder}} Defaults to {{&default}}
 {{/kwargs}}
     **kw (dict, optional): Arbitrary keyword arguments for secondary parameters.
