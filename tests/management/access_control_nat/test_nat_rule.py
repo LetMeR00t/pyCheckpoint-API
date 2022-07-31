@@ -174,12 +174,30 @@ def test_show_nat_rulebase(management, resp_nat_rulebase):
     resp = management.access_control_nat.nat_rule.show_nat_rulebase(
         package="standard",
         offset=0,
-        limit=20,
+        limit=2,
         order={"ASC": "name"},
         details_level="standard",
         use_object_dictionnary=True,
         filter_results="",
         filter_settings={},
+        show_hits=True,
+        hits_settings={
+            "from-date": "2014-01-01",
+            "to-date": "2014-12-31T23:59",
+            "target": "corporate-gw",
+        },
     )
+
+    assert isinstance(resp.total, int)
+
+    resp = management.access_control_nat.nat_rule.show_nat_rulebase(package="standard")
+
+    assert isinstance(resp.total, int)
+
+    resp = management.access_control_nat.nat_rule.show_nat_rulebase(
+        package="standard", show_all=True, limit=2
+    )
+
+    assert resp.total == 4
 
     assert isinstance(resp.total, int)

@@ -197,7 +197,7 @@ def test_show_access_rulebase(management, resp_access_rulebase):
     resp = management.access_control_nat.access_rule.show_access_rulebase(
         name="Network",
         offset=0,
-        limit=20,
+        limit=2,
         order={"ASC": "name"},
         package="",
         details_level="standard",
@@ -220,6 +220,12 @@ def test_show_access_rulebase(management, resp_access_rulebase):
     )
 
     assert isinstance(resp.total, int)
+
+    resp = management.access_control_nat.access_rule.show_access_rulebase(
+        uid="21127e7c-d19b-4c65-b9c3-8e20e66ea1ae", show_all=True, limit=2
+    )
+
+    assert resp.total == 3
 
     # Missing mandatory parameter
     with pytest.raises(MandatoryFieldMissing):
