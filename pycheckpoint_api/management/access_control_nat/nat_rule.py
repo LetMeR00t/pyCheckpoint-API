@@ -1,3 +1,5 @@
+import logging
+import time
 from typing import List, Union
 
 from box import Box
@@ -6,6 +8,8 @@ from restfly.endpoint import APIEndpoint
 from pycheckpoint_api.utils import sanitize_secondary_parameters
 
 from ..exception import MandatoryFieldMissing
+
+logger = logging.getLogger(__name__)
 
 
 class NATRule(APIEndpoint):
@@ -332,16 +336,19 @@ class NATRule(APIEndpoint):
     def show_nat_rulebase(
         self,
         package: str,
+        show_all: bool = False,
         filter_results: str = None,
         filter_settings: dict = None,
         limit: int = 50,
         offset: int = 0,
         order: List[dict] = None,
+        show_as_ranges: bool = False,
+        show_hits: bool = None,
         use_object_dictionnary: bool = None,
+        hits_settings: dict = None,
         **kw,
     ) -> Box:
-        """
-        Shows the entire NAT Rules layer. This layer is divided into sections. A NAT Rule may be within a section,
+        """Shows the entire NAT Rules layer. This layer is divided into sections. A NAT Rule may be within a section,
         or independent of a section (in which case it is said to be under the "global" section).
         There are two types of sections: auto generated
         read only sections and general sections which are created manually. The reply features a list of objects.
@@ -351,8 +358,8 @@ class NATRule(APIEndpoint):
 
         Args:
             package (str): Name of the package
-            name (str, optional): Object name. Must be unique in the domain.
-            uid (str, optional): 	Object unique identifier.
+            show_all (bool, optional): Indicates if you want to shown all objects or not. If yes, `offset` will be ignored.\
+            Defaults to False
             filter_results (str, optional): Search expression to filter objects by.\
             The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.\
             The logical operators in the expression ('AND', 'OR') should be provided in capital letters.\
@@ -362,17 +369,23 @@ class NATRule(APIEndpoint):
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
-            package (str, optional): Name of the package.
+            show_as_ranges (bool, optional): When true, the source, destination and services & applications parameters are\
+            displayed as ranges of IP addresses and port numbers rather than network objects. Objects that are not represented\
+            using IP addresses or port numbers are presented as objects. In addition, the response of each rule does not\
+            contain the parameters: source, source-negate, destination, destination-negate, service and service-negate,\
+            but instead it contains the parameters: source-ranges, destination-ranges and service-ranges.\
+            Note: Requesting to show rules as ranges is limited up to 20 rules per request, otherwise an error is returned.\
+            If you wish to request more rules, use the offset and limit parameters to limit your request.
+            show_hits (bool, optional): N/A
             use_object_dictionnary (bool, optional): N/A
+            hits_settings (dict, optional): N/A
 
         Keyword Args:
             **details_level (str, optional):
                 The level of detail for some of the fields in the response can vary from showing only the UID value\
                 of the object to a fully detailed representation of the object.
-            **domains_to_process (List[str], optional):
-                Indicates which domains to process the commands on. It cannot be used with the details_level full,\
-                must be run from the System Domain only and with ignore_warnings true.\
-                Valid values are: CURRENT_DOMAIN, ALL_DOMAINS_ON_THIS_SERVER.
+            **show_membership (bool, optional):
+                Indicates whether to calculate and show "groups" field for every object in reply.
             **dereference_group_members (bool, optional):
                 Indicates whether to dereference "members" field by details level for every object in reply.
 
@@ -380,15 +393,92 @@ class NATRule(APIEndpoint):
             :obj:`Box`: The response from the server
 
         Examples:
-            >>> management.access_control_nat.nat_rule.show_nat_rulebase(
-            ... package="standard",
-            ... offset=0,
-            ... limit=20,
-            ... order={"ASC": "name"},
-            ... details_level="standard",
-            ... use_object_dictionnary=True,
-            ... filter_results="",
-            ... filter_settings={},)
+            >>> firewall.access_control_nat.nat_rule.show_nat_rulebase(package="MyPackage")
+
+        """
+
+        if show_all:
+            return self._show_all_nat_rulebase(
+                package=package,
+                filter_results=filter_results,
+                filter_settings=filter_settings,
+                limit=limit,
+                order=order,
+                package=package,
+                show_as_ranges=show_as_ranges,
+                show_hits=show_hits,
+                use_object_dictionnary=use_object_dictionnary,
+                hits_settings=hits_settings,
+                **kw,
+            )
+        else:
+            return self._show_partial_nat_rulebase(
+                package=package,
+                filter_results=filter_results,
+                filter_settings=filter_settings,
+                limit=limit,
+                offset=offset,
+                order=order,
+                package=package,
+                show_as_ranges=show_as_ranges,
+                show_hits=show_hits,
+                use_object_dictionnary=use_object_dictionnary,
+                hits_settings=hits_settings,
+                **kw,
+            )
+
+    def _show_partial_nat_rulebase(
+        self,
+        package: str = None,
+        filter_results: str = None,
+        filter_settings: dict = None,
+        limit: int = 50,
+        offset: int = 0,
+        order: List[dict] = None,
+        show_as_ranges: bool = False,
+        show_hits: bool = None,
+        use_object_dictionnary: bool = None,
+        hits_settings: dict = None,
+        **kw,
+    ) -> Box:
+        """Retrieve partially objects
+
+        Args:
+            package (str): Name of the package
+            filter_results (str, optional): Search expression to filter objects by.\
+            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.\
+            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.\
+            he search involves both a IP search and a textual search in name, comment, tags etc.
+            filter_settings (str, optional): Sets filter preferences.
+            limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
+            offset (int, optional): Number of the results to initially skip. Defaults to 0
+            order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
+            descending order by the session publish time.
+            show_as_ranges (bool, optional): When true, the source, destination and services & applications parameters are\
+            displayed as ranges of IP addresses and port numbers rather than network objects. Objects that are not represented\
+            using IP addresses or port numbers are presented as objects. In addition, the response of each rule does not\
+            contain the parameters: source, source-negate, destination, destination-negate, service and service-negate,\
+            but instead it contains the parameters: source-ranges, destination-ranges and service-ranges.\
+            Note: Requesting to show rules as ranges is limited up to 20 rules per request, otherwise an error is returned.\
+            If you wish to request more rules, use the offset and limit parameters to limit your request.
+            show_hits (bool, optional): N/A
+            use_object_dictionnary (bool, optional): N/A
+            hits_settings (dict, optional): N/A
+
+        Keyword Args:
+            **details_level (str, optional):
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
+                of the object to a fully detailed representation of the object.
+            **show_membership (bool, optional):
+                Indicates whether to calculate and show "groups" field for every object in reply.
+            **dereference_group_members (bool, optional):
+                Indicates whether to dereference "members" field by details level for every object in reply.
+
+        Returns:
+            :obj:`Box`: The response from the server
+
+        Examples:
+            >>> firewall.access_control_nat.nat_rule._show_partial_nat_rulebase(package="MyPackage")
         """
         # Main request parameters
         payload = {"package": package}
@@ -403,16 +493,177 @@ class NATRule(APIEndpoint):
             payload["offset"] = offset
         if order is not None:
             payload["order"] = order
+        if package is not None:
+            payload["package"] = package
+        if show_as_ranges is not None:
+            payload["show-as-ranges"] = show_as_ranges
+        if show_hits is not None:
+            payload["show-hits"] = show_hits
         if use_object_dictionnary is not None:
             payload["use-object-dictionnary"] = use_object_dictionnary
+        if hits_settings is not None:
+            payload["hits-settings"] = hits_settings
 
         # Secondary parameters
         secondary_parameters = {
             "dereference_group_members": bool,
             "details_level": str,
-            "domains_to_process": List[str],
+            "show_membership": bool,
         }
 
         payload.update(sanitize_secondary_parameters(secondary_parameters, **kw))
 
         return self._post("show-nat-rulebase", json=payload)
+
+    def _show_all_nat_rulebase(
+        self,
+        package: str,
+        filter_results: str = None,
+        filter_settings: dict = None,
+        limit: int = 50,
+        order: List[dict] = None,
+        show_as_ranges: bool = False,
+        show_hits: bool = None,
+        use_object_dictionnary: bool = None,
+        hits_settings: dict = None,
+        **kw,
+    ) -> Box:
+        """Retrieve all objects
+
+        Args:
+            name (str, optional): Object name. Must be unique in the domain.
+            uid (str, optional): Object unique identifier.
+            filter_results (str, optional): Search expression to filter objects by.\
+            The provided text should be exactly the same as it would be given in SmartConsole Object Explorer.\
+            The logical operators in the expression ('AND', 'OR') should be provided in capital letters.\
+            he search involves both a IP search and a textual search in name, comment, tags etc.
+            filter_settings (str, optional): Sets filter preferences.
+            limit (int, optional): The maximal number of returned results. Defaults to 50 (between 1 and 500)
+            offset (int, optional): Number of the results to initially skip. Defaults to 0
+            order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
+            descending order by the session publish time.
+            show_as_ranges (bool, optional): When true, the source, destination and services & applications parameters are\
+            displayed as ranges of IP addresses and port numbers rather than network objects. Objects that are not represented\
+            using IP addresses or port numbers are presented as objects. In addition, the response of each rule does not\
+            contain the parameters: source, source-negate, destination, destination-negate, service and service-negate,\
+            but instead it contains the parameters: source-ranges, destination-ranges and service-ranges.\
+            Note: Requesting to show rules as ranges is limited up to 20 rules per request, otherwise an error is returned.\
+            If you wish to request more rules, use the offset and limit parameters to limit your request.
+            show_hits (bool, optional): N/A
+            use_object_dictionnary (bool, optional): N/A
+            hits_settings (dict, optional): N/A
+
+        Keyword Args:
+            **details_level (str, optional):
+                The level of detail for some of the fields in the response can vary from showing only the UID value\
+                of the object to a fully detailed representation of the object.
+            **show_membership (bool, optional):
+                Indicates whether to calculate and show "groups" field for every object in reply.
+            **dereference_group_members (bool, optional):
+                Indicates whether to dereference "members" field by details level for every object in reply.
+
+        Returns:
+            :obj:`Box`: The response from the server
+
+        Examples:
+            >>> firewall.access_control_nat.nat_rule._show_all_nat_rulebase(package="MyPackage")
+        """
+        all_rules = None
+
+        # Get a timer
+        timer_start = time.time()
+
+        # Made a first request to determine the total number of objects
+        resp = self._show_partial_nat_rulebase(
+            package=package,
+            filter_results=filter_results,
+            filter_settings=filter_settings,
+            limit=limit,
+            offset=0,
+            order=order,
+            show_as_ranges=show_as_ranges,
+            show_hits=show_hits,
+            use_object_dictionnary=use_object_dictionnary,
+            hits_settings=hits_settings,
+            **kw,
+        )
+
+        # Add the first results
+        all_rules = resp
+
+        # Evaluate the number of requests to be done
+        number_requests = int(resp.total / limit) + 1
+
+        logger.info(
+            "access-rules - Total: "
+            + str(resp.total)
+            + " - Number of requests to do: "
+            + str(number_requests)
+            + " (limit set to "
+            + str(limit)
+            + "/request) - In progress..."
+        )
+        logger.debug(
+            "access-rules - 1/"
+            + str(number_requests)
+            + " (limit set to "
+            + str(limit)
+            + "/request) exported... (offset:0)"
+        )
+
+        for i in range(1, number_requests):
+            resp = self._show_partial_nat_rulebase(
+                package=package,
+                filter_results=filter_results,
+                filter_settings=filter_settings,
+                limit=limit,
+                offset=i * limit,
+                order=order,
+                show_as_ranges=show_as_ranges,
+                show_hits=show_hits,
+                use_object_dictionnary=use_object_dictionnary,
+                hits_settings=hits_settings,
+                **kw,
+            )
+
+            logger.debug(
+                "access-rules - "
+                + str(i + 1)
+                + "/"
+                + str(number_requests)
+                + " (limit set to "
+                + str(limit)
+                + "/request) exported... (offset:"
+                + str(i)
+                + ")"
+            )
+
+            all_rules.rulebase += resp.rulebase
+
+        # Finalize the output
+        all_rules.to = all_rules.total
+
+        # End timer
+        timer_diff = time.time() - timer_start
+
+        timer_text = ""
+
+        if round(timer_diff % 60) != 0:
+            timer_text = (
+                str(int(timer_diff / 60)) + "min " + str(round(timer_diff % 60)) + "s"
+            )  # pragma: no cover
+        else:
+            timer_text = "<1s"
+
+        logger.info(
+            "access-rules - Total: "
+            + str(resp.total)
+            + " - Number of requests done: "
+            + str(number_requests)
+            + " (limit set to "
+            + str(limit)
+            + "/request) - Done in "
+            + timer_text
+        )
+
+        return all_rules
