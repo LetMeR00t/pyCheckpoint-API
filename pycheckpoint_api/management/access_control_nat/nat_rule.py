@@ -342,7 +342,6 @@ class NATRule(APIEndpoint):
         limit: int = 50,
         offset: int = 0,
         order: List[dict] = None,
-        show_as_ranges: bool = False,
         show_hits: bool = None,
         use_object_dictionnary: bool = None,
         hits_settings: dict = None,
@@ -369,13 +368,6 @@ class NATRule(APIEndpoint):
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
-            show_as_ranges (bool, optional): When true, the source, destination and services & applications parameters are\
-            displayed as ranges of IP addresses and port numbers rather than network objects. Objects that are not represented\
-            using IP addresses or port numbers are presented as objects. In addition, the response of each rule does not\
-            contain the parameters: source, source-negate, destination, destination-negate, service and service-negate,\
-            but instead it contains the parameters: source-ranges, destination-ranges and service-ranges.\
-            Note: Requesting to show rules as ranges is limited up to 20 rules per request, otherwise an error is returned.\
-            If you wish to request more rules, use the offset and limit parameters to limit your request.
             show_hits (bool, optional): N/A
             use_object_dictionnary (bool, optional): N/A
             hits_settings (dict, optional): N/A
@@ -404,7 +396,6 @@ class NATRule(APIEndpoint):
                 filter_settings=filter_settings,
                 limit=limit,
                 order=order,
-                show_as_ranges=show_as_ranges,
                 show_hits=show_hits,
                 use_object_dictionnary=use_object_dictionnary,
                 hits_settings=hits_settings,
@@ -418,7 +409,6 @@ class NATRule(APIEndpoint):
                 limit=limit,
                 offset=offset,
                 order=order,
-                show_as_ranges=show_as_ranges,
                 show_hits=show_hits,
                 use_object_dictionnary=use_object_dictionnary,
                 hits_settings=hits_settings,
@@ -433,7 +423,6 @@ class NATRule(APIEndpoint):
         limit: int = 50,
         offset: int = 0,
         order: List[dict] = None,
-        show_as_ranges: bool = False,
         show_hits: bool = None,
         use_object_dictionnary: bool = None,
         hits_settings: dict = None,
@@ -452,13 +441,6 @@ class NATRule(APIEndpoint):
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
-            show_as_ranges (bool, optional): When true, the source, destination and services & applications parameters are\
-            displayed as ranges of IP addresses and port numbers rather than network objects. Objects that are not represented\
-            using IP addresses or port numbers are presented as objects. In addition, the response of each rule does not\
-            contain the parameters: source, source-negate, destination, destination-negate, service and service-negate,\
-            but instead it contains the parameters: source-ranges, destination-ranges and service-ranges.\
-            Note: Requesting to show rules as ranges is limited up to 20 rules per request, otherwise an error is returned.\
-            If you wish to request more rules, use the offset and limit parameters to limit your request.
             show_hits (bool, optional): N/A
             use_object_dictionnary (bool, optional): N/A
             hits_settings (dict, optional): N/A
@@ -493,8 +475,6 @@ class NATRule(APIEndpoint):
             payload["order"] = order
         if package is not None:
             payload["package"] = package
-        if show_as_ranges is not None:
-            payload["show-as-ranges"] = show_as_ranges
         if show_hits is not None:
             payload["show-hits"] = show_hits
         if use_object_dictionnary is not None:
@@ -520,7 +500,6 @@ class NATRule(APIEndpoint):
         filter_settings: dict = None,
         limit: int = 50,
         order: List[dict] = None,
-        show_as_ranges: bool = False,
         show_hits: bool = None,
         use_object_dictionnary: bool = None,
         hits_settings: dict = None,
@@ -540,13 +519,6 @@ class NATRule(APIEndpoint):
             offset (int, optional): Number of the results to initially skip. Defaults to 0
             order (List[dict], optional): Sorts results by the given field. By default the results are sorted in the \
             descending order by the session publish time.
-            show_as_ranges (bool, optional): When true, the source, destination and services & applications parameters are\
-            displayed as ranges of IP addresses and port numbers rather than network objects. Objects that are not represented\
-            using IP addresses or port numbers are presented as objects. In addition, the response of each rule does not\
-            contain the parameters: source, source-negate, destination, destination-negate, service and service-negate,\
-            but instead it contains the parameters: source-ranges, destination-ranges and service-ranges.\
-            Note: Requesting to show rules as ranges is limited up to 20 rules per request, otherwise an error is returned.\
-            If you wish to request more rules, use the offset and limit parameters to limit your request.
             show_hits (bool, optional): N/A
             use_object_dictionnary (bool, optional): N/A
             hits_settings (dict, optional): N/A
@@ -579,7 +551,6 @@ class NATRule(APIEndpoint):
             limit=limit,
             offset=0,
             order=order,
-            show_as_ranges=show_as_ranges,
             show_hits=show_hits,
             use_object_dictionnary=use_object_dictionnary,
             hits_settings=hits_settings,
@@ -593,7 +564,7 @@ class NATRule(APIEndpoint):
         number_requests = int(resp.total / limit) + 1
 
         logger.info(
-            "access-rules - Total: "
+            "nat-rules - Total: "
             + str(resp.total)
             + " - Number of requests to do: "
             + str(number_requests)
@@ -602,7 +573,7 @@ class NATRule(APIEndpoint):
             + "/request) - In progress..."
         )
         logger.debug(
-            "access-rules - 1/"
+            "nat-rules - 1/"
             + str(number_requests)
             + " (limit set to "
             + str(limit)
@@ -617,7 +588,6 @@ class NATRule(APIEndpoint):
                 limit=limit,
                 offset=i * limit,
                 order=order,
-                show_as_ranges=show_as_ranges,
                 show_hits=show_hits,
                 use_object_dictionnary=use_object_dictionnary,
                 hits_settings=hits_settings,
@@ -625,7 +595,7 @@ class NATRule(APIEndpoint):
             )
 
             logger.debug(
-                "access-rules - "
+                "nat-rules - "
                 + str(i + 1)
                 + "/"
                 + str(number_requests)
@@ -654,7 +624,7 @@ class NATRule(APIEndpoint):
             timer_text = "<1s"
 
         logger.info(
-            "access-rules - Total: "
+            "nat-rules - Total: "
             + str(resp.total)
             + " - Number of requests done: "
             + str(number_requests)
