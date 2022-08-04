@@ -30,7 +30,7 @@ class GSNHandoverGroup(NetworkObject):
             tags (Union(str,List[str]), optional): Collection of tag identifiers.
 
         Keyword Args:
-            **set-if-exists (bool, optional):
+            **set_if_exists (bool, optional):
                 If another object with the same identifier already exists, it will be updated.
                 The command behaviour will be the same as if originally a set command was called.
                 Pay attention that original object's fields will be overwritten by the fields provided in the request payload!
