@@ -127,7 +127,7 @@ class SimpleCluster(NetworkObject):
         if application_control is not None:
             payload["application-control"] = application_control
         if cluster_mode is not None:
-            payload["cluster_mode"] = cluster_mode
+            payload["cluster-mode"] = cluster_mode
         if content_awareness is not None:
             payload["content-awareness"] = content_awareness
         if data_awareness is not None:
@@ -340,7 +340,7 @@ class SimpleCluster(NetworkObject):
         if application_control is not None:
             payload["application-control"] = application_control
         if cluster_mode is not None:
-            payload["cluster_mode"] = cluster_mode
+            payload["cluster-mode"] = cluster_mode
         if content_awareness is not None:
             payload["content-awareness"] = content_awareness
         if data_awareness is not None:

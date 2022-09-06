@@ -102,7 +102,7 @@ class ServiceOther(NetworkObject):
         payload = {"name": name}
 
         if accept_replies is not None:
-            payload["accept_replies"] = accept_replies
+            payload["accept-replies"] = accept_replies
         if action is not None:
             payload["action"] = action
         if aggressive_aging is not None:
@@ -257,7 +257,7 @@ class ServiceOther(NetworkObject):
         if new_name is not None:
             payload["new-name"] = new_name
         if accept_replies is not None:
-            payload["accept_replies"] = accept_replies
+            payload["accept-replies"] = accept_replies
         if action is not None:
             payload["action"] = action
         if aggressive_aging is not None:

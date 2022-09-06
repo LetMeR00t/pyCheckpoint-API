@@ -85,13 +85,13 @@ class Network(NetworkObject):
         else:
             raise MandatoryFieldMissing("subnet or subnet4 or subnet6")
         if mask_length is not None:
-            payload["mask_length"] = mask_length
+            payload["mask-length"] = mask_length
         elif mask_length4 is not None:
-            payload["mask_length4"] = mask_length4
+            payload["mask-length4"] = mask_length4
         elif mask_length6 is not None:
-            payload["mask_length6"] = mask_length6
+            payload["mask-length6"] = mask_length6
         elif subnet_mask is not None:
-            payload["subnet_mask"] = subnet_mask
+            payload["subnet-mask"] = subnet_mask
         else:
             raise MandatoryFieldMissing("mask_length or mask_length4 or mask_length6")
 
@@ -218,13 +218,13 @@ class Network(NetworkObject):
             payload["subnet6"] = subnet6
 
         if mask_length is not None:
-            payload["mask_length"] = mask_length
+            payload["mask-length"] = mask_length
         elif mask_length4 is not None:
-            payload["mask_length4"] = mask_length4
+            payload["mask-length4"] = mask_length4
         elif mask_length6 is not None:
-            payload["mask_length6"] = mask_length6
+            payload["mask-length6"] = mask_length6
         elif subnet_mask is not None:
-            payload["subnet_mask"] = subnet_mask
+            payload["subnet-mask"] = subnet_mask
 
         if nat_settings is not None:
             payload["nat-settings"] = nat_settings
