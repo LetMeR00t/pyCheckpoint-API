@@ -2,11 +2,11 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Network Objects" href="network_objects/index.html" /><link rel="prev" title="Management" href="index.html" />
 
     <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
-        <title>Session Management - pyCheckpoint-API 1.1.2 documentation</title>
+        <title>Session Management - pyCheckpoint-API 1.1.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">pyCheckpoint-API 1.1.2 documentation</div></a>
+      <a href="../../index.html"><div class="brand">pyCheckpoint-API 1.1.4 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -381,13 +381,13 @@
 <span class="sig-name descname"><span class="pre">continue_session_in_smartconsole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.continue_session_in_smartconsole" title="Permalink to this definition">#</a></dt>
 <dd><p>Logout from existing session. The session will be continued next time your open SmartConsole.        In case ‘uid’ is not provided, use current session. In order for the session to pass        successfully to SmartConsole, make sure you don’t have any other active GUI sessions.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Session unique identifier. Defaults to None</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The response from the server</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -402,13 +402,13 @@
 <span class="sig-name descname"><span class="pre">discard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.discard" title="Permalink to this definition">#</a></dt>
 <dd><p>All changes done by user are discarded and removed from database.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Session unique identifier. Specify it to publish a different session than                the one you currently use. Defaults to None.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The response from the server</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -423,16 +423,16 @@
 <span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discard</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.disconnect" title="Permalink to this definition">#</a></dt>
 <dd><p>Disconnect a private session.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Session unique identifier.</p></li>
 <li><p><strong>discard</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Discard all changes committed during the session.                Defaults to False.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The response from the server</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -447,10 +447,10 @@
 <span class="sig-name descname"><span class="pre">keepalive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.keepalive" title="Permalink to this definition">#</a></dt>
 <dd><p>Keep the session valid/alive.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The response from the server</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Response</span></code></p>
 </dd>
 </dl>
@@ -465,7 +465,7 @@
 <span class="sig-name descname"><span class="pre">login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.login" title="Permalink to this definition">#</a></dt>
 <dd><p>Creates a Firewall Management authentication session. You should authenticate using either a         username/password or by using an API key.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>user</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Username of admin user for the authentication session. If set, you must specify            <code class="docutils literal notranslate"><span class="pre">password</span></code> too. Defaults to None</p></li>
 <li><p><strong>password</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Password of the admin user for the authentication session. If set, you must            specify <code class="docutils literal notranslate"><span class="pre">user</span></code> too. Defaults to None</p></li>
@@ -473,7 +473,7 @@
 <li><p><strong>**kw</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Arbitrary keyword arguments for secondary parameters.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Keyword Arguments</dt>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>**continue-last-session</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – When ‘continue-last-session’ is set to ‘True’, the new session would continue where the last session                 was stopped. This option is available when the administrator has only one session that can be continued.                If there is more than one session, see ‘switch-session’ API. Defaults to ‘False’</p></li>
 <li><p><strong>**domain</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Use domain to login to specific domain. Domain can be identified by name or UID.</p></li>
@@ -485,13 +485,13 @@
 <li><p><strong>**session-timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Session expiration timeout in seconds. Default 600 seconds.</p></li>
 </ul>
 </dd>
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="../exception.html#pycheckpoint_api.management.exception.MandatoryFieldMissing" title="pycheckpoint_api.management.exception.MandatoryFieldMissing"><strong>MandatoryFieldMissing</strong></a> – The value is not given as a keyword parameter and it’s mandatory</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The response from the server</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -513,13 +513,13 @@
 <span class="sig-name descname"><span class="pre">login_to_domain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.login_to_domain" title="Permalink to this definition">#</a></dt>
 <dd><p>Login from MDS to other domain.        This command is available only after logging in to the System Data domain.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>domain</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Domain identified by the name or UID.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The response from the server</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -534,10 +534,10 @@
 <span class="sig-name descname"><span class="pre">logout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.logout" title="Permalink to this definition">#</a></dt>
 <dd><p>Ends an authentication session.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The response from the server</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -552,13 +552,13 @@
 <span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.publish" title="Permalink to this definition">#</a></dt>
 <dd><p>All the changes done by this user will be seen by all users only after publish is called.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Session unique identifier. Specify it to publish a different session                than the one you currently use.. Defaults to None</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The response from the server</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -573,19 +573,19 @@
 <span class="sig-name descname"><span class="pre">purge_published_sessions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_sessions_to_preserve</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preserve_to_date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.purge_published_sessions" title="Permalink to this definition">#</a></dt>
 <dd><p>Permanently deletes all data which belongs to the published sessions not selected for preservation.        This operation is irreversible.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>number_of_sessions_to_preserve</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The number of newest sessions to preserve, by the                 sessions’s publish date. Required if <code class="docutils literal notranslate"><span class="pre">preserve_to_date</span></code> is not set. Defaults to None</p></li>
 <li><p><strong>preserve_to_date</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The date until which sessions are preserved, by the sessions’s                publish date. ISO 8601. If timezone isn’t specified in the input, the Management server’s                timezone is used. Required if <code class="docutils literal notranslate"><span class="pre">number_of_sessions_to_preserve</span></code> is not set. Defaults to None</p></li>
 </ul>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="../exception.html#pycheckpoint_api.management.exception.MandatoryFieldMissing" title="pycheckpoint_api.management.exception.MandatoryFieldMissing"><strong>MandatoryFieldMissing</strong></a> – The value is not given as a keyword parameter and it’s mandatory</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The response from the server</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -600,13 +600,13 @@
 <span class="sig-name descname"><span class="pre">revert_to_revision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_session</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.revert_to_revision" title="Permalink to this definition">#</a></dt>
 <dd><p>Revert the Management Database to the selected revision.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>to_session</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Session unique identifier. Specify the session id you would like to revert            your database to.. Defaults to None</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The response from the server</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -622,7 +622,7 @@
 <dd><p>Set Automatic Purge. ⚠️ Note:
 This command will permanently delete all of the data which        belongs to the published sessions not selected for preservation.⚠️</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>enabled</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Turn on/off the automatic-purge feature</p></li>
 <li><p><strong>keep_sessions_by_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether or not to keep the latest N sessions.            Note: when the automatic purge feature is enabled, this field and/or the             “keep-sessions-by-date” field must be set to ‘true’. Defaults to True</p></li>
@@ -632,10 +632,10 @@ This command will permanently delete all of the data which        belongs to the
 <li><p><strong>scheduling</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – When to purge sessions that do not meet the “keep” criteria.            Note: when the automatic purge feature is enabled, this field must be set. Defaults to None</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The response from the server</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -650,7 +650,7 @@ This command will permanently delete all of the data which        belongs to the
 <span class="sig-name descname"><span class="pre">set_login_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warning</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.set_login_message" title="Permalink to this definition">#</a></dt>
 <dd><p>Edit existing object using object name or uid.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>header</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Login message header. Defaults to None</p></li>
 <li><p><strong>message</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Login message body. Defaults to None</p></li>
@@ -659,13 +659,13 @@ This command will permanently delete all of the data which        belongs to the
 <li><p><strong>**kw</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Arbitrary keyword arguments for secondary parameters.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Keyword Arguments</dt>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>**details_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The response from the server</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -680,14 +680,14 @@ This command will permanently delete all of the data which        belongs to the
 <span class="sig-name descname"><span class="pre">set_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.set_session" title="Permalink to this definition">#</a></dt>
 <dd><p>Edit user’s current session.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>description</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Session description. Defaults to None.</p></li>
 <li><p><strong>new_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – New name of the object. Defaults to None.</p></li>
 <li><p><strong>tags</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em><em>, </em><em>optional</em>) – Collection of tag identifiers. Defaults to None.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Keyword Arguments</dt>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>**color</strong> (<a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.10)"><em>string</em></a><em>, </em><em>optional</em>) – Color of the object. Should be one of existing colors.</p></li>
 <li><p><strong>**comments</strong> (<a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.10)"><em>string</em></a><em>, </em><em>optional</em>) – Comments string.</p></li>
@@ -698,10 +698,10 @@ the UID value of the object to a fully detailed representation of the object.</p
 If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to “False”</p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The response from the server</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -716,10 +716,10 @@ If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to
 <span class="sig-name descname"><span class="pre">show_automatic_purge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.show_automatic_purge" title="Permalink to this definition">#</a></dt>
 <dd><p>Show Automatic Purge.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The response from the server</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -734,10 +734,10 @@ If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to
 <span class="sig-name descname"><span class="pre">show_last_published_session</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.show_last_published_session" title="Permalink to this definition">#</a></dt>
 <dd><p>Shows the last published session.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The response from the server</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -752,17 +752,17 @@ If ignore_warnings flag was omitted - warnings will also be ignored. Defaults to
 <span class="sig-name descname"><span class="pre">show_login_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.show_login_message" title="Permalink to this definition">#</a></dt>
 <dd><p>Retrieve existing object using object name or uid.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>**kw</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Arbitrary keyword arguments for secondary parameters.</p>
 </dd>
-<dt class="field-even">Keyword Arguments</dt>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>**details_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.10)"><em>string</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only
 the UID value of the object to a fully detailed representation of the object.</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The response from the server</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -777,13 +777,13 @@ the UID value of the object to a fully detailed representation of the object.</p
 <span class="sig-name descname"><span class="pre">show_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.show_session" title="Permalink to this definition">#</a></dt>
 <dd><p>Show session.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Session unique identifier. Defaults to None.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The response from the server</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -798,7 +798,7 @@ the UID value of the object to a fully detailed representation of the object.</p
 <span class="sig-name descname"><span class="pre">show_sessions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view_published_sessions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.show_sessions" title="Permalink to this definition">#</a></dt>
 <dd><p>Retrieve all objects.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filter_results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Search expression to filter objects by.                The provided text should be exactly the same as it would be given in                SmartConsole Object Explorer. The logical operators in the expression                (‘AND’, ‘OR’) should be provided in capital letters.The search involves                both a IP search and a textual search in name, comment, tags etc. Defaults to None</p></li>
 <li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The maximal number of returned results. Defaults to 50 (between 1 and 500).</p></li>
@@ -808,13 +808,13 @@ the UID value of the object to a fully detailed representation of the object.</p
 <li><p><strong>**kw</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Arbitrary keyword arguments for secondary parameters.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Keyword Arguments</dt>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>**details_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The level of detail for some of the fields in the response can vary from showing only the UID value                of the object to a fully detailed representation of the object.</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The response from the server</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -829,13 +829,13 @@ the UID value of the object to a fully detailed representation of the object.</p
 <span class="sig-name descname"><span class="pre">switch_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.switch_session" title="Permalink to this definition">#</a></dt>
 <dd><p>Switch to a disconnected Management API session of the same administrator.        To switch to an open session or to a session of a different administrator        use the take-over session API.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Session unique identifier. It should belong to the current administrator. Switching to the sessions opened in SmartConsole is not supported.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The response from the server</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -850,16 +850,16 @@ the UID value of the object to a fully detailed representation of the object.</p
 <span class="sig-name descname"><span class="pre">take_over_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disconnect_active_session</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.take_over_session" title="Permalink to this definition">#</a></dt>
 <dd><p>Take ownership of another session and start working on it.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Session unique identifier.</p></li>
 <li><p><strong>disconnect-active-session</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Allows taking over of an active session,                currently executed by another administrator. Defaults to False</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The response from the server</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
@@ -874,13 +874,13 @@ the UID value of the object to a fully detailed representation of the object.</p
 <span class="sig-name descname"><span class="pre">verify_revert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_session</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycheckpoint_api.management.session.Session.verify_revert" title="Permalink to this definition">#</a></dt>
 <dd><p>Verify the Management Database can revert to the selected revision.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>to_session</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Session unique identifier. Specify the session id you would like to revert your database to.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The response from the server</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Box</span></code></p>
 </dd>
 </dl>
